@@ -1,4 +1,4 @@
-package com.technologies.highstreet.netconf2snmpmediator.server;
+package com.technologies.highstreet.netconf2soapmediator.server;
 
 import java.io.File;
 import java.io.FileInputStream;

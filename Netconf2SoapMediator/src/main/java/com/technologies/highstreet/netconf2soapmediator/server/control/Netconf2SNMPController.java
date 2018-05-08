@@ -1,13 +1,13 @@
-package com.technologies.highstreet.netconf2snmpmediator.server.control;
+package com.technologies.highstreet.netconf2soapmediator.server.control;
 
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
 import com.technologies.highstreet.netconf.server.control.NetconfController;
 import com.technologies.highstreet.netconf.server.networkelement.NetworkElement;
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.Netconf2SNMPNetworkElement;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.Netconf2SNMPMessageProcessorThread;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.MediatorConnectionListener;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.SNMPDevicePollingThread;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.Netconf2SNMPMessageProcessorThread;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.SNMPDevicePollingThread;
 
 import java.io.InputStream;
 import java.io.OutputStream;

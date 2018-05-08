@@ -1,13 +1,13 @@
-package com.technologies.highstreet.netconf2snmpmediator.server;
+package com.technologies.highstreet.netconf2soapmediator.server;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.Netconf2SNMPNetworkElement;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.MediatorConnectionListener;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.SNMPDevicePollingThread;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.SNMPDevicePollingThread;
 
 public class DeviceConnectionMonitor {
 

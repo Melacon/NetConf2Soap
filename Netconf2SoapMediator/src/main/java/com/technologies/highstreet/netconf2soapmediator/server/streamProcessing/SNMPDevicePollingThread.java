@@ -1,4 +1,4 @@
-package com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing;
+package com.technologies.highstreet.netconf2soapmediator.server.streamProcessing;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -15,8 +15,8 @@ import org.slf4j.LoggerFactory;
 
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
-import com.technologies.highstreet.netconf2snmpmediator.server.Config;
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.Config;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
 
 public class SNMPDevicePollingThread extends Thread {
 

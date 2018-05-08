@@ -4,7 +4,7 @@
  * @author herbert.eiselt@highstreet-technologies.com
  */
 
-package com.technologies.highstreet.netconf2snmpmediator.server.basetypes;
+package com.technologies.highstreet.netconf2soapmediator.server.basetypes;
 
 public class SnmpTrap {
 

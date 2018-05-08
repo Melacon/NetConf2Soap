@@ -1,4 +1,4 @@
-package com.technologies.highstreet.netconf2snmpmediator.server.networkelement;
+package com.technologies.highstreet.netconf2soapmediator.server.networkelement;
 
 import com.technologies.highstreet.deviceslib.data.DataTable;
 import com.technologies.highstreet.deviceslib.data.SNMPKeyValuePair;
@@ -6,9 +6,10 @@ import com.technologies.highstreet.deviceslib.devices.BaseSNMPDevice;
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.UserCommand;
 import com.technologies.highstreet.netconf.server.types.NetconfTagList;
-import com.technologies.highstreet.netconf2snmpmediator.server.Config;
-import com.technologies.highstreet.netconf2snmpmediator.server.basetypes.SnmpTrap;
-import com.technologies.highstreet.netconf2snmpmediator.server.basetypes.SnmpTrapList;
+import com.technologies.highstreet.netconf2soapmediator.server.Config;
+import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrap;
+import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
+
 import java.io.IOException;
 import java.util.Random;
 

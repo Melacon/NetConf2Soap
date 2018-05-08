@@ -1,4 +1,4 @@
-package com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing;
+package com.technologies.highstreet.netconf2soapmediator.server.streamProcessing;
 
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
 

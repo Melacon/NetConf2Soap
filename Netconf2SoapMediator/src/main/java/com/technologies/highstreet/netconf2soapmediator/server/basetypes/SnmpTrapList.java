@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.technologies.highstreet.netconf2snmpmediator.server.basetypes;
+package com.technologies.highstreet.netconf2soapmediator.server.basetypes;
 
 import java.util.ArrayList;
 import java.util.List;

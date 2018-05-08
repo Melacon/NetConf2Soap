@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.technologies.highstreet.netconf2snmpmediator.server.networkelement;
+package com.technologies.highstreet.netconf2soapmediator.server.networkelement;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package com.technologies.highstreet.netconf2snmpmediator.server.basetypes;
+package com.technologies.highstreet.netconf2soapmediator.server.basetypes;
 
 public class SnmpTrapNotification {
 	public static final int TYPE_MICROWAVE = 0;

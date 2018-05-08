@@ -1,13 +1,13 @@
-package com.technologies.highstreet.netconf2snmpmediator.server.networkelement;
+package com.technologies.highstreet.netconf2soapmediator.server.networkelement;
 
 import com.technologies.highstreet.deviceslib.data.SNMPDeviceType;
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.networkelement.NetworkElement;
 import com.technologies.highstreet.netconf.server.types.NetconfTagList;
-import com.technologies.highstreet.netconf2snmpmediator.server.Config;
-import com.technologies.highstreet.netconf2snmpmediator.server.basetypes.SnmpTrap;
-import com.technologies.highstreet.netconf2snmpmediator.server.basetypes.SnmpTrapList;
-import com.technologies.highstreet.netconf2snmpmediator.server.basetypes.SnmpTrapNotification;
+import com.technologies.highstreet.netconf2soapmediator.server.Config;
+import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrap;
+import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
+import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapNotification;
 
 import java.io.IOException;
 import java.sql.Timestamp;

@@ -1,16 +1,16 @@
 /**
  *
  */
-package com.technologies.highstreet.netconf2snmpmediator.server.control;
+package com.technologies.highstreet.netconf2soapmediator.server.control;
 
 import com.technologies.highstreet.netconf.server.basetypes.BehaviourContainer;
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
 import com.technologies.highstreet.netconf.server.control.NetconfNotifyOriginator;
 import com.technologies.highstreet.netconf.server.control.NetconfSubsystem;
-import com.technologies.highstreet.netconf2snmpmediator.server.Netconf2SNMPMediator;
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.Netconf2SNMPNetworkElement;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.MediatorConnectionListener;
+import com.technologies.highstreet.netconf2soapmediator.server.Netconf2SoapMediator;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 
 import java.io.IOException;
 import org.apache.commons.logging.Log;
@@ -22,7 +22,7 @@ import org.apache.sshd.server.Environment;
  *
  */
 public class Netconf2SNMPSubsystem extends NetconfSubsystem {
-    private static final Log LOG = LogFactory.getLog(Netconf2SNMPMediator.class);
+    private static final Log LOG = LogFactory.getLog(Netconf2SoapMediator.class);
 
     private final MediatorConnectionListener mConnectionListener;
 

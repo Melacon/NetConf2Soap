@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.technologies.highstreet.netconf2snmpmediator.server.networkelement;
+package com.technologies.highstreet.netconf2soapmediator.server.networkelement;
 
 import com.technologies.highstreet.netconf.server.types.NetconfBoolean;
 import java.util.Arrays;

@@ -1,14 +1,14 @@
 /**
  *
  */
-package com.technologies.highstreet.netconf2snmpmediator.server.control;
+package com.technologies.highstreet.netconf2soapmediator.server.control;
 
 import com.technologies.highstreet.netconf.server.basetypes.BehaviourContainer;
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
 import com.technologies.highstreet.netconf.server.control.NetconfNotifyOriginator;
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.Netconf2SNMPNetworkElement;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.MediatorConnectionListener;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

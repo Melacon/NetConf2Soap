@@ -1,4 +1,4 @@
-package com.technologies.highstreet.netconf2snmpmediator.server;
+package com.technologies.highstreet.netconf2soapmediator.server;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

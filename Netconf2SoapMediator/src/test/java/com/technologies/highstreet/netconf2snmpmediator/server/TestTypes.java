@@ -3,7 +3,7 @@
  */
 package com.technologies.highstreet.netconf2snmpmediator.server;
 
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.NodeEditConfig;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.NodeEditConfig;
 
 /**
  * @author herbert

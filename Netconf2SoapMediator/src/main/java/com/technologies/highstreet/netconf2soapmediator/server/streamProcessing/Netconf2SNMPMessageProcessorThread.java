@@ -9,15 +9,16 @@
  *
  */
 
-package com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing;
+package com.technologies.highstreet.netconf2soapmediator.server.streamProcessing;
 
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfMessageProcessorThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
 import com.technologies.highstreet.netconf.server.types.NetconfSessionStatusHolder;
-import com.technologies.highstreet.netconf2snmpmediator.server.basetypes.SnmpTrapList;
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+
 import java.io.IOException;
 import net.i2cat.netconf.messageQueue.MessageQueue;
 import net.i2cat.netconf.rpc.RPCElement;

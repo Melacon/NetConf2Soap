@@ -1,4 +1,4 @@
-package com.technologies.highstreet.netconf2snmpmediator.server;
+package com.technologies.highstreet.netconf2soapmediator.server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,14 +42,14 @@ import com.technologies.highstreet.netconf.server.control.NetconfNotifyOriginato
 import com.technologies.highstreet.netconf.server.exceptions.ServerException;
 import com.technologies.highstreet.netconf.server.ssh.AlwaysTruePasswordAuthenticator;
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
-import com.technologies.highstreet.netconf2snmpmediator.server.control.Netconf2SNMPFactory;
-import com.technologies.highstreet.netconf2snmpmediator.server.networkelement.Netconf2SNMPNetworkElement;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.MediatorConnectionListener;
-import com.technologies.highstreet.netconf2snmpmediator.server.streamProcessing.SNMPDevicePollingThread;
+import com.technologies.highstreet.netconf2soapmediator.server.control.Netconf2SNMPFactory;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
+import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.SNMPDevicePollingThread;
 
 import net.i2cat.netconf.rpc.RPCElement;
 
-public class Netconf2SNMPMediator implements MessageStore, BehaviourContainer, NetconfNotifyOriginator, Console {
+public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, NetconfNotifyOriginator, Console {
 
 	private static Log LOG;
 	private static final String VERSION = "1.1 - ONF 4th PoC";
@@ -74,15 +74,15 @@ public class Netconf2SNMPMediator implements MessageStore, BehaviourContainer, N
 	private MediatorConfig configFile;
 
 	// hide default constructor, forcing using factory method
-	private Netconf2SNMPMediator() {
+	private Netconf2SoapMediator() {
 
 	}
 
 	/**
 	 * Server factory creates a server
 	 */
-	public static Netconf2SNMPMediator createServer() {
-		Netconf2SNMPMediator server = new Netconf2SNMPMediator();
+	public static Netconf2SoapMediator createServer() {
+		Netconf2SoapMediator server = new Netconf2SoapMediator();
 		server.messages = new ArrayList<>();
 //		server.storeMessages = false;
 		return server;
@@ -93,40 +93,40 @@ public class Netconf2SNMPMediator implements MessageStore, BehaviourContainer, N
 		@Override
 		public void netconfOnDisconnect() {
 			LOG.debug("netconf disconnected");
-			if (Netconf2SNMPMediator.this.configFile != null) {
-				Netconf2SNMPMediator.this.configFile.setIsNetconfConnected(false);
+			if (Netconf2SoapMediator.this.configFile != null) {
+				Netconf2SoapMediator.this.configFile.setIsNetconfConnected(false);
 				try {
-					Netconf2SNMPMediator.this.configFile.save();
+					Netconf2SoapMediator.this.configFile.save();
 				} catch (Exception e) {
 					LOG.error("error saving netconf status to config file");
 				}
 			}
-			if(Netconf2SNMPMediator.this.deviceConnectionMonitor!=null)
-				Netconf2SNMPMediator.this.deviceConnectionMonitor.setIOStream(null);
+			if(Netconf2SoapMediator.this.deviceConnectionMonitor!=null)
+				Netconf2SoapMediator.this.deviceConnectionMonitor.setIOStream(null);
 
 		}
 
 		@Override
 		public void netconfOnConnect(NetconfStreamCodecThread ioCodec) {
 			LOG.debug("netconf connected");
-			if (Netconf2SNMPMediator.this.configFile != null) {
-				Netconf2SNMPMediator.this.configFile.setIsNetconfConnected(true);
+			if (Netconf2SoapMediator.this.configFile != null) {
+				Netconf2SoapMediator.this.configFile.setIsNetconfConnected(true);
 				try {
-					Netconf2SNMPMediator.this.configFile.save();
+					Netconf2SoapMediator.this.configFile.save();
 				} catch (Exception e) {
 					LOG.error("error saving netconf status to config file");
 				}
 			}
-			if(Netconf2SNMPMediator.this.deviceConnectionMonitor!=null)
-				Netconf2SNMPMediator.this.deviceConnectionMonitor.setIOStream(ioCodec);
+			if(Netconf2SoapMediator.this.deviceConnectionMonitor!=null)
+				Netconf2SoapMediator.this.deviceConnectionMonitor.setIOStream(ioCodec);
 		}
 
 		@Override
 		public void networkElementOnConnect() {
-			if (Netconf2SNMPMediator.this.configFile != null) {
-				Netconf2SNMPMediator.this.configFile.setIsNeConnected(true);
+			if (Netconf2SoapMediator.this.configFile != null) {
+				Netconf2SoapMediator.this.configFile.setIsNeConnected(true);
 				try {
-					Netconf2SNMPMediator.this.configFile.save();
+					Netconf2SoapMediator.this.configFile.save();
 				} catch (Exception e) {
 					LOG.error("error saving ne connection status to config file");
 				}
@@ -135,10 +135,10 @@ public class Netconf2SNMPMediator implements MessageStore, BehaviourContainer, N
 
 		@Override
 		public void networkElementOnDisconnect() {
-			if (Netconf2SNMPMediator.this.configFile != null) {
-				Netconf2SNMPMediator.this.configFile.setIsNeConnected(false);
+			if (Netconf2SoapMediator.this.configFile != null) {
+				Netconf2SoapMediator.this.configFile.setIsNeConnected(false);
 				try {
-					Netconf2SNMPMediator.this.configFile.save();
+					Netconf2SoapMediator.this.configFile.save();
 				} catch (Exception e) {
 					LOG.error("error saving ne connection status to config file");
 				}
@@ -233,7 +233,7 @@ public class Netconf2SNMPMediator implements MessageStore, BehaviourContainer, N
 				if (!nms.ping()) // ping failed
 				{
 					// send alert notfication via netconf
-					Netconf2SNMPMediator.this.notify(UserCommand.SNMP_ALERTMESSAGE_PORTMAPPERNOTFOUND);
+					Netconf2SoapMediator.this.notify(UserCommand.SNMP_ALERTMESSAGE_PORTMAPPERNOTFOUND);
 				}
 			}
 		};
@@ -439,7 +439,7 @@ public class Netconf2SNMPMediator implements MessageStore, BehaviourContainer, N
 
 		Netconf2SNMPNetworkElement ne;
 		try {
-			Netconf2SNMPMediator server = Netconf2SNMPMediator.createServer();
+			Netconf2SoapMediator server = Netconf2SoapMediator.createServer();
 			ne = new Netconf2SNMPNetworkElement(xmlFilename, yangPath, uuid, SNMPDeviceType.FromInt(cfg.mDeviceType),
 					cfg.getDeviceIp(), cfg.getTrapPort(), server);
 			ne.setDeviceName(cfg.getName());
