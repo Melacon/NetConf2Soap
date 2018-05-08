@@ -2,7 +2,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.technologies.highstreet</groupId>
-    <artifactId>netconf2soapmediator</artifactId>
+    <artifactId>Netconf2SoapMediator</artifactId>
     <version>0.1.0</version>
     <name>Netconf2SoapMediator</name>
     <properties>
