@@ -1,5 +1,7 @@
 ### Description
 
+=>> General rule: Adapt from SNMPMediator to SoapMediator
+
 ### Prerequisites
 
 The description bases on the environment: Ubuntu 16.04, Maven 3.3.9, Java 1.8, git 2.7.4, curl
@@ -16,7 +18,7 @@ Builds the executable jar for the Netconf2SNMPMediator
 
 Build command:
 
-```commandline 
+```commandline
 mvn clean install
 ```
 
@@ -42,7 +44,7 @@ mvn clean install
 
 The NetconfServerSimulator can be directly started from the command line. It is recommended to use screen for remote ssh/putty sessions.
 The jar parameter are:
-    1. config filename 
+    1. config filename
     2. directory (mandatory) with all yang files, used by the simulation
     3. uuid (optional) to provide an individual id
 
