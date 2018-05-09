@@ -337,6 +337,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 	private static void initDebug(String debugFilename) {
 		BasicConfigurator.configure();
 		Logger.getRootLogger().getLoggerRepository().resetConfiguration();
+		LOG = LogFactory.getLog(Netconf2SoapMediator.class);
 
 		if(CLIMODE)
 		{
@@ -434,7 +435,6 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		staticCliOutputNewLine("\tUuid: " + uuid);
 
 		initDebug(debugFile);
-
 		LOG.info(title);
 
 		Netconf2SNMPNetworkElement ne;
@@ -519,7 +519,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 	}
 
 	static String staticCliOutputNewLine(String msg) {
-		if(CLIMODE)
+		if(CLIMODE || LOG == null)
 			System.out.println(msg);
 		else
 			LOG.info(msg);
@@ -527,7 +527,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 	}
 
 	static String staticCliOutput(String msg) {
-		if(CLIMODE)
+		if(CLIMODE || LOG == null)
 			System.out.print(msg);
 		else
 			LOG.info(msg);
