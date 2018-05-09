@@ -25,9 +25,10 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
-import org.apache.sshd.SshServer;
+
 import org.apache.sshd.common.NamedFactory;
 import org.apache.sshd.server.Command;
+import org.apache.sshd.server.SshServer;
 import org.apache.sshd.server.keyprovider.SimpleGeneratorHostKeyProvider;
 import org.xml.sax.SAXException;
 
@@ -170,7 +171,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		LOG.info(staticCliOutputNewLine("Host: '" + host + "', listenig port: " + listeningPort));
 
 		sshd.setPasswordAuthenticator(new AlwaysTruePasswordAuthenticator());
-		sshd.setKeyPairProvider(new SimpleGeneratorHostKeyProvider(""));
+		sshd.setKeyPairProvider(new SimpleGeneratorHostKeyProvider());
 
 		List<NamedFactory<Command>> subsystemFactories = new ArrayList<>();
 		subsystemFactories
@@ -291,7 +292,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 				deviceConnectionMonitor.waitAndInterruptThreads();
 			stopPortMapperWatchdog();
 			stopSNMPThreads();
-		} catch (InterruptedException e) {
+		} catch (IOException e) {
 			LOG.error(staticCliOutputNewLine("Error stopping server!" + e));
 			throw new ServerException("Error stopping server", e);
 		}
