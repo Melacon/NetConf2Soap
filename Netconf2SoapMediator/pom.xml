@@ -167,7 +167,7 @@
                             <target>
                                 <copy todir="build">
                                     <fileset dir="target" />
-                                    <globmapper from="Netconf2Soapmediator-*-jar-with-dependencies.jar"
+                                    <globmapper from="Netconf2SoapMediator-*-jar-with-dependencies.jar"
                                         to="Netconf2SoapMediator.jar" />
                                 </copy>
                             </target>
