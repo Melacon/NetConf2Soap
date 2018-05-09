@@ -7,7 +7,7 @@
     <name>Netconf2SoapMediator</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <!-- dependencies versions -->
         <netconf4j.version>0.0.9b</netconf4j.version>
         <pax-logging.version>1.6.10</pax-logging.version>
@@ -18,11 +18,6 @@
     </properties>
     <dependencies>
         <!-- Netconf4j library (At the moment 17/05/12 not available.) -->
-        <dependency>
-            <groupId>com.technologies.highstreet</groupId>
-            <artifactId>deviceslib</artifactId>
-            <version>0.1.0</version>
-        </dependency>
         <dependency>
             <groupId>net.i2cat.netconf</groupId>
             <artifactId>netconf4j</artifactId>
@@ -95,7 +90,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>com.technologies.highstreet.netconf2snmpmediator.server.Netconf2SNMPMediator</mainClass>
+                                <mainClass>com.technologies.highstreet.netconf2soapmediator.server.Netconf2SoapMediator</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
@@ -172,8 +167,8 @@
                             <target>
                                 <copy todir="build">
                                     <fileset dir="target" />
-                                    <globmapper from="netconf2snmpmediator-*-jar-with-dependencies.jar"
-                                        to="Netconf2SNMPMediator.jar" />
+                                    <globmapper from="Netconf2Soapmediator-*-jar-with-dependencies.jar"
+                                        to="Netconf2SoapMediator.jar" />
                                 </copy>
                             </target>
                         </configuration>
