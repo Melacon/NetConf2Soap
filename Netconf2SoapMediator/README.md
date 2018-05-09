@@ -20,6 +20,7 @@ Build command:
 
 ```commandline
 mvn clean install
+java -classpath target/Netconf2SoapMediator-0.1.0-jar-with-dependencies.jar com.technologies.highstreet.netconf2soapmediator.server.Netconf2SoapMediator --cli ./test.config ./yang/yangNeModel
 ```
 
 ### Usage
