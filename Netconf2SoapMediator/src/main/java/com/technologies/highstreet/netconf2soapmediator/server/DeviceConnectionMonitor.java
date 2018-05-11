@@ -5,7 +5,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
-import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.SNMPDevicePollingThread;
 
@@ -14,7 +14,7 @@ public class DeviceConnectionMonitor {
 	private final SNMPDevicePollingThread pollThread;
 	private boolean pollAsThread;
 	private static final Log LOG = LogFactory.getLog(DeviceConnectionMonitor.class);
-	public DeviceConnectionMonitor(Netconf2SNMPNetworkElement ne, NetconfStreamCodecThread ioCodec,MediatorConnectionListener connectionListener) {
+	public DeviceConnectionMonitor(Netconf2SoapNetworkElement ne, NetconfStreamCodecThread ioCodec,MediatorConnectionListener connectionListener) {
 
 		pollThread = SNMPDevicePollingThread.GetInstance(ne, ioCodec, false,connectionListener);
 		if (!pollAsThread) {

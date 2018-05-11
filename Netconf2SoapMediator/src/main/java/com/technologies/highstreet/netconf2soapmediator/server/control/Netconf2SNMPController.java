@@ -4,7 +4,7 @@ import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
 import com.technologies.highstreet.netconf.server.control.NetconfController;
 import com.technologies.highstreet.netconf.server.networkelement.NetworkElement;
-import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.Netconf2SNMPMessageProcessorThread;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.SNMPDevicePollingThread;
@@ -32,7 +32,7 @@ public class Netconf2SNMPController extends NetconfController {
 	@Override
 	public void start(MessageStore messageStore, NetworkElement ne, Console console) {
 		// start message processor
-		startMessageProcessor(messageStore, (Netconf2SNMPNetworkElement) ne, console);
+		startMessageProcessor(messageStore, (Netconf2SoapNetworkElement) ne, console);
 		// wait for message processor to continue
 		ioThread = ioCodec.start();
 		if (this.mConnectionListener != null) {
@@ -49,7 +49,7 @@ public class Netconf2SNMPController extends NetconfController {
 
 	}
 
-	protected void startMessageProcessor(MessageStore messageStore, Netconf2SNMPNetworkElement ne, Console console) {
+	protected void startMessageProcessor(MessageStore messageStore, Netconf2SoapNetworkElement ne, Console console) {
 		boolean startPolling = false;
 		log.info("Creating new message processor...");
 		messageProcessorThread = new Netconf2SNMPMessageProcessorThread("Message processor", status, ioCodec,

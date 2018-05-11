@@ -33,9 +33,9 @@ import org.xml.sax.SAXException;
  *
  * @author Micha
  */
-public class Netconf2SNMPNetworkElement extends NetworkElement {
+public class Netconf2SoapNetworkElement extends NetworkElement {
 
-	private static final Log LOG = LogFactory.getLog(Netconf2SNMPNetworkElement.class);
+	private static final Log LOG = LogFactory.getLog(Netconf2SoapNetworkElement.class);
 
 	private static String OIDPARAMETERNAMESTART = "$OIDVALUE=";
 	private static String OIDPARAMETERNAMEEND = "<";
@@ -47,7 +47,7 @@ public class Netconf2SNMPNetworkElement extends NetworkElement {
 	@SuppressWarnings("unused")
 	private final boolean isPortMapMaster = false;
 	private final NodeEditConfigCollection mSNMPNodes;
-	private final Netconf2SNMPConnector snmpConnector;
+	private final Netconf2SoapConnector snmpConnector;
 	private final Node mMWProblemList;
 	private final Node mNEProblemList;
 	private final Node mETHProblemList;
@@ -58,7 +58,7 @@ public class Netconf2SNMPNetworkElement extends NetworkElement {
 	/*
 	 * Constructor
 	 */
-	public Netconf2SNMPNetworkElement(String filename, String schemaPath, String uuid, SNMPDeviceType type,
+	public Netconf2SoapNetworkElement(String filename, String schemaPath, String uuid, SNMPDeviceType type,
 			String remoteSNMPIp, int trapport, Console console) throws SAXException, IOException,
 			ParserConfigurationException, TransformerConfigurationException, XPathExpressionException {
 		super(filename, schemaPath, uuid, console);

@@ -44,7 +44,7 @@ import com.technologies.highstreet.netconf.server.exceptions.ServerException;
 import com.technologies.highstreet.netconf.server.ssh.AlwaysTruePasswordAuthenticator;
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
 import com.technologies.highstreet.netconf2soapmediator.server.control.Netconf2SNMPFactory;
-import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.SNMPDevicePollingThread;
 
@@ -160,7 +160,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 	 *            number of interface card
 	 *
 	 */
-	private void initializeServer(String host, int listeningPort, Netconf2SNMPNetworkElement sne, MediatorConfig cfg,
+	private void initializeServer(String host, int listeningPort, Netconf2SoapNetworkElement sne, MediatorConfig cfg,
 			int devNum) {
 		LOG.info(staticCliOutputNewLine("Configuring mediator ..."));
 		configFile = cfg;
@@ -438,10 +438,10 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		initDebug(debugFile);
 		LOG.info(title);
 
-		Netconf2SNMPNetworkElement ne;
+		Netconf2SoapNetworkElement ne;
 		try {
 			Netconf2SoapMediator server = Netconf2SoapMediator.createServer();
-			ne = new Netconf2SNMPNetworkElement(xmlFilename, yangPath, uuid, SNMPDeviceType.FromInt(cfg.mDeviceType),
+			ne = new Netconf2SoapNetworkElement(xmlFilename, yangPath, uuid, SNMPDeviceType.FromInt(cfg.mDeviceType),
 					cfg.getDeviceIp(), cfg.getTrapPort(), server);
 			ne.setDeviceName(cfg.getName());
 			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);

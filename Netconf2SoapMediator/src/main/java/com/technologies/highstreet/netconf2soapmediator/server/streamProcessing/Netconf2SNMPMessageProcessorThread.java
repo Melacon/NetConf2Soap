@@ -17,7 +17,7 @@ import com.technologies.highstreet.netconf.server.streamprocessing.NetconfMessag
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
 import com.technologies.highstreet.netconf.server.types.NetconfSessionStatusHolder;
 import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
-import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 
 import java.io.IOException;
 import net.i2cat.netconf.messageQueue.MessageQueue;
@@ -29,10 +29,10 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 
     private static final Log log  = LogFactory.getLog(Netconf2SNMPMessageProcessorThread.class);
 
-    private final Netconf2SNMPNetworkElement sne;
+    private final Netconf2SoapNetworkElement sne;
 
     public Netconf2SNMPMessageProcessorThread(String name, NetconfSessionStatusHolder status, NetconfSender sender,
-            MessageQueue messageQueue, MessageStore messageStore, Netconf2SNMPNetworkElement ne, Console console) {
+            MessageQueue messageQueue, MessageStore messageStore, Netconf2SoapNetworkElement ne, Console console) {
 
         super(name, status, sender,  messageQueue,  messageStore,  ne,  console);
         sne = ne;

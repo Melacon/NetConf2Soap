@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
 import com.technologies.highstreet.netconf2soapmediator.server.Config;
-import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 
 public class SNMPDevicePollingThread extends Thread {
 
@@ -49,7 +49,7 @@ public class SNMPDevicePollingThread extends Thread {
 	private static int state = STATE_NULL;
 	private static long lastTimePoll = 0;
 	private static int connectionLossCounter=0;
-	private final Netconf2SNMPNetworkElement networkElement;
+	private final Netconf2SoapNetworkElement networkElement;
 	private NetconfSender sender;
 	private final boolean runAsThread;
 	private boolean stop;
@@ -63,7 +63,7 @@ public class SNMPDevicePollingThread extends Thread {
 	public void setSender(NetconfSender s)
 	{this.sender=s;}
 
-	public SNMPDevicePollingThread(Netconf2SNMPNetworkElement ne, NetconfSender sender, boolean asthread, MediatorConnectionListener connectionListener) {
+	public SNMPDevicePollingThread(Netconf2SoapNetworkElement ne, NetconfSender sender, boolean asthread, MediatorConnectionListener connectionListener) {
 		this.networkElement = ne;
 		this.sender = sender;
 		this.stop = false;
@@ -71,7 +71,7 @@ public class SNMPDevicePollingThread extends Thread {
 		this.mConnectionListener = connectionListener;
 	}
 
-	public SNMPDevicePollingThread(Netconf2SNMPNetworkElement ne, NetconfSender sender) {
+	public SNMPDevicePollingThread(Netconf2SoapNetworkElement ne, NetconfSender sender) {
 
 		this(ne, sender, true, null);
 	}
@@ -233,7 +233,7 @@ public class SNMPDevicePollingThread extends Thread {
 	private static ScheduledExecutorService scheduler;
 
 	private static ScheduledFuture<?> taskHandle;
-	public static SNMPDevicePollingThread GetInstance(Netconf2SNMPNetworkElement ne, NetconfStreamCodecThread ioCodec,
+	public static SNMPDevicePollingThread GetInstance(Netconf2SoapNetworkElement ne, NetconfStreamCodecThread ioCodec,
 			boolean pollasthread, MediatorConnectionListener connectionListener) {
 		if(mObj==null)
 			mObj=new SNMPDevicePollingThread(ne, ioCodec,pollasthread,connectionListener);

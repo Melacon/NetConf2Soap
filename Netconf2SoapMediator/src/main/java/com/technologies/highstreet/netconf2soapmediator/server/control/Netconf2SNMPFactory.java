@@ -7,7 +7,7 @@ import com.technologies.highstreet.netconf.server.basetypes.BehaviourContainer;
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
 import com.technologies.highstreet.netconf.server.control.NetconfNotifyOriginator;
-import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 
 import org.apache.commons.logging.Log;
@@ -24,12 +24,12 @@ public class Netconf2SNMPFactory implements NamedFactory<Command> {
 
     private MessageStore        messageStore        = null;
     private BehaviourContainer  behaviourContainer    = null;
-    private Netconf2SNMPNetworkElement      ne = null;
+    private Netconf2SoapNetworkElement      ne = null;
     private NetconfNotifyOriginator  notifyFunction = null;
     private final Console console;
     private final MediatorConnectionListener mConnectionListener;
     
-    private Netconf2SNMPFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SNMPNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
+    private Netconf2SNMPFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SoapNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
         this.messageStore = messageStore;
         this.behaviourContainer = behaviourContainer;
         this.ne = ne;
@@ -38,7 +38,7 @@ public class Netconf2SNMPFactory implements NamedFactory<Command> {
         this.mConnectionListener=connectionListener;
     }
 
-    public static Netconf2SNMPFactory createFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SNMPNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
+    public static Netconf2SNMPFactory createFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SoapNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
         return new Netconf2SNMPFactory(messageStore, behaviourContainer, notifyFunction, ne,connectionListener, console);
     }
 

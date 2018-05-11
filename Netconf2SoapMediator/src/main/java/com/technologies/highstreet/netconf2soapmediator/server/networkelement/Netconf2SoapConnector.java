@@ -38,20 +38,20 @@ import org.snmp4j.smi.VariableBinding;
 import org.snmp4j.transport.DefaultUdpTransportMapping;
 import org.w3c.dom.Document;
 
-public class Netconf2SNMPConnector implements CommandResponder, ResponseListener {
+public class Netconf2SoapConnector implements CommandResponder, ResponseListener {
 
 	public interface SNMPErrorListener {
 		void OnError(final String message);
 	}
 
-	private static final Log LOG = LogFactory.getLog(Netconf2SNMPConnector.class);
+	private static final Log LOG = LogFactory.getLog(Netconf2SoapConnector.class);
 
 	private final int snmpTimeout;
 	private final int trapPort;
 	private final int snmpRetries;
 	private final int snmpVersion;
 	private final BaseSNMPDevice snmpDevice;
-	private final Netconf2SNMPNetworkElement sne;
+	private final Netconf2SoapNetworkElement sne;
 	private final Random rnd;
 
 	private Snmp snmp;
@@ -66,7 +66,7 @@ public class Netconf2SNMPConnector implements CommandResponder, ResponseListener
 
 	// Constructor
 
-	public Netconf2SNMPConnector(Netconf2SNMPNetworkElement sne, Console console) throws IOException {
+	public Netconf2SoapConnector(Netconf2SoapNetworkElement sne, Console console) throws IOException {
 
 		Config cfg=Config.getInstance();
 		this.snmpTimeout = cfg.SNMPRequestLatency;// in ms

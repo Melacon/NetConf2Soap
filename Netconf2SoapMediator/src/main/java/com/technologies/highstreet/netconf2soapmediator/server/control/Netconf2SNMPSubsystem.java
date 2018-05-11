@@ -9,7 +9,7 @@ import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
 import com.technologies.highstreet.netconf.server.control.NetconfNotifyOriginator;
 import com.technologies.highstreet.netconf.server.control.NetconfSubsystem;
 import com.technologies.highstreet.netconf2soapmediator.server.Netconf2SoapMediator;
-import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SNMPNetworkElement;
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class Netconf2SNMPSubsystem extends NetconfSubsystem {
     private final MediatorConnectionListener mConnectionListener;
 
     public Netconf2SNMPSubsystem(MessageStore messageStore, BehaviourContainer behaviourContainer,
-            NetconfNotifyOriginator netconfNotifyExecutor, Netconf2SNMPNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
+            NetconfNotifyOriginator netconfNotifyExecutor, Netconf2SoapNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
         super(messageStore, behaviourContainer, netconfNotifyExecutor, ne, console);
         this.mConnectionListener=connectionListener;
     }
