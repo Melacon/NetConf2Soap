@@ -1,6 +1,5 @@
 *.prefs
 *.log
-
 *.pid
 
 /target/
