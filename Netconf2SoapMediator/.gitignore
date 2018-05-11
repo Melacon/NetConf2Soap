@@ -1,3 +1,4 @@
-*.prefs
+*.pref
+*.logs
 
 /target/
