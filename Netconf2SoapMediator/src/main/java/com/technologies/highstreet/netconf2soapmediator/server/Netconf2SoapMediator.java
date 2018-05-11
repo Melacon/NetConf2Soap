@@ -185,7 +185,6 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 
 			} catch (SocketException e) {
 				LOG.error("failed to detect ip for " + devNum);
-				;
 			} catch (Exception e) {
 				LOG.error(e.getMessage());
 			}
@@ -394,7 +393,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		String title = "Netconf NE Soap Mediator\n";
 		int optIdx=0;
 		if (args.length < 1) {
-			System.err.println("To less parameters. Command: Server configFilename [pathToYang]");
+			System.err.println("Too less parameters. Command: Server configFilename [pathToYang]");
 			return;
 		}
 		if(args[0].equals("--cli"))
@@ -418,7 +417,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		String uuid = args.length >= optIdx+1 ? args[optIdx] : "";
 		String xmlFilename = cfg.getNeXMLFilename();
 		String rootPath = "";
-		int port = cfg.getNetconfPort();
+		final int port = cfg.getNetconfPort();
 
 		/*
 		 * if (Config.DEBUG) { rootPath = "build/"; } else { rootPath = ""; }
