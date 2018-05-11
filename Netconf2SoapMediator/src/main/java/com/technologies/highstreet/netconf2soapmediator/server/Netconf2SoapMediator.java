@@ -43,7 +43,7 @@ import com.technologies.highstreet.netconf.server.control.NetconfNotifyOriginato
 import com.technologies.highstreet.netconf.server.exceptions.ServerException;
 import com.technologies.highstreet.netconf.server.ssh.AlwaysTruePasswordAuthenticator;
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfStreamCodecThread;
-import com.technologies.highstreet.netconf2soapmediator.server.control.Netconf2SNMPFactory;
+import com.technologies.highstreet.netconf2soapmediator.server.control.Netconf2SoapFactory;
 import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.MediatorConnectionListener;
 import com.technologies.highstreet.netconf2soapmediator.server.streamProcessing.SNMPDevicePollingThread;
@@ -175,7 +175,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 
 		List<NamedFactory<Command>> subsystemFactories = new ArrayList<>();
 		subsystemFactories
-				.add(Netconf2SNMPFactory.createFactory(this, this, this, sne, mediatorConnectionListener, this));
+				.add(Netconf2SoapFactory.createFactory(this, this, this, sne, mediatorConnectionListener, this));
 		sshd.setSubsystemFactories(subsystemFactories);
 
 		if (Config.IsPortMapperNeeded()) {
@@ -391,7 +391,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 
 	public static void main(String[] args) {
 
-		String title = "Netconf NE SNMP Mediator\n";
+		String title = "Netconf NE Soap Mediator\n";
 		int optIdx=0;
 		if (args.length < 1) {
 			System.err.println("To less parameters. Command: Server configFilename [pathToYang]");

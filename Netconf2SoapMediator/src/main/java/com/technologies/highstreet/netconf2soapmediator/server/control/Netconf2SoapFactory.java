@@ -19,8 +19,8 @@ import org.apache.sshd.server.Command;
  * @author herbert
  *
  */
-public class Netconf2SNMPFactory implements NamedFactory<Command> {
-    private static final Log log2  = LogFactory.getLog(Netconf2SNMPFactory.class);
+public class Netconf2SoapFactory implements NamedFactory<Command> {
+    private static final Log log2  = LogFactory.getLog(Netconf2SoapFactory.class);
 
     private MessageStore        messageStore        = null;
     private BehaviourContainer  behaviourContainer    = null;
@@ -29,7 +29,7 @@ public class Netconf2SNMPFactory implements NamedFactory<Command> {
     private final Console console;
     private final MediatorConnectionListener mConnectionListener;
     
-    private Netconf2SNMPFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SoapNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
+    private Netconf2SoapFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SoapNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
         this.messageStore = messageStore;
         this.behaviourContainer = behaviourContainer;
         this.ne = ne;
@@ -38,8 +38,8 @@ public class Netconf2SNMPFactory implements NamedFactory<Command> {
         this.mConnectionListener=connectionListener;
     }
 
-    public static Netconf2SNMPFactory createFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SoapNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
-        return new Netconf2SNMPFactory(messageStore, behaviourContainer, notifyFunction, ne,connectionListener, console);
+    public static Netconf2SoapFactory createFactory(MessageStore messageStore, BehaviourContainer behaviourContainer, NetconfNotifyOriginator notifyFunction, Netconf2SoapNetworkElement ne,MediatorConnectionListener connectionListener, Console console) {
+        return new Netconf2SoapFactory(messageStore, behaviourContainer, notifyFunction, ne,connectionListener, console);
     }
 
     @Override
