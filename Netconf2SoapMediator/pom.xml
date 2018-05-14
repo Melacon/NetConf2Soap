@@ -16,6 +16,8 @@
         <junit.version>4.10</junit.version>
         <guava.version>17.0</guava.version>
     </properties>
+
+    
     <dependencies>
         <!-- Netconf4j library (At the moment 17/05/12 not available.) -->
         <dependency>
@@ -58,16 +60,40 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!--  
         <dependency>
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-log4j12</artifactId>
           <version>1.6.6</version>
         </dependency>
+        -->
         <dependency>
     		<groupId>org.json</groupId>
     		<artifactId>json</artifactId>
     		<version>20170516</version>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.0.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <version>2.0.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>2.0.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.0.2.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+            
     </dependencies>
     <build>
         <pluginManagement>

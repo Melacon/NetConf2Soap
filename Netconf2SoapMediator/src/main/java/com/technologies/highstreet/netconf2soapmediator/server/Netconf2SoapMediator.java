@@ -30,6 +30,7 @@ import org.apache.sshd.common.NamedFactory;
 import org.apache.sshd.server.Command;
 import org.apache.sshd.server.SshServer;
 import org.apache.sshd.server.keyprovider.SimpleGeneratorHostKeyProvider;
+import org.springframework.boot.SpringApplication;
 import org.xml.sax.SAXException;
 
 import com.technologies.highstreet.deviceslib.data.SNMPDeviceType;
@@ -389,7 +390,13 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 	}
 
 	public static void main(String[] args) {
-
+		/**
+		 * Begin PIER TEST
+		 */
+		SpringApplication.run(TR069Server.class);
+		/**
+		 * end PIER TEST
+		 */
 		String title = "Netconf NE Soap Mediator\n";
 		int optIdx=0;
 		if (args.length < 1) {
