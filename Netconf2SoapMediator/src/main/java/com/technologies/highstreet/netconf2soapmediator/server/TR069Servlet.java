@@ -41,29 +41,32 @@ public class TR069Servlet extends HttpServlet {
 			System.out.println("Received HTTP request: Empty");
 			return;
 		}
-		
-		StringBuilder sb = new StringBuilder(10);
-		// Soap envelope
-		sb.append("<soapenv:Envelope ");
-		sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
-		sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
-		sb.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
-		sb.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
-		sb.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
-		// header
-		sb.append("\t<soap_env:Header>\n");
-		sb.append("\t\t<cwmp:ID soapenv:mustUnderstand=\"1\">1</cwmp:ID>\n");
-		sb.append("\t</soap_env:Header>\n");
-		// body
-		sb.append("\t<soap_env:Body>\n");
-		sb.append("\t\t<cwmp:InformResponse>\n");
-		sb.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");
-		sb.append("\t\t</cwmp:InformResponse>\n");
-		sb.append("\t</soap_env:Body>\n");
-		// end
-		sb.append("</soapenv:Envelope>\n");
-		System.out.println("Sending HTTP reply:");
-		response.getWriter().println(sb);
+	
+		if (reqBody.contains("cwmp:Inform")) {
+
+			StringBuilder sb = new StringBuilder(10);
+			// Soap envelope
+			sb.append("<soapenv:Envelope ");
+			sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
+			sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
+			sb.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
+			sb.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
+			sb.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
+			// header
+			sb.append("\t<soap_env:Header>\n");
+			sb.append("\t\t<cwmp:ID soapenv:mustUnderstand=\"1\">1</cwmp:ID>\n");
+			sb.append("\t</soap_env:Header>\n");
+			// body
+			sb.append("\t<soap_env:Body>\n");
+			sb.append("\t\t<cwmp:InformResponse>\n");
+			sb.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");
+			sb.append("\t\t</cwmp:InformResponse>\n");
+			sb.append("\t</soap_env:Body>\n");
+			// end
+			sb.append("</soapenv:Envelope>\n");
+			System.out.println("Sending HTTP reply:");
+			response.getWriter().println(sb);
+		}
 	}
 	
 	
