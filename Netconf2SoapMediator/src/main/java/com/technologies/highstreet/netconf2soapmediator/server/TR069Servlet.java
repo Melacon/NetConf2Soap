@@ -42,6 +42,11 @@ public class TR069Servlet extends HttpServlet {
 			return;
 		}
 	
+		if (reqBody.contains("Fault")) {
+			System.out.println("Received Fault msg");
+			return;
+		}
+		
 		if (reqBody.contains("cwmp:Inform")) {
 
 			StringBuilder sb = new StringBuilder(10);
