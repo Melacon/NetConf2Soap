@@ -1,3 +1,5 @@
+/* Copyright (C) 2017-2018 Daniel Fritzsche, Pierluigi Greto of BISDN GmbH */
+
 package com.technologies.highstreet.netconf2soapmediator.server;
 
 import java.util.Collections;

@@ -1,3 +1,5 @@
+/* Copyright (C) 2017-2018 Daniel Fritzsche, Pierluigi Greto of BISDN GmbH */
+
 package com.technologies.highstreet.netconf2soapmediator.server;
 
 
@@ -12,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.github.freeacs.tr069.Namespace;
 
 
 public class TR069Servlet extends HttpServlet {
@@ -44,7 +45,17 @@ public class TR069Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		System.out.println(this.getBody(request));
-		response.getWriter().println("Post Hello World!");
+		StringBuilder sb = new StringBuilder(10);
+		sb.append("<soapenv:Envelope ");
+		sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
+		sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
+		sb.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
+		sb.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
+		sb.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
+		sb.append("<soap_env:Header>\n" + "  </soap_env:Header>");
+		sb.append("\t\t<cwmp:InformResponse>\n\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n\t\t</cwmp:InformResponse>\n");
+		sb.append("</soapenv:Envelope>\n");
+		response.getWriter().println(sb);
 	}
 	
 	
