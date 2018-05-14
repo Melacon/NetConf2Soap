@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,14 +24,24 @@ public class TR069Servlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println(this.getBody(request));
+		System.out.println(TR069Servlet.getBody(request));
 		response.getWriter().println("Get Hello World!");
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println(this.getBody(request));
+		System.out.println("Received HTTP request:");
+		
+		final String reqBody = TR069Servlet.getBody(request);
+		System.out.println(reqBody);
+		
+	
+		if (reqBody.equals("")) {
+			System.out.println("Received HTTP request: Empty");
+			return;
+		}
+		
 		StringBuilder sb = new StringBuilder(10);
 		// Soap envelope
 		sb.append("<soapenv:Envelope ");
@@ -53,6 +62,7 @@ public class TR069Servlet extends HttpServlet {
 		sb.append("\t</soap_env:Body>\n");
 		// end
 		sb.append("</soapenv:Envelope>\n");
+		System.out.println("Sending HTTP reply:");
 		response.getWriter().println(sb);
 	}
 	
