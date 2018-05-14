@@ -1,4 +1,4 @@
-/* Copyright (C) 2017-2018 Daniel Fritzsche, Pierluigi Greto */
+/* Copyright (C) 2018 Pierluigi Greto */
 
 package com.technologies.highstreet.netconf2soapmediator.server;
 

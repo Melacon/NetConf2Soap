@@ -1,4 +1,4 @@
-/* Copyright (C) 2017-2018 Daniel Fritzsche, Pierluigi Greto */
+/* Copyright (C) 2018 Daniel Fritzsche, Pierluigi Greto */
 
 package com.technologies.highstreet.netconf2soapmediator.server;
 
@@ -87,8 +87,8 @@ public class TR069Servlet extends HttpServlet {
 		sb.append("\t<soapenv:Body>\n");
 		sb.append("\t\t<cwmp:GetParameterValues>\n");
 		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[2]\">\n");
-		sb.append("\t\t\t\t<string>Device.DeviceInfo.Manufacturer</string>\n");
-		sb.append("\t\t\t\t<string>Device.DeviceInfo.ProductClass</string>\n");
+		sb.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
+		//sb.append("\t\t\t\t<string>Device.DeviceInfo.FirstUseDate</string>\n");
 		sb.append("\t\t\t</ParameterNames>\n");
 		sb.append("\t\t</cwmp:GetParameterValues>\n");
 		sb.append("\t</soapenv:Body>\n");
