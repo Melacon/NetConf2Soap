@@ -1,4 +1,4 @@
-/* Copyright (C) 2017-2018 Daniel Fritzsche, Pierluigi Greto of BISDN GmbH */
+/* Copyright (C) 2017-2018 Daniel Fritzsche, Pierluigi Greto */
 
 package com.technologies.highstreet.netconf2soapmediator.server;
 
@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
 public class TR069Servlet extends HttpServlet {
 
 	/**
@@ -27,18 +26,7 @@ public class TR069Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		System.out.println(this.getBody(request));
-		
-		StringBuilder sb = new StringBuilder(10);
-		sb.append("<soapenv:Envelope ");
-		sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
-		sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
-		sb.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
-		sb.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
-		sb.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
-		sb.append("<soap_env:Header>\n" + "  </soap_env:Header>");
-		sb.append("\t\t<cwmp:InformResponse>\n\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n\t\t</cwmp:InformResponse>\n");
-		sb.append("</soapenv:Envelope>\n");
-		response.getWriter().println(sb);
+		response.getWriter().println("Get Hello World!");
 	}
 	
 	@Override
@@ -46,14 +34,24 @@ public class TR069Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println(this.getBody(request));
 		StringBuilder sb = new StringBuilder(10);
+		// Soap envelope
 		sb.append("<soapenv:Envelope ");
 		sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
 		sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
 		sb.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
 		sb.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
 		sb.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
-		sb.append("<soap_env:Header>\n" + "  </soap_env:Header>");
-		sb.append("\t\t<cwmp:InformResponse>\n\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n\t\t</cwmp:InformResponse>\n");
+		// header
+		sb.append("\t<soap_env:Header>\n");
+		sb.append("\t\t<cwmp:ID soapenv:mustUnderstand=\"1\">1</cwmp:ID>\n");
+		sb.append("\t</soap_env:Header>\n");
+		// body
+		sb.append("\t<soap_env:Body>\n");
+		sb.append("\t\t<cwmp:InformResponse>\n");
+		sb.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");
+		sb.append("\t\t</cwmp:InformResponse>\n");
+		sb.append("\t</soap_env:Body>\n");
+		// end
 		sb.append("</soapenv:Envelope>\n");
 		response.getWriter().println(sb);
 	}
