@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap_env:Envelope xmlns:soap_env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap_enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cwmp="urn:dslforum-org:cwmp-1-2">
+    <soap_env:Header>
+        <cwmp:ID soap_env:mustUnderstand="1">1</cwmp:ID>
+    </soap_env:Header>
+    <soap_env:Body>
+        <cwmp:Inform>
+            <DeviceId>
+                <Manufacturer>easycwmp</Manufacturer>
+                <OUI>FFFFFF</OUI>
+                <ProductClass>easycwmp</ProductClass>
+                <SerialNumber>FFFFFF123456</SerialNumber>
+            </DeviceId>
+            <Event soap_enc:arrayType="cwmp:EventStruct[1]">
+                <EventStruct>
+                    <EventCode>1 BOOT</EventCode>
+                    <CommandKey />
+                </EventStruct>
+            </Event>
+            <MaxEnvelopes>1</MaxEnvelopes>
+            <CurrentTime>2018-05-14T13:44:17+00:00</CurrentTime>
+            <RetryCount>0</RetryCount>
+            <ParameterList soap_enc:arrayType="cwmp:ParameterValueStruct[10]">
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.SpecVersion</Name>
+                    <Value xsi:type="xsd:string">1.0</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.ProvisioningCode</Name>
+                    <Value xsi:type="xsd:string"></Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.Manufacturer</Name>
+                    <Value xsi:type="xsd:string">easycwmp</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.ManufacturerOUI</Name>
+                    <Value xsi:type="xsd:string">FFFFFF</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.ProductClass</Name>
+                    <Value xsi:type="xsd:string">easycwmp</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.SerialNumber</Name>
+                    <Value xsi:type="xsd:string">FFFFFF123456</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.HardwareVersion</Name>
+                    <Value xsi:type="xsd:string">example_hw_version</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.DeviceInfo.SoftwareVersion</Name>
+                    <Value xsi:type="xsd:string">example_sw_version</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.ManagementServer.ConnectionRequestURL</Name>
+                    <Value xsi:type="xsd:string">http://192.100.0.9:7547/</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.ManagementServer.ParameterKey</Name>
+                    <Value xsi:type="xsd:string"></Value>
+                </ParameterValueStruct>
+            </ParameterList>
+        </cwmp:Inform>
+    </soap_env:Body>
+</soap_env:Envelope>
