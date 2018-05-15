@@ -32,7 +32,7 @@ public class CoreModelMapping {
 		return coreModelBiMap.get(tr069key);
 	}
 
-	static String getTR069fromYang(String tr069key ) {
-		return coreModelBiMap.inverse().get(tr069key);
+	static String getTR069fromYang(String yangkey ) {
+		return coreModelBiMap.inverse().get(yangkey);
 	}
 }
