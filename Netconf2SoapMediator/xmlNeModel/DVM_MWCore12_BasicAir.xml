@@ -41,7 +41,7 @@
                 <location>NETCONF</location>
             </schema>
             <schema>
-                <identifier>core-model-pacs</identifier>
+                <identifier>onf-core-model-pacs</identifier>
                 <version>2018-04-08</version>
                 <format xmlns:ncm="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring">ncm:yang</format>
                 <namespace>urn:onf:otcc:oimp:yang:core-model-pacs</namespace>
