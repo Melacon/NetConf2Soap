@@ -54,16 +54,25 @@ public class TR069Servlet extends HttpServlet {
 			return;
 		}
 		else if (reqBody.contains("cwmp:Inform")) {
+			System.out.println("Received Inform msg");
 			sendInform(sb);
+		}
+		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
+			System.out.println("Received GetParameterValuesResponse msg");
+			sendGetParameterAttributes(sb);
+		}
+		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
+			System.out.println("Received GetParameterAttributesResponse msg");
+			// send empty response, close connection
+			return;
 		}
 		else if (reqBody.equals("")) {
 			System.out.println("Received HTTP request: Empty");
 			//send GetParameterValues
-			System.out.println("Sending GetParameterValues msg");
 			sendGetParameterValues(sb);
 		}
 		else {return;}
-		
+
 		// end
 		sb.append("</soapenv:Envelope>\n");
 		System.out.println("Sending HTTP reply:");
@@ -72,6 +81,7 @@ public class TR069Servlet extends HttpServlet {
 	}
 
 	static StringBuilder sendInform(StringBuilder sb) {
+		System.out.println("Sending InformResponse msg");
 		// body
 		sb.append("\t<soapenv:Body>\n");
 		sb.append("\t\t<cwmp:InformResponse>\n");
@@ -83,6 +93,7 @@ public class TR069Servlet extends HttpServlet {
 	}
 
 	static StringBuilder sendGetParameterValues(StringBuilder sb) {
+		System.out.println("Sending GetParameterValues msg");
 		// body
 		sb.append("\t<soapenv:Body>\n");
 		sb.append("\t\t<cwmp:GetParameterValues>\n");
@@ -91,6 +102,21 @@ public class TR069Servlet extends HttpServlet {
 		//sb.append("\t\t\t\t<string>Device.DeviceInfo.FirstUseDate</string>\n");
 		sb.append("\t\t\t</ParameterNames>\n");
 		sb.append("\t\t</cwmp:GetParameterValues>\n");
+		sb.append("\t</soapenv:Body>\n");
+
+		return sb;
+	}
+
+	static StringBuilder sendGetParameterAttributes(StringBuilder sb) {
+		System.out.println("Sending GetParameterAttributes msg");
+		// body
+		sb.append("\t<soapenv:Body>\n");
+		sb.append("\t\t<cwmp:GetParameterAttributes>\n");
+		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[2]\">\n");
+		sb.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
+		//sb.append("\t\t\t\t<string>Device.DeviceInfo.FirstUseDate</string>\n");
+		sb.append("\t\t\t</ParameterNames>\n");
+		sb.append("\t\t</cwmp:GetParameterAttributes>\n");
 		sb.append("\t</soapenv:Body>\n");
 
 		return sb;
