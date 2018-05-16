@@ -56,6 +56,8 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>1 BOOT")) {
 			System.out.println("Received Inform msg (BOOT)");
+			Netconf2SoapMediator.connActive = true;
+			System.out.println("Netconf2SoapMediator.connActive=" + Netconf2SoapMediator.connActive );
 			sendInform(sb);
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
@@ -77,6 +79,8 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Sending Empty msg");
 			System.out.println(sb2);
 			//response.getWriter().println(sb2);
+			Netconf2SoapMediator.connActive = false;
+			System.out.println("Netconf2SoapMediator.connActive=" + Netconf2SoapMediator.connActive );
 			return;
 		}
 		else if (reqBody.equals("")) {

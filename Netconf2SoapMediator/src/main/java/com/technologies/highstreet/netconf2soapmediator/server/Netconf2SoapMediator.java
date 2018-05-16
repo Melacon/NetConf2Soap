@@ -53,6 +53,7 @@ import net.i2cat.netconf.rpc.RPCElement;
 
 public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, NetconfNotifyOriginator, Console {
 
+	public static boolean connActive = true;
 	private static Log LOG;
 	private static final String VERSION = "1.1 - ONF 4th PoC";
 	private static final String MEDIATORSERVER_CONFIGFILENAME = "/etc/mediatorserver.conf";
@@ -455,6 +456,16 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
 			server.startServer();
 			if (CLIMODE == true) {
+				System.out.println("connActive=" + connActive );
+				for (int i = 0; i < 3000; i++) {
+					System.out.println("connActive=" + connActive );
+					if (connActive == false) {
+						// request connection from CWMP device
+						HTTPClient httpclient = new HTTPClient();
+						httpclient.sendOpenConnectionToDevice("http://172.16.254.129:7547", "easycwmp", "easycwmp");
+					}
+					Thread.sleep(10000);
+				}
 				// read lines form input
 				BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 				String command;
