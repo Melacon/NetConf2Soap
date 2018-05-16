@@ -393,7 +393,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		/**
 		 * Begin PIER TEST
 		 */
-		SpringApplication.run(TR069Server.class);
+		SpringApplication.run(HTTPServer.class);
 		/**
 		 * end PIER TEST
 		 */

@@ -11,13 +11,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class TR069Server {
+public class HTTPServer {
 	
 	
 	@Bean
-    ServletRegistrationBean<TR069Servlet> TR069Servlet() {
-        ServletRegistrationBean<TR069Servlet> srb = new ServletRegistrationBean<>();
-        srb.setServlet(new TR069Servlet());
+    ServletRegistrationBean<HTTPServlet> hTTPServlet() {
+        ServletRegistrationBean<HTTPServlet> srb = new ServletRegistrationBean<>();
+        srb.setServlet(new HTTPServlet());
         srb.setLoadOnStartup(1);
         srb.setUrlMappings(Collections.singletonList("/*"));
         return srb;

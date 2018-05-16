@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class TR069Servlet extends HttpServlet {
+public class HTTPServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -24,7 +24,7 @@ public class TR069Servlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println(TR069Servlet.getBody(request));
+		System.out.println(HTTPServlet.getBody(request));
 		response.getWriter().println("Get Hello World!");
 	}
 
@@ -32,8 +32,8 @@ public class TR069Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		System.out.println("Received HTTP request:");
-
-		final String reqBody = TR069Servlet.getBody(request);
+		
+		final String reqBody = HTTPServlet.getBody(request);
 		System.out.println(reqBody);
 
 		StringBuilder sb = new StringBuilder(10);
