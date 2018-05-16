@@ -393,6 +393,8 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		/**
 		 * Begin PIER TEST
 		 */
+		//HTTPClient httpclient = new HTTPClient();
+		//httpclient.sendOpenConnectionToDevice("http://172.16.254.129:7547", "easycwmp", "easycwmp");
 		SpringApplication.run(HTTPServer.class);
 		/**
 		 * end PIER TEST
