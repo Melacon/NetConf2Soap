@@ -31,10 +31,10 @@ public class HTTPServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		System.out.println("Received HTTP request:");
-		
+		//System.out.println("Received HTTP request:");
+
 		final String reqBody = HTTPServlet.getBody(request);
-		System.out.println(reqBody);
+		//System.out.println(reqBody);
 
 		StringBuilder sb = new StringBuilder(10);
 		// Soap envelope
@@ -54,8 +54,16 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received Fault msg");
 			return;
 		}
-		else if (reqBody.contains("cwmp:Inform")) {
-			System.out.println("Received Inform msg");
+		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>1 BOOT")) {
+			System.out.println("Received Inform msg (BOOT)");
+			sendInform(sb);
+		}
+		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
+			System.out.println("Received Inform msg (CONNECTION REQUEST)");
+			sendInform(sb);
+		}
+		else if (reqBody.contains("cwmp:Inform") ) {
+			System.out.println("Received Inform msg (unknown)");
 			sendInform(sb);
 		}
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
@@ -83,7 +91,7 @@ public class HTTPServlet extends HttpServlet {
 		// end
 		sb.append("</soapenv:Envelope>\n");
 		System.out.println("Sending HTTP reply:");
-		System.out.println(sb);
+		//System.out.println(sb);
 		response.getWriter().println(sb);
 	}
 
