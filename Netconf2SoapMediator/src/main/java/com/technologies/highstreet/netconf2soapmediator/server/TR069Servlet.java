@@ -38,6 +38,7 @@ public class TR069Servlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(10);
 		// Soap envelope
+		//sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
 		sb.append("<soapenv:Envelope ");
 		sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
 		sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
@@ -64,6 +65,10 @@ public class TR069Servlet extends HttpServlet {
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
 			System.out.println("Received GetParameterAttributesResponse msg");
 			// send empty response, close connection
+			StringBuilder sb2 = new StringBuilder(10);
+			System.out.println("Sending Empty msg");
+			System.out.println(sb2);
+			//response.getWriter().println(sb2);
 			return;
 		}
 		else if (reqBody.equals("")) {
@@ -71,7 +76,9 @@ public class TR069Servlet extends HttpServlet {
 			//send GetParameterValues
 			sendGetParameterValues(sb);
 		}
-		else {return;}
+		else {
+			System.out.println("Received Unknown msg");
+			return;}
 
 		// end
 		sb.append("</soapenv:Envelope>\n");
