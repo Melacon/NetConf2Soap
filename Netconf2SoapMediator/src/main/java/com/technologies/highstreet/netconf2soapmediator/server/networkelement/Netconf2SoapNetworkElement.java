@@ -9,14 +9,35 @@ import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTra
 import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
 import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapNotification;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.digester.plugins.strategies.FinderSetProperties;
 import org.apache.commons.logging.Log;
@@ -26,6 +47,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 /**
@@ -36,7 +58,14 @@ import org.xml.sax.SAXException;
 public class Netconf2SoapNetworkElement extends NetworkElement {
 
 	private static final Log LOG = LogFactory.getLog(Netconf2SoapNetworkElement.class);
+	/**Start Pier variables
+	 * 
+	*/
+	private Document tr069Document = null;
 
+	/**Start Pier variables
+	 * 
+	*/
 	private static String OIDPARAMETERNAMESTART = "$OIDVALUE=";
 	private static String OIDPARAMETERNAMEEND = "<";
 
@@ -757,5 +786,115 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		}
 		return r;
 	}
+	
+	/**Start Pier functions
+	 * 
+	*/
+	public Document getTr069Document() {
+		return tr069Document;
+	}
 
+	public void setTr069Document(Document tr069Document) {
+		this.tr069Document = tr069Document;
+		updateDoc();
+	}
+	
+	public void setTr069DocumentCFromString(String stringDoc) {
+		DocumentBuilder db;
+		System.out.println(stringDoc);
+		try {
+			db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			InputSource is = new InputSource();
+			is.setCharacterStream(new StringReader(stringDoc));
+
+			Document doc = db.parse(is);
+			this.setTr069Document(doc);
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	/***
+	 * This function take the values from this.tr069Document (coming from the devide) and update this.doc
+	 */
+	public void updateDoc()  {
+		//printDocument(tr069Document, System.out);
+		Object result;
+		try {
+			System.out.println("BEFOREEEEE");
+			printNode(NetworkElement.getNode(getDocument(), "//data/equipment"));
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+		try {
+			XPathFactory xPathfactory = XPathFactory.newInstance();
+			XPath xpath = xPathfactory.newXPath();
+			XPathExpression expr = xpath.compile("//data/equipment/connector/manufactured-thing/manufacturer-properties/manufacturer-identifier");
+			result = expr.evaluate(getDocument(), XPathConstants.NODESET);
+			NodeList nodes = (NodeList) result;
+			for (int i = 0; i < nodes.getLength(); i++) {
+				//System.out.println(nodes.item(i).getLocalName());
+			    nodes.item(i).setTextContent("Test");
+			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+		try {
+			System.out.println("AFTERRRRRR");
+			printNode(NetworkElement.getNode(getDocument(), "//data/equipment"));
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	// Call printDocument(doc, System.out)
+	public static void printDocument(Document doc, OutputStream out){
+	    TransformerFactory tf = TransformerFactory.newInstance();
+	    Transformer transformer;
+		try {
+			transformer = tf.newTransformer();
+			transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+		    transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+		    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		    transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+		    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+
+		    transformer.transform(new DOMSource(doc), 
+		         new StreamResult(new OutputStreamWriter(out, "UTF-8")));
+		} catch (TransformerConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	}
+	
+	private void printNode(Node node) {
+		  StringWriter sw = new StringWriter();
+		  try {
+		    Transformer t = TransformerFactory.newInstance().newTransformer();
+		    t.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+		    t.transform(new DOMSource(node), new StreamResult(sw));
+		  } catch (TransformerException te) {
+		    System.out.println("nodeToString Transformer Exception");
+		  }
+		  System.out.println(sw.toString());
+		}
+	
+	    
+
+	
+	/**End Pier functions
+	 * 
+	*/
 }

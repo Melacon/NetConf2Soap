@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
+
 
 public class HTTPServlet extends HttpServlet {
 
@@ -20,6 +22,7 @@ public class HTTPServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 5071770086030271370L;
+	private static Netconf2SoapNetworkElement networkElement = null;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -58,14 +61,17 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received Inform msg (BOOT)");
 			Netconf2SoapMediator.connActive = true;
 			System.out.println("Netconf2SoapMediator.connActive=" + Netconf2SoapMediator.connActive );
+			networkElement.setTr069DocumentCFromString(reqBody);
 			sendInform(sb);
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
 			System.out.println("Received Inform msg (CONNECTION REQUEST)");
+			networkElement.setTr069DocumentCFromString(reqBody);
 			sendInform(sb);
 		}
 		else if (reqBody.contains("cwmp:Inform") ) {
 			System.out.println("Received Inform msg (unknown)");
+			networkElement.setTr069DocumentCFromString(reqBody);
 			sendInform(sb);
 		}
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
@@ -173,6 +179,14 @@ public class HTTPServlet extends HttpServlet {
 
 		body = stringBuilder.toString();
 		return body;
+	}
+
+	public static Netconf2SoapNetworkElement getNetworkElement() {
+		return networkElement;
+	}
+
+	public static void setNetworkElement(Netconf2SoapNetworkElement networkElement) {
+		HTTPServlet.networkElement = networkElement;
 	}
 
 }

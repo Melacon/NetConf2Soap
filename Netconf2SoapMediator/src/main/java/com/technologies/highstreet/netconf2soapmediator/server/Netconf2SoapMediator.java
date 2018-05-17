@@ -453,6 +453,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			ne = new Netconf2SoapNetworkElement(xmlFilename, yangPath, uuid, SNMPDeviceType.FromInt(cfg.mDeviceType),
 					cfg.getDeviceIp(), cfg.getTrapPort(), server);
 			ne.setDeviceName(cfg.getName());
+			HTTPServlet.setNetworkElement(ne);
 			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
 			server.startServer();
 			if (CLIMODE == true) {
