@@ -118,7 +118,7 @@ public class HTTPServlet extends HttpServlet {
 		sb.append("\t\t<cwmp:GetParameterValues>\n");
 		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[2]\">\n");
 		sb.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
-		//sb.append("\t\t\t\t<string>Device.DeviceInfo.FirstUseDate</string>\n");
+		sb.append("\t\t\t\t<string>Device.DeviceInfo.DeviceLog</string>\n");
 		sb.append("\t\t\t</ParameterNames>\n");
 		sb.append("\t\t</cwmp:GetParameterValues>\n");
 		sb.append("\t</soapenv:Body>\n");
@@ -133,7 +133,7 @@ public class HTTPServlet extends HttpServlet {
 		sb.append("\t\t<cwmp:GetParameterAttributes>\n");
 		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[2]\">\n");
 		sb.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
-		//sb.append("\t\t\t\t<string>Device.DeviceInfo.FirstUseDate</string>\n");
+		sb.append("\t\t\t\t<string>Device.DeviceInfo.DeviceLog</string>\n");
 		sb.append("\t\t\t</ParameterNames>\n");
 		sb.append("\t\t</cwmp:GetParameterAttributes>\n");
 		sb.append("\t</soapenv:Body>\n");
