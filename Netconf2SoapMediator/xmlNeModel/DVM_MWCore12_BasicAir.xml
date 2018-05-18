@@ -222,6 +222,10 @@
             <value/>
         </extension>
         <extension>
+			<value-name>top-level-equipment</value-name>
+			<value>SHELF-1.1.0.0</value>
+		</extension>
+        <extension>
             <value-name>neExtension</value-name>
             <value>NE-12</value>
         </extension>
@@ -426,28 +430,73 @@
         </ltp>
     </network-element>
  	<equipment>
-	    <connector>
-	      <manufactured-thing>
-	        <manufacturer-properties>
-	          <manufacturer-identifier>manufacturer-identifier</manufacturer-identifier>
-	          <manufacturer-name>manufacturer-name</manufacturer-name>
-	        </manufacturer-properties>
-	        <equipment-type>
-	          <description>description</description>
-	          <model-identifier>model-identifier</model-identifier>
-	          <part-type-identifier>part-type-identifier</part-type-identifier>
-	        </equipment-type>
-	        <equipment-instance>
-	          <manufacture-date>manufacture-date</manufacture-date>
-	          <serial-number>serial-number</serial-number>
-	          <asset-instance-identifier>asset-instance-identifier</asset-instance-identifier>
-	        </equipment-instance>
-	        <operator-augmented-equipment-type>
-	          <asset-type-identifier>asset-type-identifier</asset-type-identifier>
-	        </operator-augmented-equipment-type>
-	      </manufactured-thing>
-	    </connector>
+		<uuid>SHELF-1.1.0.0</uuid>
+		<name>
+			<value-name>name</value-name>
+			<value>Wireless Shelf</value>
+		</name>
+		<label>
+			<value-name>label</value-name>
+			<value>WS-8</value>
+		</label>
+		<operational-state>enabled</operational-state>
+		<administrative-state>unlocked</administrative-state>
+		<lifecycle-state>installed</lifecycle-state>
+		<swapability>
+			<is-hot-swappable>false</is-hot-swappable>
+		</swapability>
+		<is-field-replaceable>true</is-field-replaceable>
+		<category>
+			<category>subrack</category>
+		</category>
+		<manufactured-thing>
+			<manufacturer-properties>
+				<manufacturer-identifier>ONF-Wireless-Transport</manufacturer-identifier>
+			</manufacturer-properties>
+			<equipment-type>
+				<description>WS-8</description>
+				<part-type-identifier>Partnumber</part-type-identifier>
+				<type-name>WS-8</type-name>
+				<model-identifier>model-id</model-identifier>
+				<version>a2.module-newest</version>
+			</equipment-type>
+			<equipment-instance>
+				<manufacture-date>2017-09-09T00:00:00.0Z</manufacture-date>
+				<serial-number>Serial1</serial-number>
+			</equipment-instance>
+		</manufactured-thing>
 	</equipment>
+	<equipment-pac>
+		<equipment>SHELF-1.1.0.0</equipment>
+		<equipment-capability>
+			<supported-alarms>BatteryFail</supported-alarms>
+			<supported-alarms>BatteryBFail</supported-alarms>
+			<supported-alarms>CableLOS</supported-alarms>
+			<supported-alarms>ClockFailure</supported-alarms>
+		</equipment-capability>
+		<equipment-configuration>
+			<problem-type-severity-list>
+				<problem-type-name>BatteryFail</problem-type-name>
+				<problem-type-severity>minor</problem-type-severity>
+			</problem-type-severity-list>
+			<problem-type-severity-list>
+				<problem-type-name>CableLOS</problem-type-name>
+				<problem-type-severity>major</problem-type-severity>
+			</problem-type-severity-list>
+			<problem-type-severity-list>
+				<problem-type-name>ClockFailure</problem-type-name>
+				<problem-type-severity>major</problem-type-severity>
+			</problem-type-severity-list>
+		</equipment-configuration>
+		<equipment-current-problems>
+			<current-problem-list>
+				<sequence-number>5</sequence-number>
+				<time-stamp>2017-06-30T18:28:13.0Z</time-stamp>
+				<problem-name>BatteryBFail</problem-name>
+				<problem-severity>minor</problem-severity>
+			</current-problem-list>
+		</equipment-current-problems>
+	</equipment-pac>
     <network-element-pac>
     	<network-element-current-problems>
     	</network-element-current-problems>
