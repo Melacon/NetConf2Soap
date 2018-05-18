@@ -58,7 +58,19 @@ public class HTTPServlet extends HttpServlet {
 			return;
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>1 BOOT")) {
-			System.out.println("Received Inform msg (BOOT)");
+			if (reqBody.contains("<EventCode>2 PERIODIC")) {
+				System.out.println("Received Inform msg (BOOT PERIODIC REQUEST)");
+			} else {
+				System.out.println("Received Inform msg (BOOT)");
+			}
+
+			Netconf2SoapMediator.connActive = true;
+			System.out.println("Netconf2SoapMediator.connActive=" + Netconf2SoapMediator.connActive );
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sendInform(sb);
+		}
+		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>2 PERIODIC")) {
+			System.out.println("Received Inform msg (PERIODIC REQUEST)");
 			Netconf2SoapMediator.connActive = true;
 			System.out.println("Netconf2SoapMediator.connActive=" + Netconf2SoapMediator.connActive );
 			networkElement.setTr069DocumentCFromString(reqBody);
@@ -66,6 +78,7 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
 			System.out.println("Received Inform msg (CONNECTION REQUEST)");
+			Netconf2SoapMediator.connActive = true;
 			networkElement.setTr069DocumentCFromString(reqBody);
 			sendInform(sb);
 		}

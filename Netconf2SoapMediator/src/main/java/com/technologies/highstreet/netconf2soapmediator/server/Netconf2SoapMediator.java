@@ -465,7 +465,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 						HTTPClient httpclient = new HTTPClient();
 						httpclient.sendOpenConnectionToDevice("http://172.16.254.129:7547", "easycwmp", "easycwmp");
 					}
-					Thread.sleep(10000);
+					Thread.sleep(30000); // milliseconds
 				}
 				// read lines form input
 				BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
