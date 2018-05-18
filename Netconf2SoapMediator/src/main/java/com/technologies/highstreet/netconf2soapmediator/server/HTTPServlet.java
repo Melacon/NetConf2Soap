@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,7 @@ public class HTTPServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 5071770086030271370L;
 	private static Netconf2SoapNetworkElement networkElement = null;
+	private static boolean setParam = true;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -52,6 +54,7 @@ public class HTTPServlet extends HttpServlet {
 				System.out.println("Received Inform msg (BOOT)");
 			}
 
+			setParam=true;
 			Netconf2SoapMediator.connActive = true;
 			System.out.println("Netconf2SoapMediator.connActive=" + Netconf2SoapMediator.connActive );
 			networkElement.setTr069DocumentCFromString(reqBody);
@@ -77,15 +80,20 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
 			System.out.println("Received GetParameterValuesResponse msg");
-			sendSetParameterValues(sb);
-			//sendGetParameterAttributes(sb);
+			if (setParam == true) {
+				sendSetParameterValues(sb);
+			} else {
+				sendGetParameterAttributes(sb);
+			}
+		}
+		else if (reqBody.contains("cwmp:SetParameterValuesResponse")) {
+			System.out.println("Received SetParameterValuesResponse msg");
+			sendGetParameterValues(sb);
+			setParam=false;
 		}
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
 			System.out.println("Received GetParameterAttributesResponse msg");
 			// send empty response, close connection
-			StringBuilder sb2 = new StringBuilder(10);
-			System.out.println("Sending Empty msg");
-			System.out.println(sb2);
 			//response.getWriter().println(sb2);
 			Netconf2SoapMediator.connActive = false;
 			System.out.println("Netconf2SoapMediator.connActive=" + Netconf2SoapMediator.connActive );
@@ -120,6 +128,9 @@ public class HTTPServlet extends HttpServlet {
 	}
 
 	static StringBuilder sendSetParameterValues(StringBuilder sb) {
+		Random rand = new Random(); 
+		int value = rand.nextInt(5000) + 1000;
+				
 		System.out.println("Sending SetParameterValues msg");
 		// body
 		sb.append("\t<soapenv:Body>\n");
@@ -131,7 +142,7 @@ public class HTTPServlet extends HttpServlet {
 		sb.append("\t\t\t</ParameterValueStruct>\n");
 		sb.append("\t\t\t<ParameterValueStruct>\n");
 		sb.append("\t\t\t\t<Name>Device.ManagementServer.PeriodicInformInterval</Name>\n");
-		sb.append("\t\t\t\t<Value>3600</Value>\n");
+		sb.append("\t\t\t\t<Value>" + value + "</Value>\n");
 		sb.append("\t\t\t</ParameterValueStruct>\n");
 		sb.append("\t\t\t</ParameterList>\n");
 		sb.append("\t\t\t<ParameterKey>12345</ParameterKey>\n");
@@ -164,9 +175,10 @@ public class HTTPServlet extends HttpServlet {
 		// body
 		sb.append("\t<soapenv:Body>\n");
 		sb.append("\t\t<cwmp:GetParameterValues>\n");
-		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[2]\">\n");
+		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[3]\">\n");
 		sb.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
-		sb.append("\t\t\t\t<string>Device.DeviceInfo.DeviceLog</string>\n");
+		sb.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformEnable</string>\n");
+		sb.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformInterval</string>\n");
 		sb.append("\t\t\t</ParameterNames>\n");
 		sb.append("\t\t</cwmp:GetParameterValues>\n");
 		sb.append("\t</soapenv:Body>\n");
@@ -179,9 +191,10 @@ public class HTTPServlet extends HttpServlet {
 		// body
 		sb.append("\t<soapenv:Body>\n");
 		sb.append("\t\t<cwmp:GetParameterAttributes>\n");
-		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[2]\">\n");
+		sb.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[3]\">\n");
 		sb.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
-		sb.append("\t\t\t\t<string>Device.DeviceInfo.DeviceLog</string>\n");
+		sb.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformEnable</string>\n");
+		sb.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformInterval</string>\n");
 		sb.append("\t\t\t</ParameterNames>\n");
 		sb.append("\t\t</cwmp:GetParameterAttributes>\n");
 		sb.append("\t</soapenv:Body>\n");
