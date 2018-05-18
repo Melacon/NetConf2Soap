@@ -39,19 +39,7 @@ public class HTTPServlet extends HttpServlet {
 		final String reqBody = HTTPServlet.getBody(request);
 		//System.out.println(reqBody);
 
-		StringBuilder sb = new StringBuilder(10);
-		// Soap envelope
-		//sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
-		sb.append("<soapenv:Envelope ");
-		sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
-		sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
-		sb.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
-		sb.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
-		sb.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
-		// header
-		sb.append("\t<soapenv:Header>\n");
-		sb.append("\t\t<cwmp:ID soapenv:mustUnderstand=\"1\">1</cwmp:ID>\n");
-		sb.append("\t</soapenv:Header>\n");
+		StringBuilder sb  = generateString();
 
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
@@ -126,6 +114,24 @@ public class HTTPServlet extends HttpServlet {
 		sb.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");
 		sb.append("\t\t</cwmp:InformResponse>\n");
 		sb.append("\t</soapenv:Body>\n");
+
+		return sb;
+	}
+
+	static StringBuilder generateString() {
+		StringBuilder sb = new StringBuilder(10);
+		// Soap envelope
+		//sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
+		sb.append("<soapenv:Envelope ");
+		sb.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
+		sb.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
+		sb.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
+		sb.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
+		sb.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
+		// header
+		sb.append("\t<soapenv:Header>\n");
+		sb.append("\t\t<cwmp:ID soapenv:mustUnderstand=\"1\">1</cwmp:ID>\n");
+		sb.append("\t</soapenv:Header>\n");
 
 		return sb;
 	}
