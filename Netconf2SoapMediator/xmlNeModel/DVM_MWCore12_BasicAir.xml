@@ -205,26 +205,6 @@
 			<value-name>top-level-equipment</value-name>
 			<value>SHELF-1.1.0.0</value>
 		</extension>
-        <extension>
-            <value-name>ne-extension</value-name>
-            <value>NE-12</value>
-        </extension>
-        <extension>
-            <value-name>neIpAddress</value-name>
-            <value>10.42.213.72</value>
-        </extension>
-        <extension>
-            <value-name>webUri</value-name>
-            <value>https://10.42.213.72/</value>
-        </extension>
-        <extension>
-            <value-name>cliAddress</value-name>
-            <value>cli@10.42.213.72</value>
-        </extension>
-        <extension>
-            <value-name>appCommand</value-name>
-            <value/>
-        </extension>
         <operational-state>enabled</operational-state>
         <administrative-control>unlock</administrative-control>
         <administrative-state>unlocked</administrative-state>

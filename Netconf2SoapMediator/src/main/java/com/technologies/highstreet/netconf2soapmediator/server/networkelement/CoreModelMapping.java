@@ -16,7 +16,8 @@ public class CoreModelMapping {
 																"//data/equipment-pac/equipment%"+
 																"//data/network-element/uuid%" +
 																"//data/network-element/extension/value"); // part of Inform RPC
-		coreModelBiMap.put("Device.DeviceInfo.ModelName", "//data/equipment/manufactured-thing/manufacturer-properties/model-identifier"); 
+		coreModelBiMap.put("Device.DeviceInfo.ModelName", "//data/equipment/manufactured-thing/manufacturer-properties/model-identifier%"+
+														  "//data/equipment/manufactured-thing/equipment-type/model-identifier"); 
 		coreModelBiMap.put("Device.DeviceInfo.Description", "//data/equipment/manufactured-thing/equipment-type/description");
 		coreModelBiMap.put("Device.DeviceInfo.ProductClass", "//data/equipment/manufactured-thing/equipment-type/part-type-identifier"); // part of Inform RPC
 		coreModelBiMap.put("Device.DeviceInfo.SerialNumber", "//data/equipment/manufactured-thing/equipment-instance/serial-number"); // part of Inform RPC
