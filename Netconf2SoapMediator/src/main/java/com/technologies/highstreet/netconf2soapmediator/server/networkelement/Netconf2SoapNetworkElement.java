@@ -823,34 +823,65 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	 */
 	public void updateDoc()  {
 		//printDocument(tr069Document, System.out);
-		Object result;
 		try {
 			System.out.println("BEFOREEEEE");
 			printNode(NetworkElement.getNode(getDocument(), "//data/equipment"));
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
 		}
-		try {
-			XPathFactory xPathfactory = XPathFactory.newInstance();
-			XPath xpath = xPathfactory.newXPath();
-			XPathExpression expr = xpath.compile("//data/equipment/connector/manufactured-thing/manufacturer-properties/manufacturer-identifier");
-			result = expr.evaluate(getDocument(), XPathConstants.NODESET);
-			NodeList nodes = (NodeList) result;
-			for (int i = 0; i < nodes.getLength(); i++) {
-				//System.out.println(nodes.item(i).getLocalName());
-			    nodes.item(i).setTextContent("Test");
+		NodeList informs = tr069Document.getElementsByTagName("ParameterValueStruct");
+		if(informs != null) {
+			System.out.println("informs lenght "+informs.getLength());
+			for (int i = 0; i < informs.getLength(); i++) {
+				NodeList child = informs.item(i).getChildNodes();
+				String value = "";
+				String key = "";			
+				for (int j = 0; j < child.getLength(); j++) {
+					
+					if(child.item(j).getNodeName().equals("Name")) {
+						key = child.item(j).getTextContent();
+						
+					}else if (child.item(j).getNodeName().equals("Value")) {
+						value = child.item(j).getTextContent();
+					}						
+				}
+				updateDocKeyValue(key, value);
 			}
-		} catch (XPathExpressionException e) {
-			e.printStackTrace();
 		}
 		try {
-			System.out.println("AFTERRRRRR");
+			System.out.println("AFTERRRR");
 			printNode(NetworkElement.getNode(getDocument(), "//data/equipment"));
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
+	public void updateDocKeyValue(String tr069Key, String value) {
+
+		String key = CoreModelMapping.getYangfromTR069(tr069Key);
+		if (key != null) {
+			String[] parts = key.split("%");
+			for (String k : parts) {
+				Object result;
+				try {
+					XPathFactory xPathfactory = XPathFactory.newInstance();
+					XPath xpath = xPathfactory.newXPath();
+					XPathExpression expr = xpath.compile(k);
+					result = expr.evaluate(getDocument(), XPathConstants.NODESET);
+					NodeList nodes = (NodeList) result;
+					for (int i = 0; i < nodes.getLength(); i++) {
+						// System.out.println(nodes.item(i).getLocalName());
+						nodes.item(i).setTextContent(value);
+					}
+				} catch (XPathExpressionException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+	}
 	
 	// Call printDocument(doc, System.out)
 	public static void printDocument(Document doc, OutputStream out){

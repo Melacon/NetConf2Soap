@@ -202,6 +202,10 @@
             <value>NE-12</value>
         </label>
         <extension>
+			<value-name>top-level-equipment</value-name>
+			<value>SHELF-1.1.0.0</value>
+		</extension>
+        <extension>
             <value-name>ne-extension</value-name>
             <value>NE-12</value>
         </extension>
@@ -220,14 +224,6 @@
         <extension>
             <value-name>appCommand</value-name>
             <value/>
-        </extension>
-        <extension>
-			<value-name>top-level-equipment</value-name>
-			<value>SHELF-1.1.0.0</value>
-		</extension>
-        <extension>
-            <value-name>neExtension</value-name>
-            <value>NE-12</value>
         </extension>
         <operational-state>enabled</operational-state>
         <administrative-control>unlock</administrative-control>
@@ -452,6 +448,7 @@
 		<manufactured-thing>
 			<manufacturer-properties>
 				<manufacturer-identifier>ONF-Wireless-Transport</manufacturer-identifier>
+				<manufacturer-name>manufacturer name</manufacturer-name>
 			</manufacturer-properties>
 			<equipment-type>
 				<description>WS-8</description>
@@ -463,7 +460,11 @@
 			<equipment-instance>
 				<manufacture-date>2017-09-09T00:00:00.0Z</manufacture-date>
 				<serial-number>Serial1</serial-number>
+				<asset-instance-identifier>asset-instance-identifier</asset-instance-identifier>
 			</equipment-instance>
+			<operator-augmented-equipment-type>
+	          <asset-type-identifier>asset-type-identifier</asset-type-identifier>
+	        </operator-augmented-equipment-type>
 		</manufactured-thing>
 	</equipment>
 	<equipment-pac>
