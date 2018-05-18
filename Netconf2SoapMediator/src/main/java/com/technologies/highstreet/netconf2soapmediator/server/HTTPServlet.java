@@ -77,7 +77,8 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
 			System.out.println("Received GetParameterValuesResponse msg");
-			sendGetParameterAttributes(sb);
+			sendSetParameterValues(sb);
+			//sendGetParameterAttributes(sb);
 		}
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
 			System.out.println("Received GetParameterAttributesResponse msg");
@@ -118,6 +119,28 @@ public class HTTPServlet extends HttpServlet {
 		return sb;
 	}
 
+	static StringBuilder sendSetParameterValues(StringBuilder sb) {
+		System.out.println("Sending SetParameterValues msg");
+		// body
+		sb.append("\t<soapenv:Body>\n");
+		sb.append("\t\t<cwmp:SetParameterValues>\n");
+		sb.append("\t\t\t<ParameterList soap:arrayType=\"cwmp:ParameterValueStruct[2]\">\n");
+		sb.append("\t\t\t<ParameterValueStruct>\n");
+		sb.append("\t\t\t\t<Name>Device.ManagementServer.PeriodicInformEnable</Name>\n");
+		sb.append("\t\t\t\t<Value>true</Value>\n");
+		sb.append("\t\t\t</ParameterValueStruct>\n");
+		sb.append("\t\t\t<ParameterValueStruct>\n");
+		sb.append("\t\t\t\t<Name>Device.ManagementServer.PeriodicInformInterval</Name>\n");
+		sb.append("\t\t\t\t<Value>3600</Value>\n");
+		sb.append("\t\t\t</ParameterValueStruct>\n");
+		sb.append("\t\t\t</ParameterList>\n");
+		sb.append("\t\t\t<ParameterKey>12345</ParameterKey>\n");
+		sb.append("\t\t</cwmp:SetParameterValues>\n");
+		sb.append("\t</soapenv:Body>\n");
+
+		return sb;
+	}
+	
 	static StringBuilder generateString() {
 		StringBuilder sb = new StringBuilder(10);
 		// Soap envelope
