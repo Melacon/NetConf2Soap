@@ -425,6 +425,29 @@
             <ltp-direction>bidirectional</ltp-direction>
         </ltp>
     </network-element>
+ 	<equipment>
+	    <connector>
+	      <manufactured-thing>
+	        <manufacturer-properties>
+	          <manufacturer-identifier>manufacturer-identifier</manufacturer-identifier>
+	          <manufacturer-name>manufacturer-name</manufacturer-name>
+	        </manufacturer-properties>
+	        <equipment-type>
+	          <description>description</description>
+	          <model-identifier>model-identifier</model-identifier>
+	          <part-type-identifier>part-type-identifier</part-type-identifier>
+	        </equipment-type>
+	        <equipment-instance>
+	          <manufacture-date>manufacture-date</manufacture-date>
+	          <serial-number>serial-number</serial-number>
+	          <asset-instance-identifier>asset-instance-identifier</asset-instance-identifier>
+	        </equipment-instance>
+	        <operator-augmented-equipment-type>
+	          <asset-type-identifier>asset-type-identifier</asset-type-identifier>
+	        </operator-augmented-equipment-type>
+	      </manufactured-thing>
+	    </connector>
+	</equipment>
     <network-element-pac>
     	<network-element-current-problems>
     	</network-element-current-problems>
