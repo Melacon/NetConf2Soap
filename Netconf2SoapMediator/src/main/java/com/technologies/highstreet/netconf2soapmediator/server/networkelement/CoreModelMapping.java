@@ -29,9 +29,9 @@ public class CoreModelMapping {
 		coreModelBiMap.put("Device.DeviceInfo.UpTime", "//data/equipment-pac/equipment-status/up-time");
 		coreModelBiMap.put("Device.DeviceInfo.FirstUseDate", "//data/equipment/manufactured-thing/equipment-instance/manufacture-date");
 		coreModelBiMap.put("Device.ManagementServer.ConnectionRequestURL", "//data/network-element-pac/network-element-status/connection-request-url"); // part of Inform RPC
-		coreModelBiMap.put("Device.DeviceInfo.ConnectionRequestUsername", "//data/network-element-pac/network-element-configuration/connection-request-username");
-		coreModelBiMap.put("Device.DeviceInfo.ConnectionRequestPassword", "//data/network-element-pac/network-element-configuration/connection-request-password");
-		coreModelBiMap.put("Device.DeviceInfo.LocalTimeZone", "//data/equipment-pac/equipment-status/local-time-zone");
+		coreModelBiMap.put("Device.ManagementServer.ConnectionRequestUsername", "//data/network-element-pac/network-element-configuration/connection-request-username");
+		coreModelBiMap.put("Device.ManagementServer.ConnectionRequestPassword", "//data/network-element-pac/network-element-configuration/connection-request-password");
+		coreModelBiMap.put("Device.Time.LocalTimeZone", "//data/equipment-pac/equipment-status/local-time-zone");
 	}
 
 	static String getYangfromTR069(String tr069key ) {
