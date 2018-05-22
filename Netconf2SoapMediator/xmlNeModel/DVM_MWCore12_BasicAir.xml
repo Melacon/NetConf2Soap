@@ -469,6 +469,12 @@
 				<problem-type-severity>major</problem-type-severity>
 			</problem-type-severity-list>
 		</equipment-configuration>
+		<!-- <equipment-status>
+			<software-version>softwareversion</software-version>
+			<additional-software-version>additional-software-version</additional-software-version>
+			<up-time>up-time</up-time>
+			<local-time-zone>local-time-zone</local-time-zone>
+	    </equipment-status> -->
 		<equipment-current-problems>
 			<current-problem-list>
 				<sequence-number>5</sequence-number>
@@ -479,6 +485,14 @@
 		</equipment-current-problems>
 	</equipment-pac>
     <network-element-pac>
+	    <network-element-configuration>
+			<connection-request-username>username</connection-request-username>
+			<connection-request-password>password</connection-request-password>
+	    </network-element-configuration>
+	    <network-element-status>
+			<refresh-status/>
+			<connection-request-url>http://localhost</connection-request-url>
+	    </network-element-status>
     	<network-element-current-problems>
     	</network-element-current-problems>
     </network-element-pac>
