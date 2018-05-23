@@ -1,10 +1,11 @@
 package com.technologies.highstreet.netconf2soapmediator.server;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class CWMPMessage {
 
-	private static StringBuilder env, end, header, informResponse, getParamVal, getParamAtt, setParamVal;
+	private static StringBuilder env, end, header, informResponse, getParamVal, getParamAtt;
 
 	// constructor
 	public CWMPMessage() {
@@ -14,7 +15,6 @@ public class CWMPMessage {
 		informResponse = new StringBuilder();
 		getParamVal = new StringBuilder();
 		getParamAtt = new StringBuilder();
-		setParamVal = new StringBuilder();
 		
 		//initialize string objects
 		envelope();
@@ -22,7 +22,6 @@ public class CWMPMessage {
 		informResponse();
 		getParameterValuesBody();
 		getParameterAttributesBody();
-		setParameterValuesBody();
 	}
 
 	void envelope() {
@@ -53,28 +52,6 @@ public class CWMPMessage {
 		informResponse.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");
 		informResponse.append("\t\t</cwmp:InformResponse>\n");
 		informResponse.append("\t</soapenv:Body>\n");
-	}
-
-	void setParameterValuesBody() {
-		Random rand = new Random(); 
-		int value = rand.nextInt(5000) + 1000;
-
-		// body
-		setParamVal.append("\t<soapenv:Body>\n");
-		setParamVal.append("\t\t<cwmp:SetParameterValues>\n");
-		setParamVal.append("\t\t\t<ParameterList soap:arrayType=\"cwmp:ParameterValueStruct[2]\">\n");
-		setParamVal.append("\t\t\t<ParameterValueStruct>\n");
-		setParamVal.append("\t\t\t\t<Name>Device.ManagementServer.PeriodicInformEnable</Name>\n");
-		setParamVal.append("\t\t\t\t<Value>true</Value>\n");
-		setParamVal.append("\t\t\t</ParameterValueStruct>\n");
-		setParamVal.append("\t\t\t<ParameterValueStruct>\n");
-		setParamVal.append("\t\t\t\t<Name>Device.ManagementServer.PeriodicInformInterval</Name>\n");
-		setParamVal.append("\t\t\t\t<Value>" + value + "</Value>\n");
-		setParamVal.append("\t\t\t</ParameterValueStruct>\n");
-		setParamVal.append("\t\t\t</ParameterList>\n");
-		setParamVal.append("\t\t\t<ParameterKey>12345</ParameterKey>\n");
-		setParamVal.append("\t\t</cwmp:SetParameterValues>\n");
-		setParamVal.append("\t</soapenv:Body>\n");
 	}
 
 	void getParameterValuesBody() {
@@ -133,12 +110,36 @@ public class CWMPMessage {
 		return msg;
 	}
 	
-	StringBuilder setParameterValues() {
+	StringBuilder setParameterValues(Map<Integer, ArrayList<String>> map) {
 		System.out.println("SetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
+		
 		msg.append(env);
 		msg.append(header);
-		msg.append(setParamVal);
+
+		// body
+		msg.append("\t<soapenv:Body>\n");
+		msg.append("\t\t<cwmp:SetParameterValues>\n");
+
+		msg.append("\t\t\t<ParameterList soap:arrayType=\"cwmp:ParameterValueStruct[" + map.size() + "]\">\n");
+		
+		System.out.println(map.size());
+		
+		for (int i = 1; i <= map.size(); i++) {
+
+			msg.append("\t\t\t<ParameterValueStruct>\n");
+			msg.append("\t\t\t\t<Name>" + map.get(i).get(0) + "</Name>\n");
+			msg.append("\t\t\t\t<Value>" + map.get(i).get(1) + "</Value>\n");
+			msg.append("\t\t\t</ParameterValueStruct>\n");
+		}
+		
+		msg.append("\t\t\t</ParameterList>\n");
+
+		msg.append("\t\t\t<ParameterKey>12345</ParameterKey>\n");
+
+		msg.append("\t\t</cwmp:SetParameterValues>\n");
+		msg.append("\t</soapenv:Body>\n");
+
 		msg.append(end);
 		return msg;
 	}
