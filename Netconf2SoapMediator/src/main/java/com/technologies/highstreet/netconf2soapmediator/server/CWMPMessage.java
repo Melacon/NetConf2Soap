@@ -1,11 +1,14 @@
 package com.technologies.highstreet.netconf2soapmediator.server;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class CWMPMessage {
 
-	private static StringBuilder env, end, header, informResponse, getParamVal, getParamAtt;
+	private static StringBuilder env, end, header, informResponse;
+	private static Map<Integer, String> getParamValMap = new HashMap<Integer, String>();
+	private static Map<Integer, String> getParamAttMap = new HashMap<Integer, String>();
 
 	// constructor
 	public CWMPMessage() {
@@ -13,15 +16,19 @@ public class CWMPMessage {
 		end = new StringBuilder();
 		header = new StringBuilder();
 		informResponse = new StringBuilder();
-		getParamVal = new StringBuilder();
-		getParamAtt = new StringBuilder();
-		
+
 		//initialize string objects
 		envelope();
 		header();
 		informResponse();
-		getParameterValuesBody();
-		getParameterAttributesBody();
+
+		getParamValMap.put(1, "Device.DeviceInfo.UpTime");
+		getParamValMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
+		getParamValMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
+
+		getParamAttMap.put(1, "Device.DeviceInfo.UpTime");
+		getParamAttMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
+		getParamAttMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
 	}
 
 	void envelope() {
@@ -44,7 +51,7 @@ public class CWMPMessage {
 		// end
 		end.append("</soapenv:Envelope>\n");
 	}
-	
+
 	void informResponse() {
 		// body
 		informResponse.append("\t<soapenv:Body>\n");
@@ -54,32 +61,6 @@ public class CWMPMessage {
 		informResponse.append("\t</soapenv:Body>\n");
 	}
 
-	void getParameterValuesBody() {
-		// body
-		getParamVal.append("\t<soapenv:Body>\n");
-		getParamVal.append("\t\t<cwmp:GetParameterValues>\n");
-		getParamVal.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[3]\">\n");
-		getParamVal.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
-		getParamVal.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformEnable</string>\n");
-		getParamVal.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformInterval</string>\n");
-		getParamVal.append("\t\t\t</ParameterNames>\n");
-		getParamVal.append("\t\t</cwmp:GetParameterValues>\n");
-		getParamVal.append("\t</soapenv:Body>\n");
-	}
-
-	void getParameterAttributesBody() {
-		// body
-		getParamAtt.append("\t<soapenv:Body>\n");
-		getParamAtt.append("\t\t<cwmp:GetParameterAttributes>\n");
-		getParamAtt.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[3]\">\n");
-		getParamAtt.append("\t\t\t\t<string>Device.DeviceInfo.UpTime</string>\n");
-		getParamAtt.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformEnable</string>\n");
-		getParamAtt.append("\t\t\t\t<string>Device.ManagementServer.PeriodicInformInterval</string>\n");
-		getParamAtt.append("\t\t\t</ParameterNames>\n");
-		getParamAtt.append("\t\t</cwmp:GetParameterAttributes>\n");
-		getParamAtt.append("\t</soapenv:Body>\n");
-	}
-	
 	StringBuilder getInformResponse() {
 		System.out.println("InformResponse msg");
 		StringBuilder msg = new StringBuilder();
@@ -89,58 +70,80 @@ public class CWMPMessage {
 		msg.append(end);
 		return msg;
 	}
-	
+
 	StringBuilder getParameterValues() {
 		System.out.println("GetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
+		
 		msg.append(env);
 		msg.append(header);
-		msg.append(getParamVal);
+		// body
+		msg.append("\t<soapenv:Body>\n");
+		msg.append("\t\t<cwmp:GetParameterValues>\n");
+		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamValMap.size() + "]\">\n");
+
+		for (int i = 1; i <= getParamValMap.size(); i++) {
+
+			msg.append("\t\t\t\t<string>" + getParamValMap.get(i) + "</string>\n");
+		}
+
+		msg.append("\t\t\t</ParameterNames>\n");
+		msg.append("\t\t</cwmp:GetParameterValues>\n");
+		msg.append("\t</soapenv:Body>\n");
+		// end body
 		msg.append(end);
 		return msg;
 	}
-	
+
 	StringBuilder getParameterAttributes() {
 		System.out.println("GetParameterAttributes msg");
 		StringBuilder msg = new StringBuilder();
+		
 		msg.append(env);
 		msg.append(header);
-		msg.append(getParamAtt);
+		// body
+		msg.append("\t<soapenv:Body>\n");
+		msg.append("\t\t<cwmp:GetParameterAttributes>\n");
+		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamAttMap.size() + "]\">\n");
+
+		for (int i = 1; i <= getParamAttMap.size(); i++) {
+
+			msg.append("\t\t\t\t<string>" + getParamAttMap.get(i) + "</string>\n");
+		}
+
+		msg.append("\t\t\t</ParameterNames>\n");
+		msg.append("\t\t</cwmp:GetParameterAttributes>\n");
+		msg.append("\t</soapenv:Body>\n");
+		// end body
 		msg.append(end);
 		return msg;
 	}
-	
+
 	StringBuilder setParameterValues(Map<Integer, ArrayList<String>> map) {
 		System.out.println("SetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
-		
+
 		msg.append(env);
 		msg.append(header);
-
 		// body
 		msg.append("\t<soapenv:Body>\n");
 		msg.append("\t\t<cwmp:SetParameterValues>\n");
-
 		msg.append("\t\t\t<ParameterList soap:arrayType=\"cwmp:ParameterValueStruct[" + map.size() + "]\">\n");
-		
-		System.out.println(map.size());
-		
-		for (int i = 1; i <= map.size(); i++) {
 
+		for (int i = 1; i <= map.size(); i++) {
 			msg.append("\t\t\t<ParameterValueStruct>\n");
 			msg.append("\t\t\t\t<Name>" + map.get(i).get(0) + "</Name>\n");
 			msg.append("\t\t\t\t<Value>" + map.get(i).get(1) + "</Value>\n");
 			msg.append("\t\t\t</ParameterValueStruct>\n");
 		}
-		
+
 		msg.append("\t\t\t</ParameterList>\n");
-
 		msg.append("\t\t\t<ParameterKey>12345</ParameterKey>\n");
-
 		msg.append("\t\t</cwmp:SetParameterValues>\n");
 		msg.append("\t</soapenv:Body>\n");
-
+		// end body
 		msg.append(end);
+
 		return msg;
 	}
 
