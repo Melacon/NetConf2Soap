@@ -819,7 +819,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		
 	}
 	/***
-	 * This function take the values from this.tr069Document (coming from the devide) and update this.doc
+	 * This function take the values from this.tr069Document (coming from the device) and update this.doc
 	 */
 	public void updateDoc()  {
 		//printDocument(tr069Document, System.out);

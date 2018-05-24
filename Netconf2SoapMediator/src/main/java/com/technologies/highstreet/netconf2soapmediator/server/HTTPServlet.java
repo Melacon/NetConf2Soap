@@ -28,6 +28,21 @@ public class HTTPServlet extends HttpServlet {
 	private static boolean setParam = true;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
 
+	public HTTPServlet() {
+		Random rand = new Random(); 
+		int value = rand.nextInt(5000) + 1000;
+
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("Device.ManagementServer.PeriodicInformEnable");
+		list.add("true");
+		setParamMap.put(1, list);
+
+		ArrayList<String> list2 = new ArrayList<String>();
+		list2.add("Device.ManagementServer.PeriodicInformInterval");
+		list2.add("" + value);
+		setParamMap.put(2, list2);
+	}
+
 	private static Map<Integer, ArrayList<String>> setParamMap = new HashMap<Integer, ArrayList<String>>();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -79,19 +94,6 @@ public class HTTPServlet extends HttpServlet {
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
 			System.out.println("Received GetParameterValuesResponse msg");
 			if (setParam == true) {
-				Random rand = new Random(); 
-				int value = rand.nextInt(5000) + 1000;
-				
-				ArrayList<String> list = new ArrayList<String>();
-				list.add("Device.ManagementServer.PeriodicInformEnable");
-				list.add("true");
-				setParamMap.put(1, list);
-				
-				ArrayList<String> list2 = new ArrayList<String>();
-				list2.add("Device.ManagementServer.PeriodicInformInterval");
-				list2.add("" + value);
-				setParamMap.put(2, list2);
-				
 				sb = CWMPmsg.setParameterValues(setParamMap);
 			} else {
 				sb = CWMPmsg.getParameterAttributes();

@@ -13,6 +13,7 @@ package com.technologies.highstreet.netconf2soapmediator.server.streamProcessing
 
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.basetypes.MessageStore;
+import com.technologies.highstreet.netconf.server.streamprocessing.NetconfIncommingMessageRepresentation;
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfMessageProcessorThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
 import com.technologies.highstreet.netconf.server.types.NetconfSessionStatusHolder;
@@ -115,6 +116,15 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
         if (msg != null) {
             send( msg );
         }
+    }
+    
+    @Override
+    protected void doMessageProcessing(NetconfIncommingMessageRepresentation receivedMessage) throws IOException {
+    	if (receivedMessage.isRpcEditConfigTargetRunningDefaultOperationConfig()) {
+    		//cc=true;
+    		// fill list
+    	}
+    	super.doMessageProcessing(receivedMessage);
     }
 
 }
