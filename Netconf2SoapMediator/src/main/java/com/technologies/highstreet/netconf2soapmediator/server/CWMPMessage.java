@@ -17,7 +17,7 @@ public class CWMPMessage {
 		header = new StringBuilder();
 		informResponse = new StringBuilder();
 
-		//initialize string objects
+		//initialize objects
 		envelope();
 		header();
 		informResponse();
@@ -37,7 +37,6 @@ public class CWMPMessage {
 		getParamAttMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
 	}
 	void envelope() {
-		//sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
 		env.append("<soapenv:Envelope ");
 		env.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
 		env.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
@@ -53,12 +52,10 @@ public class CWMPMessage {
 	}
 
 	void end() {
-		// end
 		end.append("</soapenv:Envelope>\n");
 	}
 
 	void informResponse() {
-		// body
 		informResponse.append("\t<soapenv:Body>\n");
 		informResponse.append("\t\t<cwmp:InformResponse>\n");
 		informResponse.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");

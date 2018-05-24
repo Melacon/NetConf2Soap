@@ -39,11 +39,8 @@ public class HTTPServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		//System.out.println("Received HTTP request:");
 
 		final String reqBody = HTTPServlet.getBody(request);
-		//System.out.println(reqBody);
-
 		StringBuilder sb = new StringBuilder(10);
 		
 		if (reqBody.contains("Fault")) {
@@ -107,9 +104,8 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
 			System.out.println("Received GetParameterAttributesResponse msg");
-			// send empty response, close connection
-			//response.getWriter().println(sb2);
 			Netconf2SoapMediator.connActive = false;
+			// send empty response, close connection
 			return;
 		}
 		else if (reqBody.equals("")) {
