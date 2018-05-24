@@ -21,16 +21,21 @@ public class CWMPMessage {
 		envelope();
 		header();
 		informResponse();
+		initParamValMap();
+		initParamAttMap();
+	}
 
+	void initParamValMap() {
 		getParamValMap.put(1, "Device.DeviceInfo.UpTime");
 		getParamValMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
 		getParamValMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
+	}
 
+	void initParamAttMap() {
 		getParamAttMap.put(1, "Device.DeviceInfo.UpTime");
 		getParamAttMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
 		getParamAttMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
 	}
-
 	void envelope() {
 		//sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
 		env.append("<soapenv:Envelope ");
