@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 
@@ -25,25 +24,11 @@ public class HTTPServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 5071770086030271370L;
 	private static Netconf2SoapNetworkElement networkElement = null;
-	private static boolean setParam = true;
+	private static boolean connActive = false;
+	private static boolean setParam = false;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
 
-	public HTTPServlet() {
-		Random rand = new Random(); 
-		int value = rand.nextInt(5000) + 1000;
-
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("Device.ManagementServer.PeriodicInformEnable");
-		list.add("true");
-		setParamMap.put(1, list);
-
-		ArrayList<String> list2 = new ArrayList<String>();
-		list2.add("Device.ManagementServer.PeriodicInformInterval");
-		list2.add("" + value);
-		setParamMap.put(2, list2);
-	}
-
-	private static Map<Integer, ArrayList<String>> setParamMap = new HashMap<Integer, ArrayList<String>>();
+	public static Map<Integer, ArrayList<String>> setParamMap = new HashMap<Integer, ArrayList<String>>();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -69,20 +54,19 @@ public class HTTPServlet extends HttpServlet {
 				System.out.println("Received Inform msg (BOOT)");
 			}
 
-			setParam=true;
-			Netconf2SoapMediator.connActive = true;
+			setConnActive(true);
 			networkElement.setTr069DocumentCFromString(reqBody);
 			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>2 PERIODIC")) {
 			System.out.println("Received Inform msg (PERIODIC REQUEST)");
-			Netconf2SoapMediator.connActive = true;
+			setConnActive(true);
 			networkElement.setTr069DocumentCFromString(reqBody);
 			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
 			System.out.println("Received Inform msg (CONNECTION REQUEST)");
-			Netconf2SoapMediator.connActive = true;
+			setConnActive(true);
 			networkElement.setTr069DocumentCFromString(reqBody);
 			sb = CWMPmsg.getInformResponse();
 		}
@@ -93,7 +77,8 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
 			System.out.println("Received GetParameterValuesResponse msg");
-			if (setParam == true) {
+
+			if (getSetParam() == true) {
 				sb = CWMPmsg.setParameterValues(setParamMap);
 			} else {
 				sb = CWMPmsg.getParameterAttributes();
@@ -102,11 +87,11 @@ public class HTTPServlet extends HttpServlet {
 		else if (reqBody.contains("cwmp:SetParameterValuesResponse")) {
 			System.out.println("Received SetParameterValuesResponse msg");
 			sb = CWMPmsg.getParameterValues();
-			setParam=false;
+			setSetParam(false);
 		}
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
 			System.out.println("Received GetParameterAttributesResponse msg");
-			Netconf2SoapMediator.connActive = false;
+			setConnActive(false);
 			// send empty response, close connection
 			return;
 		}
@@ -164,6 +149,22 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setNetworkElement(Netconf2SoapNetworkElement networkElement) {
 		HTTPServlet.networkElement = networkElement;
+	}
+
+	public static boolean getSetParam() {
+		return setParam;
+	}
+
+	public static void setSetParam(boolean setParam) {
+		HTTPServlet.setParam = setParam;
+	}
+
+	public static boolean getConnActive() {
+		return connActive;
+	}
+
+	public static void setConnActive(boolean connActive) {
+		HTTPServlet.connActive = connActive;
 	}
 
 }

@@ -17,10 +17,14 @@ import com.technologies.highstreet.netconf.server.streamprocessing.NetconfIncomm
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfMessageProcessorThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
 import com.technologies.highstreet.netconf.server.types.NetconfSessionStatusHolder;
+import com.technologies.highstreet.netconf2soapmediator.server.HTTPServlet;
 import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
 import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+
 import net.i2cat.netconf.messageQueue.MessageQueue;
 import net.i2cat.netconf.rpc.RPCElement;
 import org.apache.commons.logging.Log;
@@ -121,8 +125,21 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
     @Override
     protected void doMessageProcessing(NetconfIncommingMessageRepresentation receivedMessage) throws IOException {
     	if (receivedMessage.isRpcEditConfigTargetRunningDefaultOperationConfig()) {
-    		//cc=true;
-    		// fill list
+    		// fill list of parameters that you want to set
+    		Random rand = new Random(); 
+    		int value = rand.nextInt(5000) + 1000;
+
+    		ArrayList<String> list = new ArrayList<String>();
+    		list.add("Device.ManagementServer.PeriodicInformEnable");
+    		list.add("true");
+    		HTTPServlet.setParamMap.put(1, list);
+
+    		ArrayList<String> list2 = new ArrayList<String>();
+    		list2.add("Device.ManagementServer.PeriodicInformInterval");
+    		list2.add("" + value);
+    		HTTPServlet.setParamMap.put(2, list2);
+    		
+    		HTTPServlet.setSetParam(true);
     	}
     	super.doMessageProcessing(receivedMessage);
     }
