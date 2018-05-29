@@ -1,6 +1,6 @@
-module onf-core-model-pacs {
-  namespace "urn:onf:otcc:oimp:yang:core-model-pacs";
-  prefix cmpac;
+module onf-core-model-conditional-packages {
+  namespace "urn:onf:params:xml:ns:yang:onf-core-model-conditional-packages";
+  prefix onf-core-model-conditional-packages;
 
   import core-model {
     prefix core-model;

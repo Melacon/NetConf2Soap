@@ -19,7 +19,7 @@
         <!--<capability>http://netconfcentral.org/ns/yuma-ncx?module=yuma-ncx&amp;revision=2012-01-13</capability>  -->
         <!--<capability>urn:ietf:params:xml:ns:yang:iana-crypt-hash?module=iana-crypt-hash&amp;revision=2014-04-04&amp;features=crypt-hash-md5,crypt-hash-sha-256,crypt-hash-sha-512</capability>-->
         <capability>urn:ietf:params:xml:ns:netconf:notification:1.0?module=notifications&amp;revision=2008-07-14</capability>
-        <capability>urn:onf:params:xml:ns:yang:onf-core-model-conditional-packages?module=onf-core-model-conditional-packages&amp;revision=2017-04-02</capability>
+        <capability>urn:onf:params:xml:ns:yang:onf-core-model-conditional-packages?module=onf-core-model-conditional-packages&amp;revision=2018-04-08</capability>
         <capability>http://netconfcentral.org/ns/yuma-app-common?module=yuma-app-common&amp;revision=2012-08-16</capability>
         <capability>http://netconfcentral.org/ns/yuma-arp?module=yuma-arp&amp;revision=2012-01-13</capability>
         <capability>http://netconfcentral.org/ns/yuma-mysession?module=yuma-mysession&amp;revision=2010-05-10</capability>
@@ -124,7 +124,7 @@
             </schema>
              <schema>
                 <identifier>onf-core-model-conditional-packages</identifier>
-                <version>2017-04-02</version>
+                <version>2018-04-08</version>
                 <namespace>urn:onf:params:xml:ns:yang:onf-core-model-conditional-packages</namespace>
                 <format xmlns:ncm="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring">ncm:yang</format>
                 <location>NETCONF</location>
