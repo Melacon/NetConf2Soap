@@ -898,7 +898,7 @@ public class NetworkElement extends NetconfMessageAssembler {
      */
     public synchronized String assembleHelloReply(String sessionId) {
 
-        String xmlSubTree = getXmlSubTreeAsString("//capabilities");
+        String xmlSubTree = getXmlSubTreeAsString("//data/capabilities");
         StringBuffer res = new StringBuffer();
         res.append("<hello xmlns:nc=\"urn:ietf:params:xml:ns:netconf:base:1.0\" xmlns=\"urn:ietf:params:xml:ns:netconf:base:1.0\">\n");
         res.append(xmlSubTree);
