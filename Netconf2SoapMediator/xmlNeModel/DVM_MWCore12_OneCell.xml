@@ -2012,7 +2012,7 @@
     </mw-notifications>
     <fap-service>
     <alias>fap1</alias>
-    <device-type>1</device-type>
+    <device-type>standalone</device-type>
     <dn-prefix>dn-prefix</dn-prefix>
     <capabilities>
       <gps-equipped>true</gps-equipped>
@@ -2092,12 +2092,12 @@
         <op-state>true</op-state>
         <admin-state>true</admin-state>
         <rf-tx-status>true</rf-tx-status>
-        <pm-config>>pm-config</pm-config>
+        <pm-config>pm-config</pm-config>
         <fap-control-umts-self-config>
           <uarfcn-self-config-enable>true</uarfcn-self-config-enable>
           <primary-scrambling-code-self-config-enable>true</primary-scrambling-code-self-config-enable>
           <maxfap-tx-power-expanded-self-config-enable>true</maxfap-tx-power-expanded-self-config-enable>
-          <pcpich-power-self-config-enable>>true</pcpich-power-self-config-enable>
+          <pcpich-power-self-config-enable>true</pcpich-power-self-config-enable>
           <max-ul-tx-power-self-config-enable>true</max-ul-tx-power-self-config-enable>
           <lacracura-self-config-enable>true</lacracura-self-config-enable>
           <neighbor-list-self-config-enable>true</neighbor-list-self-config-enable>
@@ -2144,7 +2144,7 @@
         </fap-control-cdma2000-time>
         <fap-control-cdma2000-one-x>
           <admin-state>unlock</admin-state>
-          <op-state>enable</op-state>
+          <op-state>enabled</op-state>
           <rf-tx-status>true</rf-tx-status>
           <daylight>5</daylight>
           <max-p-rev>6</max-p-rev>
@@ -2218,7 +2218,7 @@
         <max-member-detail-entries>93</max-member-detail-entries>
         <member-detail-number-of-entries>94</member-detail-number-of-entries>
         <access-mgmt-umts-member-detail>
-          <imsi>>imsi</imsi>
+          <imsi>imsi</imsi>
           <enable>true</enable>
           <alias>alias</alias>
           <msisdn>misdn</msisdn>
@@ -2352,7 +2352,7 @@
             <non-hcsncr>5</non-hcsncr>
             <non-hcstcr-max-hyst>not used</non-hcstcr-max-hyst>
             <qhcs>0</qhcs>
-            <use-of-hcs>>true</use-of-hcs>
+            <use-of-hcs>true</use-of-hcs>
             <hcs-prio>0</hcs-prio>
             <tcr-max>not used</tcr-max>
             <ncr>5</ncr>
@@ -2491,7 +2491,7 @@
               <hysteresis>7</hysteresis>
               <time-to-trigger>0</time-to-trigger>
               <threshold-used-frequency>34</threshold-used-frequency>
-              <threshold-non-used-frequency>67</threshold-non-used-frequency>>
+              <threshold-non-used-frequency>67</threshold-non-used-frequency>
             </umts-ran-inter-freq-meas-instance>
           </umts-ran-inter-freq-meas>
           <umts-ran-inter-rat-meas>
@@ -2530,11 +2530,11 @@
             <uarfcnul-in-use>44</uarfcnul-in-use>
             <uarfcndl-to-protect>we</uarfcndl-to-protect>
             <primary-scrambling-code>primary-scrambling-code</primary-scrambling-code>
-            <primary-scrambling-code-in-use>inuse</primary-scrambling-code-in-use>
+            <primary-scrambling-code-in-use>65</primary-scrambling-code-in-use>
             <maxfap-tx-power-expanded>78</maxfap-tx-power-expanded>
             <maxfap-tx-power-in-use-expanded>34</maxfap-tx-power-in-use-expanded>
             <max-ul-tx-power>txpower</max-ul-tx-power>
-            <max-ul-tx-power-in-use>inuse</max-ul-tx-power-in-use>
+            <max-ul-tx-power-in-use>37</max-ul-tx-power-in-use>
             <pcpich-power>36</pcpich-power>
             <pcpich-power-in-use>343</pcpich-power-in-use>
             <power-offset-pilot-dpdch>6</power-offset-pilot-dpdch>
@@ -2659,12 +2659,12 @@
         </umts-rab>
       </umts>
       <lte>
-        <tunnel-number-of-entries>>1</tunnel-number-of-entries>
+        <tunnel-number-of-entries>1</tunnel-number-of-entries>
         <lte-tunnel>
           <tunnel-ref>ref</tunnel-ref>
           <enable>true</enable>
           <alias>alias</alias>
-          <plmnid>7</plmnid>
+          <plmnid>plmnid</plmnid>
         </lte-tunnel>
         <lte-epc>
           <allowed-ciphering-algorithm-list>eea0</allowed-ciphering-algorithm-list>
@@ -2676,11 +2676,11 @@
           <max-qo-s-entries>33</max-qo-s-entries>
           <qo-s-number-of-entries>55</qo-s-number-of-entries>
           <lte-epc-plmn-list>
-            <plmnid>>plmnid</plmnid>
+            <plmnid>plmnid</plmnid>
             <enable>true</enable>
-            <alias>>alias</alias>
+            <alias>alias</alias>
             <is-primary>true</is-primary>
-            <cell-reserved-for-operator-use>cell</cell-reserved-for-operator-use>
+            <cell-reserved-for-operator-use>true</cell-reserved-for-operator-use>
           </lte-epc-plmn-list>
           <lte-epc-qo-s>
             <qci>15</qci>
@@ -2705,7 +2705,7 @@
           <lte-ran-rf>
             <earfcndl>1</earfcndl>
             <earfcnul>1</earfcnul>
-            <freq-band-indicator/>
+            <freq-band-indicator>21</freq-band-indicator>
             <dl-bandwidth>6</dl-bandwidth>
             <ul-bandwidth>6</ul-bandwidth>
             <reference-signal-power>signal</reference-signal-power>
@@ -2729,7 +2729,7 @@
               <ack-nack-srs-simultaneous-transmission>true</ack-nack-srs-simultaneous-transmission>
             </lte-ran-phy-srs>
             <lte-ran-phy-prach>
-              <root-sequence-index>7</root-sequence-index>
+              <root-sequence-index>rootsequence</root-sequence-index>
               <configuration-index>indez</configuration-index>
               <high-speed-flag>true</high-speed-flag>
               <zero-correlation-zone-config>zerocorrelation</zero-correlation-zone-config>
@@ -2772,7 +2772,7 @@
               <sf-config-list-number-of-entries>4</sf-config-list-number-of-entries>
               <lte-ran-phy-mbsfn-sf-config-list>
                 <radio-frame-allocation-period>1</radio-frame-allocation-period>
-                <radioframe-allocation-offset>7</radioframe-allocation-offset>
+                <radioframe-allocation-offset>6</radioframe-allocation-offset>
                 <radio-frame-allocation-size>1</radio-frame-allocation-size>
                 <enable>true</enable>
                 <alias>alias</alias>
@@ -2804,7 +2804,7 @@
               <max-harq-msg3-tx>maxharq</max-harq-msg3-tx>
             </lte-ran-mac-rach>
             <lte-ran-mac-drx>
-              <drx-enabled/>
+              <drx-enabled>true</drx-enabled>
               <on-duration-timer>6</on-duration-timer>
               <drx-inactivity-timer>srx</drx-inactivity-timer>
               <drx-retransmission-timer>1</drx-retransmission-timer>
@@ -2822,7 +2822,7 @@
           </lte-ran-mac>
           <lte-ran-rlc>
             <lte-ran-rlc-srb1>
-              <default-configuration/>
+              <default-configuration>true</default-configuration>
               <t-poll-retransmit>tpoll</t-poll-retransmit>
               <poll-pdu>0</poll-pdu>
               <poll-byte>0</poll-byte>
@@ -2831,11 +2831,11 @@
               <t-status-prohibit>tstatusprohibit</t-status-prohibit>
             </lte-ran-rlc-srb1>
             <lte-ran-rlc-srb2>
-              <default-configuration/>
+              <default-configuration>true</default-configuration>
               <t-poll-retransmit>retrasmit</t-poll-retransmit>
               <poll-pdu>0</poll-pdu>
               <poll-byte>0</poll-byte>
-              <max-retx-threshold>7</max-retx-threshold>
+              <max-retx-threshold>6</max-retx-threshold>
               <t-reordering>reording</t-reordering>
               <t-status-prohibit>67</t-status-prohibit>
             </lte-ran-rlc-srb2>
@@ -2920,10 +2920,10 @@
                 </lte-ran-mobility-idle-mode-irat-utra>
                 <lte-ran-mobility-idle-mode-irat-geran>
                   <t-reselection-geran>treselectiongeran</t-reselection-geran>
-                  <t-reselection-geransf-medium>15</t-reselection-geransf-medium>
+                  <t-reselection-geransf-medium>25</t-reselection-geransf-medium>
                   <t-reselection-geransf-high>25</t-reselection-geransf-high>
                   <max-geran-freq-group-entries>25</max-geran-freq-group-entries>
-                  <geran-freq-group-number-of-entries>25</geran-freq-group-number-of-entries>>
+                  <geran-freq-group-number-of-entries>25</geran-freq-group-number-of-entries>
                   <lte-ran-mobility-idle-mode-irat-geran-geran-freq-group>
                     <bccharfcn>67</bccharfcn>
                     <enable>true</enable>
@@ -2971,7 +2971,7 @@
                 <a5-threshold2-rsrq>5</a5-threshold2-rsrq>
                 <hysteresis>hysteresis</hysteresis>
                 <time-to-trigger>0</time-to-trigger>
-                <trigger-quantity>rsrpz</trigger-quantity>
+                <trigger-quantity>rsrp</trigger-quantity>
                 <report-quantity>same-as-trigger-quantity</report-quantity>
                 <max-report-cells>5</max-report-cells>
                 <report-interval>120</report-interval>
@@ -2991,7 +2991,7 @@
                 <b1-threshold-cdma2000>6</b1-threshold-cdma2000>
                 <b2-threshold2-utrarscp>6</b2-threshold2-utrarscp>
                 <b2-threshold2-utra-ec-n0>6</b2-threshold2-utra-ec-n0>
-                <b2-threshold2-geran>6</b2-threshold2-geran>>
+                <b2-threshold2-geran>6</b2-threshold2-geran>
                 <b2-threshold2-cdma2000>6</b2-threshold2-cdma2000>
                 <hysteresis>hysteresis</hysteresis>
                 <time-to-trigger>40</time-to-trigger>
@@ -3104,7 +3104,7 @@
               </lte-ran-neighbor-list-in-use-inter-rat-cell-gsm>
               <lte-ran-neighbor-list-in-use-inter-rat-cell-cdma2000>
                 <cid>4</cid>
-                <band-class>44</band-class>
+                <band-class>15</band-class>
                 <arfcn>234</arfcn>
                 <pn-offset>122</pn-offset>
                 <type>1x-rtt</type>
@@ -3125,7 +3125,7 @@
             <one-xpzid>90</one-xpzid>
             <base-id>34</base-id>
             <max-neighbor-list-entries>89</max-neighbor-list-entries>
-            <neighbor-list-number-of-entries/>
+            <neighbor-list-number-of-entries>32</neighbor-list-number-of-entries>
             <cdma2000-one-x-ran-rf>
               <rfcnfl>rfcnfl</rfcnfl>
               <rfcnfl-band-in-use>15</rfcnfl-band-in-use>
@@ -3141,7 +3141,7 @@
             <cdma2000-one-x-ran-network-listen-mode-config>
               <rfcnfl-margin>78</rfcnfl-margin>
               <fap-coverage-target>target</fap-coverage-target>
-              <fap-beacon-coverage-target>123</fap-beacon-coverage-target>>
+              <fap-beacon-coverage-target>123</fap-beacon-coverage-target>
               <max-coverage-edge-pilot-strength>7</max-coverage-edge-pilot-strength>
               <max-allowable-pilot-strength-degradation>90</max-allowable-pilot-strength-degradation>
               <rfcnfl-to-protect>79</rfcnfl-to-protect>
@@ -3910,7 +3910,7 @@
             <plmn-list-number-of-entries/>
             <rem-lte-cell-bcch-plmn-list>
               <plmnid>plmnid</plmnid>
-              <cell-reserved-for-operator-use/>
+              <cell-reserved-for-operator-use>true</cell-reserved-for-operator-use>
             </rem-lte-cell-bcch-plmn-list>
           </rem-lte-cell-bcch>
         </rem-lte-cell>
