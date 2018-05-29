@@ -3242,176 +3242,176 @@
               <rvs-pwr-ctrl-delay>1</rvs-pwr-ctrl-delay>
             </cdma2000-one-x-ran-extended-system-parameters>
             <cdma2000-one-x-ran-forward-pwr-ctr>
-              <fpcfch-init-setpt/>
-              <fpc-subchan-gain/>
-              <rl-gain-adj/>
-              <fpcfchfer/>
-              <fpcfch-min-setpt/>
-              <fpcfch-max-setpt/>
+              <fpcfch-init-setpt>91</fpcfch-init-setpt>
+              <fpc-subchan-gain>92</fpc-subchan-gain>
+              <rl-gain-adj>93</rl-gain-adj>
+              <fpcfchfer>30</fpcfchfer>
+              <fpcfch-min-setpt>55</fpcfch-min-setpt>
+              <fpcfch-max-setpt>345</fpcfch-max-setpt>
             </cdma2000-one-x-ran-forward-pwr-ctr>
             <cdma2000-one-x-ran-hard-handoff>
-              <handout-enable/>
-              <ho-pilot-power-thresh/>
-              <ho-pilot-duration/>
+              <handout-enable>true</handout-enable>
+              <ho-pilot-power-thresh>52</ho-pilot-power-thresh>
+              <ho-pilot-duration>49</ho-pilot-duration>
               <cdma2000-one-x-ran-hard-handoff-stats>
-                <tx-ho-required/>
-                <rx-ho-command/>
-                <ho-required-rejected/>
-                <ho-required-unanswered/>
-                <tx-uhdm/>
-                <rx-ns-ack/>
-                <ho-failure-count/>
-                <call-drop-count/>
-                <tx-ho-commence/>
-                <rx-ho-session-clear/>
-                <return-on-failure-count/>
-                <one-pilot-report-count/>
-                <two-pilot-report-count/>
-                <three-pilot-report-count/>
+                <tx-ho-required>67547635</tx-ho-required>
+                <rx-ho-command>463767</rx-ho-command>
+                <ho-required-rejected>43567347</ho-required-rejected>
+                <ho-required-unanswered>13445</ho-required-unanswered>
+                <tx-uhdm>46470</tx-uhdm>
+                <rx-ns-ack>63534</rx-ns-ack>
+                <ho-failure-count>232758</ho-failure-count>
+                <call-drop-count>436543765</call-drop-count>
+                <tx-ho-commence>234</tx-ho-commence>
+                <rx-ho-session-clear>4545</rx-ho-session-clear>
+                <return-on-failure-count>46464</return-on-failure-count>
+                <one-pilot-report-count>4545</one-pilot-report-count>
+                <two-pilot-report-count>1234455</two-pilot-report-count>
+                <three-pilot-report-count>3435</three-pilot-report-count>
               </cdma2000-one-x-ran-hard-handoff-stats>
             </cdma2000-one-x-ran-hard-handoff>
             <cdma2000-one-x-ran-power-control>
-              <one-xpcfpc-incl/>
-              <one-xpcfpcfch-min-setpt/>
-              <one-xpcfpcfch-max-setpt/>
-              <one-xpcrpc-incl/>
-              <one-xpcfch-chan-adj-gain/>
-              <one-xpc-pwr-rep-thresh/>
-              <one-xpc-pwr-rep-frames/>
-              <one-x-pwr-thresh-enable/>
-              <one-xpc-pwr-period-enable/>
-              <one-xpc-pwr-rep-delay/>
+              <one-xpcfpc-incl>3565</one-xpcfpc-incl>
+              <one-xpcfpcfch-min-setpt>4545</one-xpcfpcfch-min-setpt>
+              <one-xpcfpcfch-max-setpt>2535</one-xpcfpcfch-max-setpt>
+              <one-xpcrpc-incl>635</one-xpcrpc-incl>
+              <one-xpcfch-chan-adj-gain>2345</one-xpcfch-chan-adj-gain>
+              <one-xpc-pwr-rep-thresh>2</one-xpc-pwr-rep-thresh>
+              <one-xpc-pwr-rep-frames>14</one-xpc-pwr-rep-frames>
+              <one-x-pwr-thresh-enable>345</one-x-pwr-thresh-enable>
+              <one-xpc-pwr-period-enable>333</one-xpc-pwr-period-enable>
+              <one-xpc-pwr-rep-delay>30</one-xpc-pwr-rep-delay>
             </cdma2000-one-x-ran-power-control>
             <cdma2000-one-x-ran-neighbor-list>
-              <one-x-neighbor-index/>
-              <neighbor-pn/>
-              <enable/>
-              <alias/>
-              <pilot-inc/>
-              <neighbor-config/>
-              <search-priority/>
-              <neighbor-band/>
-              <neighbor-frequency/>
-              <frequency-included/>
-              <in-traffic/>
-              <overhead-msg/>
-              <base-identifier/>
-              <air-interface/>
-              <hand-out-capable/>
-              <one-x-neighbor-longitude/>
-              <one-x-neighbor-latitude/>
-              <one-x-neighbor-msc-id/>
-              <one-x-neighbor-ios-cell-id/>
-              <force-in-overhead/>
-              <included-in-overhead/>
+              <one-x-neighbor-index>46464</one-x-neighbor-index>
+              <neighbor-pn>345</neighbor-pn>
+              <enable>true</enable>
+              <alias>alias</alias>
+              <pilot-inc>34656</pilot-inc>
+              <neighbor-config>same-config</neighbor-config>
+              <search-priority>low</search-priority>>
+              <neighbor-band>1</neighbor-band>
+              <neighbor-frequency>12244</neighbor-frequency>
+              <frequency-included>45564</frequency-included>
+              <in-traffic>2344</in-traffic>
+              <overhead-msg>456</overhead-msg>
+              <base-identifier>23</base-identifier>
+              <air-interface>one-x</air-interface>
+              <hand-out-capable>2356</hand-out-capable>
+              <one-x-neighbor-longitude>5</one-x-neighbor-longitude>
+              <one-x-neighbor-latitude>5</one-x-neighbor-latitude>
+              <one-x-neighbor-msc-id>16777215</one-x-neighbor-msc-id>
+              <one-x-neighbor-ios-cell-id>65535</one-x-neighbor-ios-cell-id>
+              <force-in-overhead>false</force-in-overhead>
+              <included-in-overhead>false</included-in-overhead>
             </cdma2000-one-x-ran-neighbor-list>
             <cdma2000-one-x-ran-apidm>
-              <association-type/>
-              <apidlen/>
-              <apid/>
-              <apidmask/>
-              <iosmscid/>
-              <ioscellid/>
-              <intrafreqhohysincl/>
-              <intrafreqhohys/>
-              <intrafreqhoslopeincl/>
-              <intrafreqhoslope/>
-              <interfreqhohysincl/>
-              <interfreqhohys/>
-              <interfreqhoslopeincl/>
-              <interfreqhoslope/>
-              <interfreqsrchthincl/>
-              <interfreqsrchth/>
+              <association-type>5</association-type>
+              <apidlen>14</apidlen>
+              <apid>14</apid>
+              <apidmask>244</apidmask>
+              <iosmscid>12345</iosmscid>
+              <ioscellid>129</ioscellid>
+              <intrafreqhohysincl>true</intrafreqhohysincl>
+              <intrafreqhohys>126</intrafreqhohys>
+              <intrafreqhoslopeincl>true</intrafreqhoslopeincl>
+              <intrafreqhoslope>61</intrafreqhoslope>
+              <interfreqhohysincl>true</interfreqhohysincl>
+              <interfreqhohys>127</interfreqhohys>
+              <interfreqhoslopeincl>true</interfreqhoslopeincl>
+              <interfreqhoslope>62</interfreqhoslope>
+              <interfreqsrchthincl>true</interfreqsrchthincl>
+              <interfreqsrchth>31</interfreqsrchth>
             </cdma2000-one-x-ran-apidm>
             <cdma2000-one-x-ran-apidtm>
-              <apidtextcha-ri-len/>
-              <apidtextmsgencoding/>
-              <apidtextcha-ri/>
+              <apidtextcha-ri-len>255</apidtextcha-ri-len>
+              <apidtextmsgencoding>30</apidtextmsgencoding>
+              <apidtextcha-ri>34</apidtextcha-ri>
             </cdma2000-one-x-ran-apidtm>
             <cdma2000-one-x-ran-appim>
-              <lifetime/>
-              <numappirec/>
-              <appirec-number-of-entries/>
+              <lifetime>255</lifetime>
+              <numappirec>511</numappirec>
+              <appirec-number-of-entries>23</appirec-number-of-entries>
               <cdma2000-one-x-ran-appim-appirec>
-                <apsid/>
-                <apnid/>
-                <apband/>
-                <apfreq/>
-                <appnrectype/>
-                <appnreclen/>
-                <appnrec/>
-                <enable/>
-                <alias/>
-                <apassntype/>
-                <apsidsameasprevious/>
-                <apnidsameasprevious/>
-                <apbandsameasprevious/>
-                <apfreqsameasprevious/>
-                <appnrecsameasprevious/>
+                <apsid>23445</apsid>
+                <apnid>6759</apnid>
+                <apband>31</apband>
+                <apfreq>47</apfreq>
+                <appnrectype>6</appnrectype>
+                <appnreclen>30</appnreclen>
+                <appnrec>30</appnrec>
+                <enable>true</enable>
+                <alias>alias</alias>
+                <apassntype>7</apassntype>
+                <apsidsameasprevious>1</apsidsameasprevious>
+                <apnidsameasprevious>1</apnidsameasprevious>
+                <apbandsameasprevious>1</apbandsameasprevious>
+                <apfreqsameasprevious>1</apfreqsameasprevious>
+                <appnrecsameasprevious>1</appnrecsameasprevious>
               </cdma2000-one-x-ran-appim-appirec>
             </cdma2000-one-x-ran-appim>
           </cdma2000-one-x-ran>
           <cdma2000-one-x-pcf-config>
-            <pcfpdsn-health-monitor-interval/>
+            <pcfpdsn-health-monitor-interval>180</pcfpdsn-health-monitor-interval>
             <cdma2000-one-x-pcf-config-pcf-performance-stats>
-              <a10-setup-failure-no-reason/>
-              <a10-setup-failure-admin-prohibit/>
-              <a10-setup-failure-insuff-resources/>
-              <a10-setup-failure-failed-auth/>
-              <a10-setup-failure-id-mismatch/>
-              <a10-setup-failure-malformed-req/>
-              <a10-setup-failure-unknown-pdsn/>
-              <a10-setup-failure-unsupp-vend-id/>
-              <total-a10-closed-by-rnc/>
-              <total-a10-closed-by-pdsn/>
-              <total-a10-success-pages/>
-              <total-a10-failed-pages/>
-              <total-a10-ingress-bytes/>
-              <total-a10-egress-bytes/>
-              <a10-reg-update-received/>
-              <total-a10-dropped-pages/>
+              <a10-setup-failure-no-reason>5678</a10-setup-failure-no-reason>
+              <a10-setup-failure-admin-prohibit>55</a10-setup-failure-admin-prohibit>
+              <a10-setup-failure-insuff-resources>999</a10-setup-failure-insuff-resources>
+              <a10-setup-failure-failed-auth>34545</a10-setup-failure-failed-auth>
+              <a10-setup-failure-id-mismatch>355</a10-setup-failure-id-mismatch>>
+              <a10-setup-failure-malformed-req>999</a10-setup-failure-malformed-req>
+              <a10-setup-failure-unknown-pdsn>746378</a10-setup-failure-unknown-pdsn>
+              <a10-setup-failure-unsupp-vend-id>1275</a10-setup-failure-unsupp-vend-id>
+              <total-a10-closed-by-rnc>435</total-a10-closed-by-rnc>
+              <total-a10-closed-by-pdsn>11</total-a10-closed-by-pdsn>
+              <total-a10-success-pages>456</total-a10-success-pages>
+              <total-a10-failed-pages>4563</total-a10-failed-pages>
+              <total-a10-ingress-bytes>45645</total-a10-ingress-bytes>
+              <total-a10-egress-bytes>3409</total-a10-egress-bytes>
+              <a10-reg-update-received>447</a10-reg-update-received>
+              <total-a10-dropped-pages>46736</total-a10-dropped-pages>
             </cdma2000-one-x-pcf-config-pcf-performance-stats>
           </cdma2000-one-x-pcf-config>
           <cdma2000-one-x-batch-pcfpdsn>
-            <batch-table-number/>
-            <enable/>
-            <alias/>
-            <batch-table-start-ip-address/>
-            <batch-table-end-ip-address/>
-            <batch-table-security-parameter-index/>
-            <batch-table-secret-key/>
-            <batch-table-ios-version/>
-            <batch-table-pdsn-admin-status/>
-            <pdsn-type/>
+            <batch-table-number>4646</batch-table-number>
+            <enable>true</enable>
+            <alias>alias</alias>
+            <batch-table-start-ip-address>127.0.0.1</batch-table-start-ip-address>
+            <batch-table-end-ip-address>127.0.0.1</batch-table-end-ip-address>
+            <batch-table-security-parameter-index>256</batch-table-security-parameter-index>
+            <batch-table-secret-key>14</batch-table-secret-key>
+            <batch-table-ios-version>tia-878-ballot</batch-table-ios-version>
+            <batch-table-pdsn-admin-status>234</batch-table-pdsn-admin-status>
+            <pdsn-type>one-x</pdsn-type>
           </cdma2000-one-x-batch-pcfpdsn>
           <cdma2000-one-x-pcfpdsn>
-            <pdsn-number/>
-            <security-parameter-index/>
-            <security-key/>
-            <enable/>
-            <alias/>
-            <ios-version/>
-            <pds-nadmin-status/>
-            <pdsn-health-status/>
-            <pdsnip-address/>
+            <pdsn-number>324</pdsn-number>
+            <security-parameter-index>256</security-parameter-index>
+            <security-key>15</security-key>
+            <enable>true</enable>
+            <alias>alias</alias>
+            <ios-version>tia-878-ballot</ios-version>
+            <pds-nadmin-status>356</pds-nadmin-status>
+            <pdsn-health-status>1</pdsn-health-status>
+            <pdsnip-address>127.0.0.1</pdsnip-address>
             <cdma2000-one-x-pcfpdsn-a11-reg-update-stats>
-              <pdsn-number-reg-update-perf/>
-              <pdsnip-address-reg-update-perf/>
-              <a11-reg-update-received-pdsn/>
-              <a11-reg-update-id-check-fail-pdsn/>
-              <a11-reg-update-auth-check-fail-pdsn/>
-              <a11-reg-update-for-unknown-psipdsn/>
-              <a11-reg-update-unspecified-reason-pdsn/>
-              <a11-reg-update-ppp-timeout-pdsn/>
-              <a11-reg-update-registration-timeout-pdsn/>
-              <a11-reg-update-pdsn-error-pdsn/>
-              <a11-reg-update-inter-pcf-handoff-pdsn/>
-              <a11-reg-update-inter-pdsn-handoff-pdsn/>
-              <a11-reg-update-pdsnoamp-intervention-pdsn/>
-              <a11-reg-update-accounting-error-pdsn/>
-              <a11-reg-update-user-failed-authentication-pdsn/>
-              <a11-reg-update-unknown-cause-code-pdsn/>
-              <a11-reg-update-without-reason-code-pdsn/>
+              <pdsn-number-reg-update-perf>436</pdsn-number-reg-update-perf>
+              <pdsnip-address-reg-update-perf>127.0.0.1</pdsnip-address-reg-update-perf>
+              <a11-reg-update-received-pdsn>1234</a11-reg-update-received-pdsn>
+              <a11-reg-update-id-check-fail-pdsn>4376</a11-reg-update-id-check-fail-pdsn>
+              <a11-reg-update-auth-check-fail-pdsn>4346</a11-reg-update-auth-check-fail-pdsn>
+              <a11-reg-update-for-unknown-psipdsn>364</a11-reg-update-for-unknown-psipdsn>
+              <a11-reg-update-unspecified-reason-pdsn>344</a11-reg-update-unspecified-reason-pdsn>
+              <a11-reg-update-ppp-timeout-pdsn>434</a11-reg-update-ppp-timeout-pdsn>
+              <a11-reg-update-registration-timeout-pdsn>4535</a11-reg-update-registration-timeout-pdsn>
+              <a11-reg-update-pdsn-error-pdsn>4535</a11-reg-update-pdsn-error-pdsn>
+              <a11-reg-update-inter-pcf-handoff-pdsn>3445</a11-reg-update-inter-pcf-handoff-pdsn>
+              <a11-reg-update-inter-pdsn-handoff-pdsn>3456</a11-reg-update-inter-pdsn-handoff-pdsn>
+              <a11-reg-update-pdsnoamp-intervention-pdsn>345</a11-reg-update-pdsnoamp-intervention-pdsn>
+              <a11-reg-update-accounting-error-pdsn>787</a11-reg-update-accounting-error-pdsn>
+              <a11-reg-update-user-failed-authentication-pdsn>675</a11-reg-update-user-failed-authentication-pdsn>
+              <a11-reg-update-unknown-cause-code-pdsn>545</a11-reg-update-unknown-cause-code-pdsn>
+              <a11-reg-update-without-reason-code-pdsn>8976</a11-reg-update-without-reason-code-pdsn>
             </cdma2000-one-x-pcfpdsn-a11-reg-update-stats>
             <cdma2000-one-x-pcfpdsn-pcfpdsn-stats>
               <a10-setup-attempts-pdsn/>
