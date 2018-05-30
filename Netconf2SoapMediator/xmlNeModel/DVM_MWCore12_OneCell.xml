@@ -3414,360 +3414,352 @@
               <a11-reg-update-without-reason-code-pdsn>8976</a11-reg-update-without-reason-code-pdsn>
             </cdma2000-one-x-pcfpdsn-a11-reg-update-stats>
             <cdma2000-one-x-pcfpdsn-pcfpdsn-stats>
-              <a10-setup-attempts-pdsn/>
-              <a10-setup-successes-pdsn/>
-              <a10-setup-blocks-pdsn/>
-              <a11-reg-req-denied-id-mismatch-pdsn/>
-              <a11-reg-req-denied-unknown-pdsnpdsn/>
-              <a11-reg-req-denied-no-reason-pdsn/>
-              <a11-reg-req-denied-admin-prohibit-pdsn/>
-              <a11-reg-req-denied-insuff-resources-pdsn/>
-              <a11-reg-req-denied-failed-auth-pdsn/>
-              <a11-reg-req-denied-malformed-req-pdsn/>
-              <a11-reg-req-denied-unsupp-vend-id-pdsn/>
-              <a11-reg-req-denied-reverse-tunnel-unavailable-pdsn/>
-              <a11-reg-req-denied-reverse-tunnel-tbit-not-set-pdsn/>
-              <a11-reg-req-denied-unknown-error-code-pdsn/>
-              <a10-reg-req-for-registration-retransmissions-pdsn/>
-              <a10-reg-req-for-re-registration-retransmissions-pdsn/>
-              <a10-reg-req-for-release-retransmissions-pdsn/>
-              <pdsn-number-pdsn-perf/>
-              <pds-nip-address-pdsn-perf/>
+              <a10-setup-attempts-pdsn>4536</a10-setup-attempts-pdsn>
+              <a10-setup-successes-pdsn>45636</a10-setup-successes-pdsn>
+              <a10-setup-blocks-pdsn>56543</a10-setup-blocks-pdsn>
+              <a11-reg-req-denied-id-mismatch-pdsn>43454</a11-reg-req-denied-id-mismatch-pdsn>
+              <a11-reg-req-denied-unknown-pdsnpdsn>2</a11-reg-req-denied-unknown-pdsnpdsn>
+              <a11-reg-req-denied-no-reason-pdsn>236</a11-reg-req-denied-no-reason-pdsn>
+              <a11-reg-req-denied-admin-prohibit-pdsn>5746</a11-reg-req-denied-admin-prohibit-pdsn>
+              <a11-reg-req-denied-insuff-resources-pdsn>465</a11-reg-req-denied-insuff-resources-pdsn>
+              <a11-reg-req-denied-failed-auth-pdsn>347389</a11-reg-req-denied-failed-auth-pdsn>
+              <a11-reg-req-denied-malformed-req-pdsn>1234454</a11-reg-req-denied-malformed-req-pdsn>
+              <a11-reg-req-denied-unsupp-vend-id-pdsn>567846</a11-reg-req-denied-unsupp-vend-id-pdsn>
+              <a11-reg-req-denied-reverse-tunnel-unavailable-pdsn>35623</a11-reg-req-denied-reverse-tunnel-unavailable-pdsn>
+              <a11-reg-req-denied-reverse-tunnel-tbit-not-set-pdsn>45765</a11-reg-req-denied-reverse-tunnel-tbit-not-set-pdsn>
+              <a11-reg-req-denied-unknown-error-code-pdsn>457</a11-reg-req-denied-unknown-error-code-pdsn>
+              <a10-reg-req-for-registration-retransmissions-pdsn>5498987</a10-reg-req-for-registration-retransmissions-pdsn>>
+              <a10-reg-req-for-re-registration-retransmissions-pdsn>48594</a10-reg-req-for-re-registration-retransmissions-pdsn>
+              <a10-reg-req-for-release-retransmissions-pdsn>4875</a10-reg-req-for-release-retransmissions-pdsn>
+              <pdsn-number-pdsn-perf>354989</pdsn-number-pdsn-perf>
+              <pds-nip-address-pdsn-perf>127.0.0.1</pds-nip-address-pdsn-perf>
             </cdma2000-one-x-pcfpdsn-pcfpdsn-stats>
           </cdma2000-one-x-pcfpdsn>
           <cdma2000-one-x-stats>
-            <registration-attempts/>
-            <registration-fails/>
-            <registrations-blocked/>
-            <page-attempts/>
-            <page-fails/>
-            <voice-call-attempts/>
-            <voice-call-failures/>
-            <voice-calls-blocked/>
-            <voice-calls-dropped/>
-            <data-call-attempts/>
-            <data-call-failures/>
-            <data-calls-blocked/>
-            <data-calls-dropped/>
-            <average-voice-call/>
-            <average-data-call/>
-            <average-session-in-sec/>
-            <total-voice-calls/>
-            <total-data-calls/>
-            <fwd-voice-packet-drop-percentage/>
-            <rev-voice-packet-drop-percentage/>
-            <fwd-avg-data-rate/>
-            <rev-avg-data-rate/>
-            <bc-index-zero-to-one-transitions/>
-            <bc-index-one-to-zero-transitions/>
+            <registration-attempts>567</registration-attempts>
+            <registration-fails>0</registration-fails>
+            <registrations-blocked>0</registrations-blocked>
+            <page-attempts>0</page-attempts>
+            <page-fails>0</page-fails>
+            <voice-call-attempts>0</voice-call-attempts>
+            <voice-call-failures>0</voice-call-failures>
+            <voice-calls-blocked>0</voice-calls-blocked>
+            <voice-calls-dropped>0</voice-calls-dropped>
+            <data-call-attempts>0</data-call-attempts>
+            <data-call-failures>0</data-call-failures>
+            <data-calls-blocked>0</data-calls-blocked>
+            <data-calls-dropped>0</data-calls-dropped>
+            <average-voice-call>0</average-voice-call>
+            <average-data-call>0</average-data-call>
+            <average-session-in-sec>0</average-session-in-sec>
+            <total-voice-calls>0</total-voice-calls>
+            <total-data-calls>0</total-data-calls>
+            <fwd-voice-packet-drop-percentage>0</fwd-voice-packet-drop-percentage>
+            <rev-voice-packet-drop-percentage>0</rev-voice-packet-drop-percentage>
+            <fwd-avg-data-rate>0</fwd-avg-data-rate>
+            <rev-avg-data-rate>0</rev-avg-data-rate>
+            <bc-index-zero-to-one-transitions>0</bc-index-zero-to-one-transitions>
+            <bc-index-one-to-zero-transitions>0</bc-index-one-to-zero-transitions>
           </cdma2000-one-x-stats>
           <cdma2000-one-x-redirect>
-            <redirect-channel-number/>
-            <redirect-band-class/>
+            <redirect-channel-number>0</redirect-channel-number>
+            <redirect-band-class>0</redirect-band-class>
           </cdma2000-one-x-redirect>
         </cdma2000-one-x>
         <cdma2000-hrpd>
-          <pcfpdsn-number-of-entries/>
-          <max-batch-pcfpdsn-entries/>
-          <batch-pcfpdsn-number-of-entries/>
+          <pcfpdsn-number-of-entries>0</pcfpdsn-number-of-entries>
+          <max-batch-pcfpdsn-entries>0</max-batch-pcfpdsn-entries>
+          <batch-pcfpdsn-number-of-entries>0</batch-pcfpdsn-number-of-entries>
           <cdma2000-hrpd-ran>
             <cdma2000-hrpd-ran-rf>
-              <hrpd-car-band-class/>
-              <rfcnfl>
-                <!-- # entries: 1.. -->
-              </rfcnfl>
-              <rfcnfl-in-use/>
-              <pilot-pn>
-                <!-- # entries: 0.. -->
-              </pilot-pn>
-              <pilot-pn-in-use/>
-              <maxfap-tx-power/>
-              <maxfap-tx-power-in-use/>
-              <control-channel-rate/>
-              <sync-capsule-offset/>
-              <rab-length/>
-              <rab-offset/>
-              <sector-id/>
-              <color-code/>
-              <subnet-mask-length/>
-              <hrpd-sec-el-reverse-link-silence-duration/>
-              <hrpd-sec-el-reverse-link-silence-period/>
-              <open-loop-adjust/>
-              <probe-initial-adjust/>
-              <probe-num-steps/>
-              <probe-power-step/>
-              <a-persistence/>
-              <rssirab-threshold/>
-              <load-rab-threshold/>
-              <connection-rate-limit/>
-              <rfe-rl-balance-ratio/>
+              <hrpd-car-band-class>1</hrpd-car-band-class>
+              <rfcnfl>rfcnfl</rfcnfl>
+              <rfcnfl-in-use>0</rfcnfl-in-use>
+              <pilot-pn>0</pilot-pn>
+              <pilot-pn-in-use>0</pilot-pn-in-use>
+              <maxfap-tx-power>0</maxfap-tx-power>
+              <maxfap-tx-power-in-use>0</maxfap-tx-power-in-use>
+              <control-channel-rate>0</control-channel-rate>
+              <sync-capsule-offset>0</sync-capsule-offset>
+              <rab-length>0</rab-length>
+              <rab-offset>0</rab-offset>
+              <!-- <sector-id>mZ7gLei4/uu2r70n</sector-id> -->
+              <color-code>636</color-code>
+              <subnet-mask-length>89</subnet-mask-length>
+              <hrpd-sec-el-reverse-link-silence-duration>0</hrpd-sec-el-reverse-link-silence-duration>
+              <hrpd-sec-el-reverse-link-silence-period>0</hrpd-sec-el-reverse-link-silence-period>
+              <open-loop-adjust>0</open-loop-adjust>
+              <probe-initial-adjust>0</probe-initial-adjust>
+              <probe-num-steps>0</probe-num-steps>
+              <probe-power-step>0</probe-power-step>
+              <a-persistence>apersistence</a-persistence>
+              <rssirab-threshold>0</rssirab-threshold>
+              <load-rab-threshold>0</load-rab-threshold>
+              <connection-rate-limit>0</connection-rate-limit>
+              <rfe-rl-balance-ratio>1</rfe-rl-balance-ratio>
             </cdma2000-hrpd-ran-rf>
           </cdma2000-hrpd-ran>
           <cdma2000-hrpd-pcf-config>
-            <pcfpdsn-health-monitor-interval/>
+            <pcfpdsn-health-monitor-interval>0</pcfpdsn-health-monitor-interval>
             <cdma2000-hrpd-pcf-config-pcf-performance-stats>
-              <a10-setup-failure-no-reason/>
-              <a10-setup-failure-admin-prohibit/>
-              <a10-setup-failure-insuff-resources/>
-              <a10-setup-failure-failed-auth/>
-              <a10-setup-failure-id-mismatch/>
-              <a10-setup-failure-malformed-req/>
-              <a10-setup-failure-unknown-pdsn/>
-              <a10-setup-failure-unsupp-vend-id/>
-              <total-a10-closed-by-rnc/>
-              <total-a10-closed-by-pdsn/>
-              <total-a10-success-pages/>
-              <total-a10-failed-pages/>
-              <total-a10-ingress-bytes/>
-              <total-a10-egress-bytes/>
-              <a10-reg-update-received/>
-              <total-a10-dropped-pages/>
+              <a10-setup-failure-no-reason>0</a10-setup-failure-no-reason>
+              <a10-setup-failure-admin-prohibit>0</a10-setup-failure-admin-prohibit>
+              <a10-setup-failure-insuff-resources>0</a10-setup-failure-insuff-resources>
+              <a10-setup-failure-failed-auth>0</a10-setup-failure-failed-auth>
+              <a10-setup-failure-id-mismatch>0</a10-setup-failure-id-mismatch>
+              <a10-setup-failure-malformed-req>0</a10-setup-failure-malformed-req>
+              <a10-setup-failure-unknown-pdsn>0</a10-setup-failure-unknown-pdsn>
+              <a10-setup-failure-unsupp-vend-id>0</a10-setup-failure-unsupp-vend-id>
+              <total-a10-closed-by-rnc>0</total-a10-closed-by-rnc>
+              <total-a10-closed-by-pdsn>0</total-a10-closed-by-pdsn>
+              <total-a10-success-pages>0</total-a10-success-pages>
+              <total-a10-failed-pages>0</total-a10-failed-pages>
+              <total-a10-ingress-bytes>0</total-a10-ingress-bytes>
+              <total-a10-egress-bytes>0</total-a10-egress-bytes>
+              <a10-reg-update-received>0</a10-reg-update-received>
+              <total-a10-dropped-pages>0</total-a10-dropped-pages>
             </cdma2000-hrpd-pcf-config-pcf-performance-stats>
           </cdma2000-hrpd-pcf-config>
           <cdma2000-hrpd-batch-pcfpdsn>
-            <batch-table-number/>
-            <batch-table-security-parameter-index/>
-            <batch-table-secret-key/>
-            <enable/>
-            <alias/>
-            <batch-table-start-ip-address/>
-            <batch-table-end-ip-address/>
-            <batch-table-ios-version/>
-            <batch-table-pdsn-admin-status/>
-            <pdsn-type/>
+            <batch-table-number>4646</batch-table-number>
+            <batch-table-security-parameter-index>0</batch-table-security-parameter-index>
+            <batch-table-secret-key>0</batch-table-secret-key>
+            <enable>true</enable>
+            <alias>alias</alias>
+            <batch-table-start-ip-address>127.0.0.1</batch-table-start-ip-address>
+            <batch-table-end-ip-address>127.0.0.1</batch-table-end-ip-address>
+            <batch-table-ios-version>tia-878-ballot</batch-table-ios-version>
+            <batch-table-pdsn-admin-status>1</batch-table-pdsn-admin-status>
+            <pdsn-type>34</pdsn-type>
           </cdma2000-hrpd-batch-pcfpdsn>
           <cdma2000-hrpd-pcfpdsn>
-            <pdsn-number/>
-            <security-parameter-index/>
-            <security-key/>
-            <enable/>
-            <alias/>
-            <ios-version/>
-            <pds-nadmin-status/>
-            <pdsn-health-status/>
-            <pdsnip-address/>
+            <pdsn-number>43</pdsn-number>
+            <security-parameter-index>256</security-parameter-index>
+            <security-key>0</security-key>
+            <enable>true</enable>
+            <alias>alias</alias>
+            <ios-version>tia-878-ballot</ios-version>
+            <pds-nadmin-status>65476</pds-nadmin-status>
+            <pdsn-health-status>1</pdsn-health-status>
+            <pdsnip-address>127.0.0.1</pdsnip-address>
             <cdma2000-hrpd-pcfpdsn-a11-session-update-stats>
-              <pdsn-number-session-update-perf/>
-              <pdsnip-address-session-update-perf/>
-              <a11-session-update-received-pdsn/>
-              <a11-session-update-accepted-pdsn/>
-              <a11-session-update-extended-apipdsn/>
-              <a11-session-update-for-unknown-psipdsn/>
-              <a11-session-update-denied-id-check-fail-pdsn/>
-              <a11-session-update-denied-auth-check-fail-pdsn/>
-              <a11-session-update-denied-reason-unspecified-pdsn/>
-              <a11-session-update-denied-poorly-formed-pdsn/>
-              <a11-session-update-denied-session-params-not-updated-pdsn/>
-              <a11-session-update-denied-qo-s-profile-id-not-supported-pdsn/>
-              <a11-session-update-denied-insufficient-resources-pdsn/>
-              <a11-session-update-denied-handoff-in-progress-pdsn/>
+              <pdsn-number-session-update-perf>454</pdsn-number-session-update-perf>
+              <pdsnip-address-session-update-perf>127.0.0.1</pdsnip-address-session-update-perf>
+              <a11-session-update-received-pdsn>3434</a11-session-update-received-pdsn>>
+              <a11-session-update-accepted-pdsn>4324</a11-session-update-accepted-pdsn>
+              <a11-session-update-extended-apipdsn>564776</a11-session-update-extended-apipdsn>
+              <a11-session-update-for-unknown-psipdsn>34764</a11-session-update-for-unknown-psipdsn>
+              <a11-session-update-denied-id-check-fail-pdsn>8547</a11-session-update-denied-id-check-fail-pdsn>>
+              <a11-session-update-denied-auth-check-fail-pdsn>85498</a11-session-update-denied-auth-check-fail-pdsn>
+              <a11-session-update-denied-reason-unspecified-pdsn>547</a11-session-update-denied-reason-unspecified-pdsn>
+              <a11-session-update-denied-poorly-formed-pdsn>89548</a11-session-update-denied-poorly-formed-pdsn>
+              <a11-session-update-denied-session-params-not-updated-pdsn>6756</a11-session-update-denied-session-params-not-updated-pdsn>
+              <a11-session-update-denied-qo-s-profile-id-not-supported-pdsn>58756</a11-session-update-denied-qo-s-profile-id-not-supported-pdsn>
+              <a11-session-update-denied-insufficient-resources-pdsn>478478</a11-session-update-denied-insufficient-resources-pdsn>
+              <a11-session-update-denied-handoff-in-progress-pdsn>546</a11-session-update-denied-handoff-in-progress-pdsn>
             </cdma2000-hrpd-pcfpdsn-a11-session-update-stats>
             <cdma2000-hrpd-pcfpdsn-a11-reg-update-stats>
-              <pdsn-number-reg-update-perf/>
-              <pdsnip-address-reg-update-perf/>
-              <a11-reg-update-received-pdsn/>
-              <a11-reg-update-id-check-fail-pdsn/>
-              <a11-reg-update-auth-check-fail-pdsn/>
-              <a11-reg-update-for-unknown-psipdsn/>
-              <a11-reg-update-unspecified-reason-pdsn/>
-              <a11-reg-update-ppp-timeout-pdsn/>
-              <a11-reg-update-registration-timeout-pdsn/>
-              <a11-reg-update-pdsn-error-pdsn/>
-              <a11-reg-update-inter-pcf-handoff-pdsn/>
-              <a11-reg-update-inter-pdsn-handoff-pdsn/>
-              <a11-reg-update-pdsnoamp-intervention-pdsn/>
-              <a11-reg-update-accounting-error-pdsn/>
-              <a11-reg-update-user-failed-authentication-pdsn/>
-              <a11-reg-update-unknown-cause-code-pdsn/>
-              <a11-reg-update-without-reason-code-pdsn/>
+              <pdsn-number-reg-update-perf>567</pdsn-number-reg-update-perf>
+              <pdsnip-address-reg-update-perf>127.0.0.1</pdsnip-address-reg-update-perf>
+              <a11-reg-update-received-pdsn>8574</a11-reg-update-received-pdsn>
+              <a11-reg-update-id-check-fail-pdsn>45785</a11-reg-update-id-check-fail-pdsn>>
+              <a11-reg-update-auth-check-fail-pdsn>7548</a11-reg-update-auth-check-fail-pdsn>
+              <a11-reg-update-for-unknown-psipdsn>78478</a11-reg-update-for-unknown-psipdsn>
+              <a11-reg-update-unspecified-reason-pdsn>567567</a11-reg-update-unspecified-reason-pdsn>
+              <a11-reg-update-ppp-timeout-pdsn>858</a11-reg-update-ppp-timeout-pdsn>
+              <a11-reg-update-registration-timeout-pdsn>578487</a11-reg-update-registration-timeout-pdsn>
+              <a11-reg-update-pdsn-error-pdsn>8574</a11-reg-update-pdsn-error-pdsn>
+              <a11-reg-update-inter-pcf-handoff-pdsn>8548</a11-reg-update-inter-pcf-handoff-pdsn>
+              <a11-reg-update-inter-pdsn-handoff-pdsn>8575</a11-reg-update-inter-pdsn-handoff-pdsn>
+              <a11-reg-update-pdsnoamp-intervention-pdsn>325</a11-reg-update-pdsnoamp-intervention-pdsn>>
+              <a11-reg-update-accounting-error-pdsn>75746</a11-reg-update-accounting-error-pdsn>
+              <a11-reg-update-user-failed-authentication-pdsn>5478</a11-reg-update-user-failed-authentication-pdsn>
+              <a11-reg-update-unknown-cause-code-pdsn>784575</a11-reg-update-unknown-cause-code-pdsn>
+              <a11-reg-update-without-reason-code-pdsn>584</a11-reg-update-without-reason-code-pdsn>
             </cdma2000-hrpd-pcfpdsn-a11-reg-update-stats>
             <cdma2000-hrpd-pcfpdsn-aux-a10-stats>
-              <pdsn-number-aux-a10-perf/>
-              <pdsnip-address-aux-a10-perf/>
-              <aux-a10-connections-created-in-first-reg-req-pdsn/>
-              <aux-a10-connections-created-in-subsequent-reg-req-pdsn/>
-              <aux-a10-fwd-ip-flows-created-pdsn/>
-              <aux-a10-rev-ip-flows-created-pdsn/>
-              <aux-a10-ip-flow-accounting-reg-requests-pdsn/>
+              <pdsn-number-aux-a10-perf>7575</pdsn-number-aux-a10-perf>
+              <pdsnip-address-aux-a10-perf>127.0.0.1</pdsnip-address-aux-a10-perf>
+              <aux-a10-connections-created-in-first-reg-req-pdsn>547458</aux-a10-connections-created-in-first-reg-req-pdsn>
+              <aux-a10-connections-created-in-subsequent-reg-req-pdsn>574</aux-a10-connections-created-in-subsequent-reg-req-pdsn>
+              <aux-a10-fwd-ip-flows-created-pdsn>45987</aux-a10-fwd-ip-flows-created-pdsn>
+              <aux-a10-rev-ip-flows-created-pdsn>127</aux-a10-rev-ip-flows-created-pdsn>
+              <aux-a10-ip-flow-accounting-reg-requests-pdsn>54</aux-a10-ip-flow-accounting-reg-requests-pdsn>
             </cdma2000-hrpd-pcfpdsn-aux-a10-stats>
             <cdma2000-hrpd-pcfpdsn-pcfpdsn-stats>
-              <a10-setup-attempts-pdsn/>
-              <a10-setup-successes-pdsn/>
-              <a10-setup-blocks-pdsn/>
-              <a11-reg-req-denied-id-mismatch-pdsn/>
-              <a11-reg-req-denied-unknown-pdsnpdsn/>
-              <a11-reg-req-denied-no-reason-pdsn/>
-              <a11-reg-req-denied-admin-prohibit-pdsn/>
-              <a11-reg-req-denied-insuff-resources-pdsn/>
-              <a11-reg-req-denied-failed-auth-pdsn/>
-              <a11-reg-req-denied-malformed-req-pdsn/>
-              <a11-reg-req-denied-unsupp-vend-id-pdsn/>
-              <a11-reg-req-denied-reverse-tunnel-unavailable-pdsn/>
-              <a11-reg-req-denied-reverse-tunnel-tbit-not-set-pdsn/>
-              <a11-reg-req-denied-unknown-error-code-pdsn/>
-              <a10-reg-req-for-registration-retransmissions-pdsn/>
-              <a10-reg-req-for-re-registration-retransmissions-pdsn/>
-              <a10-reg-req-for-release-retransmissions-pdsn/>
-              <pdsn-number-pdsn-perf/>
-              <pds-nip-address-pdsn-perf/>
+              <a10-setup-attempts-pdsn>567845</a10-setup-attempts-pdsn>
+              <a10-setup-successes-pdsn>75487</a10-setup-successes-pdsn>
+              <a10-setup-blocks-pdsn>2363</a10-setup-blocks-pdsn>
+              <a11-reg-req-denied-id-mismatch-pdsn>8548</a11-reg-req-denied-id-mismatch-pdsn>
+              <a11-reg-req-denied-unknown-pdsnpdsn>548</a11-reg-req-denied-unknown-pdsnpdsn>
+              <a11-reg-req-denied-no-reason-pdsn>4848</a11-reg-req-denied-no-reason-pdsn>
+              <a11-reg-req-denied-admin-prohibit-pdsn>4598</a11-reg-req-denied-admin-prohibit-pdsn>
+              <a11-reg-req-denied-insuff-resources-pdsn>54898</a11-reg-req-denied-insuff-resources-pdsn>
+              <a11-reg-req-denied-failed-auth-pdsn>58</a11-reg-req-denied-failed-auth-pdsn>
+              <a11-reg-req-denied-malformed-req-pdsn>49</a11-reg-req-denied-malformed-req-pdsn>
+              <a11-reg-req-denied-unsupp-vend-id-pdsn>54747</a11-reg-req-denied-unsupp-vend-id-pdsn>
+              <a11-reg-req-denied-reverse-tunnel-unavailable-pdsn>547</a11-reg-req-denied-reverse-tunnel-unavailable-pdsn>
+              <a11-reg-req-denied-reverse-tunnel-tbit-not-set-pdsn>584</a11-reg-req-denied-reverse-tunnel-tbit-not-set-pdsn>
+              <a11-reg-req-denied-unknown-error-code-pdsn>5478</a11-reg-req-denied-unknown-error-code-pdsn>
+              <a10-reg-req-for-registration-retransmissions-pdsn>7548</a10-reg-req-for-registration-retransmissions-pdsn>
+              <a10-reg-req-for-re-registration-retransmissions-pdsn>547</a10-reg-req-for-re-registration-retransmissions-pdsn>
+              <a10-reg-req-for-release-retransmissions-pdsn>8457</a10-reg-req-for-release-retransmissions-pdsn>
+              <pdsn-number-pdsn-perf>45765</pdsn-number-pdsn-perf>
+              <pds-nip-address-pdsn-perf>127.0.0.1</pds-nip-address-pdsn-perf>
             </cdma2000-hrpd-pcfpdsn-pcfpdsn-stats>
           </cdma2000-hrpd-pcfpdsn>
           <cdma2000-hrpd-redirect>
-            <redirect-channel-number/>
-            <redirect-band-class/>
+            <redirect-channel-number>0</redirect-channel-number>
+            <redirect-band-class>0</redirect-band-class>
           </cdma2000-hrpd-redirect>
           <cdma2000-hrpd-call-control-stats>
-            <num-session-setup-attempts/>
-            <num-session-setup-successful/>
-            <num-current-sessions-established/>
-            <num-page-messages-to-at/>
-            <num-pages-succeeded/>
-            <num-connections-opened/>
-            <num-session-setups-failed-to-term-auth/>
-            <num-forward-rlp-bytes/>
-            <num-reverse-rlp-bytes/>
-            <average-session-setup-time/>
-            <average-page-setup-time/>
-            <num-conn-setups-aborted/>
-            <num-forward-pre-rlp-dropped-pkts/>
+            <num-session-setup-attempts>7488</num-session-setup-attempts>
+            <num-session-setup-successful>5485</num-session-setup-successful>
+            <num-current-sessions-established>6745</num-current-sessions-established>
+            <num-page-messages-to-at>578</num-page-messages-to-at>
+            <num-pages-succeeded>577</num-pages-succeeded>
+            <num-connections-opened>46</num-connections-opened>>
+            <num-session-setups-failed-to-term-auth>0</num-session-setups-failed-to-term-auth>
+            <num-forward-rlp-bytes>488</num-forward-rlp-bytes>
+            <num-reverse-rlp-bytes>4547</num-reverse-rlp-bytes>
+            <average-session-setup-time>5747</average-session-setup-time>
+            <average-page-setup-time>45787</average-page-setup-time>
+            <num-conn-setups-aborted>457</num-conn-setups-aborted>
+            <num-forward-pre-rlp-dropped-pkts>34478</num-forward-pre-rlp-dropped-pkts>
           </cdma2000-hrpd-call-control-stats>
           <cdma2000-hrpd-qo-s-stats>
-            <num-qo-s-subscriber-profile-updates-rcvd/>
-            <num-pdsnip-flow-updates-msg-rcvd/>
-            <num-pdsnip-flow-updates-msg-failed/>
-            <num-qo-s-setup-requests-received/>
-            <num-qo-s-setup-requests-accepted/>
-            <num-qo-s-setup-requests-rejected/>
-            <num-reservation-on-requests-received/>
-            <num-reservation-on-requests-accepted/>
-            <num-reservation-on-requests-rejected/>
-            <num-reservation-on-requests-failed/>
-            <num-fwd-reservation-on-messages-sent/>
-            <num-rev-reservation-on-messages-sent/>
-            <num-reservation-off-requests-received/>
-            <num-reservation-off-requests-accepted/>
-            <num-reservation-off-requests-rejected/>
-            <num-fwd-reservation-off-messages-sent/>
-            <num-rev-reservation-off-messages-sent/>
-            <num-qo-s-release-requests-received/>
-            <num-connection-close-initiated-no-ran-rsr/>
+            <num-qo-s-subscriber-profile-updates-rcvd>5757</num-qo-s-subscriber-profile-updates-rcvd>
+            <num-pdsnip-flow-updates-msg-rcvd>4585</num-pdsnip-flow-updates-msg-rcvd>
+            <num-pdsnip-flow-updates-msg-failed>58</num-pdsnip-flow-updates-msg-failed>
+            <num-qo-s-setup-requests-received>57857</num-qo-s-setup-requests-received>
+            <num-qo-s-setup-requests-accepted>577</num-qo-s-setup-requests-accepted>
+            <num-qo-s-setup-requests-rejected>5757</num-qo-s-setup-requests-rejected>
+            <num-reservation-on-requests-received>757</num-reservation-on-requests-received>
+            <num-reservation-on-requests-accepted>7857</num-reservation-on-requests-accepted>
+            <num-reservation-on-requests-rejected>5678</num-reservation-on-requests-rejected>
+            <num-reservation-on-requests-failed>757</num-reservation-on-requests-failed>
+            <num-fwd-reservation-on-messages-sent>85</num-fwd-reservation-on-messages-sent>
+            <num-rev-reservation-on-messages-sent>85</num-rev-reservation-on-messages-sent>
+            <num-reservation-off-requests-received>757</num-reservation-off-requests-received>
+            <num-reservation-off-requests-accepted>785</num-reservation-off-requests-accepted>
+            <num-reservation-off-requests-rejected>47</num-reservation-off-requests-rejected>/num-reservation-off-requests-rejected>>
+            <num-fwd-reservation-off-messages-sent>46</num-fwd-reservation-off-messages-sent>
+            <num-rev-reservation-off-messages-sent>57</num-rev-reservation-off-messages-sent>
+            <num-qo-s-release-requests-received>75</num-qo-s-release-requests-received>
+            <num-connection-close-initiated-no-ran-rsr>47</num-connection-close-initiated-no-ran-rsr>
           </cdma2000-hrpd-qo-s-stats>
           <cdma2000-hrpd-rnc-sig-apps-stats>
-            <c-num-page-requests/>
-            <s-num-page-requests/>
-            <s-num-connection-setup-attempts/>
-            <c-num-connection-setup-attempts/>
-            <s-num-connection-setup-success/>
-            <c-num-connection-setup-success/>
-            <s-num-normal-connection-closes/>
-            <c-num-normal-connection-closes/>
-            <s-num-total-connection-closes/>
-            <c-num-total-connection-closes/>
-            <s-num-rf-related-drops/>
-            <c-num-rf-related-drops/>
-            <s-num-page-responses/>
-            <c-num-page-responses/>
-            <s-num-rf-related-drops-rtc-lost/>
-            <c-num-rf-related-drops-rtc-lost/>
-            <s-num-rf-related-drops-no-ftc/>
-            <c-num-rf-related-drops-no-ftc/>
-            <s-num-network-error-drops/>
-            <c-num-network-error-drops/>
-            <s-num-network-error-drops-rnc-internal/>
-            <c-num-network-error-drops-rnc-internal/>
-            <s-num-network-error-drops-rnc-external/>
-            <c-num-network-error-drops-rnc-external/>
-            <s-num-network-error-drops-a10-setup-fail/>
-            <c-num-network-error-drops-a10-setup-fail/>
-            <s-num-misc-drops-sector-down/>
-            <c-num-misc-drops-sector-down/>
-            <s-num-misc-drops-internal-error/>
-            <c-num-misc-drops-internal-error/>
-            <c-num-misc-drops-state-mismatch/>
-            <s-num-misc-drops-state-mismatch/>
-            <s-num-misc-drops-due-to-rlp/>
-            <c-num-misc-drops-due-to-rlp/>
+            <c-num-page-requests>545</c-num-page-requests>
+            <s-num-page-requests>34</s-num-page-requests>
+            <s-num-connection-setup-attempts>560</s-num-connection-setup-attempts>
+            <c-num-connection-setup-attempts>548</c-num-connection-setup-attempts>
+            <s-num-connection-setup-success>4646</s-num-connection-setup-success>>
+            <c-num-connection-setup-success>785</c-num-connection-setup-success>
+            <s-num-normal-connection-closes>578</s-num-normal-connection-closes>
+            <c-num-normal-connection-closes>8568</c-num-normal-connection-closes>
+            <s-num-total-connection-closes>858</s-num-total-connection-closes>
+            <c-num-total-connection-closes>5895</c-num-total-connection-closes>
+            <s-num-rf-related-drops>57</s-num-rf-related-drops>
+            <c-num-rf-related-drops>5787</c-num-rf-related-drops>
+            <s-num-page-responses>58</s-num-page-responses>
+            <c-num-page-responses>44</c-num-page-responses>
+            <s-num-rf-related-drops-rtc-lost>44</s-num-rf-related-drops-rtc-lost>
+            <c-num-rf-related-drops-rtc-lost>5757</c-num-rf-related-drops-rtc-lost>
+            <s-num-rf-related-drops-no-ftc>7857</s-num-rf-related-drops-no-ftc>
+            <c-num-rf-related-drops-no-ftc>44</c-num-rf-related-drops-no-ftc>
+            <s-num-network-error-drops>55</s-num-network-error-drops>
+            <c-num-network-error-drops>43</c-num-network-error-drops>
+            <s-num-network-error-drops-rnc-internal>43</s-num-network-error-drops-rnc-internal>
+            <c-num-network-error-drops-rnc-internal>44</c-num-network-error-drops-rnc-internal>
+            <s-num-network-error-drops-rnc-external>44</s-num-network-error-drops-rnc-external>
+            <c-num-network-error-drops-rnc-external>4566</c-num-network-error-drops-rnc-external>
+            <s-num-network-error-drops-a10-setup-fail>344</s-num-network-error-drops-a10-setup-fail>
+            <c-num-network-error-drops-a10-setup-fail>9</c-num-network-error-drops-a10-setup-fail>
+            <s-num-misc-drops-sector-down>654</s-num-misc-drops-sector-down>
+            <c-num-misc-drops-sector-down>44</c-num-misc-drops-sector-down>
+            <s-num-misc-drops-internal-error>587</s-num-misc-drops-internal-error>
+            <c-num-misc-drops-internal-error>55</c-num-misc-drops-internal-error>
+            <c-num-misc-drops-state-mismatch>43</c-num-misc-drops-state-mismatch>
+            <s-num-misc-drops-state-mismatch>5657</s-num-misc-drops-state-mismatch>
+            <s-num-misc-drops-due-to-rlp>57</s-num-misc-drops-due-to-rlp>
+            <c-num-misc-drops-due-to-rlp>577</c-num-misc-drops-due-to-rlp>
           </cdma2000-hrpd-rnc-sig-apps-stats>
           <cdma2000-hrpd-access-auth-config>
-            <a12-access-authentication-enable/>
+            <a12-access-authentication-enable>345</a12-access-authentication-enable>
           </cdma2000-hrpd-access-auth-config>
           <cdma2000-hrpd-access-auth-stats>
-            <an-ppp-authentication-attempts-by-node/>
-            <a12-requests-sent-from-node/>
-            <a12-rejects-received-by-node/>
-            <a12-accepts-received-by-node/>
-            <a12-access-challenges-received-by-node/>
-            <a12-retransmits-sent-from-node/>
-            <a12-timeouts-events-for-node/>
-            <a12-malformedresponse-received-by-node/>
-            <a12-bad-authenticator-received-by-node/>
-            <a12-unknown-type-received-by-node/>
-            <a12-unknown-pkt-received-by-node/>
-            <a12-unknown-server-received-by-node/>
-            <a12-other-failure-occurences-in-node/>
-            <a12-by-pass-num-ats-with-unknown-mfr-code-by-node/>
-            <a12-tx-path-fail-due-to-an-ppp-error-by-node/>
-            <a12-tx-path-fail-due-to-no-server-available-by-node/>
-            <a12-tx-path-fail-due-to-internal-error-by-node/>
-            <a12-tx-path-fail-due-to-no-packet-id-available-by-node/>
-            <a12-tx-path-fail-due-to-transmit-error-by-node/>
-            <a12-svr-timeouts-for-node/>
-            <a12-enh-ta-bypass-lcp-timeout-by-node/>
-            <a12-enh-ta-bypass-chap-timeout-by-node/>
-            <a12-enh-ta-bypass-chap-invalid-by-node/>
-            <a12-enh-ta-bypass-chap-nai-matches-a12-bypass-list-by-node/>
-            <a12-session-ta-timeout-by-node/>
-            <access-auth-failed-due-to-session-close-total/>
-            <access-auth-succeeded/>
+            <an-ppp-authentication-attempts-by-node>474</an-ppp-authentication-attempts-by-node>
+            <a12-requests-sent-from-node>575</a12-requests-sent-from-node>
+            <a12-rejects-received-by-node>5578</a12-rejects-received-by-node>>
+            <a12-accepts-received-by-node>58</a12-accepts-received-by-node>>
+            <a12-access-challenges-received-by-node>48</a12-access-challenges-received-by-node>>
+            <a12-retransmits-sent-from-node>484</a12-retransmits-sent-from-node>
+            <a12-timeouts-events-for-node>959</a12-timeouts-events-for-node>>
+            <a12-malformedresponse-received-by-node>3838</a12-malformedresponse-received-by-node>>
+            <a12-bad-authenticator-received-by-node>38</a12-bad-authenticator-received-by-node>
+            <a12-unknown-type-received-by-node>23</a12-unknown-type-received-by-node>
+            <a12-unknown-pkt-received-by-node>66</a12-unknown-pkt-received-by-node>
+            <a12-unknown-server-received-by-node>88</a12-unknown-server-received-by-node>
+            <a12-other-failure-occurences-in-node>676</a12-other-failure-occurences-in-node>
+            <a12-by-pass-num-ats-with-unknown-mfr-code-by-node>767</a12-by-pass-num-ats-with-unknown-mfr-code-by-node>
+            <a12-tx-path-fail-due-to-an-ppp-error-by-node>676</a12-tx-path-fail-due-to-an-ppp-error-by-node>
+            <a12-tx-path-fail-due-to-no-server-available-by-node>6</a12-tx-path-fail-due-to-no-server-available-by-node>
+            <a12-tx-path-fail-due-to-internal-error-by-node>677</a12-tx-path-fail-due-to-internal-error-by-node>
+            <a12-tx-path-fail-due-to-no-packet-id-available-by-node>745</a12-tx-path-fail-due-to-no-packet-id-available-by-node>
+            <a12-tx-path-fail-due-to-transmit-error-by-node>43</a12-tx-path-fail-due-to-transmit-error-by-node>
+            <a12-svr-timeouts-for-node>7457</a12-svr-timeouts-for-node>
+            <a12-enh-ta-bypass-lcp-timeout-by-node>84</a12-enh-ta-bypass-lcp-timeout-by-node>>
+            <a12-enh-ta-bypass-chap-timeout-by-node>447</a12-enh-ta-bypass-chap-timeout-by-node>>
+            <a12-enh-ta-bypass-chap-invalid-by-node>484</a12-enh-ta-bypass-chap-invalid-by-node>>
+            <a12-enh-ta-bypass-chap-nai-matches-a12-bypass-list-by-node>48</a12-enh-ta-bypass-chap-nai-matches-a12-bypass-list-by-node>>
+            <a12-session-ta-timeout-by-node>45</a12-session-ta-timeout-by-node>
+            <access-auth-failed-due-to-session-close-total>838</access-auth-failed-due-to-session-close-total>>
+            <access-auth-succeeded>4747</access-auth-succeeded>>
           </cdma2000-hrpd-access-auth-stats>
         </cdma2000-hrpd>
         <cdma2000-beacon>
-          <beacon-admin-status/>
-          <beacon-oper-status/>
-          <hrpd-beacon-enable/>
-          <period/>
-          <maxfap-beacon-tx-power/>
-          <maxfap-beacon-tx-power-in-use/>
-          <beacon-pch-pwr-percentage/>
-          <max-hrpd-beacon-tx-power/>
-          <max-hrpd-beacon-tx-power-in-use/>
-          <beacon-pilot-pwr-percentage/>
-          <beacon-sync-pwr-percentage/>
-          <max-beacon-list-entries/>
-          <beacon-list-number-of-entries/>
-          <max-hrpd-beacon-list-entries/>
-          <hrpd-beacon-list-number-of-entries/>
+          <beacon-admin-status>unlocked</beacon-admin-status>
+          <beacon-oper-status>unlocked</beacon-oper-status>
+          <hrpd-beacon-enable>true</hrpd-beacon-enable>
+          <period>0</period>
+          <maxfap-beacon-tx-power>77</maxfap-beacon-tx-power>
+          <maxfap-beacon-tx-power-in-use>787</maxfap-beacon-tx-power-in-use>
+          <beacon-pch-pwr-percentage>66</beacon-pch-pwr-percentage>
+          <max-hrpd-beacon-tx-power>87</max-hrpd-beacon-tx-power>
+          <max-hrpd-beacon-tx-power-in-use>787</max-hrpd-beacon-tx-power-in-use>
+          <beacon-pilot-pwr-percentage>76</beacon-pilot-pwr-percentage>
+          <beacon-sync-pwr-percentage>776</beacon-sync-pwr-percentage>
+          <max-beacon-list-entries>7</max-beacon-list-entries>>
+          <beacon-list-number-of-entries>787</beacon-list-number-of-entries>
+          <max-hrpd-beacon-list-entries>77</max-hrpd-beacon-list-entries>
+          <hrpd-beacon-list-number-of-entries>7</hrpd-beacon-list-number-of-entries>
           <cdma2000-beacon-beacon-list>
-            <beacon-index/>
-            <enable/>
-            <alias/>
-            <offset/>
-            <duration/>
-            <transmission-format/>
-            <beacon-band-class/>
-            <beacon-channel-freq/>
-            <beacon-pn-offset>
-              <!-- # entries: 1.. -->
-            </beacon-pn-offset>
-            <tx-power/>
-            <beacon-sid/>
-            <beacon-nid/>
-            <beacon-pzid/>
+            <beacon-index>34</beacon-index>
+            <enable>true</enable>
+            <alias>true</alias>
+            <offset>0</offset>
+            <duration>8</duration>
+            <transmission-format>0</transmission-format>
+            <beacon-band-class>9</beacon-band-class>
+            <beacon-channel-freq>8</beacon-channel-freq>>
+            <beacon-pn-offset>0</beacon-pn-offset>
+            <tx-power>4</tx-power>
+            <beacon-sid>4</beacon-sid>
+            <beacon-nid>4</beacon-nid>>
+            <beacon-pzid>4</beacon-pzid>>
           </cdma2000-beacon-beacon-list>
           <cdma2000-beacon-hrpd-beacon-list>
-            <beacon-index/>
-            <enable/>
-            <alias/>
-            <c-coffset/>
-            <offset/>
-            <duration/>
-            <num-c-ccycles/>
-            <beacon-band-class/>
-            <beacon-channel-freq/>
-            <beacon-pn-offset>
-              <!-- # entries: 1.. -->
-            </beacon-pn-offset>
-            <tx-power/>
+            <beacon-index>76</beacon-index>
+            <enable>true</enable>
+            <alias>true</alias>
+            <c-coffset>89</c-coffset>
+            <offset>9</offset>
+            <duration>8</duration>
+            <num-c-ccycles>8</num-c-ccycles>
+            <beacon-band-class>9</beacon-band-class>>
+            <beacon-channel-freq>8</beacon-channel-freq>>
+            <beacon-pn-offset>0</beacon-pn-offset>
+            <tx-power>3</tx-power>
           </cdma2000-beacon-hrpd-beacon-list>
         </cdma2000-beacon>
       </cdma2000>
@@ -3778,56 +3770,48 @@
           <in-service-handling>immediate</in-service-handling>
           <scan-on-boot>True</scan-on-boot>
           <scan-periodically>False</scan-periodically>
-          <periodic-interval/>
-          <periodic-time/>
-          <remplmn-list>
-            <!-- # entries: 0..32 -->
-          </remplmn-list>
-          <rem-band-list>
-            <!-- # entries: 0.. -->
-          </rem-band-list>
-          <uarfcndl-list>
-            <!-- # entries: 0..64 -->
-          </uarfcndl-list>
-          <scan-timeout/>
-          <scan-status/>
-          <error-details/>
-          <last-scan-time/>
-          <max-cell-entries/>
-          <cell-number-of-entries/>
+          <periodic-interval>88</periodic-interval>
+          <periodic-time>2015-05-19T16:39:57-08:00</periodic-time>
+          <remplmn-list>6</remplmn-list>
+          <rem-band-list>9</rem-band-list>
+          <uarfcndl-list>0</uarfcndl-list>
+          <scan-timeout>0</scan-timeout>
+          <scan-status>indeterminate</scan-status>
+          <error-details>8</error-details>
+          <last-scan-time>2015-05-19T16:39:57-08:00</last-scan-time>
+          <max-cell-entries>45</max-cell-entries>
+          <cell-number-of-entries>3</cell-number-of-entries>
           <rem-umts-wcdma-cell>
-            <rem-umts-wcdma-cell-key/>
+            <rem-umts-wcdma-cell-key>cellkey</rem-umts-wcdma-cell-key>
             <rem-umts-wcdma-cell-rf>
-              <uarfcndl/>
-              <cpichrscp/>
-              <cpich-ec-no/>
-              <rssi/>
-              <primary-scrambling-code/>
+              <uarfcndl>9</uarfcndl>
+              <cpichrscp>99</cpichrscp>
+              <cpich-ec-no>988</cpich-ec-no>
+              <rssi>7</rssi>
+              <primary-scrambling-code>500</primary-scrambling-code>
             </rem-umts-wcdma-cell-rf>
             <rem-umts-wcdma-cell-bcch>
-              <plmn-type/>
+              <plmn-type>gsm-map</plmn-type>
               <plmnid>plmnid</plmnid>
               <lac>67</lac>
-              <rac/>
-              <cell-id/>
-              <pcpich-tx-power/>
-              <csg-indicator/>
-              <csgid/>
-              <uarfcndl-list>
-                <!-- # entries: 0..128 -->
-              </uarfcndl-list>
+              <rac>99</rac>
+              <cell-id>45</cell-id>
+              <pcpich-tx-power>77</pcpich-tx-power>
+              <csg-indicator>true</csg-indicator>
+              <csgid>88</csgid>
+              <uarfcndl-list>0</uarfcndl-list>
               <rem-umts-wcdma-cell-bcch-csgpsc-split-info>
-                <start-psc-range1-coefficient/>
-                <number-of-ps-cs/>
-                <psc-range2-offset/>
+                <start-psc-range1-coefficient>9</start-psc-range1-coefficient>
+                <number-of-ps-cs>5</number-of-ps-cs>
+                <psc-range2-offset>63</psc-range2-offset>
               </rem-umts-wcdma-cell-bcch-csgpsc-split-info>
               <rem-umts-wcdma-cell-bcch-reference-position>
-                <latitude/>
-                <longitude/>
-                <uncertainty-semi-major/>
-                <uncertainty-semi-minor/>
-                <orientation-of-major-axis/>
-                <confidence/>
+                <latitude>90</latitude>
+                <longitude>99</longitude>
+                <uncertainty-semi-major>88</uncertainty-semi-major>>
+                <uncertainty-semi-minor>89</uncertainty-semi-minor>>
+                <orientation-of-major-axis>77</orientation-of-major-axis>>
+                <confidence>100</confidence>
               </rem-umts-wcdma-cell-bcch-reference-position>
             </rem-umts-wcdma-cell-bcch>
           </rem-umts-wcdma-cell>
@@ -3836,32 +3820,26 @@
           <in-service-handling>immediate</in-service-handling>
           <scan-on-boot>True</scan-on-boot>
           <scan-periodically>False</scan-periodically>
-          <periodic-interval/>
-          <periodic-time/>
-          <remplmn-list>
-            <!-- # entries: 0.. -->
-          </remplmn-list>
-          <rem-band-list>
-            <!-- # entries: 0.. -->
-          </rem-band-list>
-          <arfcn-list>
-            <!-- # entries: 0..64 -->
-          </arfcn-list>
-          <scan-timeout/>
-          <scan-status/>
-          <error-details/>
-          <last-scan-time/>
-          <max-cell-entries/>
-          <cell-number-of-entries/>
+          <periodic-interval>10</periodic-interval>
+          <periodic-time>2015-05-19T16:39:57-08:00</periodic-time>
+          <remplmn-list>0</remplmn-list>
+          <rem-band-list>t-gsm380</rem-band-list>
+          <arfcn-list>0</arfcn-list>
+          <scan-timeout>9</scan-timeout>
+          <scan-status>indeterminate</scan-status>
+          <error-details>256</error-details>
+          <last-scan-time>2015-05-19T16:39:57-08:00</last-scan-time>
+          <max-cell-entries>45</max-cell-entries>
+          <cell-number-of-entries>3</cell-number-of-entries>
           <rem-umts-gsm-cell>
-            <arfcn/>
-            <bsic/>
-            <band-indicator/>
+            <arfcn>7</arfcn>
+            <bsic>0</bsic>
+            <band-indicator>gsm 850</band-indicator>
             <plmnid>plmnid</plmnid>
             <lac>67</lac>
-            <rac/>
-            <ci/>
-            <rssi/>
+            <rac>2</rac>
+            <ci>46</ci>
+            <rssi>34</rssi>
           </rem-umts-gsm-cell>
         </rem-umts-gsm>
       </rem-umts>
@@ -3869,45 +3847,39 @@
         <in-service-handling>immediate</in-service-handling>
         <scan-on-boot>True</scan-on-boot>
         <scan-periodically>False</scan-periodically>
-        <periodic-interval/>
-        <periodic-time/>
-        <remplmn-list>
-          <!-- # entries: 0..32 -->
-        </remplmn-list>
-        <rem-band-list>
-          <!-- # entries: 0.. -->
-        </rem-band-list>
-        <eutra-carrier-arfcndl-list>
-          <!-- # entries: 0..64 -->
-        </eutra-carrier-arfcndl-list>
-        <scan-timeout/>
-        <scan-status/>
-        <error-details/>
-        <last-scan-time/>
-        <max-cell-entries/>
-        <cell-number-of-entries/>
-        <max-carrier-meas-entries/>
-        <carrier-meas-number-of-entries/>
+        <periodic-interval>6</periodic-interval>
+        <periodic-time>2015-05-19T16:39:57-08:00</periodic-time>
+        <remplmn-list>remplmn-list</remplmn-list>
+        <rem-band-list>t-gsm380</rem-band-list>
+        <eutra-carrier-arfcndl-list>eutra-carrier-arfcndl-list</eutra-carrier-arfcndl-list>
+        <scan-timeout>787</scan-timeout>
+        <scan-status>indeterminate</scan-status>
+        <error-details>78</error-details>
+        <last-scan-time>2015-05-19T16:39:57-08:00</last-scan-time>
+        <max-cell-entries>45</max-cell-entries>
+        <cell-number-of-entries>1</cell-number-of-entries>
+        <max-carrier-meas-entries>2</max-carrier-meas-entries>
+        <carrier-meas-number-of-entries>1</carrier-meas-number-of-entries>
         <rem-lte-cell>
-          <rem-lte-cell-key/>
+          <rem-lte-cell-key>key</rem-lte-cell-key>
           <rem-lte-cell-rf>
-            <eutra-carrier-arfcn/>
-            <phy-cell-id/>
-            <rsrp/>
-            <rsrq/>
-            <rssi/>
+            <eutra-carrier-arfcn>0</eutra-carrier-arfcn>
+            <phy-cell-id>0</phy-cell-id>
+            <rsrp>7</rsrp>
+            <rsrq>0</rsrq>
+            <rssi>8</rssi>
           </rem-lte-cell-rf>
           <rem-lte-cell-bcch>
-            <dl-bandwidth/>
-            <ul-bandwidth/>
-            <rs-tx-power/>
-            <tac/>
-            <cell-id/>
-            <cell-barred/>
-            <csg-indication/>
-            <csg-identity/>
-            <max-plmn-list-entries/>
-            <plmn-list-number-of-entries/>
+            <dl-bandwidth>6</dl-bandwidth>
+            <ul-bandwidth>6</ul-bandwidth>
+            <rs-tx-power>67</rs-tx-power>
+            <tac>0</tac>
+            <cell-id>0</cell-id>
+            <cell-barred>true</cell-barred>
+            <csg-indication>true</csg-indication>
+            <csg-identity>0</csg-identity>
+            <max-plmn-list-entries>6</max-plmn-list-entries>
+            <plmn-list-number-of-entries>6</plmn-list-number-of-entries>
             <rem-lte-cell-bcch-plmn-list>
               <plmnid>plmnid</plmnid>
               <cell-reserved-for-operator-use>true</cell-reserved-for-operator-use>
@@ -3915,157 +3887,145 @@
           </rem-lte-cell-bcch>
         </rem-lte-cell>
         <rem-lte-carrier-meas>
-          <carrier-arfcndl/>
-          <carrier-ch-width/>
-          <enable/>
-          <alias/>
-          <carrier-rssi/>
+          <carrier-arfcndl>7</carrier-arfcndl>
+          <carrier-ch-width>7</carrier-ch-width>
+          <enable>true</enable>
+          <alias>true</alias>
+          <carrier-rssi>7</carrier-rssi>
         </rem-lte-carrier-meas>
       </rem-lte>
       <rem-cdma2000>
-        <in-service-handling/>
-        <scan-on-boot/>
-        <scan-now/>
-        <return-timer/>
-        <scan-periodically/>
-        <periodic-interval/>
-        <periodic-time/>
-        <report-overheads/>
-        <scan-timeout/>
-        <scan-status/>
-        <error-details/>
-        <last-scan-time/>
+        <in-service-handling>immediate</in-service-handling>
+        <scan-on-boot>false</scan-on-boot>
+        <scan-now>false</scan-now>
+        <return-timer>1</return-timer>
+        <scan-periodically>true</scan-periodically>
+        <periodic-interval>76</periodic-interval>
+        <periodic-time>2015-05-19T16:39:57-08:00</periodic-time>
+        <report-overheads>all</report-overheads>
+        <scan-timeout>7</scan-timeout>
+        <scan-status>indeterminate</scan-status>
+        <error-details>0</error-details>
+        <last-scan-time>2015-05-19T16:39:57-08:00</last-scan-time>
         <rem-cdma2000-one-x>
-          <max-cell-entries/>
-          <cell-number-of-entries/>
-          <max-channel-entries/>
-          <channel-number-of-entries/>
+          <max-cell-entries>45</max-cell-entries>
+          <cell-number-of-entries>7</cell-number-of-entries>
+          <max-channel-entries>6</max-channel-entries>
+          <channel-number-of-entries>4</channel-number-of-entries>
           <rem-cdma2000-one-x-channel>
-            <sniffing-band-class/>
-            <sniffing-channel-number/>
-            <enable/>
-            <alias/>
-            <pn-list>
-              <!-- # entries: 0.. -->
-            </pn-list>
+            <sniffing-band-class>3</sniffing-band-class>
+            <sniffing-channel-number>9</sniffing-channel-number>
+            <enable>true</enable>
+            <alias>true</alias>
+            <pn-list>0</pn-list>
           </rem-cdma2000-one-x-channel>
           <rem-cdma2000-one-x-cell>
-            <rem-cdma2000-one-x-cell-key/>
+            <rem-cdma2000-one-x-cell-key>rem-cdma2000-one-x-cell-key</rem-cdma2000-one-x-cell-key>
             <rem-cdma2000-one-x-cell-rf>
-              <band/>
-              <rfcnfl/>
-              <io/>
-              <p-ilot-pn/>
-              <p-ilot-pn-phase/>
-              <pilot-strength-ecp/>
-              <pilot-strength-ecp-io/>
-              <overheads-available/>
+              <band>2</band>
+              <rfcnfl>3</rfcnfl>
+              <io>2</io>
+              <p-ilot-pn>2</p-ilot-pn>
+              <p-ilot-pn-phase>3</p-ilot-pn-phase>
+              <pilot-strength-ecp>7</pilot-strength-ecp>
+              <pilot-strength-ecp-io>7</pilot-strength-ecp-io>
+              <overheads-available>true</overheads-available>
             </rem-cdma2000-one-x-cell-rf>
             <rem-cdma2000-one-x-cell-control-channel>
-              <sid/>
-              <nid/>
-              <regzone/>
-              <baselat/>
-              <baselong/>
-              <mcc/>
-              <mncimsi1112/>
-              <baseid/>
-              <apid/>
-              <apidmask/>
-              <apidtext/>
+              <sid>66</sid>
+              <nid>37</nid>
+              <regzone>4</regzone>
+              <baselat>3</baselat>
+              <baselong>3</baselong>
+              <mcc>3</mcc>
+              <mncimsi1112>3</mncimsi1112>
+              <baseid>3</baseid>
+              <apid>3</apid>
+              <apidmask>3</apidmask>
+              <apidtext>apidtext</apidtext>
             </rem-cdma2000-one-x-cell-control-channel>
           </rem-cdma2000-one-x-cell>
         </rem-cdma2000-one-x>
         <rem-cdma2000-hrpd>
-          <max-cell-entries/>
-          <cell-number-of-entries/>
-          <max-channel-entries/>
-          <channel-number-of-entries/>
+          <max-cell-entries>45</max-cell-entries>
+          <cell-number-of-entries>7</cell-number-of-entries>
+          <max-channel-entries>6</max-channel-entries>
+          <channel-number-of-entries>7</channel-number-of-entries>
           <rem-cdma2000-hrpd-channel>
-            <sniffing-band-class/>
-            <sniffing-channel-number/>
-            <enable/>
-            <alias/>
-            <pn-list>
-              <!-- # entries: 0.. -->
-            </pn-list>
+            <sniffing-band-class>0</sniffing-band-class>
+            <sniffing-channel-number>0</sniffing-channel-number>
+            <enable>true</enable>
+            <alias>true</alias>
+            <pn-list>0</pn-list>
           </rem-cdma2000-hrpd-channel>
           <rem-cdma2000-hrpd-cell>
-            <rem-cdma2000-hrpd-cell-key/>
+            <rem-cdma2000-hrpd-cell-key>rem-cdma2000-hrpd-cell-key</rem-cdma2000-hrpd-cell-key>
             <rem-cdma2000-hrpd-cell-rf>
-              <band/>
-              <rfcnfl/>
-              <io/>
-              <p-ilot-pn/>
-              <p-ilot-pn-phase/>
-              <pilot-strength-ecp/>
-              <pilot-strength-ecp-io/>
-              <overheads-available/>
+              <band>7</band>
+              <rfcnfl>0</rfcnfl>
+              <io>9</io>
+              <p-ilot-pn>9</p-ilot-pn>
+              <p-ilot-pn-phase>9</p-ilot-pn-phase>
+              <pilot-strength-ecp>9</pilot-strength-ecp>
+              <pilot-strength-ecp-io>8</pilot-strength-ecp-io>
+              <overheads-available>false</overheads-available>
             </rem-cdma2000-hrpd-cell-rf>
             <rem-cdma2000-hrpd-cell-control-channel>
-              <color-code/>
-              <sector-id/>
-              <subnet-mask/>
-              <country-code/>
-              <latitude/>
-              <longitude/>
+              <color-code>3</color-code>
+              <!-- <sector-id>mZ7gLei4/uu2r70n</sector-id> -->
+              <subnet-mask>32</subnet-mask>
+              <country-code>7</country-code>
+              <latitude>90</latitude>
+              <longitude>80</longitude>
             </rem-cdma2000-hrpd-cell-control-channel>
           </rem-cdma2000-hrpd-cell>
         </rem-cdma2000-hrpd>
         <rem-cdma2000-macro-timing>
-          <admin-state/>
-          <tracking-channel-number/>
-          <tracking-band-class/>
-          <tracking-pn-offset>
-            <!-- # entries: 0.. -->
-          </tracking-pn-offset>
-          <timing-source/>
-          <channel-number-of-entries/>
+          <admin-state>0</admin-state>
+          <tracking-channel-number>56</tracking-channel-number>
+          <tracking-band-class>0</tracking-band-class>
+          <tracking-pn-offset>0</tracking-pn-offset>
+          <timing-source>0</timing-source>
+          <channel-number-of-entries>56</channel-number-of-entries>
           <rem-cdma2000-macro-timing-channel>
-            <band-class/>
-            <channel-number/>
-            <enable/>
-            <alias/>
-            <air-interface-type/>
-            <priority/>
-            <pn-list>
-              <!-- # entries: 0.. -->
-            </pn-list>
+            <band-class>0</band-class>
+            <channel-number>0</channel-number>
+            <enable>true</enable>
+            <alias>true</alias>
+            <air-interface-type>0</air-interface-type>
+            <priority>9</priority>
+            <pn-list>1</pn-list>
           </rem-cdma2000-macro-timing-channel>
         </rem-cdma2000-macro-timing>
       </rem-cdma2000>
     </rem>
     <transport>
       <transport-sip>
-        <enable/>
+        <enable>true</enable>
         <transport-sip-fcs>
-          <fcsuri/>
-          <out-going-proxy-uri/>
-          <p-access-net-info-header/>
-          <realm/>
-          <impu/>
-          <impi/>
-          <sip-password/>
-          <sip-auth-capability>
-            <!-- # entries: 0.. -->
-          </sip-auth-capability>
-          <sip-auth-method/>
-          <sip-local-port/>
-          <rtp-port-low-limit/>
-          <rtp-port-high-limit/>
-          <sip-reg-expiry/>
-          <sip-session-expiry>1800</sip-session-expiry>
-          <emergency-numbers-list>
-            <!-- # entries: 0.. -->
-          </emergency-numbers-list>
-          <timer-t1/>
-          <timer-t2/>
-          <timer-t4/>
-          <t3210/>
+          <fcsuri>0</fcsuri>
+          <out-going-proxy-uri>0</out-going-proxy-uri>
+          <p-access-net-info-header>0</p-access-net-info-header>
+          <realm>64</realm>
+          <impu>0</impu>
+          <impi>0</impi>
+          <sip-password>32</sip-password>
+          <sip-auth-capability>tna</sip-auth-capability>
+          <sip-auth-method>0</sip-auth-method>
+          <sip-local-port>90</sip-local-port>
+          <rtp-port-low-limit>0</rtp-port-low-limit>
+          <rtp-port-high-limit>0</rtp-port-high-limit>
+          <sip-reg-expiry>0</sip-reg-expiry>
+          <sip-session-expiry>180</sip-session-expiry>
+          <emergency-numbers-list>0</emergency-numbers-list>
+          <timer-t1>1</timer-t1>
+          <timer-t2>1</timer-t2>
+          <timer-t4>1</timer-t4>
+          <t3210>1</t3210>
         </transport-sip-fcs>
       </transport-sip>
       <transport-sctp>
-        <enable/>
+        <enable>true</enable>
         <hb-interval>30</hb-interval>
         <max-association-retransmits>10</max-association-retransmits>
         <max-init-retransmits>8</max-init-retransmits>
@@ -4074,61 +4034,61 @@
         <rto-max>6000</rto-max>
         <rto-min>1000</rto-min>
         <val-cookie-life>60000</val-cookie-life>
-        <out-of-blues/>
-        <checksum-errors/>
-        <out-ctrl-chunks/>
-        <out-order-chunks/>
-        <out-unorder-chunks/>
-        <in-ctrl-chunks/>
-        <in-order-chunks/>
-        <in-unorder-chunks/>
-        <frag-usr-msgs/>
-        <reasm-usr-msgs/>
-        <out-sctp-packs/>
-        <in-sctp-packs/>
-        <discontinuity/>
-        <assoc-number-of-entries/>
+        <out-of-blues>5</out-of-blues>
+        <checksum-errors>5</checksum-errors>
+        <out-ctrl-chunks>5</out-ctrl-chunks>
+        <out-order-chunks>5</out-order-chunks>
+        <out-unorder-chunks>5</out-unorder-chunks>
+        <in-ctrl-chunks>5</in-ctrl-chunks>
+        <in-order-chunks>5</in-order-chunks>
+        <in-unorder-chunks>5</in-unorder-chunks>
+        <frag-usr-msgs>5</frag-usr-msgs>
+        <reasm-usr-msgs>5</reasm-usr-msgs>
+        <out-sctp-packs>5</out-sctp-packs>
+        <in-sctp-packs>6</in-sctp-packs>
+        <discontinuity>2015-05-19T16:39:57-08:00</discontinuity>
+        <assoc-number-of-entries>5</assoc-number-of-entries>
         <transport-sctp-assoc>
-          <primary-peer-address/>
-          <local-port/>
-          <status/>
-          <in-streams/>
-          <out-streams/>
-          <start-time/>
-          <discontinuity/>
+          <primary-peer-address>127.0.0.1</primary-peer-address>
+          <local-port>78</local-port>
+          <status>disabled</status>
+          <in-streams>2</in-streams>
+          <out-streams>2</out-streams>
+          <start-time>2015-05-19T16:39:57-08:00</start-time>
+          <discontinuity>2015-05-19T16:39:57-08:00</discontinuity>
         </transport-sctp-assoc>
       </transport-sctp>
       <transport-real-time>
-        <rtcp-enable/>
-        <sent-packets/>
-        <rcv-packets/>
-        <bytes-sent/>
-        <bytes-received/>
+        <rtcp-enable>true</rtcp-enable>
+        <sent-packets>87</sent-packets>
+        <rcv-packets>2</rcv-packets>
+        <bytes-sent>6</bytes-sent>
+        <bytes-received>87</bytes-received>
         <transport-real-time-perf>
-          <lost-rcv-packets/>
-          <lost-far-end-packets/>
-          <overruns/>
-          <underruns/>
-          <mean-rtt/>
-          <max-rtt/>
-          <mean-receive-jitter/>
-          <max-receive-jitter/>
-          <mean-far-end-jitter/>
-          <max-far-end-jitter/>
+          <lost-rcv-packets>7</lost-rcv-packets>
+          <lost-far-end-packets>7</lost-far-end-packets>
+          <overruns>8</overruns>
+          <underruns>8</underruns>
+          <mean-rtt>8</mean-rtt>
+          <max-rtt>8</max-rtt>
+          <mean-receive-jitter>8</mean-receive-jitter>
+          <max-receive-jitter>8</max-receive-jitter>
+          <mean-far-end-jitter>8</mean-far-end-jitter>
+          <max-far-end-jitter>7</max-far-end-jitter>
         </transport-real-time-perf>
       </transport-real-time>
       <transport-packet>
-        <echo-interval/>
-        <sent-packets/>
-        <rcv-packets/>
+        <echo-interval>1</echo-interval>
+        <sent-packets>2</sent-packets>
+        <rcv-packets>2</rcv-packets>
       </transport-packet>
       <transport-security>
-        <secret-number-of-entries/>
+        <secret-number-of-entries>5</secret-number-of-entries>
         <transport-security-secret>
-          <uicc-card-id/>
-          <enable/>
-          <type/>
-          <status/>
+          <uicc-card-id>18</uicc-card-id>
+          <enable>true</enable>
+          <type>sim</type>
+          <status>present</status>
         </transport-security-secret>
       </transport-security>
     </transport>
