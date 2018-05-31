@@ -861,26 +861,32 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 
 		String key = CoreModelMapping.getYangfromTR069(tr069Key);
 		if (key != null) {
-			String[] parts = key.split("%");
-			for (String k : parts) {
-				Object result;
-				try {
-					XPathFactory xPathfactory = XPathFactory.newInstance();
-					XPath xpath = xPathfactory.newXPath();
-					XPathExpression expr = xpath.compile(k);
-					result = expr.evaluate(getDocument(), XPathConstants.NODESET);
-					NodeList nodes = (NodeList) result;
-					for (int i = 0; i < nodes.getLength(); i++) {
-						// System.out.println(nodes.item(i).getLocalName());
-						nodes.item(i).setTextContent(value);
-					}
-				} catch (XPathExpressionException e) {
-					e.printStackTrace();
-				}
-			}
-
+			// The key is in the coremodel so update the core model using the mapping
+			this.updateCoreModel(key, value);
+		}else {
+			// Update bbf model
 		}
-
+	}
+	
+	public void updateCoreModel(String key, String value) {
+		String[] parts = key.split("%");
+		for (String k : parts) {
+			Object result;
+			try {
+				XPathFactory xPathfactory = XPathFactory.newInstance();
+				XPath xpath = xPathfactory.newXPath();
+				XPathExpression expr = xpath.compile(k);
+				result = expr.evaluate(getDocument(), XPathConstants.NODESET);
+				NodeList nodes = (NodeList) result;
+				for (int i = 0; i < nodes.getLength(); i++) {
+					// System.out.println(nodes.item(i).getLocalName());
+					nodes.item(i).setTextContent(value);
+				}
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	// Call printDocument(doc, System.out)
