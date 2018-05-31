@@ -865,7 +865,15 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 			this.updateCoreModel(key, value);
 		}else {
 			// Update bbf model
+			this.updateBbfModel(tr069Key, value);
 		}
+	}
+	
+	private void updateBbfModel(String tr069Key, String value) {
+		// The tr069Key is like this FAPService.{i}.CellConfig.LTE.RAN.RF.DLBandwidth
+		// We need to find the correspondent xpath //data/fap-service/alias[text()=i]/cell-config/lte/lte-ran/lte-ran-rf/dl-bandwidth
+		// I don't know if we can multiple fapservices,  otherwise the part alias[text()=i] is not needed
+		
 	}
 	
 	public void updateCoreModel(String key, String value) {

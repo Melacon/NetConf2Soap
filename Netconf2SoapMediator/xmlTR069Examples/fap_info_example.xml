@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap_env:Envelope xmlns:soap_env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap_enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cwmp="urn:dslforum-org:cwmp-1-2">
+    <soap_env:Header>
+        <cwmp:ID soap_env:mustUnderstand="1">1</cwmp:ID>
+    </soap_env:Header>
+    <soap_env:Body>
+        <cwmp:Inform>
+            <DeviceId>
+                <Manufacturer>easycwmp</Manufacturer>
+                <OUI>FFFFFF</OUI>
+                <ProductClass>easycwmp</ProductClass>
+                <SerialNumber>FFFFFF123456</SerialNumber>
+            </DeviceId>
+            <Event soap_enc:arrayType="cwmp:EventStruct[1]">
+                <EventStruct>
+                    <EventCode>1 BOOT</EventCode>
+                    <CommandKey />
+                </EventStruct>
+            </Event>
+            <MaxEnvelopes>1</MaxEnvelopes>
+            <CurrentTime>2018-05-14T13:44:17+00:00</CurrentTime>
+            <RetryCount>0</RetryCount>
+            <ParameterList soap_enc:arrayType="cwmp:ParameterValueStruct[10]">
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth</Name>
+                    <Value xsi:type="xsd:string">50</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth</Name>
+                    <Value xsi:type="xsd:string">50</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL</Name>
+                    <Value xsi:type="xsd:string">8340</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL</Name>
+                    <Value xsi:type="xsd:string">26340</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex</Name>
+                    <Value xsi:type="xsd:string">738</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity</Name>
+                    <Value xsi:type="xsd:unsignedInt">5203</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID</Name>
+                    <Value xsi:type="xsd:string">203</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID</Name>
+                    <Value xsi:type="xsd:string">37003</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList</Name>
+                    <Value xsi:type="xsd:string">10.9.50.84</Value>
+                </ParameterValueStruct>
+                <ParameterValueStruct>
+                    <Name>Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC</Name>
+                    <Value xsi:type="xsd:unsignedInt">65535</Value>
+                </ParameterValueStruct>
+            </ParameterList>
+        </cwmp:Inform>
+    </soap_env:Body>
+</soap_env:Envelope>
