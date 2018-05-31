@@ -1,5 +1,6 @@
 package com.technologies.highstreet.netconf2soapmediator.server.networkelement;
 
+import com.google.common.base.CaseFormat;
 import com.technologies.highstreet.deviceslib.data.SNMPDeviceType;
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.networkelement.NetworkElement;
@@ -891,15 +892,23 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 			}
 			/**
 			 * finish changing the fapservice id
+			 * 
+			 * parts = ["Device", "Services", "FAPService", "9", "CellConfig", "LTE", "RAN", "RF", "DLBandwidth"]
 			 */
 			k = "//data/fap-service/";
 			for(int i = 4; i < parts.length; i++) {
 				System.out.println(parts[i]);
+				String temp = splitCamelCase(parts[i]);
+				System.out.println(temp);
 			}
 		} catch (XPathExpressionException e) {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	static String splitCamelCase(String s) {
+		return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_HYPHEN, s);
 	}
 	
 	public void updateCoreModel(String key, String value) {
