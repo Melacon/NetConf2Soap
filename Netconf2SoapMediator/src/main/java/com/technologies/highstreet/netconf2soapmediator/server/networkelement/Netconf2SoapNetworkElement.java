@@ -870,9 +870,35 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	}
 	
 	private void updateBbfModel(String tr069Key, String value) {
-		// The tr069Key is like this FAPService.{i}.CellConfig.LTE.RAN.RF.DLBandwidth
+		// The tr069Key is like this Device.Services.FAPService.{i}.CellConfig.LTE.RAN.RF.DLBandwidth
 		// We need to find the correspondent xpath //data/fap-service/alias[text()=i]/cell-config/lte/lte-ran/lte-ran-rf/dl-bandwidth
 		// I don't know if we can multiple fapservices,  otherwise the part alias[text()=i] is not needed
+		try {
+			String[] parts = tr069Key.split("\\.");
+			if(parts.length < 4) return;
+			String fapservice_id = parts[3];
+			/**
+			 * changing the fapservice id
+			 */
+			String k = "//data/fap-service/alias";
+			XPathFactory xPathfactory = XPathFactory.newInstance();
+			XPath xpath = xPathfactory.newXPath();
+			XPathExpression expr = xpath.compile(k);
+			Object result = expr.evaluate(getDocument(), XPathConstants.NODESET);
+			NodeList nodes = (NodeList) result;
+			for (int i = 0; i < nodes.getLength(); i++) {
+				nodes.item(i).setTextContent(fapservice_id);
+			}
+			/**
+			 * finish changing the fapservice id
+			 */
+			k = "//data/fap-service/";
+			for(int i = 4; i < parts.length; i++) {
+				System.out.println(parts[i]);
+			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
