@@ -1,5 +1,9 @@
 *.prefs
-*.log
+*.log*
 *.pid
+.*.md.html
 
+
+/SoapMediator*
 /target/
+/application.properties
