@@ -896,7 +896,10 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 			}
 		}
 		String yangxpath = BBFTRModelMapping.getYangfromTR069(tr069Key);
-		updateChildUsingXpath(yangxpath, value);
+		if(yangxpath != null) {
+			updateChildUsingXpath(yangxpath, value);
+		}
+		
 	}
 	
 	
