@@ -874,60 +874,56 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		// The tr069Key is like this Device.Services.FAPService.{i}.CellConfig.LTE.RAN.RF.DLBandwidth
 		// We need to find the correspondent xpath //data/fap-service/alias[text()=i]/cell-config/lte/lte-ran/lte-ran-rf/dl-bandwidth
 		// I don't know if we can multiple fapservices,  otherwise the part alias[text()=i] is not needed
-		try {
-			String[] parts = tr069Key.split("\\.");
-			if(parts.length < 4) return;
-			String fapservice_id = parts[3];
-			/**
-			 * changing the fapservice id
-			 */
-			String k = "//data/fap-service/alias";
-			XPathFactory xPathfactory = XPathFactory.newInstance();
-			XPath xpath = xPathfactory.newXPath();
-			XPathExpression expr = xpath.compile(k);
-			Object result = expr.evaluate(getDocument(), XPathConstants.NODESET);
-			NodeList nodes = (NodeList) result;
-			for (int i = 0; i < nodes.getLength(); i++) {
-				nodes.item(i).setTextContent(fapservice_id);
+		String[] parts = tr069Key.split("\\.");
+		if(parts.length < 4) return;
+		String fapservice_id = parts[3];
+		/**
+		 * changing the fapservice id
+		 */
+		String k = "//data/fap-service/alias";
+		updateChildUsingXpath(k, fapservice_id);
+		/**
+		 * finish changing the fapservice id
+		 * 
+		 * parts = ["Device", "Services", "FAPService", "9", "CellConfig", "LTE", "RAN", "RF", "DLBandwidth"]
+		 */
+		k = "//data/fap-service/";
+		tr069Key = "";
+		for(int i = 4; i < parts.length; i++) {
+			tr069Key += parts[i];
+			if(i != parts.length-1 ) {
+				tr069Key += ".";
 			}
-			/**
-			 * finish changing the fapservice id
-			 * 
-			 * parts = ["Device", "Services", "FAPService", "9", "CellConfig", "LTE", "RAN", "RF", "DLBandwidth"]
-			 */
-			k = "//data/fap-service/";
-			for(int i = 4; i < parts.length; i++) {
-				System.out.println(parts[i]);
-				String temp = splitCamelCase(parts[i]);
-				System.out.println(temp);
-			}
-		} catch (XPathExpressionException e) {
-			e.printStackTrace();
+		}
+		String yangxpath = BBFTRModelMapping.getYangfromTR069(tr069Key);
+		if(yangxpath != null) {
+			updateChildUsingXpath(yangxpath, value);
 		}
 		
 	}
 	
-	static String splitCamelCase(String s) {
-		return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_HYPHEN, s);
-	}
 	
 	public void updateCoreModel(String key, String value) {
 		String[] parts = key.split("%");
 		for (String k : parts) {
-			Object result;
-			try {
-				XPathFactory xPathfactory = XPathFactory.newInstance();
-				XPath xpath = xPathfactory.newXPath();
-				XPathExpression expr = xpath.compile(k);
-				result = expr.evaluate(getDocument(), XPathConstants.NODESET);
-				NodeList nodes = (NodeList) result;
-				for (int i = 0; i < nodes.getLength(); i++) {
-					// System.out.println(nodes.item(i).getLocalName());
-					nodes.item(i).setTextContent(value);
-				}
-			} catch (XPathExpressionException e) {
-				e.printStackTrace();
+			 updateChildUsingXpath(k, value);
+		}
+	}
+	
+	public void updateChildUsingXpath(String xPath, String value) {
+		Object result;
+		try {
+			XPathFactory xPathfactory = XPathFactory.newInstance();
+			XPath xpath = xPathfactory.newXPath();
+			XPathExpression expr = xpath.compile(xPath);
+			result = expr.evaluate(getDocument(), XPathConstants.NODESET);
+			NodeList nodes = (NodeList) result;
+			for (int i = 0; i < nodes.getLength(); i++) {
+				// System.out.println(nodes.item(i).getLocalName());
+				nodes.item(i).setTextContent(value);
 			}
+		} catch (XPathExpressionException e) {
+			e.printStackTrace();
 		}
 		
 	}
