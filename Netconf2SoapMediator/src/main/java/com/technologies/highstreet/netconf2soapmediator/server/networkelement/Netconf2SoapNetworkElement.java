@@ -824,6 +824,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	 */
 	public void updateDoc()  {
 		//printDocument(tr069Document, System.out);
+
 		NodeList informs = tr069Document.getElementsByTagName("ParameterValueStruct");
 		if(informs != null) {
 			System.out.println("informs lenght "+informs.getLength());
@@ -843,6 +844,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 				updateDocKeyValue(key, value);
 			}
 		}
+
 	}
 	
 	public void updateDocKeyValue(String tr069Key, String value) {
@@ -861,10 +863,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		// The tr069Key is like this Device.Services.FAPService.{i}.CellConfig.LTE.RAN.RF.DLBandwidth
 		// We need to find the correspondent xpath //data/fap-service/alias[text()=i]/cell-config/lte/lte-ran/lte-ran-rf/dl-bandwidth
 		// I don't know if we can multiple fapservices,  otherwise the part alias[text()=i] is not needed
-		
-//		System.out.println("Key=" + tr069Key);
-//		System.out.println("Val=" + value);
-		
+
 		String[] parts = tr069Key.split("\\.");
 		if(parts.length < 4) return;
 		String fapservice_id = parts[3];
@@ -882,7 +881,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		tr069Key = "";
 		for(int i = 4; i < parts.length; i++) {
 			tr069Key += parts[i];
-			if(i != parts.length-1 ) {
+			if(i != parts.length - 1 ) {
 				tr069Key += ".";
 			}
 		}

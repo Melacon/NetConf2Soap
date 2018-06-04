@@ -13,48 +13,39 @@
 			<ParameterList
 				soap_enc:arrayType="cwmp:ParameterValueStruct[10]">
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth</Name>
 					<Value xsi:type="xsd:string">50</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth</Name>
 					<Value xsi:type="xsd:string">50</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL</Name>
 					<Value xsi:type="xsd:string">8340</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL</Name>
 					<Value xsi:type="xsd:string">26340</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex</Name>
 					<Value xsi:type="xsd:string">738</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity</Name>
 					<Value xsi:type="xsd:unsignedInt">5203</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID</Name>
 					<Value xsi:type="xsd:string">203</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID
-					</Name>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID</Name>
 					<Value xsi:type="xsd:string">37003</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList
-					</Name>
+					<Name>Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList</Name>
 					<Value xsi:type="xsd:string">10.9.50.84</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
