@@ -1,5 +1,7 @@
 package com.technologies.highstreet.netconf2soapmediator.server;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +11,8 @@ public class CWMPMessage {
 	private static StringBuilder env, end, header, informResponse;
 	private static Map<Integer, String> getParamValMap = new HashMap<Integer, String>();
 	private static Map<Integer, String> getParamAttMap = new HashMap<Integer, String>();
-
+	private static StringBuilder xmlString = new StringBuilder(10);
+	
 	// constructor
 	public CWMPMessage() {
 		env = new StringBuilder();
@@ -23,8 +26,25 @@ public class CWMPMessage {
 		informResponse();
 		initParamValMap();
 		initParamAttMap();
+	
+		createString();
 	}
 
+	void createString()  {
+		try {
+			BufferedReader file = new BufferedReader(new FileReader("./xmlTR069Examples/GetParameterValuesResponse_example.xml"));
+			String stringBuffer;
+			while ((stringBuffer=file.readLine()) != null) {
+				xmlString.append(stringBuffer);
+			}
+			//System.out.println(xmlString.toString());
+			file.close();
+		}
+		catch (Exception fx) {
+			System.out.println("Exception " + fx.toString());
+		} 
+	}
+	
 	void initParamValMap() {
 		getParamValMap.put(1, "Device.DeviceInfo.UpTime");
 		getParamValMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
@@ -149,4 +169,7 @@ public class CWMPMessage {
 		return msg;
 	}
 
+	final public static String getXmlString() {
+		return xmlString.toString();
+	}
 }

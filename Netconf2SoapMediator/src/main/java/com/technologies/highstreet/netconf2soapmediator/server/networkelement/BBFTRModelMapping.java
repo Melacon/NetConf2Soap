@@ -24,7 +24,7 @@ public class BBFTRModelMapping {
 
 		//ManagedObjectAttribute
 		bbftrModelBiMap.put("CellConfig.LTE.EPC.PLMNList.{i}.PLMNID","");
-		bbftrModelBiMap.put("CellConfig.LTE.EPC.PLMNList.{i}.IsPrimary","");
+//		bbftrModelBiMap.put("CellConfig.LTE.EPC.PLMNList.{i}.IsPrimary","");
 
 		//ManagedObjectAttribute
 		bbftrModelBiMap.put("FAPControl.LTE.Gateway.S1SigLinkServerList","//data/fap-service/fap-control/fap-control-lte/fap-control-lte-gateway/s1-sig-link-server-list"); //this is a list, more than one value.
@@ -48,24 +48,24 @@ public class BBFTRModelMapping {
 		 * from here on there is the key i
 		 */
 		//ManagedObjectAttribute
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.EUTRACarrierARFCN","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.PhyCellID","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.RSRP","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.RSRQ","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.RSSI","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.EUTRACarrierARFCN","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.PhyCellID","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.RSRP","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.RSRQ","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.RF.RSSI","");
 
 		//ManagedObjectAttribute
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.DLBandwidth","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.ULBandwidth","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.RSTxPower","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.TAC","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CellID","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CellBarred","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CSGIndication","");
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CSGIdentity","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.DLBandwidth","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.ULBandwidth","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.RSTxPower","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.TAC","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CellID","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CellBarred","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CSGIndication","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.CSGIdentity","");
 
 		//ManagedObjectAttribute
-		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.PLMNList.{i}.PLMNID","");
+//		bbftrModelBiMap.put("REM.LTE.Cell.{i}.BCCH.PLMNList.{i}.PLMNID","");
 		
 		
 		
