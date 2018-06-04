@@ -2004,7 +2004,7 @@
         </problem-notification>
     </mw-notifications>
     <fap-service>
-    <alias>fap1</alias>
+    <alias>1</alias>
     <device-type>standalone</device-type>
     <dn-prefix>dn-prefix</dn-prefix>
     <capabilities>

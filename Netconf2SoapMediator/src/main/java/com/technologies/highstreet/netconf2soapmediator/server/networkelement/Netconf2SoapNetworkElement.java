@@ -824,12 +824,6 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	 */
 	public void updateDoc()  {
 		//printDocument(tr069Document, System.out);
-		try {
-			System.out.println("BEFOREEEEE");
-			printNode(NetworkElement.getNode(getDocument(), "//data/equipment"));
-		} catch (XPathExpressionException e) {
-			e.printStackTrace();
-		}
 		NodeList informs = tr069Document.getElementsByTagName("ParameterValueStruct");
 		if(informs != null) {
 			System.out.println("informs lenght "+informs.getLength());
@@ -849,13 +843,6 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 				updateDocKeyValue(key, value);
 			}
 		}
-		try {
-			System.out.println("AFTERRRR");
-			printNode(NetworkElement.getNode(getDocument(), "//data/equipment"));
-		} catch (XPathExpressionException e) {
-			e.printStackTrace();
-		}
-		
 	}
 	
 	public void updateDocKeyValue(String tr069Key, String value) {
