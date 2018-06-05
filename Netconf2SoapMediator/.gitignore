@@ -2,8 +2,8 @@
 *.log*
 *.pid
 .*.md.html
-*.log
 *.jar
+*.config
 
 /SoapMediator*
 /target/
