@@ -289,10 +289,10 @@ public class MediatorConfig {
 		sb.append(String.format("\"%s\":%s,", JSONKEY_ISNCCONNECTED, this.mIsNetconfConnected ? "true" : "false"));
 		sb.append(String.format("\"%s\":%s,", JSONKEY_ISNECONNECTED, this.mIsNeConnected ? "true" : "false"));
 		sb.append(String.format("\"%s\":%s,", JSONKEY_SETTRAPHOSTONSTARTUP, this.mSetTrapHostOnStartup ? "true" : "false"));
-		sb.append(String.format("\"%s\":\"%s,", JSONKEY_TRAPHOSTIP, this.mTrapHostIp ));
-		sb.append(String.format("\"%s\":\"%s,", JSONKEY_CPEURL, this.cpeUrl ));
-		sb.append(String.format("\"%s\":\"%s,", JSONKEY_CPEUSERNAME, this.cpeUsername ));
-		sb.append(String.format("\"%s\":\"%s\"", JSONKEY_CPEPASSWORD, this.cpePassword ));
+		sb.append(String.format("\"%s\":\"%s\",", JSONKEY_TRAPHOSTIP, this.mTrapHostIp ));
+		sb.append(String.format("\"%s\":\"%s\",", JSONKEY_CPEURL, this.cpeUrl ));
+		sb.append(String.format("\"%s\":\"%s\",", JSONKEY_CPEUSERNAME, this.cpeUsername ));
+		sb.append(String.format("\"%s\":\"%s\",", JSONKEY_CPEPASSWORD, this.cpePassword ));
 		sb.append("}");
 		return sb.toString();
 	}
