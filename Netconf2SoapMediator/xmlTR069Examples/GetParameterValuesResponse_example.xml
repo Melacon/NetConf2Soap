@@ -21,6 +21,10 @@
 					<Value xsi:type="xsd:string">50</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID</Name>
+					<Value xsi:type="xsd:string">203</Value>
+				</ParameterValueStruct>
+				<ParameterValueStruct>
 					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL</Name>
 					<Value xsi:type="xsd:string">8340</Value>
 				</ParameterValueStruct>
@@ -37,12 +41,12 @@
 					<Value xsi:type="xsd:unsignedInt">5203</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
-					<Name>Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID</Name>
-					<Value xsi:type="xsd:string">203</Value>
-				</ParameterValueStruct>
-				<ParameterValueStruct>
 					<Name>Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID</Name>
 					<Value xsi:type="xsd:string">37003</Value>
+				</ParameterValueStruct>
+				<ParameterValueStruct>
+					<Name>Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary</Name>
+					<Value xsi:type="xsd:boolean">true</Value>
 				</ParameterValueStruct>
 				<ParameterValueStruct>
 					<Name>Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList</Name>
@@ -51,6 +55,14 @@
 				<ParameterValueStruct>
 					<Name>Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC</Name>
 					<Value xsi:type="xsd:unsignedInt">65535</Value>
+				</ParameterValueStruct>
+				<ParameterValueStruct>
+					<Name>Device.Services.FAPService.1.FAPControl.LTE.OpState</Name>
+					<Value xsi:type="xsd:boolean">true</Value>
+				</ParameterValueStruct>
+				<ParameterValueStruct>
+					<Name>Device.Services.FAPService.1.FAPControl.LTE.AdminState</Name>
+					<Value xsi:type="xsd:boolean">true</Value>
 				</ParameterValueStruct>
 			</ParameterList>
 		</cwmp:GetParameterValuesResponse>
