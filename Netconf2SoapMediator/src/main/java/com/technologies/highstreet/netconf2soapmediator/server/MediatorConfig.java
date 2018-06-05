@@ -95,6 +95,9 @@ public class MediatorConfig {
 	public static final String JSONKEY_SETTRAPHOSTONSTARTUP = "SetTrapHost";
 	public static final String JSONKEY_TRAPHOSTIP = "TrapHostIp";
 	public static final String JSONKEY_ODLCONFIG = "ODLConfig";
+	public static final String JSONKEY_CPEURL = "CpeUrl";
+	public static final String JSONKEY_CPEPASSWORD = "CpeUsername";
+	public static final String JSONKEY_CPEUSERNAME = "CpePassword";
 
 	protected String mName;
 	protected int mDeviceType;
@@ -109,6 +112,34 @@ public class MediatorConfig {
 	protected String mTrapHostIp;
 	protected ODLConfigCollection mODLConfigs;
 	protected String mLogFilename;
+	
+	protected String cpeUrl;
+	protected String cpeUsername;
+	protected String cpePassword;
+
+	public String getCpeUrl() {
+		return cpeUrl;
+	}
+
+	public void setCpeUrl(String cpeUrl) {
+		this.cpeUrl = cpeUrl;
+	}
+
+	public String getCpeUsername() {
+		return cpeUsername;
+	}
+
+	public void setCpeUsername(String cpeUsername) {
+		this.cpeUsername = cpeUsername;
+	}
+
+	public String getCpePassword() {
+		return cpePassword;
+	}
+
+	public void setCpePassword(String cpePassword) {
+		this.cpePassword = cpePassword;
+	}
 
 	public void setName(String name) {
 		this.mName = name;
@@ -201,6 +232,9 @@ public class MediatorConfig {
 		this.mIsNeConnected = false;
 		this.mSetTrapHostOnStartup=false;
 		this.mODLConfigs = new ODLConfigCollection();
+		this.cpeUrl = "";
+		this.cpeUsername = "";
+		this.cpePassword = "";
 	}
 
 	public MediatorConfig(String filename) throws IOException {
@@ -224,6 +258,9 @@ public class MediatorConfig {
 			this.mNeXMLFilename = o.getString(JSONKEY_NEXMLFILE);
 			this.mNetconfPort = o.getInt(JSONKEY_NETCONFPORT);
 			this.mODLConfigs = ODLConfigCollection.FromJSON(o.getJSONArray(JSONKEY_ODLCONFIG));
+			this.cpeUrl = o.getString(JSONKEY_CPEURL);
+			this.cpeUsername = o.getString(JSONKEY_CPEUSERNAME);
+			this.cpePassword = o.getString(JSONKEY_CPEPASSWORD);
 			// optional items
 			try {
 				this.mIsNetconfConnected = o.getBoolean(JSONKEY_ISNCCONNECTED);
@@ -253,6 +290,9 @@ public class MediatorConfig {
 		sb.append(String.format("\"%s\":%s,", JSONKEY_ISNECONNECTED, this.mIsNeConnected ? "true" : "false"));
 		sb.append(String.format("\"%s\":%s,", JSONKEY_SETTRAPHOSTONSTARTUP, this.mSetTrapHostOnStartup ? "true" : "false"));
 		sb.append(String.format("\"%s\":\"%s\"", JSONKEY_TRAPHOSTIP, this.mTrapHostIp ));
+		sb.append(String.format("\"%s\":\"%s\"", JSONKEY_CPEURL, this.cpeUrl ));
+		sb.append(String.format("\"%s\":\"%s\"", JSONKEY_CPEUSERNAME, this.cpeUsername ));
+		sb.append(String.format("\"%s\":\"%s\"", JSONKEY_CPEPASSWORD, this.cpePassword ));
 		sb.append("}");
 		return sb.toString();
 	}
@@ -284,6 +324,9 @@ public class MediatorConfig {
 			cfg.mNeXMLFilename = o.getString(JSONKEY_NEXMLFILE);
 			cfg.mNetconfPort = o.getInt(JSONKEY_NETCONFPORT);
 			cfg.mODLConfigs = ODLConfigCollection.FromJSON(o.getJSONArray(JSONKEY_ODLCONFIG));
+			cfg.cpeUrl = o.getString(JSONKEY_CPEURL);
+			cfg.cpeUsername = o.getString(JSONKEY_CPEUSERNAME);
+			cfg.cpePassword = o.getString(JSONKEY_CPEPASSWORD);
 			// not neccessary options
 			try {
 				cfg.mIsNetconfConnected = o.getBoolean(JSONKEY_ISNCCONNECTED);

@@ -455,15 +455,18 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			HTTPServlet.setNetworkElement(ne);
 			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
 			server.startServer();
+			HTTPClient httpclient = new HTTPClient();
+			httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+			System.out.println("sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			if (CLIMODE == true) {
 				System.out.println("connActive=" + HTTPServlet.getConnActive() );
 				for (int i = 0; i < 3000; i++) {
 					System.out.println("connActive=" + HTTPServlet.getConnActive());
 					if (HTTPServlet.getSetParam() == true) {
 						// request connection from CWMP device
-						HTTPClient httpclient = new HTTPClient();
-						httpclient.sendOpenConnectionToDevice("http://172.16.254.129:7547", "easycwmp", "easycwmp");
-						System.out.println("sendOpenConnectionToDevice(\"http://172.16.254.129:7547\", \"easycwmp\", \"easycwmp\")");
+						httpclient = new HTTPClient();
+						httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+						System.out.println("sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 					}
 					Thread.sleep(1000); // milliseconds
 				}
