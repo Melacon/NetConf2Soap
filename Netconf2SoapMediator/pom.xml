@@ -134,6 +134,45 @@
             </plugins>
         </pluginManagement>
         <plugins>
+         <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>${start-class}</mainClass>
+                </configuration>
+                  <executions>
+                    <execution>
+                      <goals>
+                        <goal>repackage</goal>
+                      </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+              <artifactId>maven-assembly-plugin</artifactId>
+              <version>2.6</version>
+              <configuration>
+                <archive>
+                  <manifest>
+                    <addClasspath>true</addClasspath>
+                    <mainClass>com.technologies.highstreet.netconf2soapmediator.server.Netconf2SoapMediator</mainClass>
+                  </manifest>
+                </archive>
+                <descriptorRefs>
+                  <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+              </configuration>
+              <executions>
+                <execution>
+                  <id>assemble-all</id>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>single</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
                <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.6</version>
@@ -203,7 +242,7 @@
                             <target>
                                 <copy todir="build">
                                     <fileset dir="target" />
-                                    <globmapper from="Netconf2SoapMediator-*-jar-with-dependencies.jar"
+                                    <globmapper from="Netconf2SoapMediator-0.1.0.jar"
                                         to="Netconf2SoapMediator.jar" />
                                 </copy>
                             </target>

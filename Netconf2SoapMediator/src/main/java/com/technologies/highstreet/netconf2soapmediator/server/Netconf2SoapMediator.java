@@ -388,17 +388,9 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 		}
 		throw new Exception("no ip address found for selected network interface");
 	}
+	
 
 	public static void main(String[] args) {
-		/**
-		 * Begin PIER TEST
-		 */
-		//HTTPClient httpclient = new HTTPClient();
-		//httpclient.sendOpenConnectionToDevice("http://172.16.254.129:7547", "easycwmp", "easycwmp");
-		SpringApplication.run(HTTPServer.class);
-		/**
-		 * end PIER TEST
-		 */
 		String title = "Netconf NE Soap Mediator\n";
 		int optIdx=0;
 		if (args.length < 1) {
@@ -445,7 +437,15 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 
 		initDebug(debugFile);
 		LOG.info(title);
-
+		/**
+		 * Begin PIER TEST
+		 */
+		//HTTPClient httpclient = new HTTPClient();
+		//httpclient.sendOpenConnectionToDevice("http://172.16.254.129:7547", "easycwmp", "easycwmp");
+		SpringApplication.run(HTTPServer.class);
+		/**
+		 * end PIER TEST
+		 */
 		Netconf2SoapNetworkElement ne;
 		try {
 			Netconf2SoapMediator server = Netconf2SoapMediator.createServer();
