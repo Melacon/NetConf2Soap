@@ -43,6 +43,9 @@ public class HTTPServlet extends HttpServlet {
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
 		
+		System.out.println("Received msg from device");
+		System.out.println(request);
+		
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
 			return;
@@ -99,7 +102,7 @@ public class HTTPServlet extends HttpServlet {
 		else if (reqBody.equals("")) {
 			System.out.println("Received HTTP request: Empty");
 			//send GetParameterValues
-			sb = CWMPmsg.getParameterValues();
+			//sb = CWMPmsg.getParameterValues();
 		}
 		else {
 			System.out.println("Received Unknown msg");
