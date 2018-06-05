@@ -50,11 +50,18 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received Fault msg");
 			return;
 		}
+		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>0 BOOTSTRAP")) {
+				System.out.println("Received Inform msg (0 BOOTSTRAP)");
+
+			setConnActive(true);
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sb = CWMPmsg.getInformResponse();
+		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>1 BOOT")) {
 			if (reqBody.contains("<EventCode>2 PERIODIC")) {
 				System.out.println("Received Inform msg (BOOT PERIODIC REQUEST)");
 			} else {
-				System.out.println("Received Inform msg (BOOT)");
+				System.out.println("Received Inform msg (1 BOOT)");
 			}
 
 			setConnActive(true);
@@ -62,19 +69,20 @@ public class HTTPServlet extends HttpServlet {
 			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>2 PERIODIC")) {
-			System.out.println("Received Inform msg (PERIODIC REQUEST)");
+			System.out.println("Received Inform msg (2 PERIODIC REQUEST)");
 			setConnActive(true);
 			networkElement.setTr069DocumentCFromString(reqBody);
 			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
-			System.out.println("Received Inform msg (CONNECTION REQUEST)");
+			System.out.println("Received Inform msg (6 CONNECTION REQUEST)");
 			setConnActive(true);
 			networkElement.setTr069DocumentCFromString(reqBody);
 			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("cwmp:Inform") ) {
 			System.out.println("Received Inform msg (unknown)");
+			setConnActive(true);
 			networkElement.setTr069DocumentCFromString(reqBody);
 			sb = CWMPmsg.getInformResponse();
 		}
