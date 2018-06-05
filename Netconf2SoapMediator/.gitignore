@@ -3,6 +3,7 @@
 *.pid
 .*.md.html
 *.log
+*.jar
 
 /SoapMediator*
 /target/
