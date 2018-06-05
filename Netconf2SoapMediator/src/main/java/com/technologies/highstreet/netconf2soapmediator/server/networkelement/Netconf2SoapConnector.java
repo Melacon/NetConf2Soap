@@ -78,8 +78,13 @@ public class Netconf2SoapConnector implements CommandResponder, ResponseListener
 		this.trapPort = sne.getSNMPTrapPort();
 		this.console = console;
 		this.snmpDevice = BaseSNMPDevice.CREATOR.Create(sne.getDeviceClass());
-
-		this.initSNMP();
+		/**
+		 * Pier editing
+		 */
+		//this.initSNMP();
+		/**
+		 * Pier editing
+		 */
 
 	}
 
