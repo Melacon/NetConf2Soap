@@ -46,9 +46,42 @@ public class CWMPMessage {
 	}
 	
 	void initParamValMap() {
-		getParamValMap.put(1, "Device.DeviceInfo.UpTime");
-		getParamValMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
-		getParamValMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
+			
+		getParamValMap.put(1, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
+		getParamValMap.put(2, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
+		getParamValMap.put(3, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
+		getParamValMap.put(4, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
+
+		//ManagedObjectAttribute
+		getParamValMap.put(5, "Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+
+		//ManagedObjectAttribute
+		getParamValMap.put(6, "Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
+
+		//ManagedObjectAttribute
+//		getParamValMap.put("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.{i}.PLMNID","");
+//		getParamValMap.put("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.{i}.IsPrimary","");
+
+		//ManagedObjectAttribute
+		getParamValMap.put(7, "Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
+
+		//ManagedObjectAttribute
+		getParamValMap.put(8, "Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
+
+		//ManagedObjectAttribute
+		getParamValMap.put(9, "Device.Services.FAPService.1.FAPControl.LTE.OpState");
+		getParamValMap.put(10, "Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+
+		//ManagedObjectAttribute
+		getParamValMap.put(11, "Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
+		getParamValMap.put(12, "Device.Services.FAPService.1.REM.LTE.ScanTimeout");
+		getParamValMap.put(13, "Device.Services.FAPService.1.REM.LTE.ScanStatus");
+		getParamValMap.put(14, "Device.Services.FAPService.1.REM.LTE.LastScanTime");
+		getParamValMap.put(15, "Device.Services.FAPService.1.REM.LTE.REMBandList");
+		getParamValMap.put(16, "Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
+		
+		
+//		getParamValMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
 	}
 
 	void initParamAttMap() {

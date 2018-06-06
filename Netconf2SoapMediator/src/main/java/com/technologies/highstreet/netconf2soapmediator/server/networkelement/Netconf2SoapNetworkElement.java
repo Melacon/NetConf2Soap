@@ -827,9 +827,10 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 
 		NodeList informs = tr069Document.getElementsByTagName("ParameterValueStruct");
 		if(informs != null) {
-			System.out.println("informs lenght "+informs.getLength());
 			for (int i = 0; i < informs.getLength(); i++) {
 				NodeList child = informs.item(i).getChildNodes();
+				
+				
 				String value = "";
 				String key = "";			
 				for (int j = 0; j < child.getLength(); j++) {
@@ -839,6 +840,22 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 						
 					}else if (child.item(j).getNodeName().equals("Value")) {
 						value = child.item(j).getTextContent();
+						Element e = (Element) child.item(j);
+						String type = e.getAttribute("xsi:type");
+						if (type.equals("xsd:boolean")){
+							if(value.equals("1")) {
+								value = "true";
+							}else if(value.equals("0")) {
+								value = "false";
+							}
+						}
+						if (type.equals("xsd:string")){
+							value = value.toLowerCase();
+						}
+						if (type.equals("xsd:dateTime")){
+							value = value + "+00:00";
+						}
+							
 					}						
 				}
 				updateDocKeyValue(key, value);
@@ -896,24 +913,26 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	public void updateCoreModel(String key, String value) {
 		String[] parts = key.split("%");
 		for (String k : parts) {
-			 updateChildUsingXpath(k, value);
+			updateChildUsingXpath(k, value);
 		}
 	}
 	
 	public void updateChildUsingXpath(String xPath, String value) {
-		Object result;
-		try {
-			XPathFactory xPathfactory = XPathFactory.newInstance();
-			XPath xpath = xPathfactory.newXPath();
-			XPathExpression expr = xpath.compile(xPath);
-			result = expr.evaluate(getDocument(), XPathConstants.NODESET);
-			NodeList nodes = (NodeList) result;
-			for (int i = 0; i < nodes.getLength(); i++) {
-				// System.out.println(nodes.item(i).getLocalName());
-				nodes.item(i).setTextContent(value);
+		if(value != null && !value.equals("")) {
+			Object result;
+			try {
+				XPathFactory xPathfactory = XPathFactory.newInstance();
+				XPath xpath = xPathfactory.newXPath();
+				XPathExpression expr = xpath.compile(xPath);
+				result = expr.evaluate(getDocument(), XPathConstants.NODESET);
+				NodeList nodes = (NodeList) result;
+				for (int i = 0; i < nodes.getLength(); i++) {
+					// System.out.println(nodes.item(i).getLocalName());
+					nodes.item(i).setTextContent(value);
+				}
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
 			}
-		} catch (XPathExpressionException e) {
-			e.printStackTrace();
 		}
 		
 	}

@@ -88,12 +88,13 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
 			System.out.println("Received GetParameterValuesResponse msg");
-
+			System.out.println(reqBody);
+			
 			if (getSetParam() == true) {
 				sb = CWMPmsg.setParameterValues(setParamMap);
 			} else {
-				networkElement.setTr069DocumentCFromString(CWMPMessage.getXmlString());
-				sb = CWMPmsg.getParameterAttributes();
+				networkElement.setTr069DocumentCFromString(reqBody);
+				//sb = CWMPmsg.getParameterAttributes();
 			}
 		}
 		else if (reqBody.contains("cwmp:SetParameterValuesResponse")) {
@@ -105,6 +106,7 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received GetParameterAttributesResponse msg");
 			setConnActive(false);
 			// send empty response, close connection
+			networkElement.setTr069DocumentCFromString(reqBody);
 			return;
 		}
 		else if (reqBody.equals("")) {
