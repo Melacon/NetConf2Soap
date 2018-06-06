@@ -110,7 +110,7 @@ public class HTTPServlet extends HttpServlet {
 		else if (reqBody.equals("")) {
 			System.out.println("Received HTTP request: Empty");
 			//send GetParameterValues
-			//sb = CWMPmsg.getParameterValues();
+			sb = CWMPmsg.getParameterValues();
 		}
 		else {
 			System.out.println("Received Unknown msg");

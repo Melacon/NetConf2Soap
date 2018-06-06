@@ -26,7 +26,7 @@ public class CWMPMessage {
 		informResponse();
 		initParamValMap();
 		initParamAttMap();
-	
+		end();
 		createString();
 	}
 
