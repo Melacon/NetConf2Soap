@@ -144,12 +144,12 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
     		ArrayList<String> list1 = new ArrayList<String>();
     		list1.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
     		list1.add("100");
-    		HTTPServlet.setParamMap.put(1, list1);
+    		HTTPServlet.setParamMap.put(0, list1);
 
     		ArrayList<String> list2 = new ArrayList<String>();
     		list2.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
     		list2.add("75");
-    		HTTPServlet.setParamMap.put(2, list2);
+    		HTTPServlet.setParamMap.put(1, list2);
 
 //    		// fill list of parameters that you want to set
 //    		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

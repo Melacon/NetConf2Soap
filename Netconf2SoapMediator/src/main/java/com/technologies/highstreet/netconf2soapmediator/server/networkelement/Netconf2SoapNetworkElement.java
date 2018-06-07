@@ -227,9 +227,9 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		try {
 			// consoleMessage("------------------------------------");
 			// consoleMessage("Start editConfig processing for message "+sessionId);
-			Document inDoc = loadXMLFromString(xml);
+			//Document inDoc = loadXMLFromString(xml);
 			// consoleMessage("Doc loaded");
-			snmpConnector.onPreEditConfigTarget(sessionId, tags, inDoc);
+			//snmpConnector.onPreEditConfigTarget(sessionId, tags, inDoc);
 		} catch (Exception e) {
 			LOG.warn("Can not do SNMP processing: ", e);
 		}
