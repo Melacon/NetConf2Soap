@@ -142,12 +142,12 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
     	if (receivedMessage.isRpcEditConfigTargetRunningDefaultOperationConfig()) {
     		
     		ArrayList<String> list1 = new ArrayList<String>();
-    		list1.add("CellConfig.LTE.RAN.RF.ULBandwidth");
+    		list1.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
     		list1.add("100");
     		HTTPServlet.setParamMap.put(1, list1);
 
     		ArrayList<String> list2 = new ArrayList<String>();
-    		list2.add("CellConfig.LTE.RAN.RF.DLBandwidth");
+    		list2.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
     		list2.add("75");
     		HTTPServlet.setParamMap.put(2, list2);
 
