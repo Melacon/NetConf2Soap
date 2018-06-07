@@ -143,6 +143,23 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
     @Override
     protected void doMessageProcessing(NetconfIncommingMessageRepresentation receivedMessage) throws IOException {
     	if (receivedMessage.isRpcEditConfigTargetRunningDefaultOperationConfig()) {
+
+    		Random rand = new Random(); 
+    		int value_rng = rand.nextInt(5000) + 1000;
+
+    		ArrayList<String> list_old = new ArrayList<String>();
+    		list_old.add("Device.ManagementServer.PeriodicInformEnable");
+    		list_old.add("true");
+    		HTTPServlet.setParamMap.put(1, list_old);
+
+    		ArrayList<String> list2 = new ArrayList<String>();
+    		list2.add("Device.ManagementServer.PeriodicInformInterval");
+    		list2.add("" + value_rng);
+    		HTTPServlet.setParamMap.put(2, list2);
+    		
+    		System.out.println("Old map");
+    		System.out.println(HTTPServlet.setParamMap);
+
     		// fill list of parameters that you want to set
     		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder;
@@ -203,6 +220,9 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
     				e.printStackTrace();
     			}
     		}
+    		System.out.println("New map");
+    		System.out.println(HTTPServlet.setParamMap);
+    		
     		HTTPServlet.setSetParam(true);
     	}
     	super.doMessageProcessing(receivedMessage);
