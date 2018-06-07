@@ -193,7 +193,7 @@ public class CWMPMessage {
 		for (int i = 0; i < map.size(); i++) {
 			msg.append("\t\t\t<ParameterValueStruct>\n");
 			msg.append("\t\t\t\t<Name>" + map.get(i).get(0) + "</Name>\n");
-			msg.append("\t\t\t\t<Value xsi:type=\"xsd:string\">" + map.get(i).get(1) + "</Value>\n");
+			msg.append("\t\t\t\t<Value>" + map.get(i).get(1) + "</Value>\n");
 			msg.append("\t\t\t</ParameterValueStruct>\n");
 		}
 
