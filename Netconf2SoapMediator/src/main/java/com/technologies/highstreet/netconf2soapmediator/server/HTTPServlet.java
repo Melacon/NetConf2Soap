@@ -67,7 +67,6 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else {
 			System.out.println("Received Unknown msg");
-			return;
 		}
 
 		System.out.println("Sending HTTP reply:");
