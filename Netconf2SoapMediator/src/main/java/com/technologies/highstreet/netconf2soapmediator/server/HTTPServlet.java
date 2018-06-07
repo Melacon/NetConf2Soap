@@ -41,10 +41,11 @@ public class HTTPServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		System.out.println("Received msg from device");
-		System.out.println(request);
 
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
+		
+		System.out.println(reqBody);
 
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");

@@ -802,7 +802,6 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	
 	public void setTr069DocumentCFromString(String stringDoc) {
 		DocumentBuilder db;
-		System.out.println(stringDoc);
 		try {
 			db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			InputSource is = new InputSource();
