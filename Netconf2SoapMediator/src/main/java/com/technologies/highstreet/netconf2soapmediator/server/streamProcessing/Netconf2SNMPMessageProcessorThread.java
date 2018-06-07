@@ -140,66 +140,77 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
     @Override
     protected void doMessageProcessing(NetconfIncommingMessageRepresentation receivedMessage) throws IOException {
     	if (receivedMessage.isRpcEditConfigTargetRunningDefaultOperationConfig()) {
-    		// fill list of parameters that you want to set
-    		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder;
-            Document inDoc = null;
-			try {
-				builder = factory.newDocumentBuilder();
-				InputSource is = new InputSource(new StringReader(receivedMessage.getXmlSourceMessage()));
-	    		inDoc = builder.parse(is);
-			} catch (ParserConfigurationException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (SAXException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    		Set<String> yangKeys = BBFTRModelMapping.getYangKeys();
-    		XPathFactory xPathfactory = XPathFactory.newInstance();
-			XPath xpath = xPathfactory.newXPath();
-			String xpathKeyString = "//fap-service/alias";
-			Object result;
-			String fap_id = "Device.Services.FAPService.";
-			try {
-				
-				XPathExpression expr = xpath.compile(xpathKeyString);
-				result = expr.evaluate(inDoc, XPathConstants.NODESET);
-				NodeList nodes = (NodeList) result;
-				for (int i = 0; i < nodes.getLength(); i++) {
-					// System.out.println(nodes.item(i).getLocalName());		
-					fap_id = fap_id + nodes.item(i).getTextContent()+".";
-				}
-			} catch (XPathExpressionException e) {
-				e.printStackTrace();
-			}
-			int map_index = 0;
-    		for(String xpathString: yangKeys) {
-    			String xpathStringFixed = xpathString.replaceFirst("/data", "");
-    			   			
-    			try {
-    				
-    				XPathExpression expr = xpath.compile(xpathStringFixed);
-    				result = expr.evaluate(inDoc, XPathConstants.NODESET);
-    				NodeList nodes = (NodeList) result;
-    				String value = null;
-    				for (int i = 0; i < nodes.getLength(); i++) {
-    					// System.out.println(nodes.item(i).getLocalName());
-    					value = nodes.item(i).getTextContent();
-    					
-    				}
-    				if(value !=null && !value.equals("")) {
-    					ArrayList<String> list = new ArrayList<String>();
-        				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
-        	    		list.add(value);
-        	    		HTTPServlet.setParamMap.put(map_index, list);		
-        	    		map_index++;
-    				}
-    				
-    			} catch (XPathExpressionException e) {
-    				e.printStackTrace();
-    			}
-    		}
+    		
+    		ArrayList<String> list1 = new ArrayList<String>();
+    		list1.add("CellConfig.LTE.RAN.RF.ULBandwidth");
+    		list1.add("100");
+    		HTTPServlet.setParamMap.put(1, list1);
+
+    		ArrayList<String> list2 = new ArrayList<String>();
+    		list2.add("CellConfig.LTE.RAN.RF.DLBandwidth");
+    		list2.add("75");
+    		HTTPServlet.setParamMap.put(2, list2);
+
+//    		// fill list of parameters that you want to set
+//    		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//            DocumentBuilder builder;
+//            Document inDoc = null;
+//			try {
+//				builder = factory.newDocumentBuilder();
+//				InputSource is = new InputSource(new StringReader(receivedMessage.getXmlSourceMessage()));
+//	    		inDoc = builder.parse(is);
+//			} catch (ParserConfigurationException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			} catch (SAXException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//    		Set<String> yangKeys = BBFTRModelMapping.getYangKeys();
+//    		XPathFactory xPathfactory = XPathFactory.newInstance();
+//			XPath xpath = xPathfactory.newXPath();
+//			String xpathKeyString = "//fap-service/alias";
+//			Object result;
+//			String fap_id = "Device.Services.FAPService.";
+//			try {
+//				
+//				XPathExpression expr = xpath.compile(xpathKeyString);
+//				result = expr.evaluate(inDoc, XPathConstants.NODESET);
+//				NodeList nodes = (NodeList) result;
+//				for (int i = 0; i < nodes.getLength(); i++) {
+//					// System.out.println(nodes.item(i).getLocalName());		
+//					fap_id = fap_id + nodes.item(i).getTextContent()+".";
+//				}
+//			} catch (XPathExpressionException e) {
+//				e.printStackTrace();
+//			}
+//			int map_index = 0;
+//    		for(String xpathString: yangKeys) {
+//    			String xpathStringFixed = xpathString.replaceFirst("/data", "");
+//    			   			
+//    			try {
+//    				
+//    				XPathExpression expr = xpath.compile(xpathStringFixed);
+//    				result = expr.evaluate(inDoc, XPathConstants.NODESET);
+//    				NodeList nodes = (NodeList) result;
+//    				String value = null;
+//    				for (int i = 0; i < nodes.getLength(); i++) {
+//    					// System.out.println(nodes.item(i).getLocalName());
+//    					value = nodes.item(i).getTextContent();
+//    					
+//    				}
+//    				if(value !=null && !value.equals("")) {
+//    					ArrayList<String> list = new ArrayList<String>();
+//        				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
+//        	    		list.add(value);
+//        	    		HTTPServlet.setParamMap.put(map_index, list);		
+//        	    		map_index++;
+//    				}
+//    				
+//    			} catch (XPathExpressionException e) {
+//    				e.printStackTrace();
+//    			}
+//    		}
     		HTTPServlet.setSetParam(true);
     	}
     	super.doMessageProcessing(receivedMessage);
