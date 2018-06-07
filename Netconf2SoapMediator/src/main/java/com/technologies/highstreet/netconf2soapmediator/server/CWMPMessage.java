@@ -81,9 +81,9 @@ public class CWMPMessage {
 	}
 
 	void initParamAttMap() {
-		getParamAttMap.put(1, "Device.DeviceInfo.UpTime");
-		getParamAttMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
-		getParamAttMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
+		getParamAttMap.put(0, "Device.DeviceInfo.UpTime");
+		getParamAttMap.put(1, "Device.ManagementServer.PeriodicInformEnable");
+		getParamAttMap.put(2, "Device.ManagementServer.PeriodicInformInterval");
 	}
 	void initEnvelope() {
 		envelope = new StringBuilder();
@@ -166,7 +166,7 @@ public class CWMPMessage {
 		msg.append("\t\t<cwmp:GetParameterAttributes>\n");
 		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamAttMap.size() + "]\">\n");
 
-		for (int i = 1; i <= getParamAttMap.size(); i++) {
+		for (int i = 0; i < getParamAttMap.size(); i++) {
 
 			msg.append("\t\t\t\t<string>" + getParamAttMap.get(i) + "</string>\n");
 		}
@@ -190,7 +190,7 @@ public class CWMPMessage {
 		msg.append("\t\t<cwmp:SetParameterValues>\n");
 		msg.append("\t\t\t<ParameterList soap:arrayType=\"cwmp:ParameterValueStruct[" + map.size() + "]\">\n");
 
-		for (int i = 1; i <= map.size(); i++) {
+		for (int i = 0; i < map.size(); i++) {
 			msg.append("\t\t\t<ParameterValueStruct>\n");
 			msg.append("\t\t\t\t<Name>" + map.get(i).get(0) + "</Name>\n");
 			msg.append("\t\t\t\t<Value>" + map.get(i).get(1) + "</Value>\n");
