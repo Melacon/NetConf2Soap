@@ -95,7 +95,7 @@ public class NetconfMessageProcessorThread extends Thread implements NetconfSend
             if (message == null) {
                 log.debug("Received received: null");
             } else {
-                log.debug("Message received: " + message.getClass().getSimpleName()+" "+message.toString());
+                log.debug("Message received: " + message.getClass().getSimpleName()+" "+message.getMessageId());
             }
 
             // store message if necessary
