@@ -61,10 +61,6 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
 			sb = handleGetParameterAttributesResponse(reqBody);
-
-			setConnActive(false);
-			// send empty response, close connection
-			return;
 		}
 		else if (reqBody.equals("")) {
 			sb = handleEmptyResponse(reqBody);
@@ -140,9 +136,9 @@ public class HTTPServlet extends HttpServlet {
 	public static  StringBuilder handleSetParameterValuesResponse(String reqBody) {
 		System.out.println("Received SetParameterValuesResponse msg");
 
+		setSetParam(false);
 		StringBuilder sb = new StringBuilder(10);
 		sb = CWMPmsg.getParameterValues();
-		setSetParam(false);
 
 		return sb;
 	}
@@ -152,6 +148,8 @@ public class HTTPServlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(10);
 
+		setConnActive(false);
+		
 		return sb;
 	}
 
