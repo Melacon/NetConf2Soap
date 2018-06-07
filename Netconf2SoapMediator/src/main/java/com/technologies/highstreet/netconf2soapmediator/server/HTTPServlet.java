@@ -42,10 +42,10 @@ public class HTTPServlet extends HttpServlet {
 
 		System.out.println("Received msg from device");
 		System.out.println(request);
-		
+
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
-		
+
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
 			return;
@@ -53,37 +53,26 @@ public class HTTPServlet extends HttpServlet {
 		else if (reqBody.contains("cwmp:Inform")) {
 			sb = handleInform(reqBody);
 		}
-		
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
-			System.out.println("Received GetParameterValuesResponse msg");
-			System.out.println(reqBody);
-			
-			if (getSetParam() == true) {
-				sb = CWMPmsg.setParameterValues(setParamMap);
-			} else {
-				networkElement.setTr069DocumentCFromString(reqBody);
-				//sb = CWMPmsg.getParameterAttributes();
-			}
+			sb = handleGetParameterValuesResponse(reqBody);
 		}
 		else if (reqBody.contains("cwmp:SetParameterValuesResponse")) {
-			System.out.println("Received SetParameterValuesResponse msg");
-			sb = CWMPmsg.getParameterValues();
-			setSetParam(false);
+			sb = handleSetParameterValuesResponse(reqBody);
 		}
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
-			System.out.println("Received GetParameterAttributesResponse msg");
+			sb = handleGetParameterAttributesResponse(reqBody);
+
 			setConnActive(false);
 			// send empty response, close connection
 			return;
 		}
 		else if (reqBody.equals("")) {
-			System.out.println("Received HTTP request: Empty");
-			//send GetParameterValues
-			sb = CWMPmsg.getParameterValues();
+			handleEmptyResponse(reqBody);
 		}
 		else {
 			System.out.println("Received Unknown msg");
-			return;}
+			return;
+		}
 
 		System.out.println("Sending HTTP reply:");
 		System.out.println(sb);
@@ -124,15 +113,51 @@ public class HTTPServlet extends HttpServlet {
 		return body;
 	}
 
-	public static  StringBuilder handleInform(String reqBody) {
+	public static  StringBuilder handleEmptyResponse(String reqBody) {
+		System.out.println("Received HTTP request: Empty");
+
 		StringBuilder sb = new StringBuilder(10);
-		
+		sb = CWMPmsg.getParameterValues();
+
+		return sb;
+	}
+
+	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
+		System.out.println("Received GetParameterValuesResponse msg");
+
+		StringBuilder sb = new StringBuilder(10);
+
+		if (getSetParam() == true) {
+			sb = CWMPmsg.setParameterValues(setParamMap);
+		} else {
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sb = CWMPmsg.getParameterAttributes();
+		}
+
+		return sb;
+	}
+
+	public static  StringBuilder handleSetParameterValuesResponse(String reqBody) {
+		System.out.println("Received SetParameterValuesResponse msg");
+
+		StringBuilder sb = new StringBuilder(10);
+		sb = CWMPmsg.getParameterValues();
+		setSetParam(false);
+
+		return sb;
+	}
+
+	public static  StringBuilder handleGetParameterAttributesResponse(String reqBody) {
+		System.out.println("Received GetParameterAttributesResponse msg");
+
+		StringBuilder sb = new StringBuilder(10);
+
+		return sb;
+	}
+
+	public static  StringBuilder handleInform(String reqBody) {
 		if (reqBody.contains("<EventCode>0 BOOTSTRAP")) {
 			System.out.println("Received Inform msg with event code: 0 (BOOTSTRAP)");
-
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("<EventCode>1 BOOT")) {
 			if (reqBody.contains("<EventCode>2 PERIODIC")) {
@@ -140,34 +165,26 @@ public class HTTPServlet extends HttpServlet {
 			} else {
 				System.out.println("Received Inform msg with event code: 1 (BOOT)");
 			}
-
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("<EventCode>2 PERIODIC")) {
 			System.out.println("Received Inform msg with event code: 2 (PERIODIC REQUEST)");
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
 		}
 		else if (reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
 			System.out.println("Received Inform msg with event code: 6 (CONNECTION REQUEST)");
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
 		}
 		else {
 			System.out.println("Received Inform msg (unknown event code)");
-			System.out.println(reqBody);
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
 		}
-		
+
+		setConnActive(true);
+		networkElement.setTr069DocumentCFromString(reqBody);
+
+		StringBuilder sb = new StringBuilder(10);
+		sb = CWMPmsg.getInformResponse();
+
 		return sb;
 	}
-	
+
 	public static Netconf2SoapNetworkElement getNetworkElement() {
 		return networkElement;
 	}
