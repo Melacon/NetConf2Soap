@@ -67,7 +67,7 @@ public class HTTPServlet extends HttpServlet {
 			return;
 		}
 		else if (reqBody.equals("")) {
-			handleEmptyResponse(reqBody);
+			sb = handleEmptyResponse(reqBody);
 		}
 		else {
 			System.out.println("Received Unknown msg");
