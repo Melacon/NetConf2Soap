@@ -2,6 +2,8 @@
 
 package com.technologies.highstreet.netconf2soapmediator.server.networkelement;
 
+import java.util.Set;
+
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
@@ -23,7 +25,7 @@ public class BBFTRModelMapping {
 		bbftrModelBiMap.put("CellConfig.LTE.RAN.Common.CellIdentity","//data/fap-service/cell-config/lte/lte-ran/lte-ran-common/cell-identity");
 
 		//ManagedObjectAttribute
-		bbftrModelBiMap.put("CellConfig.LTE.EPC.PLMNList.{i}.PLMNID","");
+//		bbftrModelBiMap.put("CellConfig.LTE.EPC.PLMNList.{i}.PLMNID","");
 //		bbftrModelBiMap.put("CellConfig.LTE.EPC.PLMNList.{i}.IsPrimary","");
 
 		//ManagedObjectAttribute
@@ -72,12 +74,20 @@ public class BBFTRModelMapping {
 		
 	}
 
-	static String getYangfromTR069(String tr069key ) {
+	public static String getYangfromTR069(String tr069key ) {
 		return bbftrModelBiMap.get(tr069key);
 	}
 
-	static String getTR069fromYang(String yangkey ) {
+	public static String getTR069fromYang(String yangkey ) {
 		return bbftrModelBiMap.inverse().get(yangkey);
+	}
+	
+	public static Set<String> getYangKeys(){
+		return bbftrModelBiMap.values();
+	}
+	
+	public static Set<String> getTR069Keys(){
+		return bbftrModelBiMap.inverse().values();
 	}
 }
 
