@@ -106,7 +106,6 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received GetParameterAttributesResponse msg");
 			setConnActive(false);
 			// send empty response, close connection
-			networkElement.setTr069DocumentCFromString(reqBody);
 			return;
 		}
 		else if (reqBody.equals("")) {
