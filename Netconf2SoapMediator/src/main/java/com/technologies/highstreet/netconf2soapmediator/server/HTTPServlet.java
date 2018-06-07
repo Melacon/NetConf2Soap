@@ -40,52 +40,20 @@ public class HTTPServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 
-		final String reqBody = HTTPServlet.getBody(request);
-		StringBuilder sb = new StringBuilder(10);
-		
 		System.out.println("Received msg from device");
 		System.out.println(request);
+		
+		final String reqBody = HTTPServlet.getBody(request);
+		StringBuilder sb = new StringBuilder(10);
 		
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
 			return;
 		}
-		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>0 BOOTSTRAP")) {
-				System.out.println("Received Inform msg (0 BOOTSTRAP)");
-
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
+		else if (reqBody.contains("cwmp:Inform")) {
+			sb = handleInform(reqBody);
 		}
-		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>1 BOOT")) {
-			if (reqBody.contains("<EventCode>2 PERIODIC")) {
-				System.out.println("Received Inform msg (BOOT PERIODIC REQUEST)");
-			} else {
-				System.out.println("Received Inform msg (1 BOOT)");
-			}
-
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
-		}
-		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>2 PERIODIC")) {
-			System.out.println("Received Inform msg (2 PERIODIC REQUEST)");
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
-		}
-		else if (reqBody.contains("cwmp:Inform") && reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
-			System.out.println("Received Inform msg (6 CONNECTION REQUEST)");
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
-		}
-		else if (reqBody.contains("cwmp:Inform") ) {
-			System.out.println("Received Inform msg (unknown)");
-			setConnActive(true);
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getInformResponse();
-		}
+		
 		else if (reqBody.contains("cwmp:GetParameterValuesResponse")) {
 			System.out.println("Received GetParameterValuesResponse msg");
 			System.out.println(reqBody);
@@ -156,6 +124,50 @@ public class HTTPServlet extends HttpServlet {
 		return body;
 	}
 
+	public static  StringBuilder handleInform(String reqBody) {
+		StringBuilder sb = new StringBuilder(10);
+		
+		if (reqBody.contains("<EventCode>0 BOOTSTRAP")) {
+			System.out.println("Received Inform msg with event code: 0 (BOOTSTRAP)");
+
+			setConnActive(true);
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sb = CWMPmsg.getInformResponse();
+		}
+		else if (reqBody.contains("<EventCode>1 BOOT")) {
+			if (reqBody.contains("<EventCode>2 PERIODIC")) {
+				System.out.println("Received Inform msg with event code: 1 (BOOT PERIODIC REQUEST)");
+			} else {
+				System.out.println("Received Inform msg with event code: 1 (BOOT)");
+			}
+
+			setConnActive(true);
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sb = CWMPmsg.getInformResponse();
+		}
+		else if (reqBody.contains("<EventCode>2 PERIODIC")) {
+			System.out.println("Received Inform msg with event code: 2 (PERIODIC REQUEST)");
+			setConnActive(true);
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sb = CWMPmsg.getInformResponse();
+		}
+		else if (reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
+			System.out.println("Received Inform msg with event code: 6 (CONNECTION REQUEST)");
+			setConnActive(true);
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sb = CWMPmsg.getInformResponse();
+		}
+		else {
+			System.out.println("Received Inform msg (unknown event code)");
+			System.out.println(reqBody);
+			setConnActive(true);
+			networkElement.setTr069DocumentCFromString(reqBody);
+			sb = CWMPmsg.getInformResponse();
+		}
+		
+		return sb;
+	}
+	
 	public static Netconf2SoapNetworkElement getNetworkElement() {
 		return networkElement;
 	}
