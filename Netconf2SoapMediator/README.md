@@ -6,6 +6,12 @@
 
 The description bases on the environment: Ubuntu 16.04, Maven 3.3.9, Java 1.8, git 2.7.4, curl
 
+The mediator needs a config file (`test.config`) to run. To start, copy our example like this:
+
+```
+cp test.config.example test.config
+```
+
 ### Build and Install
 
 **These steps need to be done after every git pull to reflect the new changes**
