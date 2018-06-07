@@ -8,29 +8,25 @@ import java.util.Map;
 
 public class CWMPMessage {
 
-	private static StringBuilder env, end, header, informResponse;
+	private static StringBuilder envelope, envelopeEnd, header, informResponse;
 	private static Map<Integer, String> getParamValMap = new HashMap<Integer, String>();
 	private static Map<Integer, String> getParamAttMap = new HashMap<Integer, String>();
 	private static StringBuilder xmlString = new StringBuilder(10);
 	
 	// constructor
 	public CWMPMessage() {
-		env = new StringBuilder();
-		end = new StringBuilder();
-		header = new StringBuilder();
-		informResponse = new StringBuilder();
-
 		//initialize objects
-		envelope();
-		header();
-		informResponse();
+		initEnvelope();
+		initHeader();
+		initInformResponse();
 		initParamValMap();
 		initParamAttMap();
-		end();
-		createString();
+		initEnvelopeEnd();
+		
+		getParametersFromFile();
 	}
 
-	void createString()  {
+	void getParametersFromFile()  {
 		try {
 			BufferedReader file = new BufferedReader(new FileReader("./xmlTR069Examples/GetParameterValuesResponse_example.xml"));
 			String stringBuffer;
@@ -89,26 +85,34 @@ public class CWMPMessage {
 		getParamAttMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
 		getParamAttMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
 	}
-	void envelope() {
-		env.append("<soapenv:Envelope ");
-		env.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
-		env.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
-		env.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
-		env.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
-		env.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
+	void initEnvelope() {
+		envelope = new StringBuilder();
+		
+		envelope.append("<soapenv:Envelope ");
+		envelope.append("xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" ");
+		envelope.append("xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" ");
+		envelope.append("xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" ");
+		envelope.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
+		envelope.append("xmlns:cwmp=\"urn:dslforum-org:cwmp-1-0\">\n");
 	}
 
-	void header() {
+	void initHeader() {
+		header = new StringBuilder();
+		
 		header.append("\t<soapenv:Header>\n");
 		header.append("\t\t<cwmp:ID soapenv:mustUnderstand=\"1\">1</cwmp:ID>\n");
 		header.append("\t</soapenv:Header>\n");
 	}
 
-	void end() {
-		end.append("</soapenv:Envelope>\n");
+	void initEnvelopeEnd() {
+		envelopeEnd = new StringBuilder();
+		
+		envelopeEnd.append("</soapenv:Envelope>\n");
 	}
 
-	void informResponse() {
+	void initInformResponse() {
+		informResponse = new StringBuilder();
+		
 		informResponse.append("\t<soapenv:Body>\n");
 		informResponse.append("\t\t<cwmp:InformResponse>\n");
 		informResponse.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");
@@ -119,10 +123,11 @@ public class CWMPMessage {
 	StringBuilder getInformResponse() {
 		System.out.println("InformResponse msg");
 		StringBuilder msg = new StringBuilder();
-		msg.append(env);
+		
+		msg.append(envelope);
 		msg.append(header);
 		msg.append(informResponse);
-		msg.append(end);
+		msg.append(envelopeEnd);
 		return msg;
 	}
 
@@ -130,7 +135,7 @@ public class CWMPMessage {
 		System.out.println("GetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
 		
-		msg.append(env);
+		msg.append(envelope);
 		msg.append(header);
 		// body
 		msg.append("\t<soapenv:Body>\n");
@@ -146,7 +151,7 @@ public class CWMPMessage {
 		msg.append("\t\t</cwmp:GetParameterValues>\n");
 		msg.append("\t</soapenv:Body>\n");
 		// end body
-		msg.append(end);
+		msg.append(envelopeEnd);
 		return msg;
 	}
 
@@ -154,7 +159,7 @@ public class CWMPMessage {
 		System.out.println("GetParameterAttributes msg");
 		StringBuilder msg = new StringBuilder();
 		
-		msg.append(env);
+		msg.append(envelope);
 		msg.append(header);
 		// body
 		msg.append("\t<soapenv:Body>\n");
@@ -170,7 +175,7 @@ public class CWMPMessage {
 		msg.append("\t\t</cwmp:GetParameterAttributes>\n");
 		msg.append("\t</soapenv:Body>\n");
 		// end body
-		msg.append(end);
+		msg.append(envelopeEnd);
 		return msg;
 	}
 
@@ -178,7 +183,7 @@ public class CWMPMessage {
 		System.out.println("SetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
 
-		msg.append(env);
+		msg.append(envelope);
 		msg.append(header);
 		// body
 		msg.append("\t<soapenv:Body>\n");
@@ -197,7 +202,7 @@ public class CWMPMessage {
 		msg.append("\t\t</cwmp:SetParameterValues>\n");
 		msg.append("\t</soapenv:Body>\n");
 		// end body
-		msg.append(end);
+		msg.append(envelopeEnd);
 
 		return msg;
 	}
