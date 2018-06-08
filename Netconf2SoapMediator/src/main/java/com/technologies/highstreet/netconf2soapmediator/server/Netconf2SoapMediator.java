@@ -460,16 +460,18 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			System.out.println("sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			if (CLIMODE == true) {
 				System.out.println("connActive=" + HTTPServlet.getConnActive() );
-				for (int i = 0; i < 3000; i++) {
-					System.out.println("connActive=" + HTTPServlet.getConnActive());
-					if (HTTPServlet.getSetParam() == true) {
-						// request connection from CWMP device
-						httpclient = new HTTPClient();
-						httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
-						System.out.println("sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-					}
-					Thread.sleep(10000); // milliseconds
-				}
+				
+//				for (int i = 0; i < 3000; i++) {
+//					System.out.println("connActive=" + HTTPServlet.getConnActive());
+//					if (HTTPServlet.getSetParam() == true) {
+//						// request connection from CWMP device
+//						httpclient = new HTTPClient();
+//						httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+//						System.out.println("sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+//					}
+//					Thread.sleep(10000); // milliseconds
+//				}
+				
 				// read lines form input
 				BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 				String command;

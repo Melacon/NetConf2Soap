@@ -26,6 +26,7 @@ public class HTTPServlet extends HttpServlet {
 	private static Netconf2SoapNetworkElement networkElement = null;
 	private static boolean connActive = false;
 	private static boolean setParam = false;
+	private static boolean initSetParam = true;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
 
 	public static Map<Integer, ArrayList<String>> setParamMap = new HashMap<Integer, ArrayList<String>>();
@@ -123,11 +124,28 @@ public class HTTPServlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(10);
 
-		if (getSetParam() == true) {
+		if (getInitSetParam() == true) {
+			ArrayList<String> list1 = new ArrayList<String>();
+			list1.add("Device.ManagementServer.PeriodicInformEnable");
+			list1.add("true");
+			setParamMap.put(0, list1);
+
+			ArrayList<String> list2 = new ArrayList<String>();
+			list2.add("Device.ManagementServer.PeriodicInformInterval");
+			list2.add("1");
+			setParamMap.put(1, list2);
+
 			sb = CWMPmsg.setParameterValues(setParamMap);
-		} else {
-			networkElement.setTr069DocumentCFromString(reqBody);
-			sb = CWMPmsg.getParameterAttributes();
+			setParamMap.clear();
+			setInitSetParam(false);
+		}
+		else {	
+			if (getSetParam() == true) {
+				sb = CWMPmsg.setParameterValues(setParamMap);
+			} else {
+				networkElement.setTr069DocumentCFromString(reqBody);
+				sb = CWMPmsg.getParameterAttributes();
+			}
 		}
 
 		return sb;
@@ -205,6 +223,14 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setConnActive(boolean connActive) {
 		HTTPServlet.connActive = connActive;
+	}
+	
+	public static boolean getInitSetParam() {
+		return initSetParam;
+	}
+
+	public static void setInitSetParam(boolean initSetParam) {
+		HTTPServlet.initSetParam = initSetParam;
 	}
 
 }
