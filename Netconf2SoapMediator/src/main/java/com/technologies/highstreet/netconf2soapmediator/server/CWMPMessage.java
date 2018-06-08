@@ -76,6 +76,10 @@ public class CWMPMessage {
 		getParamValMap.put(15, "Device.Services.FAPService.1.REM.LTE.REMBandList");
 		getParamValMap.put(16, "Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
 		
+		getParamValMap.put(17, "Device.DeviceInfo.UpTime");
+		getParamValMap.put(18, "Device.ManagementServer.PeriodicInformEnable");
+		getParamValMap.put(19, "Device.ManagementServer.PeriodicInformInterval");
+		
 		
 //		getParamValMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
 	}
