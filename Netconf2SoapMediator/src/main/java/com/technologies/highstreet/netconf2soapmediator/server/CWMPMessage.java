@@ -46,7 +46,7 @@ public class CWMPMessage {
 		// DeviceInfo
 		getParamValMap.put(1, "Device.DeviceInfo.Manufacturer");
 		getParamValMap.put(2, "Device.DeviceInfo.ManufacturerOUI");
-		getParamValMap.put(3, "Device.DeviceInfo.ModelName");
+		getParamValMap.put(3, "Device.DeviceInfo.ManufacturerOUI");
 		getParamValMap.put(4, "Device.DeviceInfo.Description");
 		getParamValMap.put(5, "Device.DeviceInfo.ProductClass");
 		getParamValMap.put(6, "Device.DeviceInfo.SerialNumber");
