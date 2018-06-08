@@ -115,7 +115,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		if(this.mETHProblemList==null)
 			LOG.warn("inconsistant xml file. ethernet-container-current-problems path is missing");
 		this.mAvailableTraps = new HashMap<>();
-		//this.snmpConnector = new Netconf2SoapConnector(this, getConsole());
+		//this.snmpConnector = new Netconf2SNMPConnector(this, getConsole());
 
 		this.fillAvailableTraps(NetworkElement.getNode(getDocument(), "//snmptrap-notifications"));
 		this.addNotifications(new String[] { "snmpTrapOid", "snmpTrapValue" },
