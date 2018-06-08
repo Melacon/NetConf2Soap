@@ -457,14 +457,12 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
 			LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-			try {	
-				int sleep = 100000;
-				LOG.info("sleeping for " +  sleep);
-				Thread.sleep(sleep); // milliseconds
-				LOG.info("finished sleeping");
-			} catch (InterruptedException e) {
-				LOG.error("(..something..) failed", e);
-			}
+
+			int sleep = 100000;
+			LOG.info("sleeping for " +  sleep);
+			Thread.sleep(sleep); // milliseconds
+			LOG.info("finished sleeping");
+
 		} catch (Exception e) {
 			LOG.error("(..something..) failed", e);
 		}
