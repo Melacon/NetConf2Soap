@@ -50,7 +50,7 @@ public class Config {
 	private boolean updateProblemTimestamps = true;
 
     /* other settings */
-    public Level LogLevel = Level.ALL;
+    public Level LogLevel = Level.INFO;
 
 	private static final String GLOBALCONFIG_KEY_LOGLEVEL = "MediatorLogLevel";
 	private static final String GLOBALCONFIG_KEY_DEVICEPING_TIMEOUT = "MediatorDevicePingTimeout";

@@ -77,7 +77,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	@SuppressWarnings("unused")
 	private final boolean isPortMapMaster = false;
 	private final NodeEditConfigCollection mSNMPNodes;
-	private final Netconf2SoapConnector snmpConnector;
+	//private final Netconf2SoapConnector snmpConnector;
 	private final Node mMWProblemList;
 	private final Node mNEProblemList;
 	private final Node mETHProblemList;
@@ -115,7 +115,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		if(this.mETHProblemList==null)
 			LOG.warn("inconsistant xml file. ethernet-container-current-problems path is missing");
 		this.mAvailableTraps = new HashMap<>();
-		this.snmpConnector = new Netconf2SoapConnector(this, getConsole());
+		//this.snmpConnector = new Netconf2SNMPConnector(this, getConsole());
 
 		this.fillAvailableTraps(NetworkElement.getNode(getDocument(), "//snmptrap-notifications"));
 		this.addNotifications(new String[] { "snmpTrapOid", "snmpTrapValue" },
@@ -247,7 +247,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	public synchronized String assembleRpcReplyFromFilterMessage(String id, NetconfTagList tags) {
 		// do a sync snmp set request
 		NodeEditConfigCollection oidNodes = getOIDsForRequest(id, tags);
-		snmpConnector.onPreReplyMessage(id, tags, oidNodes);
+		//snmpConnector.onPreReplyMessage(id, tags, oidNodes);
 		String message = super.assembleRpcReplyFromFilterMessage(id, tags);
 		return this.replaceConfigValues(message);
 	}

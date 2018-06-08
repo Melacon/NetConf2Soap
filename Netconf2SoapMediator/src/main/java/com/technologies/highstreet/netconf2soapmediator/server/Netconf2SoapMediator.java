@@ -451,111 +451,111 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 					cfg.getDeviceIp(), cfg.getTrapPort(), server);
 			ne.setDeviceName(cfg.getName());
 			HTTPServlet.setNetworkElement(ne);
-
+			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
+			server.startServer();
+			
 			// here a HTTP client is create that send connection request to the CWMP device
 			HTTPClient httpclient = new HTTPClient();
 			LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
 			LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-			try {	
-				int sleep = 100000;
-				LOG.info("sleeping for " +  sleep);
-				Thread.sleep(sleep); // milliseconds
-				LOG.info("finished sleeping");
-			} catch (InterruptedException e) {
-				LOG.error("(..something..) failed", e);
-			}
+
+			int sleep = 1000*60*60;
+			LOG.info("sleeping for " +  sleep + "ms");
+			Thread.sleep(sleep); // milliseconds
+			LOG.info("finished sleeping");
+
 		} catch (Exception e) {
 			LOG.error("(..something..) failed", e);
 		}
 
-		Netconf2SoapNetworkElement ne;
-		try {
-			Netconf2SoapMediator server = Netconf2SoapMediator.createServer();
-			ne = new Netconf2SoapNetworkElement(xmlFilename, yangPath, uuid, SNMPDeviceType.FromInt(cfg.mDeviceType),
-					cfg.getDeviceIp(), cfg.getTrapPort(), server);
-			ne.setDeviceName(cfg.getName());
-			HTTPServlet.setNetworkElement(ne);
-			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
-			server.startServer();
-			
-			if (CLIMODE == true) {
-				LOG.info("connActive=" + HTTPServlet.getConnActive() );
-				
-//				for (int i = 0; i < 3000; i++) {
-//					System.out.println("connActive=" + HTTPServlet.getConnActive());
-//					if (HTTPServlet.getSetParam() == true) {
-//						// request connection from CWMP device
-//						httpclient = new HTTPClient();
-//				        LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-//						httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
-//						LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+//		Netconf2SoapNetworkElement ne;
+//		try {
+//			Netconf2SoapMediator server = Netconf2SoapMediator.createServer();
+//			ne = new Netconf2SoapNetworkElement(xmlFilename, yangPath, uuid, SNMPDeviceType.FromInt(cfg.mDeviceType),
+//					cfg.getDeviceIp(), cfg.getTrapPort(), server);
+//			ne.setDeviceName(cfg.getName());
+//			HTTPServlet.setNetworkElement(ne);
+//			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
+//			server.startServer();
+//			
+//			if (CLIMODE == true) {
+//				LOG.info("connActive=" + HTTPServlet.getConnActive() );
+//				
+////				for (int i = 0; i < 3000; i++) {
+////					System.out.println("connActive=" + HTTPServlet.getConnActive());
+////					if (HTTPServlet.getSetParam() == true) {
+////						// request connection from CWMP device
+////						httpclient = new HTTPClient();
+////				        LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+////						httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+////						LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+////					}
+////					Thread.sleep(10000); // milliseconds
+////				}
+//				
+//				// read lines form input
+//				BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+//				String command;
+//					while (true) {
+//					staticCliOutput(port + ":" + xmlFilename + "> ");
+//					command = buffer.readLine();
+//					if (command != null) {
+//						command = command.toLowerCase();
+//					} else {
+//						command = "<null>";
 //					}
-//					Thread.sleep(10000); // milliseconds
+//
+//					if (command.equals("list")) {
+//						staticCliOutputNewLine("Messages received(" + server.getStoredMessages().size() + "):");
+//						for (RPCElement rpcElement : server.getStoredMessages()) {
+//							staticCliOutputNewLine("#####  BEGIN message #####\n" + rpcElement.toXML() + '\n'
+//									+ "#####   END message  #####");
+//						}
+//					} else if (command.equals("size")) {
+//						staticCliOutputNewLine("Messages received(" + server.getStoredMessages().size() + "):");
+//
+//					} else if (command.equals("quit")) {
+//						staticCliOutputNewLine("Stop server");
+//						server.stopServer();
+//						break;
+//					} else if (command.equals("info")) {
+//						staticCliOutputNewLine("Version: " + VERSION + " Port: " + port + " File: " + xmlFilename);
+//					} else if (command.equals("status")) {
+//						staticCliOutputNewLine("Status: not implemented");
+//					} else if (command.startsWith("n")) {
+//						String notifyCommand = command.substring(1);
+//						staticCliOutputNewLine("Notification: " + notifyCommand);
+//						server.notify(notifyCommand);
+//					} else if (command.length() == 0) {
+//					} else {
+//						staticCliOutputNewLine("NETCONF Simulator V3.0");
+//						staticCliOutputNewLine("Available commands: status, quit, info, list, size, nZZ, nl, nx");
+//						staticCliOutputNewLine("\tnx: list internal XML doc tree");
+//						staticCliOutputNewLine("\tnl: list available notifications");
+//						staticCliOutputNewLine("\tnZZ: send notification with number ZZ");
+//					}
 //				}
-				
-				// read lines form input
-				BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-				String command;
-					while (true) {
-					staticCliOutput(port + ":" + xmlFilename + "> ");
-					command = buffer.readLine();
-					if (command != null) {
-						command = command.toLowerCase();
-					} else {
-						command = "<null>";
-					}
-
-					if (command.equals("list")) {
-						staticCliOutputNewLine("Messages received(" + server.getStoredMessages().size() + "):");
-						for (RPCElement rpcElement : server.getStoredMessages()) {
-							staticCliOutputNewLine("#####  BEGIN message #####\n" + rpcElement.toXML() + '\n'
-									+ "#####   END message  #####");
-						}
-					} else if (command.equals("size")) {
-						staticCliOutputNewLine("Messages received(" + server.getStoredMessages().size() + "):");
-
-					} else if (command.equals("quit")) {
-						staticCliOutputNewLine("Stop server");
-						server.stopServer();
-						break;
-					} else if (command.equals("info")) {
-						staticCliOutputNewLine("Version: " + VERSION + " Port: " + port + " File: " + xmlFilename);
-					} else if (command.equals("status")) {
-						staticCliOutputNewLine("Status: not implemented");
-					} else if (command.startsWith("n")) {
-						String notifyCommand = command.substring(1);
-						staticCliOutputNewLine("Notification: " + notifyCommand);
-						server.notify(notifyCommand);
-					} else if (command.length() == 0) {
-					} else {
-						staticCliOutputNewLine("NETCONF Simulator V3.0");
-						staticCliOutputNewLine("Available commands: status, quit, info, list, size, nZZ, nl, nx");
-						staticCliOutputNewLine("\tnx: list internal XML doc tree");
-						staticCliOutputNewLine("\tnl: list available notifications");
-						staticCliOutputNewLine("\tnZZ: send notification with number ZZ");
-					}
-				}
-			} else {
-				while (true)
-					Thread.sleep(1000);
-
-			}
-		} catch (SAXException e) {
-			LOG.error(staticCliOutputNewLine("(..something..) failed" + e.getMessage()));
-		} catch (ParserConfigurationException e) {
-			LOG.error(staticCliOutputNewLine("(..something..) failed" + e.getMessage()));
-		} catch (TransformerConfigurationException e) {
-			LOG.error("(..something..) failed", e);
-		} catch (ServerException e) {
-			LOG.error("(..something..) failed", e);
-		} catch (XPathExpressionException e) {
-			LOG.error("(..something..) failed", e);
-		} catch (IOException e) {
-			LOG.error("(..something..) failed", e);
-		} catch (InterruptedException e) {
-			LOG.error("(..something..) failed", e);
-		}
+//			} else {
+//				while (true)
+//					Thread.sleep(1000);
+//
+//			}
+//		} catch (SAXException e) {
+//			LOG.error(staticCliOutputNewLine("(..something..) failed" + e.getMessage()));
+//		} catch (ParserConfigurationException e) {
+//			LOG.error(staticCliOutputNewLine("(..something..) failed" + e.getMessage()));
+//		} catch (TransformerConfigurationException e) {
+//			LOG.error("(..something..) failed", e);
+//		} catch (ServerException e) {
+//			LOG.error("(..something..) failed", e);
+//		} catch (XPathExpressionException e) {
+//			LOG.error("(..something..) failed", e);
+//		} catch (IOException e) {
+//			LOG.error("(..something..) failed", e);
+//		} catch (InterruptedException e) {
+//			LOG.error("(..something..) failed", e);
+//		}
 		cfg.deletePIDFile();
 		staticCliOutputNewLine("Exiting");
 		System.exit(0);
