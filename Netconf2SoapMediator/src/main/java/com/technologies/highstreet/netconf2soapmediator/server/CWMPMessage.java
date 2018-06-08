@@ -52,8 +52,8 @@ public class CWMPMessage {
 		getParamValMap.put(6, "Device.DeviceInfo.SerialNumber");
 		getParamValMap.put(7, "Device.DeviceInfo.HardwareVersion");
 		getParamValMap.put(8, "Device.DeviceInfo.SoftwareVersion");
-		getParamValMap.put(9, "Device.DeviceInfo.AdditionalHardwareVersion");
-		getParamValMap.put(10, "Device.DeviceInfo.AdditionalSoftwareVersion");
+		getParamValMap.put(9, "Device.DeviceInfo.HardwareVersion");
+		getParamValMap.put(10, "Device.DeviceInfo.SoftwareVersion");
 		getParamValMap.put(11, "Device.DeviceInfo.UpTime");
 		getParamValMap.put(12, "Device.DeviceInfo.FirstUseDate");
 		getParamValMap.put(12, "Device.Time.LocalTimeZone");
