@@ -456,8 +456,10 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
 			server.startServer();
 			HTTPClient httpclient = new HTTPClient();
+			System.out.println("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
-			System.out.println("sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+			System.out.println("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+			
 			if (CLIMODE == true) {
 				System.out.println("connActive=" + HTTPServlet.getConnActive() );
 				
