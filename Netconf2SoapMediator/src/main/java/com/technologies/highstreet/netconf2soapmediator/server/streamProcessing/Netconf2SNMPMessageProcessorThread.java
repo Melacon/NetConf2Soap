@@ -202,7 +202,6 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 			}
 			
 			
-			int map_index = 0;
     		for(String xpathString: yangKeys) {
     			if(xpathString.contains(first_tag)) {
 					String xpathStringFixed = xpathString.replaceFirst("/data", "");
@@ -233,10 +232,9 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 							ArrayList<String> list = new ArrayList<String>();
 		    				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
 		    				String type = BBFTRModelMapping.getType(BBFTRModelMapping.getTR069fromYang(xpathString));
-		    	    		list.add(type+ "\">" +value);
+		    	    		list.add(type + "\">" + value);
 		    	    		
-		    	    		HTTPServlet.setParamMap.put(map_index, list);		
-		    	    		map_index++;
+		    	    		HTTPServlet.setParamList.add(list);		
 						}
 						
 					} catch (XPathExpressionException e) {

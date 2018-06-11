@@ -3,7 +3,6 @@ package com.technologies.highstreet.netconf2soapmediator.server;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class CWMPMessage {
 
@@ -191,7 +190,7 @@ public class CWMPMessage {
 		return msg;
 	}
 
-	StringBuilder setParameterValues(Map<Integer, ArrayList<String>> map) {
+	StringBuilder setParameterValues(ArrayList<ArrayList<String>> list) {
 		System.out.println("SetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
 
@@ -200,12 +199,12 @@ public class CWMPMessage {
 		// body
 		msg.append("\t<soapenv:Body>\n");
 		msg.append("\t\t<cwmp:SetParameterValues>\n");
-		msg.append("\t\t\t<ParameterList soap:arrayType=\"cwmp:ParameterValueStruct[" + map.size() + "]\">\n");
+		msg.append("\t\t\t<ParameterList soap:arrayType=\"cwmp:ParameterValueStruct[" + list.size() + "]\">\n");
 
-		for (int i = 0; i < map.size(); i++) {
+		for (int i = 0; i < list.size(); i++) {
 			msg.append("\t\t\t<ParameterValueStruct>\n");
-			msg.append("\t\t\t\t<Name>" + map.get(i).get(0) + "</Name>\n");
-			msg.append("\t\t\t\t<Value xsi:type=\"xsd:" + map.get(i).get(1) + "</Value>\n");
+			msg.append("\t\t\t\t<Name>" + list.get(i).get(0) + "</Name>\n");
+			msg.append("\t\t\t\t<Value xsi:type=\"xsd:" + list.get(i).get(1) + "</Value>\n");
 			msg.append("\t\t\t</ParameterValueStruct>\n");
 		}
 

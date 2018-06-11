@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 
@@ -29,7 +27,7 @@ public class HTTPServlet extends HttpServlet {
 	private static boolean initSetParam = true;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
 
-	public static Map<Integer, ArrayList<String>> setParamMap = new HashMap<Integer, ArrayList<String>>();
+	public static ArrayList<ArrayList<String>> setParamList = new ArrayList<ArrayList<String>>();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -128,43 +126,45 @@ public class HTTPServlet extends HttpServlet {
 		StringBuilder sb = new StringBuilder(10);
 
 		if (getInitSetParam() == true) {
-//			ArrayList<String> list1 = new ArrayList<String>();
-//			list1.add("Device.ManagementServer.PeriodicInformEnable");
-//			list1.add(("string" + "\">" + "true");
-//			setParamMap.put(0, list1);
+			ArrayList<String> list = new ArrayList<String>();
+			
+//			list = new ArrayList<String>();
+//			list.add("Device.ManagementServer.PeriodicInformEnable");
+//			list.add("string" + "\">" + "true");
+//			setParamList.add(list);
 //
-//			ArrayList<String> list2 = new ArrayList<String>();
-//			list2.add("Device.ManagementServer.PeriodicInformInterval");
-//			list2.add("string" + "\">" + "10");
-//			setParamMap.put(1, list2);
+//			list = new ArrayList<String>();
+//			list.add("Device.ManagementServer.PeriodicInformInterval");
+//			list.add("string" + "\">" + "10");
+//			setParamList.add(list);
+//
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+//			list.add("string" + "\">" + "false");
+//			setParamList.add(list);
 			
-//			ArrayList<String> list3 = new ArrayList<String>();
-//			list3.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//			list3.add("string" + "\">" + "false");
-//			setParamMap.put(0, list3);
+			list = new ArrayList<String>();
+			list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
+			list.add("string" + "\">" + "311181");
+			setParamList.add(list);
 			
-			ArrayList<String> list4 = new ArrayList<String>();
-			list4.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-			list4.add("string" + "\">" + "311181");
-			setParamMap.put(0, list4);
+			list = new ArrayList<String>();
+			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+			list.add("string" + "\">" + "738,0,837,12");
+			setParamList.add(list);
 			
-			ArrayList<String> list5 = new ArrayList<String>();
-			list5.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-			list5.add("string" + "\">" + "738,0,837,12");
-			setParamMap.put(1, list5);
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
+//			list.add("xsi:type=\"xsd:string\">210");
+//			setParamList.add(list);
 			
-//			ArrayList<String> list6 = new ArrayList<String>();
-//			list6.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-//			list6.add("xsi:type=\"xsd:string\">210");
-//			setParamMap.put(2, list6);
-			
-			sb = CWMPmsg.setParameterValues(setParamMap);
-			setParamMap.clear();
+			sb = CWMPmsg.setParameterValues(setParamList);
+			setParamList.clear();
 			setInitSetParam(false);
 		}
 		else {	
 			if (getSetParam() == true) {
-				sb = CWMPmsg.setParameterValues(setParamMap);
+				sb = CWMPmsg.setParameterValues(setParamList);
 			} else {
 				networkElement.setTr069DocumentCFromString(reqBody);
 				sb = CWMPmsg.getParameterAttributes();
