@@ -42,7 +42,7 @@ public class HTTPServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		java.util.Date date = new java.util.Date();
-		System.out.println(date + "Received msg from device");
+		System.out.println(date + " Received msg from device");
 
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
@@ -74,7 +74,7 @@ public class HTTPServlet extends HttpServlet {
 		}
 
 		date = new java.util.Date();
-		System.out.println(date + "Sending HTTP reply:");
+		System.out.println(date + " Sending HTTP reply:");
 		System.out.println(sb);
 		response.getWriter().print(sb);
 	}
