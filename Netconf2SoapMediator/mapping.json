@@ -63,5 +63,10 @@
       "bbfkey":"REM.LTE.ScanOnBoot",
       "xmlkey":"//data/fap-service/rem/rem-lte/scan-on-boot",
       "type":"boolean"
+   },
+   {
+      "bbfkey":"REM.LTE.REMPLMNList",
+      "xmlkey":"//data/fap-service/rem/rem-lte/remplmn-list",
+      "type":"boolean"
    }
 ]
