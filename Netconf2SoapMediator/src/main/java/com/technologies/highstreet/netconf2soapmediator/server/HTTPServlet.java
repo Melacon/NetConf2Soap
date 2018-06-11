@@ -50,7 +50,7 @@ public class HTTPServlet extends HttpServlet {
 
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
-			return;
+			System.out.println("Sending empty reply:");
 		}
 		else if (reqBody.contains("cwmp:Inform")) {
 			sb = handleInform(reqBody);
@@ -63,6 +63,7 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("cwmp:GetParameterAttributesResponse")) {
 			sb = handleGetParameterAttributesResponse(reqBody);
+			System.out.println("Sending empty reply:");
 		}
 		else if (reqBody.equals("")) {
 			sb = handleEmptyResponse(reqBody);
@@ -73,7 +74,7 @@ public class HTTPServlet extends HttpServlet {
 
 		System.out.println("Sending HTTP reply:");
 		System.out.println(sb);
-		response.getWriter().println(sb);
+		response.getWriter().print(sb);
 	}
 
 	public static String getBody(HttpServletRequest request) throws IOException {
@@ -127,14 +128,19 @@ public class HTTPServlet extends HttpServlet {
 		if (getInitSetParam() == true) {
 			ArrayList<String> list1 = new ArrayList<String>();
 			list1.add("Device.ManagementServer.PeriodicInformEnable");
-			list1.add("true");
+			list1.add("xsi:type=\"xsd:boolean\">true");
 			setParamMap.put(0, list1);
 
 			ArrayList<String> list2 = new ArrayList<String>();
 			list2.add("Device.ManagementServer.PeriodicInformInterval");
-			list2.add("1");
+			list2.add("xsi:type=\"xsd:unsignedInt\">10");
 			setParamMap.put(1, list2);
-
+			
+//			ArrayList<String> list3 = new ArrayList<String>();
+//			list3.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
+//			list3.add("xsi:type=\"xsd:string\">75");
+//			setParamMap.put(2, list3);
+			
 			sb = CWMPmsg.setParameterValues(setParamMap);
 			setParamMap.clear();
 			setInitSetParam(false);
