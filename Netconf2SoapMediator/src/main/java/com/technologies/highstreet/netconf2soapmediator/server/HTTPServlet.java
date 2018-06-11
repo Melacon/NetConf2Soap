@@ -128,20 +128,25 @@ public class HTTPServlet extends HttpServlet {
 		StringBuilder sb = new StringBuilder(10);
 
 		if (getInitSetParam() == true) {
-			ArrayList<String> list1 = new ArrayList<String>();
-			list1.add("Device.ManagementServer.PeriodicInformEnable");
-			list1.add("xsi:type=\"xsd:boolean\">true");
-			setParamMap.put(0, list1);
-
-			ArrayList<String> list2 = new ArrayList<String>();
-			list2.add("Device.ManagementServer.PeriodicInformInterval");
-			list2.add("xsi:type=\"xsd:unsignedInt\">10");
-			setParamMap.put(1, list2);
+//			ArrayList<String> list1 = new ArrayList<String>();
+//			list1.add("Device.ManagementServer.PeriodicInformEnable");
+//			list1.add("xsi:type=\"xsd:boolean\">true");
+//			setParamMap.put(0, list1);
+//
+//			ArrayList<String> list2 = new ArrayList<String>();
+//			list2.add("Device.ManagementServer.PeriodicInformInterval");
+//			list2.add("xsi:type=\"xsd:unsignedInt\">10");
+//			setParamMap.put(1, list2);
 			
 //			ArrayList<String> list3 = new ArrayList<String>();
 //			list3.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
 //			list3.add("xsi:type=\"xsd:boolean\">false");
-//			setParamMap.put(2, list3);
+//			setParamMap.put(0, list3);
+			
+			ArrayList<String> list4 = new ArrayList<String>();
+			list4.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
+			list4.add("xsi:type=\"xsd:string\">210");
+			setParamMap.put(0, list4);
 			
 			sb = CWMPmsg.setParameterValues(setParamMap);
 			setParamMap.clear();
