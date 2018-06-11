@@ -67,6 +67,6 @@
    {
       "bbfkey":"REM.LTE.REMPLMNList",
       "xmlkey":"//data/fap-service/rem/rem-lte/remplmn-list",
-      "type":"boolean"
+      "type":"string"
    }
 ]

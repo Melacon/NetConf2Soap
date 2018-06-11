@@ -128,25 +128,25 @@ public class HTTPServlet extends HttpServlet {
 		if (getInitSetParam() == true) {
 			ArrayList<String> list = new ArrayList<String>();
 			
-			list = new ArrayList<String>();
-			list.add("Device.ManagementServer.PeriodicInformEnable");
-			list.add("string" + "\">" + "true");
-			setParamList.add(list);
+//			list = new ArrayList<String>();
+//			list.add("Device.ManagementServer.PeriodicInformEnable");
+//			list.add("string" + "\">" + "true");
+//			setParamList.add(list);
+
+//			list = new ArrayList<String>();
+//			list.add("Device.ManagementServer.PeriodicInformInterval");
+//			list.add("string" + "\">" + "10");
+//			setParamList.add(list);
 
 			list = new ArrayList<String>();
-			list.add("Device.ManagementServer.PeriodicInformInterval");
-			list.add("string" + "\">" + "10");
+			list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+			list.add("string" + "\">" + "false");
 			setParamList.add(list);
-//
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//			list.add("string" + "\">" + "false");
-//			setParamList.add(list);
 			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-//			list.add("string" + "\">" + "311181");
-//			setParamList.add(list);
+			list = new ArrayList<String>();
+			list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
+			list.add("string" + "\">" + "311181");
+			setParamList.add(list);
 //			
 //			list = new ArrayList<String>();
 //			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
