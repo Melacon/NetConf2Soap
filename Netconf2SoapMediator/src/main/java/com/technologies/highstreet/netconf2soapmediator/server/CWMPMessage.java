@@ -74,9 +74,9 @@ public class CWMPMessage {
 		getParamValMap.put(6, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
 		getParamValMap.put(7, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
 		getParamValMap.put(8, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-		getParamValMap.put(9, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-		getParamValMap.put(10, "Device.Time.LocalTimeZone");
-		getParamValMap.put(11, "Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
+//		getParamValMap.put(9, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+		getParamValMap.put(9, "Device.Time.LocalTimeZone");
+		getParamValMap.put(10, "Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
 		
 //		getParamValMap.put(24, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
 //		
