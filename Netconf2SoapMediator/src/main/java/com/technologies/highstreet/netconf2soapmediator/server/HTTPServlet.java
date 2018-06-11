@@ -153,10 +153,10 @@ public class HTTPServlet extends HttpServlet {
 			list.add("string" + "\">" + "738,0,837,12");
 			setParamList.add(list);
 			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-//			list.add("xsi:type=\"xsd:string\">210");
-//			setParamList.add(list);
+			list = new ArrayList<String>();
+			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
+			list.add("xsi:type=\"xsd:string\">210");
+			setParamList.add(list);
 			
 			sb = CWMPmsg.setParameterValues(setParamList);
 			setParamList.clear();
