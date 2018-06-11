@@ -148,6 +148,16 @@ public class HTTPServlet extends HttpServlet {
 			list4.add("xsi:type=\"xsd:string\">311181");
 			setParamMap.put(0, list4);
 			
+			ArrayList<String> list5 = new ArrayList<String>();
+			list5.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+			list5.add("xsi:type=\"xsd:string\">738,0,837,12");
+			setParamMap.put(1, list5);
+			
+			ArrayList<String> list6 = new ArrayList<String>();
+			list6.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
+			list6.add("xsi:type=\"xsd:string\">210");
+			setParamMap.put(2, list6);
+			
 			sb = CWMPmsg.setParameterValues(setParamMap);
 			setParamMap.clear();
 			setInitSetParam(false);
