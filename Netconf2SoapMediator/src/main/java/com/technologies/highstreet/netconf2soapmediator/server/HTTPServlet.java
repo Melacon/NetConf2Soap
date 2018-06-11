@@ -41,7 +41,8 @@ public class HTTPServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 
-		System.out.println("Received msg from device");
+		java.util.Date date = new java.util.Date();
+		System.out.println(date + "Received msg from device");
 
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
@@ -72,7 +73,8 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received Unknown msg");
 		}
 
-		System.out.println("Sending HTTP reply:");
+		date = new java.util.Date();
+		System.out.println(date + "Sending HTTP reply:");
 		System.out.println(sb);
 		response.getWriter().print(sb);
 	}
@@ -137,8 +139,8 @@ public class HTTPServlet extends HttpServlet {
 			setParamMap.put(1, list2);
 			
 //			ArrayList<String> list3 = new ArrayList<String>();
-//			list3.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
-//			list3.add("xsi:type=\"xsd:string\">75");
+//			list3.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+//			list3.add("xsi:type=\"xsd:boolean\">false");
 //			setParamMap.put(2, list3);
 			
 			sb = CWMPmsg.setParameterValues(setParamMap);
