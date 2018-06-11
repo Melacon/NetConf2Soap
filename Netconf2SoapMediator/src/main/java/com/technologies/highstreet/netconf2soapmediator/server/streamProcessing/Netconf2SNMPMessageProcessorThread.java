@@ -141,17 +141,6 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
     protected void doMessageProcessing(NetconfIncommingMessageRepresentation receivedMessage) throws IOException {
     	if (receivedMessage.isRpcEditConfigTargetRunningDefaultOperationConfig()) {
     		
-//    		ArrayList<String> list1 = new ArrayList<String>();
-//    		list1.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
-//    		list1.add("20");
-//    		HTTPServlet.setParamMap.put(0, list1);
-//
-//    		ArrayList<String> list2 = new ArrayList<String>();
-//    		list2.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
-//    		list2.add("20");
-//    		HTTPServlet.setParamMap.put(1, list2);
-    		
-    		
     		// fill list of parameters that you want to set
     		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder;
@@ -234,13 +223,14 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 		    				String type = BBFTRModelMapping.getType(BBFTRModelMapping.getTR069fromYang(xpathString));
 		    	    		list.add(type + "\">" + value);
 		    	    		
-		    	    		HTTPServlet.setParamList.add(list);		
+		    	    		HTTPServlet.setParamList.add(list);	
 						}
 						
 					} catch (XPathExpressionException e) {
 						e.printStackTrace();
 					}
 				}
+    			System.out.println(HTTPServlet.setParamList);
 				HTTPServlet.setSetParam(true);
 			}
     	}
