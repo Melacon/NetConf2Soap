@@ -3,14 +3,13 @@ package com.technologies.highstreet.netconf2soapmediator.server;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class CWMPMessage {
 
 	private static StringBuilder envelope, envelopeEnd, header, informResponse;
-	private static Map<Integer, String> getParamValMap = new HashMap<Integer, String>();
-	private static Map<Integer, String> getParamAttMap = new HashMap<Integer, String>();
+	private static ArrayList<String> getParamValList = new ArrayList<String>();
+	private static ArrayList<String> getParamAttList = new ArrayList<String>();
 	private static StringBuilder xmlString = new StringBuilder(10);
 	
 	// constructor
@@ -66,17 +65,17 @@ public class CWMPMessage {
 //		getParamValMap.put(14, "Device.ManagementServer.PeriodicInformInterval");
 		
 		// FAPService
-		getParamValMap.put(1, "Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-		getParamValMap.put(2, "Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-		getParamValMap.put(3, "Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-		getParamValMap.put(4, "Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
-		getParamValMap.put(5, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
-		getParamValMap.put(6, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
-		getParamValMap.put(7, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
-		getParamValMap.put(8, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-//		getParamValMap.put(9, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-		getParamValMap.put(9, "Device.Time.LocalTimeZone");
-		getParamValMap.put(10, "Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
+		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
+//		getParamValMap.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+		getParamValList.add("Device.Time.LocalTimeZone");
+		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
 		
 //		getParamValMap.put(24, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
 //		
@@ -94,9 +93,9 @@ public class CWMPMessage {
 	}
 
 	void initParamAttMap() {
-		getParamAttMap.put(0, "Device.DeviceInfo.UpTime");
-		getParamAttMap.put(1, "Device.ManagementServer.PeriodicInformEnable");
-		getParamAttMap.put(2, "Device.ManagementServer.PeriodicInformInterval");
+		getParamAttList.add("Device.DeviceInfo.UpTime");
+		getParamAttList.add("Device.ManagementServer.PeriodicInformEnable");
+		getParamAttList.add("Device.ManagementServer.PeriodicInformInterval");
 	}
 	void initEnvelope() {
 		envelope = new StringBuilder();
@@ -147,17 +146,17 @@ public class CWMPMessage {
 	StringBuilder getParameterValues() {
 		System.out.println("GetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
-		
+		System.out.println(getParamValList);
 		msg.append(envelope);
 		msg.append(header);
 		// body
 		msg.append("\t<soapenv:Body>\n");
 		msg.append("\t\t<cwmp:GetParameterValues>\n");
-		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamValMap.size() + "]\">\n");
+		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamValList.size() + "]\">\n");
 
-		for (int i = 1; i <= getParamValMap.size(); i++) {
+		for (int i = 0; i < getParamValList.size(); i++) {
 
-			msg.append("\t\t\t\t<string>" + getParamValMap.get(i) + "</string>\n");
+			msg.append("\t\t\t\t<string>" + getParamValList.get(i) + "</string>\n");
 		}
 
 		msg.append("\t\t\t</ParameterNames>\n");
@@ -177,11 +176,11 @@ public class CWMPMessage {
 		// body
 		msg.append("\t<soapenv:Body>\n");
 		msg.append("\t\t<cwmp:GetParameterAttributes>\n");
-		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamAttMap.size() + "]\">\n");
+		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamAttList.size() + "]\">\n");
 
-		for (int i = 0; i < getParamAttMap.size(); i++) {
+		for (int i = 0; i < getParamAttList.size(); i++) {
 
-			msg.append("\t\t\t\t<string>" + getParamAttMap.get(i) + "</string>\n");
+			msg.append("\t\t\t\t<string>" + getParamAttList.get(i) + "</string>\n");
 		}
 
 		msg.append("\t\t\t</ParameterNames>\n");
@@ -206,7 +205,7 @@ public class CWMPMessage {
 		for (int i = 0; i < map.size(); i++) {
 			msg.append("\t\t\t<ParameterValueStruct>\n");
 			msg.append("\t\t\t\t<Name>" + map.get(i).get(0) + "</Name>\n");
-			msg.append("\t\t\t\t<Value " + map.get(i).get(1) + "</Value>\n");
+			msg.append("\t\t\t\t<Value xsi:type=\"xsd:" + map.get(i).get(1) + "</Value>\n");
 			msg.append("\t\t\t</ParameterValueStruct>\n");
 		}
 

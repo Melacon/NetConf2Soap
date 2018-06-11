@@ -130,27 +130,27 @@ public class HTTPServlet extends HttpServlet {
 		if (getInitSetParam() == true) {
 //			ArrayList<String> list1 = new ArrayList<String>();
 //			list1.add("Device.ManagementServer.PeriodicInformEnable");
-//			list1.add("xsi:type=\"xsd:boolean\">true");
+//			list1.add(("string" + "\">" + "true");
 //			setParamMap.put(0, list1);
 //
 //			ArrayList<String> list2 = new ArrayList<String>();
 //			list2.add("Device.ManagementServer.PeriodicInformInterval");
-//			list2.add("xsi:type=\"xsd:unsignedInt\">10");
+//			list2.add("string" + "\">" + "10");
 //			setParamMap.put(1, list2);
 			
 //			ArrayList<String> list3 = new ArrayList<String>();
 //			list3.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//			list3.add("xsi:type=\"xsd:boolean\">false");
+//			list3.add("string" + "\">" + "false");
 //			setParamMap.put(0, list3);
 			
 			ArrayList<String> list4 = new ArrayList<String>();
 			list4.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-			list4.add("xsi:type=\"xsd:string\">311181");
+			list4.add("string" + "\">" + "311181");
 			setParamMap.put(0, list4);
 			
 			ArrayList<String> list5 = new ArrayList<String>();
 			list5.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-			list5.add("xsi:type=\"xsd:string\">738,0,837,12");
+			list5.add("string" + "\">" + "738,0,837,12");
 			setParamMap.put(1, list5);
 			
 //			ArrayList<String> list6 = new ArrayList<String>();
