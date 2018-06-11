@@ -19,6 +19,11 @@
 
     
     <dependencies>
+	    <dependency>
+		   <groupId>com.googlecode.json-simple</groupId>
+		   <artifactId>json-simple</artifactId>
+		   <version>1.1.1</version>
+		</dependency>
         <!-- Netconf4j library (At the moment 17/05/12 not available.) -->
         <dependency>
             <groupId>net.i2cat.netconf</groupId>
