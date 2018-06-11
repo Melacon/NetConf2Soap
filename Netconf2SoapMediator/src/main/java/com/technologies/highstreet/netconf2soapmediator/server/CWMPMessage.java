@@ -43,9 +43,9 @@ public class CWMPMessage {
 	
 	void initParamValMap() {
 			
-		getParamValMap.put(1, "Device.DeviceInfo.UpTime");
-		getParamValMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
-		getParamValMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
+//		getParamValMap.put(1, "Device.DeviceInfo.UpTime");
+//		getParamValMap.put(2, "Device.ManagementServer.PeriodicInformEnable");
+//		getParamValMap.put(3, "Device.ManagementServer.PeriodicInformInterval");
 		// DeviceInfo
 //		getParamValMap.put(1, "Device.DeviceInfo.Manufacturer");
 //		getParamValMap.put(2, "Device.DeviceInfo.ManufacturerOUI");
@@ -59,26 +59,27 @@ public class CWMPMessage {
 //		getParamValMap.put(10, "Device.DeviceInfo.SoftwareVersion");
 //		getParamValMap.put(11, "Device.DeviceInfo.UpTime");
 //		getParamValMap.put(12, "Device.DeviceInfo.FirstUseDate");
-//		getParamValMap.put(12, "Device.Time.LocalTimeZone");
-//		
-//		// ManagementServer
+		
+		
+		// ManagementServer
 //		getParamValMap.put(13, "Device.ManagementServer.PeriodicInformEnable");
 //		getParamValMap.put(14, "Device.ManagementServer.PeriodicInformInterval");
 		
 		// FAPService
-//		getParamValMap.put(15, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
-//		getParamValMap.put(16, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
-//		getParamValMap.put(17, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-//		getParamValMap.put(18, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-//		getParamValMap.put(19, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
-//		getParamValMap.put(20, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-//		getParamValMap.put(21, "Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-//		getParamValMap.put(22, "Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
-//		getParamValMap.put(23, "Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		getParamValMap.put(1, "Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		getParamValMap.put(2, "Device.Services.FAPService.1.REM.LTE.REMPLMNList");
+		getParamValMap.put(3, "Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+		getParamValMap.put(4, "Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
+		getParamValMap.put(5, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
+		getParamValMap.put(6, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
+		getParamValMap.put(7, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
+		getParamValMap.put(8, "Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
+//		getParamValMap.put(9, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+		getParamValMap.put(9, "Device.Time.LocalTimeZone");
+		getParamValMap.put(10, "Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
 		
-//		getParamValMap.put(23, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
 //		getParamValMap.put(24, "Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
-//		getParamValMap.put(25, "Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
+//		
 //		getParamValMap.put(26, "Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
 //		getParamValMap.put(27, "Device.Services.FAPService.1.FAPControl.LTE.OpState");
 //		getParamValMap.put(28, "Device.Services.FAPService.1.FAPControl.LTE.AdminState");
