@@ -2,71 +2,66 @@
    {
       "bbfkey":"CellConfig.LTE.RAN.RF.EARFCNDL",
       "xmlkey":"//data/fap-service/cell-config/lte/lte-ran/lte-ran-rf/earfcndl",
-      "type":"type"
-   },
-   {
-      "bbfkey":"CellConfig.LTE.RAN.RF.EARFCNUL",
-      "xmlkey":"//data/fap-service/cell-config/lte/lte-ran/lte-ran-rf/earfcnul",
-      "type":"type"
+      "type":"string"
    },
    {
       "bbfkey":"CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex",
       "xmlkey":"//data/fap-service/cell-config/lte/lte-ran/lte-ran-phy/lte-ran-phy-prach/root-sequence-index",
-      "type":"type"
+      "type":"string"
    },
    {
       "bbfkey":"CellConfig.LTE.RAN.Common.CellIdentity",
       "xmlkey":"//data/fap-service/cell-config/lte/lte-ran/lte-ran-common/cell-identity",
-      "type":"type"
+      "type":"unsignedInt"
    },
    {
       "bbfkey":"FAPControl.LTE.Gateway.S1SigLinkServerList",
       "xmlkey":"//data/fap-service/fap-control/fap-control-lte/fap-control-lte-gateway/s1-sig-link-server-list",
-      "type":"type"
+      "type":"string"
    },
    {
       "bbfkey":"CellConfig.LTE.EPC.TAC",
       "xmlkey":"//data/fap-service/cell-config/lte/lte-epc/tac",
-      "type":"type"
+      "type":"unsignedInt"
    },
    {
       "bbfkey":"FAPControl.LTE.OpState",
       "xmlkey":"//data/fap-service/fap-control/fap-control-lte/op-state",
-      "type":"type"
+      "type":"boolean"
    },
    {
       "bbfkey":"FAPControl.LTE.AdminState",
       "xmlkey":"//data/fap-service/fap-control/fap-control-lte/admin-state",
-      "type":"type"
+      "type":"boolean"
    },
    {
       "bbfkey":"REM.LTE.EUTRACarrierARFCNDLList",
       "xmlkey":"//data/fap-service/rem/rem-lte/eutra-carrier-arfcndl-list",
-      "type":"type"
+      "type":"string"
    },
    {
       "bbfkey":"REM.LTE.ScanTimeout",
       "xmlkey":"//data/fap-service/rem/rem-lte/scan-timeout",
-      "type":"type"
+      "type":"unsignedInt"
    },
    {
       "bbfkey":"REM.LTE.ScanStatus",
       "xmlkey":"//data/fap-service/rem/rem-lte/scan-status",
-      "type":"type"
+      "type":"string"
    },
    {
       "bbfkey":"REM.LTE.LastScanTime",
       "xmlkey":"//data/fap-service/rem/rem-lte/last-scan-time",
-      "type":"type"
+      "type":"dateTime"
    },
    {
       "bbfkey":"REM.LTE.REMBandList",
       "xmlkey":"//data/fap-service/rem/rem-lte/rem-band-list",
-      "type":"type"
+      "type":"string"
    },
    {
       "bbfkey":"REM.LTE.ScanOnBoot",
       "xmlkey":"//data/fap-service/rem/rem-lte/scan-on-boot",
-      "type":"type"
+      "type":"boolean"
    }
 ]

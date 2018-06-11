@@ -218,10 +218,23 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 							value = nodes.item(i).getTextContent();
 							
 						}
-						if(value !=null && !value.equals("")) {
+						
+						result = expr.evaluate(this.theNe.getDocument(), XPathConstants.NODESET);
+						nodes = (NodeList) result;
+						String old_value = null;
+						for (int i = 0; i < nodes.getLength(); i++) {
+							// System.out.println(nodes.item(i).getLocalName());
+							old_value = nodes.item(i).getTextContent();
+							
+						}
+						
+						
+						if(value !=null && !value.equals("") && !value.equals(old_value)) {
 							ArrayList<String> list = new ArrayList<String>();
 		    				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
-		    	    		list.add(value);
+		    				String type = BBFTRModelMapping.getType(BBFTRModelMapping.getTR069fromYang(xpathString));
+		    	    		list.add(type+ "\">" +value);
+		    	    		
 		    	    		HTTPServlet.setParamMap.put(map_index, list);		
 		    	    		map_index++;
 						}

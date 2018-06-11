@@ -103,7 +103,11 @@ public class BBFTRModelMapping {
 		
 		
 	}
-
+	
+	public static String getType(String tr069key ) {
+		return bbftrTypeModelBiMap.get(tr069key);
+	}
+	
 	public static String getYangfromTR069(String tr069key ) {
 		return bbftrModelBiMap.get(tr069key);
 	}
