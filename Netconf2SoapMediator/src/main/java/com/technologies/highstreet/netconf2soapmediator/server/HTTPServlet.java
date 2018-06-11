@@ -138,20 +138,20 @@ public class HTTPServlet extends HttpServlet {
 //			list.add("string" + "\">" + "10");
 //			setParamList.add(list);
 
-			list = new ArrayList<String>();
-			list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-			list.add("string" + "\">" + "false");
-			setParamList.add(list);
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+//			list.add("string" + "\">" + "false");
+//			setParamList.add(list);
 			
 			list = new ArrayList<String>();
 			list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
 			list.add("string" + "\">" + "311181");
 			setParamList.add(list);
-//			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-//			list.add("string" + "\">" + "738,0,837,12");
-//			setParamList.add(list);
+			
+			list = new ArrayList<String>();
+			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+			list.add("string" + "\">" + "738,0,837,12");
+			setParamList.add(list);
 			
 //			list = new ArrayList<String>();
 //			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
