@@ -225,7 +225,6 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 		    				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
 		    				String type = BBFTRModelMapping.getType(BBFTRModelMapping.getTR069fromYang(xpathString));
 		    	    		list.add(type + "\">" + value);
-		    	    		
 		    	    		HTTPServlet.setParamList.add(list);	
 						}
 						

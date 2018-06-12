@@ -2669,7 +2669,7 @@
           <max-qo-s-entries>33</max-qo-s-entries>
           <qo-s-number-of-entries>55</qo-s-number-of-entries>
           <lte-epc-plmn-list>
-            <plmnid>plmnid</plmnid>
+            <plmnid>1</plmnid>
             <enable>true</enable>
             <alias>alias</alias>
             <is-primary>true</is-primary>
@@ -3854,7 +3854,7 @@
         <max-carrier-meas-entries>2</max-carrier-meas-entries>
         <carrier-meas-number-of-entries>1</carrier-meas-number-of-entries>
         <rem-lte-cell>
-          <rem-lte-cell-key>key</rem-lte-cell-key>
+          <rem-lte-cell-key>1</rem-lte-cell-key>
           <rem-lte-cell-rf>
             <eutra-carrier-arfcn>0</eutra-carrier-arfcn>
             <phy-cell-id>0</phy-cell-id>
