@@ -155,7 +155,7 @@ public class HTTPServlet extends HttpServlet {
 			
 //			list = new ArrayList<String>();
 //			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-//			list.add("xsi:type=\"xsd:string\">210");
+//			list.add("string" + "\">" + "210");
 //			setParamList.add(list);
 			
 			sb = CWMPmsg.setParameterValues(setParamList);
