@@ -34,7 +34,6 @@ public class BBFTRModelMapping {
 				String type = (String) singlemapping.get("type");
 				bbftrModelBiMap.put(bbfkey, xmlkey);
 				bbftrTypeModelBiMap.put(bbfkey, type);
-				System.out.println(bbfkey+xmlkey+type);
 			}
 		}catch(FileNotFoundException fe) {
 			fe.printStackTrace();

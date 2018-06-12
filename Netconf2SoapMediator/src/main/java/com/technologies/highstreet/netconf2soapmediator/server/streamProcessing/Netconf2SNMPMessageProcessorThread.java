@@ -216,7 +216,10 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 							
 						}
 						
-						
+						if(BBFTRModelMapping.getType(BBFTRModelMapping.getTR069fromYang(xpathString)).equals("boolean")) {
+							value = value.toLowerCase();
+							old_value = old_value.toLowerCase();
+						}
 						if(value !=null && !value.equals("") && !value.equals(old_value)) {
 							ArrayList<String> list = new ArrayList<String>();
 		    				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
@@ -230,9 +233,9 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 						e.printStackTrace();
 					}
 				}
-    			System.out.println(HTTPServlet.setParamList);
 				HTTPServlet.setSetParam(true);
 			}
+    		System.out.println(HTTPServlet.setParamList);
     	}
     	super.doMessageProcessing(receivedMessage);
     }
