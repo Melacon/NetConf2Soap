@@ -130,33 +130,58 @@ public class HTTPServlet extends HttpServlet {
 			
 //			list = new ArrayList<String>();
 //			list.add("Device.ManagementServer.PeriodicInformEnable");
-//			list.add("string" + "\">" + "true");
+//			list.add("boolean" + "\">" + "true");
 //			setParamList.add(list);
 
 //			list = new ArrayList<String>();
 //			list.add("Device.ManagementServer.PeriodicInformInterval");
-//			list.add("string" + "\">" + "10");
+//			list.add("unsignedInt­" + "\">" + "10");
 //			setParamList.add(list);
 
 //			list = new ArrayList<String>();
 //			list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//			list.add("string" + "\">" + "false");
+//			list.add("boolean" + "\">" + "false");
 //			setParamList.add(list);
 			
-			list = new ArrayList<String>();
-			list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-			list.add("string" + "\">" + "311181");
-			setParamList.add(list);
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
+//			list.add("string" + "\">" + "311181");
+//			setParamList.add(list);
 			
-			list = new ArrayList<String>();
-			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-			list.add("string" + "\">" + "738,0,837,12");
-			setParamList.add(list);
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+//			list.add("string" + "\">" + "738,0,837,12");
+//			setParamList.add(list);
+			
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
+//			list.add("string" + "\">" + "3110");
+//			setParamList.add(list);
+			
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
+//			list.add("string" + "\">" + "21110");
+//			setParamList.add(list);
 			
 //			list = new ArrayList<String>();
 //			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
 //			list.add("string" + "\">" + "210");
 //			setParamList.add(list);
+			
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
+//			list.add("unsignedInt" + "\">" + "1");
+//			setParamList.add(list);
+			
+			list = new ArrayList<String>();
+			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+			list.add("string" + "\">" + "311181");
+			setParamList.add(list);
+			
+			list = new ArrayList<String>();
+			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+			list.add("boolean" + "\">" + "true");
+			setParamList.add(list);
 			
 			sb = CWMPmsg.setParameterValues(setParamList);
 			setParamList.clear();
