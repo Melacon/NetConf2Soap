@@ -44,11 +44,14 @@ public class CWMPMessage {
 		// DeviceInfo
 		getParamValList.add("Device.DeviceInfo.Manufacturer");
 		getParamValList.add("Device.DeviceInfo.ManufacturerOUI");
+//		getParamValList.add("Device.DeviceInfo.ModelName");
 		getParamValList.add("Device.DeviceInfo.Description");
 		getParamValList.add("Device.DeviceInfo.ProductClass");
 		getParamValList.add("Device.DeviceInfo.SerialNumber");
 		getParamValList.add("Device.DeviceInfo.HardwareVersion");
 		getParamValList.add("Device.DeviceInfo.SoftwareVersion");
+//		getParamValList.add("Device.DeviceInfo.AdditionalHardwareVersion");
+//		getParamValList.add("Device.DeviceInfo.AdditionalSoftwareVersion");
 		getParamValList.add("Device.DeviceInfo.UpTime");
 		getParamValList.add("Device.DeviceInfo.FirstUseDate");
 		
@@ -58,29 +61,45 @@ public class CWMPMessage {
 		
 		// FAPService
 		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-		getParamValList.add("Device.Time.LocalTimeZone");
-		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
-		
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
 //		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
 //		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
+		getParamValList.add("Device.Time.LocalTimeZone");
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
 		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.OpState");
-		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");	
 
-//		// FAPSevice REM
+		// FAPSevice.REM
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
+		
+		// FAPSevice.REM.Cell
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.EUTRACarrierARFCN");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.PhyCellID");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRP");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRQ");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSSI");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.DLBandwidth");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.ULBandwidth");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.RSTxPower");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.TAC");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellID");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellBarred");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIndication");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIdentity");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.PLMNList.PLMNID");
 	}
 
 	void initParamAttMap() {
