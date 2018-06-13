@@ -68,19 +68,19 @@ public class CWMPMessage {
 		getParamValList.add("Device.Time.LocalTimeZone");
 		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
 		
-//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
-//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
-//		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.OpState");
-//		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
+		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.OpState");
+		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
 
 //		// FAPSevice REM
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
+		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
 	}
 
 	void initParamAttMap() {
