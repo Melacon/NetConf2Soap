@@ -60,7 +60,6 @@ public class CWMPMessage {
 		getParamValList.add("Device.ManagementServer.PeriodicInformInterval");
 		
 		// FAPService
-		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
 //		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
