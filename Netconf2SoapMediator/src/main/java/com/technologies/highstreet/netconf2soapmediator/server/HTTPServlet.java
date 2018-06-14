@@ -135,7 +135,7 @@ public class HTTPServlet extends HttpServlet {
 
 			list = new ArrayList<String>();
 			list.add("Device.ManagementServer.PeriodicInformInterval");
-			list.add("unsignedInt­" + "\">" + "3600");
+			list.add("unsignedInt" + "\">" + "3600");
 			setParamList.add(list);
 
 //			list = new ArrayList<String>();
