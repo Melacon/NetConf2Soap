@@ -1,6 +1,5 @@
 package com.technologies.highstreet.netconf2soapmediator.server.networkelement;
 
-import com.google.common.base.CaseFormat;
 import com.technologies.highstreet.deviceslib.data.SNMPDeviceType;
 import com.technologies.highstreet.netconf.server.basetypes.Console;
 import com.technologies.highstreet.netconf.server.networkelement.NetworkElement;
@@ -10,9 +9,6 @@ import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTra
 import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
 import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapNotification;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -40,7 +36,6 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.apache.commons.digester.plugins.strategies.FinderSetProperties;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
