@@ -976,6 +976,9 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		}
 	
 	public static void printStringDocument(String stringDoc) {
+		if(stringDoc == null || stringDoc.equals("")) {
+			return;
+		}
 		DocumentBuilder db;
 		try {
 			db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
