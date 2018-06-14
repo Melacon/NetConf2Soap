@@ -367,7 +367,7 @@
 			<equipment-type>
 				<description>WS-8</description>
 				<part-type-identifier>Partnumber</part-type-identifier>
-				<type-name>WS-8</type-name>
+				<type-name>OneCell</type-name>
 				<model-identifier>model-id</model-identifier>
 				<version>a2.module-newest</version>
 			</equipment-type>
