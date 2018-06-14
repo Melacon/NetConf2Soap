@@ -190,6 +190,8 @@ public class HTTPServlet extends HttpServlet {
 		else {	
 			if (getSetParam() == true) {
 				sb = CWMPmsg.setParameterValues(setParamList);
+				setParamList.clear();
+				setInitSetParam(false);
 			} else {
 				networkElement.setTr069DocumentCFromString(reqBody);
 				sb = CWMPmsg.getParameterAttributes();
