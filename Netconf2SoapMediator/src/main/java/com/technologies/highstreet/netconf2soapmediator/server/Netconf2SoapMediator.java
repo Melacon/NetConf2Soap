@@ -464,12 +464,13 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 
 			for (int i = 0; i < 999999; i++) {
 				System.out.println("connActive=" + HTTPServlet.getConnActive());
-				//				if (HTTPServlet.getSetParam() == true) {
-				// periodically send connection request to the device
-				LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-				httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
-				LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-				//				}
+				if (HTTPServlet.getConnActive() == false) {
+					HTTPServlet.setConnActive(true);
+					// periodically send connection request to the device
+					LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+					httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+					LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+				}
 				Thread.sleep(2000); // milliseconds
 			}
 

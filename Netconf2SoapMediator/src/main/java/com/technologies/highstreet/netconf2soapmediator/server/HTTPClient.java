@@ -56,10 +56,14 @@ public class HTTPClient {
 	        int status_code = response.getStatusLine().getStatusCode();
 	        if( status_code == 200 || status_code == 201) {
 	        	status = true;
+	        } else {
+	        	HTTPServlet.setConnActive(false);
 	        }
 		} catch (MalformedURLException e1) {
+			HTTPServlet.setConnActive(false);
 			e1.printStackTrace();
 		} catch (ClientProtocolException e) {
+			HTTPServlet.setConnActive(false);
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();

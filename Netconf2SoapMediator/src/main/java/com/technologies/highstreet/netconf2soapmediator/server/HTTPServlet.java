@@ -241,7 +241,6 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received Inform msg (unknown event code)");
 		}
 
-		setConnActive(true);
 		networkElement.setTr069DocumentCFromString(reqBody);
 
 		StringBuilder sb = new StringBuilder(10);
