@@ -7,11 +7,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
 
@@ -45,7 +53,7 @@ public class HTTPServlet extends HttpServlet {
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
 		
-		System.out.println(reqBody);
+		this.printSoapMessage(reqBody);
 
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
@@ -279,6 +287,25 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setInitSetParam(boolean initSetParam) {
 		HTTPServlet.initSetParam = initSetParam;
+	}
+	
+	public void printSoapMessage(String stringDoc) {
+		DocumentBuilder db;
+		try {
+			db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			InputSource is = new InputSource();
+			is.setCharacterStream(new StringReader(stringDoc));
+
+			Document doc = db.parse(is);
+			Netconf2SoapNetworkElement.printDocument(doc, System.out);;
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
