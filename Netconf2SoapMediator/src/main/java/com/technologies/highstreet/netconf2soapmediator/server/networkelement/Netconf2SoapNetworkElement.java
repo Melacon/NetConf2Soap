@@ -843,8 +843,8 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 								value = "false";
 							}
 						}
-						if (type.equals("xsd:string")){
-							//value = value.toLowerCase();
+						if (key.contains("ScanStatus")){
+							value = value.toLowerCase();
 						}
 						if (type.equals("xsd:dateTime")){
 							value = value + "+00:00";
