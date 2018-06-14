@@ -71,7 +71,7 @@ public class HTTPClient {
 			e1.printStackTrace();
 		}catch (SocketTimeoutException e) {
 			System.out.println("HTTP request timeout");
-			HTTPServlet.setConnActive(true);
+			HTTPServlet.setConnActive(false);
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
