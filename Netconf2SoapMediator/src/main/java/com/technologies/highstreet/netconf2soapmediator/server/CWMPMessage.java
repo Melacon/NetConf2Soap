@@ -156,7 +156,6 @@ public class CWMPMessage {
 	StringBuilder getParameterValues() {
 		System.out.println("GetParameterValues msg");
 		StringBuilder msg = new StringBuilder();
-		System.out.println(getParamValList);
 		msg.append(envelope);
 		msg.append(header);
 		// body
