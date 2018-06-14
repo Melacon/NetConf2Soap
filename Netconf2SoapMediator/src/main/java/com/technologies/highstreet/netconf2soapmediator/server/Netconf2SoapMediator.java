@@ -453,7 +453,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			HTTPServlet.setNetworkElement(ne);
 			server.initializeServer("0.0.0.0", port, ne, cfg, Config.getInstance().MediatorDefaultNetworkInterfaceNum);
 			server.startServer();
-			
+
 			// here a HTTP client is create that send connection request to the CWMP device
 			HTTPClient httpclient = new HTTPClient();
 			LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
@@ -464,6 +464,18 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			LOG.info("sleeping for " +  sleep + "ms");
 			Thread.sleep(sleep); // milliseconds
 			LOG.info("finished sleeping");
+
+			for (int i = 0; i < 999999; i++) {
+				System.out.println("connActive=" + HTTPServlet.getConnActive());
+				if (HTTPServlet.getSetParam() == true) {
+					// request connection from CWMP device
+					httpclient = new HTTPClient();
+					LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+					httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+					LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+				}
+				Thread.sleep(2000); // milliseconds
+			}
 
 		} catch (Exception e) {
 			LOG.error("(..something..) failed", e);

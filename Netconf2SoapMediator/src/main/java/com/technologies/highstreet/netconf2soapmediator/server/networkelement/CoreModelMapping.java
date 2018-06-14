@@ -10,8 +10,8 @@ public class CoreModelMapping {
 	static BiMap<String, String> coreModelBiMap = HashBiMap.create();
 
 	static {
-		coreModelBiMap.put("Device.DeviceInfo.Manufacturer", "//data/equipment/manufactured-thing/manufacturer-properties/manufacturer-name"); // part of Inform RPC
-		coreModelBiMap.put("Device.DeviceInfo.ManufacturerOUI", "//data/equipment/manufactured-thing/manufacturer-properties/manufacturer-identifier%" +
+		coreModelBiMap.put("Device.DeviceInfo.Manufacturer", "//data/equipment/manufactured-thing/manufacturer-properties/manufacturer-identifier"); // part of Inform RPC
+		coreModelBiMap.put("Device.DeviceInfo.ManufacturerOUI", "//data/equipment/manufactured-thing/equipment-type/model-identifier%" +
 																"//data/equipment/uuid%" + 
 																"//data/equipment-pac/equipment%" +
 																"//data/network-element/uuid%" +
