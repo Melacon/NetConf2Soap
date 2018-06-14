@@ -53,7 +53,7 @@ public class HTTPServlet extends HttpServlet {
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
 		
-		this.printSoapMessage(reqBody);
+		Netconf2SoapNetworkElement.printStringDocument(reqBody);
 
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
@@ -287,25 +287,6 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setInitSetParam(boolean initSetParam) {
 		HTTPServlet.initSetParam = initSetParam;
-	}
-	
-	public void printSoapMessage(String stringDoc) {
-		DocumentBuilder db;
-		try {
-			db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-			InputSource is = new InputSource();
-			is.setCharacterStream(new StringReader(stringDoc));
-
-			Document doc = db.parse(is);
-			Netconf2SoapNetworkElement.printDocument(doc, System.out);;
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
 	}
 
 }

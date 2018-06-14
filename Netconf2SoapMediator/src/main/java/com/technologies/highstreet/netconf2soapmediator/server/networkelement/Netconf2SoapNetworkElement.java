@@ -975,7 +975,24 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		  System.out.println(sw.toString());
 		}
 	
-	    
+	public static void printStringDocument(String stringDoc) {
+		DocumentBuilder db;
+		try {
+			db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			InputSource is = new InputSource();
+			is.setCharacterStream(new StringReader(stringDoc));
+
+			Document doc = db.parse(is);
+			Netconf2SoapNetworkElement.printDocument(doc, System.out);;
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	
 	/**End Pier functions
