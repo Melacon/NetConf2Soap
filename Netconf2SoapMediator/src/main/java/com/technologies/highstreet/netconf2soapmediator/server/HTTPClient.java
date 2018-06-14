@@ -4,6 +4,7 @@ package com.technologies.highstreet.netconf2soapmediator.server;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import org.apache.http.auth.AuthSchemeProvider;
 import org.apache.http.auth.AuthScope;
@@ -39,7 +40,7 @@ public class HTTPClient {
 		boolean status = false;
 		HttpGet getArticles = new HttpGet(url);
 		URL url_obj;
-		int timeout = 10*1000;
+		int timeout = 3*1000;
 		try {
 			url_obj = new URL(url);
 			String host = url_obj.getHost();
@@ -68,6 +69,9 @@ public class HTTPClient {
 	        }
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
+		}catch (SocketTimeoutException e) {
+			System.out.println("HTTP request timeout");
+			HTTPServlet.setConnActive(true);
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
