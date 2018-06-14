@@ -844,7 +844,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 							}
 						}
 						if (type.equals("xsd:string")){
-							value = value.toLowerCase();
+							//value = value.toLowerCase();
 						}
 						if (type.equals("xsd:dateTime")){
 							value = value + "+00:00";
