@@ -456,7 +456,10 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 
 			// here a HTTP client is create that send connection request to the CWMP device
 			HTTPClient httpclient = new HTTPClient();
-
+			LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+			httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+			LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+			
 //			int sleep = 1000*60*60;
 //			LOG.info("sleeping for " +  sleep + "ms");
 //			Thread.sleep(sleep); // milliseconds

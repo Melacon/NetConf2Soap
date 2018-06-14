@@ -11,6 +11,7 @@ import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.AuthSchemes;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.config.Registry;
@@ -38,6 +39,7 @@ public class HTTPClient {
 		boolean status = false;
 		HttpGet getArticles = new HttpGet(url);
 		URL url_obj;
+		int timeout = 10*1000;
 		try {
 			url_obj = new URL(url);
 			String host = url_obj.getHost();
@@ -49,6 +51,13 @@ public class HTTPClient {
 		            new AuthScope(host, port),
 		            new UsernamePasswordCredentials(username,password));
 
+		    // add a timeout
+		    RequestConfig.Builder requestConfig = RequestConfig.custom();
+            requestConfig.setConnectTimeout(timeout);
+            requestConfig.setConnectionRequestTimeout(timeout);
+            requestConfig.setSocketTimeout(timeout);
+            getArticles.setConfig(requestConfig.build());
+		    
 		    CloseableHttpClient client = HttpClients.custom()
 		            .setDefaultAuthSchemeRegistry(authSchemeRegistry)
 		            .setDefaultCredentialsProvider(credentialsProvider).build();
