@@ -190,6 +190,8 @@ public class HTTPServlet extends HttpServlet {
 		else {	
 			if (getSetParam() == true) {
 				sb = CWMPmsg.setParameterValues(setParamList);
+				setParamList.clear();
+				setSetParam(false);
 			} else {
 				networkElement.setTr069DocumentCFromString(reqBody);
 				sb = CWMPmsg.getParameterAttributes();
@@ -202,7 +204,6 @@ public class HTTPServlet extends HttpServlet {
 	public static  StringBuilder handleSetParameterValuesResponse(String reqBody) {
 		System.out.println("Received SetParameterValuesResponse msg");
 
-		setSetParam(false);
 		StringBuilder sb = new StringBuilder(10);
 		sb = CWMPmsg.getParameterValues();
 
