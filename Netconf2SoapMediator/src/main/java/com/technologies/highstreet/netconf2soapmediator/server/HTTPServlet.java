@@ -45,7 +45,7 @@ public class HTTPServlet extends HttpServlet {
 		final String reqBody = HTTPServlet.getBody(request);
 		StringBuilder sb = new StringBuilder(10);
 		
-		System.out.println(reqBody);
+		Netconf2SoapNetworkElement.printStringDocument(reqBody);
 
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
