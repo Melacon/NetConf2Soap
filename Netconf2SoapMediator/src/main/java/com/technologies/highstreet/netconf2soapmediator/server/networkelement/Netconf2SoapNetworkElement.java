@@ -874,7 +874,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		// The tr069Key is like this Device.Services.FAPService.{i}.CellConfig.LTE.RAN.RF.DLBandwidth
 		// We need to find the correspondent xpath //data/fap-service/alias[text()=i]/cell-config/lte/lte-ran/lte-ran-rf/dl-bandwidth
 		// I don't know if we can multiple fapservices,  otherwise the part alias[text()=i] is not needed
-
+		
 		String[] parts = tr069Key.split("\\.");
 		if(parts.length < 4) return;
 		String fapservice_id = parts[3];
