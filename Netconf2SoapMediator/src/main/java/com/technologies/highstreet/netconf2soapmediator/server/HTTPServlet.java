@@ -173,15 +173,15 @@ public class HTTPServlet extends HttpServlet {
 //			list.add("unsignedInt" + "\">" + "1");
 //			setParamList.add(list);
 			
-			list = new ArrayList<String>();
-			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-			list.add("string" + "\">" + "311181");
-			setParamList.add(list);
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+//			list.add("string" + "\">" + "311181");
+//			setParamList.add(list);
 			
-			list = new ArrayList<String>();
-			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
-			list.add("boolean" + "\">" + "true");
-			setParamList.add(list);
+//			list = new ArrayList<String>();
+//			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+//			list.add("boolean" + "\">" + "true");
+//			setParamList.add(list);
 			
 			sb = CWMPmsg.setParameterValues(setParamList);
 			setParamList.clear();
