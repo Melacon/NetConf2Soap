@@ -51,6 +51,7 @@ public class HTTPServlet extends HttpServlet {
 		if (reqBody.contains("Fault")) {
 			System.out.println("Received Fault msg");
 			System.out.println("Sending empty reply:");
+			setConnActive(false);
 		}
 		else if (reqBody.contains("cwmp:Inform")) {
 			sb = handleInform(reqBody);
