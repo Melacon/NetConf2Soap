@@ -168,7 +168,7 @@ public class HTTPServlet extends HttpServlet {
 		System.out.println("Received GetParameterAttributesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterValues();
+		//sb = CWMPmsg.getParameterValues();
 
 		//setConnActive(false);
 		
@@ -197,6 +197,9 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
 			System.out.println("Received Inform msg with event code: 6 (CONNECTION REQUEST)");
+		}
+		else if (reqBody.contains("<EventCode>4 VALUE CHANGE")) {
+			System.out.println("Received Inform msg with event code: 4 (VALUE CHANGE)");
 		}
 		else {
 			System.out.println("Received Inform msg (unknown event code)");
