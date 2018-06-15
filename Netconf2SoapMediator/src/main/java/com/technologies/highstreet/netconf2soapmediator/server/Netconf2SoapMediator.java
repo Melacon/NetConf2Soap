@@ -1,8 +1,6 @@
 package com.technologies.highstreet.netconf2soapmediator.server;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -13,10 +11,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -31,7 +25,6 @@ import org.apache.sshd.server.Command;
 import org.apache.sshd.server.SshServer;
 import org.apache.sshd.server.keyprovider.SimpleGeneratorHostKeyProvider;
 import org.springframework.boot.SpringApplication;
-import org.xml.sax.SAXException;
 
 import com.technologies.highstreet.deviceslib.data.SNMPDeviceType;
 import com.technologies.highstreet.netconf.server.basetypes.Behaviour;

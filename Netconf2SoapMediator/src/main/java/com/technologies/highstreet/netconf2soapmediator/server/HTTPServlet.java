@@ -111,90 +111,38 @@ public class HTTPServlet extends HttpServlet {
 		return body;
 	}
 
-	public static  StringBuilder handleEmptyResponse(String reqBody) {
-		System.out.println("Received HTTP request: Empty");
-
-		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterValues();
-
-		return sb;
-	}
-
 	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
 		System.out.println("Received GetParameterValuesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
+		sb = CWMPmsg.getParameterAttributes();
+
+		return sb;
+	}
+
+	public static  StringBuilder handleEmptyResponse(String reqBody) {
+		System.out.println("Received HTTP request: Empty");
+
+		// an empty response means, that the device is ready to accept GET/SET messages
+
+		StringBuilder sb = new StringBuilder(10);
 
 		if (getInitSetParam() == true) {
-			ArrayList<String> list = new ArrayList<String>();
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.ManagementServer.PeriodicInformEnable");
-//			list.add("boolean" + "\">" + "true");
-//			setParamList.add(list);
-
-			list = new ArrayList<String>();
-			list.add("Device.ManagementServer.PeriodicInformInterval");
-			list.add("unsignedInt" + "\">" + "3600");
-			setParamList.add(list);
-
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//			list.add("boolean" + "\">" + "false");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-//			list.add("string" + "\">" + "311181");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-//			list.add("string" + "\">" + "738,0,837,12");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-//			list.add("string" + "\">" + "3110");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
-//			list.add("string" + "\">" + "21110");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-//			list.add("string" + "\">" + "210");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
-//			list.add("unsignedInt" + "\">" + "1");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-//			list.add("string" + "\">" + "311181");
-//			setParamList.add(list);
-			
-//			list = new ArrayList<String>();
-//			list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
-//			list.add("boolean" + "\">" + "true");
-//			setParamList.add(list);
-			
+			// when the device connects for the first time, SET specific parameters to initialize the device
+			initSetParamList();
 			sb = CWMPmsg.setParameterValues(setParamList);
-			setParamList.clear();
+			clearSetParamList();
 			setInitSetParam(false);
 		}
 		else {	
 			if (getSetParam() == true) {
+				// send parameters that have been modified via NETCONF
 				sb = CWMPmsg.setParameterValues(setParamList);
-				setParamList.clear();
+				clearSetParamList();
 				setSetParam(false);
 			} else {
 				networkElement.setTr069DocumentCFromString(reqBody);
-				sb = CWMPmsg.getParameterAttributes();
+				sb = CWMPmsg.getParameterValues();
 			}
 		}
 
@@ -241,6 +189,7 @@ public class HTTPServlet extends HttpServlet {
 			System.out.println("Received Inform msg (unknown event code)");
 		}
 
+		// parameters contained in the inform message are pushed to the local xml
 		networkElement.setTr069DocumentCFromString(reqBody);
 
 		StringBuilder sb = new StringBuilder(10);
@@ -280,5 +229,66 @@ public class HTTPServlet extends HttpServlet {
 	public static void setInitSetParam(boolean initSetParam) {
 		HTTPServlet.initSetParam = initSetParam;
 	}
+	
+	public static  void clearSetParamList() {
+		setParamList.clear();
+	}
+	public static  void initSetParamList() {
+		ArrayList<String> list = new ArrayList<String>();
 
+		list = new ArrayList<String>();
+		list.add("Device.ManagementServer.PeriodicInformEnable");
+		list.add("boolean" + "\">" + "true");
+		setParamList.add(list);
+
+		list = new ArrayList<String>();
+		list.add("Device.ManagementServer.PeriodicInformInterval");
+		list.add("unsignedInt" + "\">" + "10");
+		setParamList.add(list);
+
+		list = new ArrayList<String>();
+		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+		list.add("string" + "\">" + "311181");
+		setParamList.add(list);
+
+		list = new ArrayList<String>();
+		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+		list.add("boolean" + "\">" + "true");
+		setParamList.add(list);
+
+		//		list = new ArrayList<String>();
+		//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		//		list.add("boolean" + "\">" + "false");
+		//		setParamList.add(list);
+
+		//		list = new ArrayList<String>();
+		//		list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
+		//		list.add("string" + "\">" + "311181");
+		//		setParamList.add(list);
+
+		//		list = new ArrayList<String>();
+		//		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+		//		list.add("string" + "\">" + "738,0,837,12");
+		//		setParamList.add(list);
+
+		//		list = new ArrayList<String>();
+		//		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
+		//		list.add("string" + "\">" + "3110");
+		//		setParamList.add(list);
+
+		//		list = new ArrayList<String>();
+		//		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
+		//		list.add("string" + "\">" + "21110");
+		//		setParamList.add(list);
+
+		//		list = new ArrayList<String>();
+		//		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
+		//		list.add("string" + "\">" + "210");
+		//		setParamList.add(list);
+
+		//		list = new ArrayList<String>();
+		//		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
+		//		list.add("unsignedInt" + "\">" + "1");
+		//		setParamList.add(list);
+	}
 }
