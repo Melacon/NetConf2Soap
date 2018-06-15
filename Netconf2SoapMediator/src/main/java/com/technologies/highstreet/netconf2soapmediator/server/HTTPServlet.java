@@ -132,6 +132,7 @@ public class HTTPServlet extends HttpServlet {
 				clearSetParamList();
 				setSetParam(false);
 			} else {
+				// send parameters that have been modified via NETCONF
 				networkElement.setTr069DocumentCFromString(reqBody);
 				sb = CWMPmsg.getParameterValues();
 			}
@@ -273,10 +274,10 @@ public class HTTPServlet extends HttpServlet {
 		list.add("boolean" + "\">" + "true");
 		setParamList.add(list);
 
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-		list.add("boolean" + "\">" + "true");
-		setParamList.add(list);
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+//		list.add("boolean" + "\">" + "false");
+//		setParamList.add(list);
 
 		//		list = new ArrayList<String>();
 		//		list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
