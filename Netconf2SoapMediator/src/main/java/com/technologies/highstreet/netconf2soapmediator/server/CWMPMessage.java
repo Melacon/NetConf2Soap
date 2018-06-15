@@ -102,7 +102,7 @@ public class CWMPMessage {
 	}
 
 	void initParamAttMap() {
-		getParamAttList.add("Device.DeviceInfo.UpTime");
+		//getParamAttList.add("Device.DeviceInfo.UpTime");
 		getParamAttList.add("Device.ManagementServer.PeriodicInformEnable");
 		getParamAttList.add("Device.ManagementServer.PeriodicInformInterval");
 	}

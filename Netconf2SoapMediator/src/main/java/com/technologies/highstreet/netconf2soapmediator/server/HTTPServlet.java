@@ -155,6 +155,12 @@ public class HTTPServlet extends HttpServlet {
 		StringBuilder sb = new StringBuilder(10);
 		sb = CWMPmsg.getParameterAttributes();
 
+		try {	
+			Thread.sleep(1000); // milliseconds
+		} catch (Exception e) {
+			System.out.println("Error in sleep" + e);
+		}
+		
 		return sb;
 	}
 
@@ -165,11 +171,13 @@ public class HTTPServlet extends HttpServlet {
 		sb = CWMPmsg.getParameterValues();
 
 		//setConnActive(false);
+		
 		try {	
-			Thread.sleep(3000); // milliseconds
+			Thread.sleep(1000); // milliseconds
 		} catch (Exception e) {
 			System.out.println("Error in sleep" + e);
 		}
+		
 		return sb;
 	}
 
