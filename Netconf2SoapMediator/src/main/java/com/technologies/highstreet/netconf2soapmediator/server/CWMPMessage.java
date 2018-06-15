@@ -42,18 +42,18 @@ public class CWMPMessage {
 	void initParamValMap() {
 			
 		// DeviceInfo
-		getParamValList.add("Device.DeviceInfo.Manufacturer");
-		getParamValList.add("Device.DeviceInfo.ManufacturerOUI");
+//		getParamValList.add("Device.DeviceInfo.Manufacturer");
+//		getParamValList.add("Device.DeviceInfo.ManufacturerOUI");
 //		getParamValList.add("Device.DeviceInfo.ModelName");
-		getParamValList.add("Device.DeviceInfo.Description");
-		getParamValList.add("Device.DeviceInfo.ProductClass");
-		getParamValList.add("Device.DeviceInfo.SerialNumber");
-		getParamValList.add("Device.DeviceInfo.HardwareVersion");
-		getParamValList.add("Device.DeviceInfo.SoftwareVersion");
+//		getParamValList.add("Device.DeviceInfo.Description");
+//		getParamValList.add("Device.DeviceInfo.ProductClass");
+//		getParamValList.add("Device.DeviceInfo.SerialNumber");
+//		getParamValList.add("Device.DeviceInfo.HardwareVersion");
+//		getParamValList.add("Device.DeviceInfo.SoftwareVersion");
 //		getParamValList.add("Device.DeviceInfo.AdditionalHardwareVersion");
 //		getParamValList.add("Device.DeviceInfo.AdditionalSoftwareVersion");
-		getParamValList.add("Device.DeviceInfo.UpTime");
-		getParamValList.add("Device.DeviceInfo.FirstUseDate");
+//		getParamValList.add("Device.DeviceInfo.UpTime");
+//		getParamValList.add("Device.DeviceInfo.FirstUseDate");
 		
 		// ManagementServer
 		getParamValList.add("Device.ManagementServer.PeriodicInformEnable");
@@ -61,20 +61,20 @@ public class CWMPMessage {
 		
 		// FAPService
 //		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
-		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
-		getParamValList.add("Device.Time.LocalTimeZone");
-		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
-		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.OpState");
-		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");	
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+//		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList"); //this is a list, more than one value.
+//		getParamValList.add("Device.Time.LocalTimeZone");
+//		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
+//		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.OpState");
+//		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");	
 
 		// FAPSevice.REM
 //		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
