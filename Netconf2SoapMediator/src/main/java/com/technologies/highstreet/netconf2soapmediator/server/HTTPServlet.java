@@ -25,6 +25,7 @@ public class HTTPServlet extends HttpServlet {
 	private static boolean connActive = false;
 	private static boolean setParam = false;
 	private static boolean initSetParam = true;
+	private static boolean FAP = true;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
 
 	public static ArrayList<ArrayList<String>> setParamList = new ArrayList<ArrayList<String>>();
@@ -132,8 +133,9 @@ public class HTTPServlet extends HttpServlet {
 				clearSetParamList();
 				setSetParam(false);
 			} else {
-				networkElement.setTr069DocumentCFromString(reqBody);
-				sb = CWMPmsg.getParameterValues();
+				// start: get Device parameters
+				sb = CWMPmsg.getParameterValues(false);
+				FAP = true;
 			}
 		}
 
@@ -144,7 +146,9 @@ public class HTTPServlet extends HttpServlet {
 		System.out.println("Received SetParameterValuesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterValues();
+		// get Device parameters
+		sb = CWMPmsg.getParameterValues(false);
+		FAP = true;
 
 		return sb;
 	}
@@ -152,11 +156,22 @@ public class HTTPServlet extends HttpServlet {
 	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
 		System.out.println("Received GetParameterValuesResponse msg");
 
+		// parameters contained in the inform message are pushed to the local xml
+		networkElement.setTr069DocumentCFromString(reqBody);
+				
 		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterAttributes();
+
+		if (FAP == true) {
+			// get FAP parameters
+			sb = CWMPmsg.getParameterValues(true);
+			FAP = false;
+		} else {
+			sb = CWMPmsg.getParameterAttributes();
+			FAP = true;
+		}
 
 		try {	
-			Thread.sleep(1000); // milliseconds
+			Thread.sleep(3 * 1000); // milliseconds
 		} catch (Exception e) {
 			System.out.println("Error in sleep" + e);
 		}
@@ -168,12 +183,13 @@ public class HTTPServlet extends HttpServlet {
 		System.out.println("Received GetParameterAttributesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterValues();
+		// get Device parameters
+		//sb = CWMPmsg.getParameterValues(false);
 
-		//setConnActive(false);
+		setConnActive(false);
 		
 		try {	
-			Thread.sleep(1000); // milliseconds
+			Thread.sleep(3 * 1000); // milliseconds
 		} catch (Exception e) {
 			System.out.println("Error in sleep" + e);
 		}
@@ -197,6 +213,9 @@ public class HTTPServlet extends HttpServlet {
 		}
 		else if (reqBody.contains("<EventCode>6 CONNECTION REQUEST")) {
 			System.out.println("Received Inform msg with event code: 6 (CONNECTION REQUEST)");
+		}
+		else if (reqBody.contains("<EventCode>4 VALUE CHANGE")) {
+			System.out.println("Received Inform msg with event code: 4 (VALUE CHANGE)");
 		}
 		else {
 			System.out.println("Received Inform msg (unknown event code)");
@@ -270,10 +289,10 @@ public class HTTPServlet extends HttpServlet {
 		list.add("boolean" + "\">" + "true");
 		setParamList.add(list);
 
-		//		list = new ArrayList<String>();
-		//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-		//		list.add("boolean" + "\">" + "false");
-		//		setParamList.add(list);
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+//		list.add("boolean" + "\">" + "false");
+//		setParamList.add(list);
 
 		//		list = new ArrayList<String>();
 		//		list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
