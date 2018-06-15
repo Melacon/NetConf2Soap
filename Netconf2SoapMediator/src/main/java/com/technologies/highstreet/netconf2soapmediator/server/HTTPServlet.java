@@ -275,7 +275,7 @@ public class HTTPServlet extends HttpServlet {
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-		list.add("boolean" + "\">" + "false");
+		list.add("boolean" + "\">" + "true");
 		setParamList.add(list);
 
 		//		list = new ArrayList<String>();
