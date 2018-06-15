@@ -19,6 +19,7 @@ public class CWMPMessage {
 		initHeader();
 		initInformResponse();
 		initParamValMap();
+		initFAPParamValMap();
 		initParamAttMap();
 		initEnvelopeEnd();
 		
