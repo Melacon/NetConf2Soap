@@ -82,7 +82,7 @@ public class CWMPMessage {
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
 		getParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
+//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
 		
 		// FAPSevice.REM.Cell
 //		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.EUTRACarrierARFCN");
