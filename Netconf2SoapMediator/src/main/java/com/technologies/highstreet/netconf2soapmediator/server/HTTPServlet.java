@@ -25,6 +25,7 @@ public class HTTPServlet extends HttpServlet {
 	private static boolean connActive = false;
 	private static boolean setParam = false;
 	private static boolean initSetParam = true;
+	private static boolean FAP = true;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
 
 	public static ArrayList<ArrayList<String>> setParamList = new ArrayList<ArrayList<String>>();
@@ -132,7 +133,9 @@ public class HTTPServlet extends HttpServlet {
 				clearSetParamList();
 				setSetParam(false);
 			} else {
-				sb = CWMPmsg.getParameterValues();
+				// start: get Device parameters
+				sb = CWMPmsg.getParameterValues(false);
+				FAP = true;
 			}
 		}
 
@@ -143,7 +146,9 @@ public class HTTPServlet extends HttpServlet {
 		System.out.println("Received SetParameterValuesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterValues();
+		// get Device parameters
+		sb = CWMPmsg.getParameterValues(false);
+		FAP = true;
 
 		return sb;
 	}
@@ -155,7 +160,15 @@ public class HTTPServlet extends HttpServlet {
 		networkElement.setTr069DocumentCFromString(reqBody);
 				
 		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterAttributes();
+
+		if (FAP == true) {
+			// get FAP parameters
+			sb = CWMPmsg.getParameterValues(true);
+			FAP = false;
+		} else {
+			sb = CWMPmsg.getParameterAttributes();
+			FAP = true;
+		}
 
 		try {	
 			Thread.sleep(3 * 1000); // milliseconds
@@ -170,7 +183,8 @@ public class HTTPServlet extends HttpServlet {
 		System.out.println("Received GetParameterAttributesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
-		//sb = CWMPmsg.getParameterValues();
+		// get Device parameters
+		//sb = CWMPmsg.getParameterValues(false);
 
 		setConnActive(false);
 		

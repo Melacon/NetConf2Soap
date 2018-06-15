@@ -8,6 +8,7 @@ public class CWMPMessage {
 
 	private static StringBuilder envelope, envelopeEnd, header, informResponse;
 	private static ArrayList<String> getParamValList = new ArrayList<String>();
+	private static ArrayList<String> getFAPParamValList = new ArrayList<String>();
 	private static ArrayList<String> getParamAttList = new ArrayList<String>();
 	private static StringBuilder xmlString = new StringBuilder(10);
 	
@@ -37,6 +38,33 @@ public class CWMPMessage {
 		catch (Exception fx) {
 			System.out.println("Exception " + fx.toString());
 		} 
+	}
+	
+	void initFAPParamValMap() {
+		
+		// FAPSevice.REM
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
+		
+		// FAPSevice.REM.Cell
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.EUTRACarrierARFCN");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.PhyCellID");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRP");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRQ");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSSI");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.DLBandwidth");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.ULBandwidth");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.RSTxPower");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.TAC");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellID");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellBarred");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIndication");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIdentity");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.PLMNList.PLMNID");
 	}
 	
 	void initParamValMap() {
@@ -72,30 +100,6 @@ public class CWMPMessage {
 		getParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
 		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.OpState");
 		getParamValList.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");	
-
-		// FAPSevice.REM
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
-		getParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
-		
-		// FAPSevice.REM.Cell
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.EUTRACarrierARFCN");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.PhyCellID");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRP");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRQ");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSSI");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.DLBandwidth");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.ULBandwidth");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.RSTxPower");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.TAC");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellID");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellBarred");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIndication");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIdentity");
-//		getParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.PLMNList.PLMNID");
 	}
 
 	void initParamAttMap() {
@@ -201,19 +205,27 @@ public class CWMPMessage {
 		return msg;
 	}
 
-	StringBuilder getParameterValues() {
+	StringBuilder getParameterValues(boolean FAP) {
 		System.out.println("GetParameterValues msg");
+		
+		ArrayList<String> map = new ArrayList<String>();
+		if (FAP == true) {
+			map = getFAPParamValList; 
+		} else {
+			map = getParamValList; 
+		}
+		
 		StringBuilder msg = new StringBuilder();
 		msg.append(envelope);
 		msg.append(header);
 		// body
 		msg.append("\t<soapenv:Body>\n");
 		msg.append("\t\t<cwmp:GetParameterValues>\n");
-		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + getParamValList.size() + "]\">\n");
+		msg.append("\t\t\t<ParameterNames soap:arrayType=\"xsd:string[" + map.size() + "]\">\n");
 
-		for (int i = 0; i < getParamValList.size(); i++) {
+		for (int i = 0; i < map.size(); i++) {
 
-			msg.append("\t\t\t\t<string>" + getParamValList.get(i) + "</string>\n");
+			msg.append("\t\t\t\t<string>" + map.get(i) + "</string>\n");
 		}
 
 		msg.append("\t\t\t</ParameterNames>\n");
