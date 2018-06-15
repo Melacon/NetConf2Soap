@@ -170,7 +170,7 @@ public class HTTPServlet extends HttpServlet {
 		StringBuilder sb = new StringBuilder(10);
 		//sb = CWMPmsg.getParameterValues();
 
-		//setConnActive(false);
+		setConnActive(false);
 		
 		try {	
 			Thread.sleep(3 * 1000); // milliseconds
