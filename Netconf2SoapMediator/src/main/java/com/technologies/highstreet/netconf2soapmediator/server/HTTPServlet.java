@@ -166,7 +166,7 @@ public class HTTPServlet extends HttpServlet {
 
 		//setConnActive(false);
 		try {	
-			Thread.sleep(1000); // milliseconds
+			Thread.sleep(3000); // milliseconds
 		} catch (Exception e) {
 			System.out.println("Error in sleep" + e);
 		}

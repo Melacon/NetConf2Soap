@@ -451,6 +451,7 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			HTTPClient httpclient = new HTTPClient();
 			LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+			HTTPServlet.setConnActive(true);
 			LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			
 //			int sleep = 1000*60*60;
@@ -462,10 +463,10 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 				System.out.println("connActive=" + HTTPServlet.getConnActive());
 				if (HTTPServlet.getConnActive() == false) {
 					Thread.sleep(10*1000); // milliseconds
-					HTTPServlet.setConnActive(true);
 					// periodically send connection request to the device
 					LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 					httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+					HTTPServlet.setConnActive(true);
 					LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 				}
 				Thread.sleep(1000); // milliseconds
