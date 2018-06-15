@@ -156,7 +156,7 @@ public class HTTPServlet extends HttpServlet {
 		sb = CWMPmsg.getParameterAttributes();
 
 		try {	
-			Thread.sleep(1000); // milliseconds
+			Thread.sleep(3 * 1000); // milliseconds
 		} catch (Exception e) {
 			System.out.println("Error in sleep" + e);
 		}
@@ -173,7 +173,7 @@ public class HTTPServlet extends HttpServlet {
 		//setConnActive(false);
 		
 		try {	
-			Thread.sleep(1000); // milliseconds
+			Thread.sleep(3 * 1000); // milliseconds
 		} catch (Exception e) {
 			System.out.println("Error in sleep" + e);
 		}
@@ -270,10 +270,10 @@ public class HTTPServlet extends HttpServlet {
 		list.add("boolean" + "\">" + "true");
 		setParamList.add(list);
 
-		//		list = new ArrayList<String>();
-		//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-		//		list.add("boolean" + "\">" + "false");
-		//		setParamList.add(list);
+		list = new ArrayList<String>();
+		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		list.add("boolean" + "\">" + "true");
+		setParamList.add(list);
 
 		//		list = new ArrayList<String>();
 		//		list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
