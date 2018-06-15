@@ -132,8 +132,6 @@ public class HTTPServlet extends HttpServlet {
 				clearSetParamList();
 				setSetParam(false);
 			} else {
-				// send parameters that have been modified via NETCONF
-				networkElement.setTr069DocumentCFromString(reqBody);
 				sb = CWMPmsg.getParameterValues();
 			}
 		}
@@ -153,6 +151,9 @@ public class HTTPServlet extends HttpServlet {
 	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
 		System.out.println("Received GetParameterValuesResponse msg");
 
+		// parameters contained in the inform message are pushed to the local xml
+		networkElement.setTr069DocumentCFromString(reqBody);
+				
 		StringBuilder sb = new StringBuilder(10);
 		sb = CWMPmsg.getParameterAttributes();
 
