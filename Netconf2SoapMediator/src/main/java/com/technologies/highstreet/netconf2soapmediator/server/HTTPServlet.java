@@ -111,15 +111,6 @@ public class HTTPServlet extends HttpServlet {
 		return body;
 	}
 
-	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
-		System.out.println("Received GetParameterValuesResponse msg");
-
-		StringBuilder sb = new StringBuilder(10);
-		sb = CWMPmsg.getParameterAttributes();
-
-		return sb;
-	}
-
 	public static  StringBuilder handleEmptyResponse(String reqBody) {
 		System.out.println("Received HTTP request: Empty");
 
@@ -158,13 +149,27 @@ public class HTTPServlet extends HttpServlet {
 		return sb;
 	}
 
+	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
+		System.out.println("Received GetParameterValuesResponse msg");
+
+		StringBuilder sb = new StringBuilder(10);
+		sb = CWMPmsg.getParameterAttributes();
+
+		return sb;
+	}
+
 	public static  StringBuilder handleGetParameterAttributesResponse(String reqBody) {
 		System.out.println("Received GetParameterAttributesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
+		sb = CWMPmsg.getParameterValues();
 
-		setConnActive(false);
-		
+		//setConnActive(false);
+		try {	
+			Thread.sleep(1000); // milliseconds
+		} catch (Exception e) {
+			System.out.println("Error in sleep" + e);
+		}
 		return sb;
 	}
 
@@ -234,6 +239,7 @@ public class HTTPServlet extends HttpServlet {
 		setParamList.clear();
 	}
 	public static  void initSetParamList() {
+		System.out.println("Createting SET message to initialize the device");
 		ArrayList<String> list = new ArrayList<String>();
 
 		list = new ArrayList<String>();
