@@ -321,12 +321,12 @@ public class HTTPServlet extends HttpServlet {
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
-		list.add("string" + "\">" + "21110");
+		list.add("string" + "\">" + "18700");
 		setParamList.add(list);
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-		list.add("string" + "\">" + "3110");
+		list.add("string" + "\">" + "700");
 		setParamList.add(list);
 
 		list = new ArrayList<String>();
