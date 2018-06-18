@@ -285,6 +285,11 @@ public class HTTPServlet extends HttpServlet {
 		ArrayList<String> list = new ArrayList<String>();
 
 		list = new ArrayList<String>();
+		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+		list.add("boolean" + "\">" + "false");
+		setParamList.add(list);
+		
+		list = new ArrayList<String>();
 		list.add("Device.ManagementServer.PeriodicInformEnable");
 		list.add("boolean" + "\">" + "true");
 		setParamList.add(list);
@@ -293,11 +298,6 @@ public class HTTPServlet extends HttpServlet {
 		list.add("Device.ManagementServer.PeriodicInformInterval");
 		list.add("unsignedInt" + "\">" + "30");
 		setParamList.add(list);
-
-//		list = new ArrayList<String>();
-//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//		list.add("boolean" + "\">" + "false");
-//		setParamList.add(list);
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
@@ -384,5 +384,9 @@ public class HTTPServlet extends HttpServlet {
 		list.add("string" + "\">" + "311181");
 		setParamList.add(list);
 		
+		list = new ArrayList<String>();
+		list.add("Device.IPsec.Enable");
+		list.add("boolean" + "\">" + "0");
+		setParamList.add(list);
 	}
 }
