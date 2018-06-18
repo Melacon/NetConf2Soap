@@ -48,7 +48,7 @@ public class HTTPServlet extends HttpServlet {
 		
 		Netconf2SoapNetworkElement.printStringDocument(reqBody);
 
-		if (reqBody.contains("cwmp: fault")) {
+		if (reqBody.contains("CWMP fault")) {
 			System.out.println("Received Fault msg");
 			System.out.println("Sending empty reply:");
 			setConnActive(false);
