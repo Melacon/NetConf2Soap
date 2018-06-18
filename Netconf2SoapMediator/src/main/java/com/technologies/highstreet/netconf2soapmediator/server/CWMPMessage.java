@@ -107,7 +107,7 @@ public class CWMPMessage {
 	}
 
 	void initParamAttMap() {
-		//getParamAttList.add("Device.Device		// DeviceInfo
+		// DeviceInfo
 //		getParamAttList.add("Device.DeviceInfo.Manufacturer");
 //		getParamAttList.add("Device.DeviceInfo.ManufacturerOUI");
 //		getParamAttList.add("Device.DeviceInfo.Description");
