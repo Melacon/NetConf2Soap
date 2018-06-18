@@ -454,10 +454,10 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			HTTPServlet.setConnActive(true);
 			LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
 			
-//			int sleep = 1000*60*60;
-//			LOG.info("sleeping for " +  sleep + "ms");
-//			Thread.sleep(sleep); // milliseconds
-//			LOG.info("finished sleeping");
+			int sleep = 1000*60*60;
+			LOG.info("sleeping for " +  sleep + "ms");
+			Thread.sleep(sleep); // milliseconds
+			LOG.info("finished sleeping");
 
 			for (int i = 0; i < 999999; i++) {
 				System.out.println("connActive=" + HTTPServlet.getConnActive());
