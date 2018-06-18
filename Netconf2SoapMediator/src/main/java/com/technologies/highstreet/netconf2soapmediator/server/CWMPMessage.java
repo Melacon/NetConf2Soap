@@ -43,31 +43,31 @@ public class CWMPMessage {
 	
 	void initFAPParamValMap() {
 		
-//		getFAPParamValList.add("Device.Services.FAPService.1.REM");
+		getFAPParamValList.add("Device.Services.FAPService.1");
 		
 		// FAPSevice.REM
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList"); //this is a list, more than one value.
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanStatus");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.LastScanTime");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
 		
 		// FAPSevice.REM.Cell
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.EUTRACarrierARFCN");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.PhyCellID");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRP");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRQ");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSSI");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.DLBandwidth");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.ULBandwidth");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.RSTxPower");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.TAC");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellID");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellBarred");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIndication");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIdentity");
-		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.PLMNList.PLMNID");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.EUTRACarrierARFCN");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.PhyCellID");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRP");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSRQ");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.RF.RSSI");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.DLBandwidth");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.ULBandwidth");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.RSTxPower");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.TAC");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellID");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CellBarred");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIndication");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.CSGIdentity");
+//		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.Cell.1.BCCH.PLMNList.PLMNID");
 	}
 	
 	void initParamValMap() {
