@@ -916,7 +916,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	
 	
 	public void updateCoreModel(String key, String value) {
-		String[] parts = key.split("$");
+		String[] parts = key.split("\\$");
 		for (String k : parts) {
 			updateChildUsingXpath(k, value);
 		}
