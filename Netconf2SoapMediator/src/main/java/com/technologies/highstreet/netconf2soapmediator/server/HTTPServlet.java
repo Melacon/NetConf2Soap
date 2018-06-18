@@ -334,50 +334,50 @@ public class HTTPServlet extends HttpServlet {
 		list.add("unsignedInt" + "\">" + "1");
 		setParamList.add(list);
 		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-		list.add("string" + "\">" + "311181");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
-		list.add("boolean" + "\">" + "true");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList");
-		list.add("string" + "\">" + "10.9.50.66");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkPort");
-		list.add("unsignedInt" + "\">" + "36412");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Time.LocalTimeZone");
-		list.add("string" + "\">" + "EST-5EDT,M3.2.0/2,M11.1.0/2");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
-		list.add("unsignedInt" + "\">" + "53760");
-		setParamList.add(list);
-	
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList");
-		list.add("string" + "\">" + "311180");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
-		list.add("unsignedInt" + "\">" + "300");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
-		list.add("boolean" + "\">" + "1");
-		setParamList.add(list);
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
+//		list.add("string" + "\">" + "311181");
+//		setParamList.add(list);
+//
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+//		list.add("boolean" + "\">" + "true");
+//		setParamList.add(list);
+//
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList");
+//		list.add("string" + "\">" + "10.9.50.66");
+//		setParamList.add(list);
+//		
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkPort");
+//		list.add("unsignedInt" + "\">" + "36412");
+//		setParamList.add(list);
+//		
+//		list = new ArrayList<String>();
+//		list.add("Device.Time.LocalTimeZone");
+//		list.add("string" + "\">" + "EST-5EDT,M3.2.0/2,M11.1.0/2");
+//		setParamList.add(list);
+//		
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
+//		list.add("unsignedInt" + "\">" + "53760");
+//		setParamList.add(list);
+//	
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList");
+//		list.add("string" + "\">" + "311180");
+//		setParamList.add(list);
+//		
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
+//		list.add("unsignedInt" + "\">" + "300");
+//		setParamList.add(list);
+//		
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
+//		list.add("boolean" + "\">" + "1");
+//		setParamList.add(list);
 		
 //		list = new ArrayList<String>();
 //		list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
