@@ -43,7 +43,7 @@ public class CWMPMessage {
 	
 	void initFAPParamValMap() {
 		
-		getFAPParamValList.add("Device.Services.FAPService.1");
+		getFAPParamValList.add("Device.Services.FAPService.1.REM");
 		
 		// FAPSevice.REM
 //		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
