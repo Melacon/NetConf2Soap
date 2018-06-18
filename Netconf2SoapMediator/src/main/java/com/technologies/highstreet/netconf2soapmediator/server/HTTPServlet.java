@@ -200,9 +200,11 @@ public class HTTPServlet extends HttpServlet {
 
 	public static  StringBuilder handleInform(String reqBody) {
 		if (reqBody.contains("<EventCode>0 BOOTSTRAP")) {
+			setInitSetParam(true);
 			System.out.println("Received Inform msg with event code: 0 (BOOTSTRAP)");
 		}
 		else if (reqBody.contains("<EventCode>1 BOOT")) {
+			setInitSetParam(true);
 			if (reqBody.contains("<EventCode>2 PERIODIC")) {
 				System.out.println("Received Inform msg with event code: 1 (BOOT PERIODIC REQUEST)");
 			} else {
@@ -261,6 +263,9 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setInitSetParam(boolean initSetParam) {
 		HTTPServlet.initSetParam = initSetParam;
+		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
+		System.out.println(function + " " + function2 + " " + initSetParam);
 	}
 	
 	public static  void clearSetParamList() {
