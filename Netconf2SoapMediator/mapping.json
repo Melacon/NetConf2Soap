@@ -90,78 +90,78 @@
       "type":"string"
    },
    {
-      "bbfkey":"CellConfig.LTE.EPC.PLMNList.1.PLMNID",
+      "bbfkey":"CellConfig.LTE.EPC.PLMNList.%s.PLMNID",
       "xmlkey":"//data/fap-service/cell-config/lte/lte-epc/lte-epc-plmn-list/plmnid",
       "type":"string"
    },
    {
-      "bbfkey":"CellConfig.LTE.EPC.PLMNList.1.IsPrimary",
+      "bbfkey":"CellConfig.LTE.EPC.PLMNList.%s.IsPrimary",
       "xmlkey":"//data/fap-service/cell-config/lte/lte-epc/lte-epc-plmn-list/is-primary",
       "type":"boolean"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.RF.EUTRACarrierARFCN",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-rf/eutra-carrier-arfcn",
+      "bbfkey":"REM.LTE.Cell.%s.RF.EUTRACarrierARFCN",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-rf/eutra-carrier-arfcn",
       "type":"unsignedInt"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.RF.PhyCellID",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-rf/phy-cell-id",
+      "bbfkey":"REM.LTE.Cell.%s.RF.PhyCellID",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-rf/phy-cell-id",
       "type":"unsignedInt"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.RF.RSRP",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-rf/rsrp",
+      "bbfkey":"REM.LTE.Cell.%s.RF.RSRP",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-rf/rsrp",
       "type":"int"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.RF.RSRQ",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-rf/rsrq",
+      "bbfkey":"REM.LTE.Cell.%s.RF.RSRQ",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-rf/rsrq",
       "type":"int"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.RF.RSSI",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-rf/rssi",
+      "bbfkey":"REM.LTE.Cell.%s.RF.RSSI",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-rf/rssi",
       "type":"int"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.DLBandwidth",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/dl-bandwidth",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.DLBandwidth",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/dl-bandwidth",
       "type":"unsignedInt"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.ULBandwidth",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/ul-bandwidth",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.ULBandwidth",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/ul-bandwidth",
       "type":"unsignedInt"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.RSTxPower",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/rs-tx-power",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.RSTxPower",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/rs-tx-power",
       "type":"int"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.TAC",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/tac",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.TAC",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/tac",
       "type":"unsignedInt"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.CellID",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/cell-id",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.CellID",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/cell-id",
       "type":"unsignedInt"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.CellBarred",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/cell-barred",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.CellBarred",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/cell-barred",
       "type":"boolean"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.CSGIndication",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/csg-indication",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.CSGIndication",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/csg-indication",
       "type":"boolean"
    },
    {
-      "bbfkey":"REM.LTE.Cell.1.BCCH.CSGIdentity",
-      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell/rem-lte-cell-bcch/csg-identity",
+      "bbfkey":"REM.LTE.Cell.%s.BCCH.CSGIdentity",
+      "xmlkey":"//data/fap-service/rem/rem-lte/rem-lte-cell[rem-lte-cell-key=\"%s\"]/rem-lte-cell-bcch/csg-identity",
       "type":"unsignedInt"
    }
 ]

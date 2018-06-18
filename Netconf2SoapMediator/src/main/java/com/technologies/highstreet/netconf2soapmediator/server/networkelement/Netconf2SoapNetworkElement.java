@@ -36,6 +36,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
@@ -890,14 +891,24 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 		 */
 		k = "//data/fap-service/";
 		tr069Key = "";
+		String lte_rem_key = null;
 		for(int i = 4; i < parts.length; i++) {
-			tr069Key += parts[i];
+			if(StringUtils.isNumeric(parts[i])) {
+				lte_rem_key = parts[i];
+				tr069Key += "%s";
+												
+			}else {
+				tr069Key += parts[i];
+			}
 			if(i != parts.length - 1 ) {
 				tr069Key += ".";
 			}
 		}
 		String yangxpath = BBFTRModelMapping.getYangfromTR069(tr069Key);
 		if(yangxpath != null) {
+			if(lte_rem_key != null) {
+				yangxpath = String.format(yangxpath, lte_rem_key);
+			}
 			updateChildUsingXpath(yangxpath, value);
 		}
 		
@@ -905,7 +916,7 @@ public class Netconf2SoapNetworkElement extends NetworkElement {
 	
 	
 	public void updateCoreModel(String key, String value) {
-		String[] parts = key.split("%");
+		String[] parts = key.split("$");
 		for (String k : parts) {
 			updateChildUsingXpath(k, value);
 		}
