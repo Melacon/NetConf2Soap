@@ -384,9 +384,9 @@ public class HTTPServlet extends HttpServlet {
 		list.add("string" + "\">" + "311181");
 		setParamList.add(list);
 		
-		list = new ArrayList<String>();
-		list.add("Device.IPsec.Enable");
-		list.add("boolean" + "\">" + "false");
-		setParamList.add(list);
+//		list = new ArrayList<String>();
+//		list.add("Device.IPsec.Enable");
+//		list.add("boolean" + "\">" + "false");
+//		setParamList.add(list);
 	}
 }
