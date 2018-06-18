@@ -366,7 +366,7 @@ public class HTTPServlet extends HttpServlet {
 	
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList");
-		list.add("unsignedInt" + "\">" + "311180");
+		list.add("string" + "\">" + "311180");
 		setParamList.add(list);
 		
 		list = new ArrayList<String>();
