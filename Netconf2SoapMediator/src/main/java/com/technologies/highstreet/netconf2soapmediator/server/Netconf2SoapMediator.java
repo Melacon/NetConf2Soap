@@ -453,24 +453,26 @@ public class Netconf2SoapMediator implements MessageStore, BehaviourContainer, N
 			httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
 			HTTPServlet.setConnActive(true);
 			LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-			
-			int sleep = 1000*60*60;
-			LOG.info("sleeping for " +  sleep + "ms");
-			Thread.sleep(sleep); // milliseconds
-			LOG.info("finished sleeping");
 
-			for (int i = 0; i < 999999; i++) {
-				System.out.println("connActive=" + HTTPServlet.getConnActive());
-				if (HTTPServlet.getConnActive() == false) {
-					Thread.sleep(10*1000); // milliseconds
-					// periodically send connection request to the device
-					LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-					httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
-					HTTPServlet.setConnActive(true);
-					LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
-				}
-				Thread.sleep(1000); // milliseconds
+			int sleep = 1*1000;
+			while (true) {
+				//LOG.info("sleeping for " +  sleep + "ms");
+				Thread.sleep(sleep); // milliseconds
 			}
+			
+
+//			for (int i = 0; i < 999999; i++) {
+//				System.out.println("connActive=" + HTTPServlet.getConnActive());
+//				if (HTTPServlet.getConnActive() == false) {
+//					Thread.sleep(10*1000); // milliseconds
+//					// periodically send connection request to the device
+//					LOG.info("start sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+//					httpclient.sendOpenConnectionToDevice(cfg.getCpeUrl(), cfg.getCpeUsername(), cfg.getCpePassword());
+//					HTTPServlet.setConnActive(true);
+//					LOG.info("finished sendOpenConnectionToDevice("+ cfg.getCpeUrl()+","+ cfg.getCpeUsername()+"," + cfg.getCpePassword()+")");
+//				}
+//				Thread.sleep(1000); // milliseconds
+//			}
 
 		} catch (Exception e) {
 			LOG.error("(..something..) failed", e);
