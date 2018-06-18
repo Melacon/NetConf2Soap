@@ -247,6 +247,9 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setSetParam(boolean setParam) {
 		HTTPServlet.setParam = setParam;
+		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
+		System.out.println(function + " " + function2 + " " + initSetParam);
 	}
 
 	public static boolean getConnActive() {
@@ -255,6 +258,9 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setConnActive(boolean connActive) {
 		HTTPServlet.connActive = connActive;
+		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
+		System.out.println(function + " " + function2 + " " + initSetParam);
 	}
 	
 	public static boolean getInitSetParam() {
@@ -270,6 +276,9 @@ public class HTTPServlet extends HttpServlet {
 	
 	public static  void clearSetParamList() {
 		setParamList.clear();
+		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
+		System.out.println(function + " " + function2 + " " + initSetParam);
 	}
 	public static  void initSetParamList() {
 		System.out.println("Createting SET message to initialize the device");
