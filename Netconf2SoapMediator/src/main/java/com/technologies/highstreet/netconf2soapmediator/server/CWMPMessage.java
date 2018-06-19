@@ -411,12 +411,12 @@ public class CWMPMessage {
 	
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList");
-		list.add("string" + "\">" + "700");
+		list.add("string" + "\">" + "8340");
 		getSetParamList().add(list);
 		
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
-		list.add("unsignedInt" + "\">" + "300");
+		list.add("unsignedInt" + "\">" + "3600");
 		getSetParamList().add(list);
 		
 		list = new ArrayList<String>();
