@@ -410,7 +410,7 @@ public class CWMPMessage {
 	
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList");
-		list.add("string" + "\">" + "8340");
+		list.add("string" + "\">" + "700");
 		getSetParamList().add(list);
 		
 		list = new ArrayList<String>();
