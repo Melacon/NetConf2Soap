@@ -313,10 +313,10 @@ public class CWMPMessage {
 		list.add("unsignedInt" + "\">" + "30");
 		getSetParamList().add(list);
 		
-//		list = new ArrayList<String>();
-//		list.add("Device.IPsec.Enable");
-//		list.add("boolean" + "\">" + "false");
-//		setParamList.add(list);
+		list = new ArrayList<String>();
+		list.add("Device.IPsec.Enable");
+		list.add("boolean" + "\">" + "false");
+		setParamList.add(list);
 	}
 	
 	void initSetFAPParamList() {
