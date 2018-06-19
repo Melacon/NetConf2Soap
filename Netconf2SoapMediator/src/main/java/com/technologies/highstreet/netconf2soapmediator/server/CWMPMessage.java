@@ -294,7 +294,14 @@ public class CWMPMessage {
 		return msg;
 	}
 
-	void initSetParamList() {
+	public static void clearSetParamList() {
+		getSetParamList().clear();
+		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
+		System.out.println(function + " " + function2);
+	}
+	
+	public static void initSetParamList() {
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		System.out.println(function + "Creating SET message to initialize the device");
 		ArrayList<String> list = new ArrayList<String>();
@@ -315,7 +322,7 @@ public class CWMPMessage {
 		getSetParamList().add(list);
 	}
 	
-	void initSetIPsecParamList() {
+	public static void initSetIPsecParamList() {
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		System.out.println(function + "Creating SET message to initialize the device");
 		ArrayList<String> list = new ArrayList<String>();
@@ -323,10 +330,10 @@ public class CWMPMessage {
 		list = new ArrayList<String>();
 		list.add("Device.IPsec.Enable");
 		list.add("boolean" + "\">" + "false");
-		setParamList.add(list);
+		getSetParamList().add(list);
 	}
 	
-	void initSetFAPParamList() {
+	public static void initSetFAPParamList() {
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		System.out.println(function + "Creating SET message to initialize the device");
 		ArrayList<String> list = new ArrayList<String>();
@@ -425,7 +432,7 @@ public class CWMPMessage {
 		return setParamList;
 	}
 
-	public static void setSetParamList(ArrayList<ArrayList<String>> setParamList) {
-		CWMPMessage.setParamList = setParamList;
+	public static void setSetParamList(ArrayList<ArrayList<String>> List) {
+		setParamList = List;
 	}
 }

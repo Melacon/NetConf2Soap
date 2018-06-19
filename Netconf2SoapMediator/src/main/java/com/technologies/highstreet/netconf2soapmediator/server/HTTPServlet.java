@@ -121,9 +121,9 @@ public class HTTPServlet extends HttpServlet {
 
 		if (getInitSetParam() == true) {
 			// when the device connects, SET specific device parameters to initialize the device
-			CWMPmsg.initSetParamList();
+			CWMPMessage.initSetParamList();
 			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
-			clearSetParamList();
+			CWMPMessage.clearSetParamList();
 			setInitSetParam(false);
 			return sb;
 		}
@@ -131,7 +131,7 @@ public class HTTPServlet extends HttpServlet {
 		if (getSetParam() == true) {
 			// send parameters that have been modified via NETCONF
 			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
-			clearSetParamList();
+			CWMPMessage.clearSetParamList();
 			setSetParam(false);
 		} else {
 			// start: get Device parameters
@@ -163,18 +163,18 @@ public class HTTPServlet extends HttpServlet {
 
 		if (getInitSetIPsecParam() == true) {
 			// when the device connects, SET specific FAP parameters to initialize the RF part
-			CWMPmsg.initSetIPsecParamList();
+			CWMPMessage.initSetIPsecParamList();
 			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
-			clearSetParamList();
+			CWMPMessage.clearSetParamList();
 			setInitSetIPsecParam(false);
 			return sb;
 		}
 		
 		if (getInitSetFAPParam() == true) {
-			// when the device connects, SET specific FAP parameters to initialize the RF part
-			CWMPmsg.initSetFAPParamList();
+			// when the device connects, SET specific IPsec parameter
+			CWMPMessage.initSetFAPParamList();
 			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
-			clearSetParamList();
+			CWMPMessage.clearSetParamList();
 			setInitSetFAPParam(false);
 			return sb;
 		}
@@ -311,12 +311,5 @@ public class HTTPServlet extends HttpServlet {
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
 		System.out.println(function + " " + function2 + " " + init);
-	}
-	
-	public static  void clearSetParamList() {
-		CWMPMessage.getSetParamList().clear();
-		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
-		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
-		System.out.println(function + " " + function2);
 	}
 }
