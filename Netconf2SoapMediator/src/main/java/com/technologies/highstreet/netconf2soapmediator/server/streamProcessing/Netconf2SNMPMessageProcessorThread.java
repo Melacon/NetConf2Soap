@@ -226,7 +226,7 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 		    				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
 		    				String type = BBFTRModelMapping.getType(BBFTRModelMapping.getTR069fromYang(xpathString));
 		    	    		list.add(type + "\">" + value);
-		    	    		CWMPMessage.setParamList.add(list);	
+		    	    		CWMPMessage.getSetParamList().add(list);	
 						}
 						
 					} catch (XPathExpressionException e) {
@@ -235,7 +235,7 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 				}
 				HTTPServlet.setSetParam(true);
 			}
-    		System.out.println(CWMPMessage.setParamList);
+    		System.out.println(CWMPMessage.getSetParamList());
     	}
     	super.doMessageProcessing(receivedMessage);
     }
