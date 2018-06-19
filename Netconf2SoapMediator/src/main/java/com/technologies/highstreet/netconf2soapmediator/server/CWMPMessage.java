@@ -340,7 +340,7 @@ public class CWMPMessage {
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-		list.add("string" + "\">" + "210");
+		list.add("string" + "\">" + "210,211,212");
 		getSetParamList().add(list);
 		
 		list = new ArrayList<String>();
