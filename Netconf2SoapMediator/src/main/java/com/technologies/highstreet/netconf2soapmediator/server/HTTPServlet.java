@@ -147,6 +147,15 @@ public class HTTPServlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(10);
 
+		if (getInitSetFAPParam() == true) {
+			// when the device connects, SET specific IPsec parameter
+			CWMPMessage.initSetFAPParamList();
+			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+			CWMPMessage.clearSetParamList();
+			setInitSetFAPParam(false);
+			return sb;
+		}
+
 		// get Device parameters
 		sb = CWMPmsg.getParameterValues(false);
 		FAP = true;
@@ -171,15 +180,6 @@ public class HTTPServlet extends HttpServlet {
 			return sb;
 		}
 
-		if (getInitSetFAPParam() == true) {
-			// when the device connects, SET specific IPsec parameter
-			CWMPMessage.initSetFAPParamList();
-			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
-			CWMPMessage.clearSetParamList();
-			setInitSetFAPParam(false);
-			return sb;
-		}
-		
 		if (FAP == true) {
 			// get FAP parameters
 			sb = CWMPmsg.getParameterValues(true);
