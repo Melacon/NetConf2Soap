@@ -83,6 +83,7 @@ public class CWMPMessage {
 		getParamValList.add("Device.DeviceInfo.SoftwareVersion");
 		getParamValList.add("Device.DeviceInfo.UpTime");
 		getParamValList.add("Device.DeviceInfo.FirstUseDate");
+		getParamValList.add("Device.IPsec.Enable");
 		
 		// ManagementServer
 		getParamValList.add("Device.ManagementServer.PeriodicInformEnable");

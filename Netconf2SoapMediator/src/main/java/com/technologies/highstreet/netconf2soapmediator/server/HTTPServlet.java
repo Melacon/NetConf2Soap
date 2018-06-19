@@ -284,6 +284,11 @@ public class HTTPServlet extends HttpServlet {
 		System.out.println("Createting SET message to initialize the device");
 		ArrayList<String> list = new ArrayList<String>();
 
+//		list = new ArrayList<String>();
+//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
+//		list.add("boolean" + "\">" + "false");
+//		setParamList.add(list);
+		
 		list = new ArrayList<String>();
 		list.add("Device.ManagementServer.PeriodicInformEnable");
 		list.add("boolean" + "\">" + "true");
@@ -293,11 +298,6 @@ public class HTTPServlet extends HttpServlet {
 		list.add("Device.ManagementServer.PeriodicInformInterval");
 		list.add("unsignedInt" + "\">" + "30");
 		setParamList.add(list);
-
-//		list = new ArrayList<String>();
-//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//		list.add("boolean" + "\">" + "false");
-//		setParamList.add(list);
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
@@ -321,12 +321,12 @@ public class HTTPServlet extends HttpServlet {
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
-		list.add("string" + "\">" + "3110");
+		list.add("string" + "\">" + "18700");
 		setParamList.add(list);
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-		list.add("string" + "\">" + "21110");
+		list.add("string" + "\">" + "700");
 		setParamList.add(list);
 
 		list = new ArrayList<String>();
@@ -341,6 +341,11 @@ public class HTTPServlet extends HttpServlet {
 
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
+		list.add("boolean" + "\">" + "true");
+		setParamList.add(list);
+		
+		list = new ArrayList<String>();
+		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.Enable");
 		list.add("boolean" + "\">" + "true");
 		setParamList.add(list);
 
@@ -366,7 +371,7 @@ public class HTTPServlet extends HttpServlet {
 	
 		list = new ArrayList<String>();
 		list.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList");
-		list.add("string" + "\">" + "311180");
+		list.add("string" + "\">" + "700");
 		setParamList.add(list);
 		
 		list = new ArrayList<String>();
@@ -380,9 +385,8 @@ public class HTTPServlet extends HttpServlet {
 		setParamList.add(list);
 		
 //		list = new ArrayList<String>();
-//		list.add("Device.Services.FAPService.1.REM.LTE.REMPLMNList");
-//		list.add("string" + "\">" + "311181");
+//		list.add("Device.IPsec.Enable");
+//		list.add("boolean" + "\">" + "false");
 //		setParamList.add(list);
-		
 	}
 }
