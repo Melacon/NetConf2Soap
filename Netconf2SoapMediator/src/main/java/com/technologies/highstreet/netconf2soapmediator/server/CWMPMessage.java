@@ -45,7 +45,6 @@ public class CWMPMessage {
 	void initGetFAPParamValList() {
 		
 		getFAPParamValList.add("Device.Services.FAPService.1.REM");
-		getFAPParamValList.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.CellRestriction");
 		
 		// FAPSevice.REM
 //		getFAPParamValList.add("Device.Services.FAPService.1.REM.LTE.REMBandList");
