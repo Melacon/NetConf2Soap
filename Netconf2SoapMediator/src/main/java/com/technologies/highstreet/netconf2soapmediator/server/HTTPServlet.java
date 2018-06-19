@@ -219,6 +219,8 @@ public class HTTPServlet extends HttpServlet {
 	public static  StringBuilder handleInform(String reqBody) {
 		if (reqBody.contains("<EventCode>0 BOOTSTRAP")) {
 			setInitSetParam(true);
+			setInitSetIPsecParam(true);
+			setInitSetFAPParam(true);
 			System.out.println("Received Inform msg with event code: 0 (BOOTSTRAP)");
 		}
 		else if (reqBody.contains("<EventCode>1 BOOT")) {
