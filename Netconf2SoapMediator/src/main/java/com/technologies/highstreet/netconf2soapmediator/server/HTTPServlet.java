@@ -147,6 +147,21 @@ public class HTTPServlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(10);
 
+		// get Device parameters
+		sb = CWMPmsg.getParameterValues(false);
+		FAP = true;
+
+		return sb;
+	}
+
+	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
+		System.out.println("Received GetParameterValuesResponse msg");
+
+		// parameters contained in the inform message are pushed to the local xml
+		networkElement.setTr069DocumentCFromString(reqBody);
+				
+		StringBuilder sb = new StringBuilder(10);
+
 		if (getInitSetIPsecParam() == true) {
 			// when the device connects, SET specific FAP parameters to initialize the RF part
 			CWMPMessage.initSetIPsecParamList();
@@ -164,22 +179,7 @@ public class HTTPServlet extends HttpServlet {
 			setInitSetFAPParam(false);
 			return sb;
 		}
-
-		// get Device parameters
-		sb = CWMPmsg.getParameterValues(false);
-		FAP = true;
-
-		return sb;
-	}
-
-	public static  StringBuilder handleGetParameterValuesResponse(String reqBody) {
-		System.out.println("Received GetParameterValuesResponse msg");
-
-		// parameters contained in the inform message are pushed to the local xml
-		networkElement.setTr069DocumentCFromString(reqBody);
-				
-		StringBuilder sb = new StringBuilder(10);
-
+		
 		if (FAP == true) {
 			// get FAP parameters
 			sb = CWMPmsg.getParameterValues(true);
