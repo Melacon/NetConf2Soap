@@ -17,6 +17,7 @@ import com.technologies.highstreet.netconf.server.streamprocessing.NetconfIncomm
 import com.technologies.highstreet.netconf.server.streamprocessing.NetconfMessageProcessorThread;
 import com.technologies.highstreet.netconf.server.types.NetconfSender;
 import com.technologies.highstreet.netconf.server.types.NetconfSessionStatusHolder;
+import com.technologies.highstreet.netconf2soapmediator.server.CWMPMessage;
 import com.technologies.highstreet.netconf2soapmediator.server.HTTPServlet;
 import com.technologies.highstreet.netconf2soapmediator.server.basetypes.SnmpTrapList;
 import com.technologies.highstreet.netconf2soapmediator.server.networkelement.BBFTRModelMapping;
@@ -225,7 +226,7 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 		    				list.add(fap_id + BBFTRModelMapping.getTR069fromYang(xpathString));
 		    				String type = BBFTRModelMapping.getType(BBFTRModelMapping.getTR069fromYang(xpathString));
 		    	    		list.add(type + "\">" + value);
-		    	    		HTTPServlet.setParamList.add(list);	
+		    	    		CWMPMessage.getSetParamList().add(list);	
 						}
 						
 					} catch (XPathExpressionException e) {
@@ -234,7 +235,7 @@ public class Netconf2SNMPMessageProcessorThread extends NetconfMessageProcessorT
 				}
 				HTTPServlet.setSetParam(true);
 			}
-    		System.out.println(HTTPServlet.setParamList);
+    		System.out.println(CWMPMessage.getSetParamList());
     	}
     	super.doMessageProcessing(receivedMessage);
     }

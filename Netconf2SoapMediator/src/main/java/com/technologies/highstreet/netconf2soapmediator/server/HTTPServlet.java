@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.ArrayList;
-
 import com.technologies.highstreet.netconf2soapmediator.server.networkelement.Netconf2SoapNetworkElement;
 
 
@@ -25,10 +23,11 @@ public class HTTPServlet extends HttpServlet {
 	private static boolean connActive = false;
 	private static boolean setParam = false;
 	private static boolean initSetParam = true;
+	private static boolean initSetIPsecParam = true;
+	private static boolean initSetFAPParam = true;
 	private static boolean FAP = true;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
 
-	public static ArrayList<ArrayList<String>> setParamList = new ArrayList<ArrayList<String>>();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -121,23 +120,23 @@ public class HTTPServlet extends HttpServlet {
 		StringBuilder sb = new StringBuilder(10);
 
 		if (getInitSetParam() == true) {
-			// when the device connects for the first time, SET specific parameters to initialize the device
-			initSetParamList();
-			sb = CWMPmsg.setParameterValues(setParamList);
-			clearSetParamList();
+			// when the device connects, SET specific device parameters to initialize the device
+			CWMPMessage.initSetParamList();
+			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+			CWMPMessage.clearSetParamList();
 			setInitSetParam(false);
+			return sb;
 		}
-		else {	
-			if (getSetParam() == true) {
-				// send parameters that have been modified via NETCONF
-				sb = CWMPmsg.setParameterValues(setParamList);
-				clearSetParamList();
-				setSetParam(false);
-			} else {
-				// start: get Device parameters
-				sb = CWMPmsg.getParameterValues(false);
-				FAP = true;
-			}
+
+		if (getSetParam() == true) {
+			// send parameters that have been modified via NETCONF
+			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+			CWMPMessage.clearSetParamList();
+			setSetParam(false);
+		} else {
+			// start: get Device parameters
+			sb = CWMPmsg.getParameterValues(false);
+			FAP = true;
 		}
 
 		return sb;
@@ -147,6 +146,25 @@ public class HTTPServlet extends HttpServlet {
 		System.out.println("Received SetParameterValuesResponse msg");
 
 		StringBuilder sb = new StringBuilder(10);
+
+		if (getInitSetIPsecParam() == true) {
+			// when the device connects, SET specific FAP parameters to initialize the RF part
+			CWMPMessage.initSetIPsecParamList();
+			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+			CWMPMessage.clearSetParamList();
+			setInitSetIPsecParam(false);
+			return sb;
+		}
+
+		if (getInitSetFAPParam() == true) {
+			// when the device connects, SET specific IPsec parameter
+			CWMPMessage.initSetFAPParamList();
+			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+			CWMPMessage.clearSetParamList();
+			setInitSetFAPParam(false);
+			return sb;
+		}
+
 		// get Device parameters
 		sb = CWMPmsg.getParameterValues(false);
 		FAP = true;
@@ -245,148 +263,54 @@ public class HTTPServlet extends HttpServlet {
 		return setParam;
 	}
 
-	public static void setSetParam(boolean setParam) {
-		HTTPServlet.setParam = setParam;
+	public static void setSetParam(boolean boolo) {
+		setParam = boolo;
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
-		System.out.println(function + " " + function2 + " " + initSetParam);
+		System.out.println(function + " " + function2 + " " + boolo);
 	}
 
 	public static boolean getConnActive() {
 		return connActive;
 	}
 
-	public static void setConnActive(boolean connActive) {
-		HTTPServlet.connActive = connActive;
+	public static void setConnActive(boolean boolo) {
+		connActive = boolo;
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
-		System.out.println(function + " " + function2 + " " + initSetParam);
+		System.out.println(function + " " + function2 + " " + boolo);
 	}
 	
 	public static boolean getInitSetParam() {
 		return initSetParam;
 	}
 
-	public static void setInitSetParam(boolean initSetParam) {
-		HTTPServlet.initSetParam = initSetParam;
+	public static void setInitSetParam(boolean init) {
+		initSetParam = init;
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
-		System.out.println(function + " " + function2 + " " + initSetParam);
+		System.out.println(function + " " + function2 + " " + init);
 	}
 	
-	public static  void clearSetParamList() {
-		setParamList.clear();
+	public static boolean getInitSetIPsecParam() {
+		return initSetIPsecParam;
+	}
+
+	public static void setInitSetIPsecParam(boolean init) {
+		initSetIPsecParam = init;
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
-		System.out.println(function + " " + function2 + " " + initSetParam);
+		System.out.println(function + " " + function2 + " " + init);
 	}
-	public static  void initSetParamList() {
-		System.out.println("Createting SET message to initialize the device");
-		ArrayList<String> list = new ArrayList<String>();
-
-//		list = new ArrayList<String>();
-//		list.add("Device.Services.FAPService.1.FAPControl.LTE.AdminState");
-//		list.add("boolean" + "\">" + "false");
-//		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.ManagementServer.PeriodicInformEnable");
-		list.add("boolean" + "\">" + "true");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.ManagementServer.PeriodicInformInterval");
-		list.add("unsignedInt" + "\">" + "30");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.PhyCellID");
-		list.add("string" + "\">" + "210");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.DLBandwidth");
-		list.add("string" + "\">" + "100");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.ULBandwidth");
-		list.add("string" + "\">" + "100");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.PHY.PRACH.RootSequenceIndex");
-		list.add("string" + "\">" + "738,0,837,12");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNUL");
-		list.add("string" + "\">" + "18700");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.RF.EARFCNDL");
-		list.add("string" + "\">" + "700");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.TAC");
-		list.add("unsignedInt" + "\">" + "1");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.PLMNID");
-		list.add("string" + "\">" + "311181");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.IsPrimary");
-		list.add("boolean" + "\">" + "true");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.EPC.PLMNList.1.Enable");
-		list.add("boolean" + "\">" + "true");
-		setParamList.add(list);
-
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkServerList");
-		list.add("string" + "\">" + "10.9.50.66");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.FAPControl.LTE.Gateway.S1SigLinkPort");
-		list.add("unsignedInt" + "\">" + "36412");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Time.LocalTimeZone");
-		list.add("string" + "\">" + "EST-5EDT,M3.2.0/2,M11.1.0/2");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.CellConfig.LTE.RAN.Common.CellIdentity");
-		list.add("unsignedInt" + "\">" + "53760");
-		setParamList.add(list);
 	
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.REM.LTE.EUTRACarrierARFCNDLList");
-		list.add("string" + "\">" + "700");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.REM.LTE.ScanTimeout");
-		list.add("unsignedInt" + "\">" + "300");
-		setParamList.add(list);
-		
-		list = new ArrayList<String>();
-		list.add("Device.Services.FAPService.1.REM.LTE.ScanOnBoot");
-		list.add("boolean" + "\">" + "1");
-		setParamList.add(list);
-		
-//		list = new ArrayList<String>();
-//		list.add("Device.IPsec.Enable");
-//		list.add("boolean" + "\">" + "false");
-//		setParamList.add(list);
+	public static boolean getInitSetFAPParam() {
+		return initSetFAPParam;
+	}
+
+	public static void setInitSetFAPParam(boolean init) {
+		initSetFAPParam = init;
+		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
+		System.out.println(function + " " + function2 + " " + init);
 	}
 }
