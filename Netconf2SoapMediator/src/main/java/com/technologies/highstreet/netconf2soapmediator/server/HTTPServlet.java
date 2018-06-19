@@ -23,6 +23,7 @@ public class HTTPServlet extends HttpServlet {
 	private static boolean connActive = false;
 	private static boolean setParam = false;
 	private static boolean initSetParam = true;
+	private static boolean initSetIPsecParam = true;
 	private static boolean initSetFAPParam = true;
 	private static boolean FAP = true;
 	private static CWMPMessage CWMPmsg = new CWMPMessage();
@@ -162,6 +163,15 @@ public class HTTPServlet extends HttpServlet {
 
 		if (getInitSetFAPParam() == true) {
 			// when the device connects, SET specific FAP parameters to initialize the RF part
+			CWMPmsg.initSetIPsecParamList();
+			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+			clearSetParamList();
+			setInitSetFAPParam(false);
+			return sb;
+		}
+		
+		if (getInitSetFAPParam() == true) {
+			// when the device connects, SET specific FAP parameters to initialize the RF part
 			CWMPmsg.initSetFAPParamList();
 			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
 			clearSetParamList();
@@ -276,6 +286,17 @@ public class HTTPServlet extends HttpServlet {
 
 	public static void setInitSetParam(boolean init) {
 		initSetParam = init;
+		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
+		System.out.println(function + " " + function2 + " " + init);
+	}
+	
+	public static boolean getInitSetIPsecParam() {
+		return initSetIPsecParam;
+	}
+
+	public static void setInitSetIPsecParam(boolean init) {
+		initSetIPsecParam = init;
 		String function = Thread.currentThread().getStackTrace()[1].getMethodName();
 		String function2 = Thread.currentThread().getStackTrace()[2].getMethodName();
 		System.out.println(function + " " + function2 + " " + init);
