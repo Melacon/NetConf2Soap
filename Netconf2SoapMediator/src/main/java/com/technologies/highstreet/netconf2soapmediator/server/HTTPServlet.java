@@ -161,12 +161,12 @@ public class HTTPServlet extends HttpServlet {
 				
 		StringBuilder sb = new StringBuilder(10);
 
-		if (getInitSetFAPParam() == true) {
+		if (getInitSetIPsecParam() == true) {
 			// when the device connects, SET specific FAP parameters to initialize the RF part
 			CWMPmsg.initSetIPsecParamList();
 			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
 			clearSetParamList();
-			setInitSetFAPParam(false);
+			setInitSetIPsecParam(false);
 			return sb;
 		}
 		
