@@ -122,27 +122,27 @@ public class HTTPServlet extends HttpServlet {
 		sb = CWMPmsg.getFactoryReset();
 		return sb;
 		
-		if (getInitSetParam() == true) {
-			// when the device connects, SET specific device parameters to initialize the device
-			CWMPMessage.initSetParamList();
-			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
-			CWMPMessage.clearSetParamList();
-			setInitSetParam(false);
-			return sb;
-		}
-
-		if (getSetParam() == true) {
-			// send parameters that have been modified via NETCONF
-			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
-			CWMPMessage.clearSetParamList();
-			setSetParam(false);
-		} else {
-			// start: get Device parameters
-			sb = CWMPmsg.getParameterValues(false);
-			FAP = true;
-		}
-
-		return sb;
+//		if (getInitSetParam() == true) {
+//			// when the device connects, SET specific device parameters to initialize the device
+//			CWMPMessage.initSetParamList();
+//			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+//			CWMPMessage.clearSetParamList();
+//			setInitSetParam(false);
+//			return sb;
+//		}
+//
+//		if (getSetParam() == true) {
+//			// send parameters that have been modified via NETCONF
+//			sb = CWMPmsg.setParameterValues(CWMPMessage.getSetParamList());
+//			CWMPMessage.clearSetParamList();
+//			setSetParam(false);
+//		} else {
+//			// start: get Device parameters
+//			sb = CWMPmsg.getParameterValues(false);
+//			FAP = true;
+//		}
+//
+//		return sb;
 	}
 
 	public static  StringBuilder handleSetParameterValuesResponse(String reqBody) {
