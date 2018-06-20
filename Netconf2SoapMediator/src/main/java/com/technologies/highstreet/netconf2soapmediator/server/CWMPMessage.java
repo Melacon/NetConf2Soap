@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CWMPMessage {
 
-	private static StringBuilder envelope, envelopeEnd, header, informResponse;
+	private static StringBuilder envelope, envelopeEnd, header, informResponse, factoryReset;
 	private static ArrayList<String> getParamValList = new ArrayList<String>();
 	private static ArrayList<String> getFAPParamValList = new ArrayList<String>();
 	private static ArrayList<String> getParamAttList = new ArrayList<String>();
@@ -200,6 +200,16 @@ public class CWMPMessage {
 		informResponse.append("\t</soapenv:Body>\n");
 	}
 
+	void initFactoryReset() {
+		factoryReset = new StringBuilder();
+		
+		factoryReset.append("\t<soapenv:Body>\n");
+		factoryReset.append("\t\t<cwmp:FactoryReset>\n");
+		factoryReset.append("\t\t\t<MaxEnvelopes>1</MaxEnvelopes>\n");
+		factoryReset.append("\t\t</cwmp:FactoryReset>\n");
+		factoryReset.append("\t</soapenv:Body>\n");
+	}
+	
 	StringBuilder getInformResponse() {
 		System.out.println("InformResponse msg");
 		StringBuilder msg = new StringBuilder();
@@ -211,6 +221,17 @@ public class CWMPMessage {
 		return msg;
 	}
 
+	StringBuilder getFactoryReset() {
+		System.out.println("FactoryReset msg");
+		StringBuilder msg = new StringBuilder();
+		
+		msg.append(envelope);
+		msg.append(header);
+		msg.append(factoryReset);
+		msg.append(envelopeEnd);
+		return msg;
+	}
+	
 	StringBuilder getParameterValues(boolean FAP) {
 		System.out.println("GetParameterValues msg");
 		

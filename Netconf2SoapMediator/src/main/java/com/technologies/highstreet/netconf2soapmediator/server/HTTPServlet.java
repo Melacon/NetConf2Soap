@@ -119,6 +119,9 @@ public class HTTPServlet extends HttpServlet {
 
 		StringBuilder sb = new StringBuilder(10);
 
+		sb = CWMPmsg.getFactoryReset();
+		return sb;
+		
 		if (getInitSetParam() == true) {
 			// when the device connects, SET specific device parameters to initialize the device
 			CWMPMessage.initSetParamList();
