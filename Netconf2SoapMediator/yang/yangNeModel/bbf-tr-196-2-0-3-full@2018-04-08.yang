@@ -15687,7 +15687,7 @@ module bbf-tr-196-2-0-3-full {
       "Table containing the system information broadcast in the BCCH logical channel.";
     leaf dl-bandwidth {
       type uint8 {
-        range "6 | 15 | 25 | 50 | 75 | 100";
+        range "0 | 5 | 6 | 15 | 25 | 50 | 75 | 100";
       }
       units "resource blocks";
       description
@@ -15696,7 +15696,7 @@ module bbf-tr-196-2-0-3-full {
     }
     leaf ul-bandwidth {
       type uint8 {
-        range "6 | 15 | 25 | 50 | 75 | 100";
+        range "0 | 5 | 6 | 15 | 25 | 50 | 75 | 100";
       }
       units "resource blocks";
       description
